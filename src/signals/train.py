@@ -206,6 +206,7 @@ def train(args):
         "workers": args.workers,
         "optimizer": "AdamW",
         "lr0": args.lr0,
+        "cls_weight": args.cls_weight,
         "weight_decay": args.weight_decay,
         "warmup_epochs": args.warmup,
         "final_lr_frac": args.final_lr_frac,
@@ -228,6 +229,7 @@ def train(args):
         "val_samples": len(val),
         "pretrained": str(ROOT / "yolo11s.pt"),
         "pretrained_sha256": sha256_file(ROOT / "yolo11s.pt"),
+        "init_checkpoint": args.init_checkpoint,
         "stft_backend": __import__("src.signals.data", fromlist=["STFT_BACKEND"]).STFT_BACKEND,
         "fft_threads": int(__import__("src.signals.data", fromlist=["FFT_THREADS"]).FFT_THREADS),
         "window_ms": 0.7,
@@ -246,10 +248,25 @@ def train(args):
     (run_dir / "normalizer.json").write_text((ROOT / "configs/normalizer.json").read_text())
 
     model = build_model(str(ROOT / args.model), device=args.device)
+    model.args.cls = args.cls_weight
     head = model.model[-1]
     assert int(head.nc) == 14 and int(head.reg_max) == 1 and bool(head.end2end) is False
     assert tuple(model.model[0].conv.weight.shape) == (32, 1, 3, 3)
-    if not args.resume:
+    if args.resume:
+        pass
+    elif args.init_checkpoint:
+        ip = Path(args.init_checkpoint)
+        if not ip.is_absolute():
+            ip = ROOT / ip
+        ckpt = torch.load(ip, map_location="cpu", weights_only=False)
+        sd = ckpt["ema"] if ckpt.get("ema") is not None else ckpt["model"]
+        model.load_state_dict(sd)
+        (run_dir / "init_checkpoint.json").write_text(json.dumps({
+            "path": str(ip), "weights": "ema" if ckpt.get("ema") is not None else "model",
+            "epoch": ckpt.get("epoch"), "map50": ckpt.get("metrics", {}).get("map50"),
+        }, indent=2))
+        print(f"initialized from {ip} ({'ema' if ckpt.get('ema') is not None else 'model'})", flush=True)
+    else:
         stats = transfer_pretrained(model, ROOT / "yolo11s.pt", verbose=True)
         (run_dir / "pretrained_transfer.json").write_text(json.dumps(stats, indent=2))
     optimizer = torch.optim.AdamW(
@@ -461,6 +478,8 @@ def parse_args(argv=None):
     p.add_argument("--val-batch-views", type=int, default=8)
     p.add_argument("--val-every", type=int, default=5)
     p.add_argument("--lr0", type=float, default=0.001)
+    p.add_argument("--cls-weight", type=float, default=0.5)
+    p.add_argument("--init-checkpoint", default="")
     p.add_argument("--weight-decay", type=float, default=0.0005)
     p.add_argument("--warmup", type=float, default=3.0)
     p.add_argument("--final-lr-frac", type=float, default=0.01)

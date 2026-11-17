@@ -45,3 +45,10 @@ Filled from `val_history.json` at the end of the run.
 | epoch | mAP50 class-aware | AP50 class-agnostic | localization recall | val time |
 | ---: | ---: | ---: | ---: | ---: |
 | 4 | 0.3623 | 0.6789 | 0.843 | 195 s |
+| 9 | 0.4465 | 0.7003 | 0.858 | 180 s |
+| 14 | 0.5174 | 0.7395 | 0.878 | 179 s |
+
+At epoch 14 the strongest classes are 7/8/6 (AP 0.946/0.906/0.859);
+the weakest are 13 (0.201), 4 (0.267), 0 (0.277), 5 (0.312), 1 (0.348).
+Class-agnostic AP (0.740) is much higher than class-aware AP (0.517), so
+localization is ahead of classification. The run continues to epoch 49.
