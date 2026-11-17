@@ -15,6 +15,7 @@ import csv
 import hashlib
 import json
 import math
+import multiprocessing as mp
 import os
 import random
 import shutil
@@ -62,18 +63,27 @@ def worker_init(worker_id: int):
     np.random.seed(1729 + worker_id)
 
 
+class SharedEpochViews(SpaceNetViews):
+    """Persistent workers read the current epoch from shared memory."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.shared_epoch = mp.Value("i", 0, lock=False)
+
+    def __getitem__(self, idx: int):
+        self.epoch = int(self.shared_epoch.value)
+        return super().__getitem__(idx)
+
+
 def make_loader(
-    records: Sequence[SampleRecord],
-    normalizer: tuple[float, float],
+    ds: SpaceNetViews,
     batch_sources: int,
     workers: int,
-    epoch: int,
     seed: int,
     shuffle: bool = True,
 ) -> DataLoader:
-    ds = SpaceNetViews(records, normalizer, seed=seed, epoch=epoch)
     gen = torch.Generator()
-    gen.manual_seed(seed + epoch)
+    gen.manual_seed(seed)
     return DataLoader(
         ds,
         batch_size=batch_sources,
@@ -82,9 +92,9 @@ def make_loader(
         num_workers=workers,
         collate_fn=collate_views,
         pin_memory=True,
-        drop_last=True,
+        drop_last=False,
         prefetch_factor=4 if workers > 0 else None,
-        persistent_workers=False,
+        persistent_workers=workers > 0,
         worker_init_fn=worker_init if workers > 0 else None,
     )
 
@@ -284,17 +294,18 @@ def train(args):
     print(f"run={args.run} fit={len(fit)} val={len(val)} "
           f"batch_sources={args.batch_sources} accum={args.accum} "
           f"effective_views={effective_views} precision={args.precision}", flush=True)
-    micro_per_epoch = len(fit) // args.batch_sources
+    micro_per_epoch = math.ceil(len(fit) / args.batch_sources)
     steps_per_epoch = micro_per_epoch // args.accum
     print(f"micro/epoch={micro_per_epoch} opt_steps/epoch={steps_per_epoch} "
-          f"total_steps={steps_per_epoch * args.epochs}", flush=True)
+          f"total_steps~{steps_per_epoch * args.epochs}", flush=True)
+    train_ds = SharedEpochViews(fit, norm, seed=args.seed, epoch=start_epoch)
+    train_loader = make_loader(train_ds, args.batch_sources, args.workers, args.seed)
 
     t_run = time.perf_counter()
     for epoch in range(start_epoch, args.epochs):
         t_epoch = time.perf_counter()
-        loader = make_loader(
-            fit, norm, args.batch_sources, args.workers, epoch, args.seed, shuffle=True
-        )
+        train_ds.shared_epoch.value = epoch
+        loader = train_loader
         optimizer.zero_grad(set_to_none=True)
         accum_loss = torch.zeros(3, device=args.device)
         n_micro = 0

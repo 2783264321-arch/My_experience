@@ -70,8 +70,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-updates", type=int, default=2000)
     ap.add_argument("--val-every", type=int, default=200)
-    ap.add_argument("--batch-sources", type=int, default=8)
-    ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--batch-sources", type=int, default=2)
+    ap.add_argument("--accum", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--lr0", type=float, default=0.001)
     ap.add_argument("--weight-decay", type=float, default=0.0005)
     ap.add_argument("--warmup-updates", type=int, default=100)
@@ -118,6 +119,8 @@ def main():
         "max_updates": args.max_updates,
         "target": args.target,
         "batch_sources": args.batch_sources,
+        "accum": args.accum,
+        "effective_views": args.batch_sources * 2 * args.accum,
         "precision": "bf16",
     }
     (run_dir / "overfit_config.json").write_text(json.dumps(info, indent=2))
@@ -139,7 +142,8 @@ def main():
     t_start = time.perf_counter()
     losses = []
     print(f"overfit samples={len(records)} batch_sources={args.batch_sources} "
-          f"views/step={args.batch_sources * 2} max_updates={args.max_updates}", flush=True)
+          f"accum={args.accum} views/update={args.batch_sources * 2 * args.accum} "
+          f"max_updates={args.max_updates}", flush=True)
 
     def validate(update: int):
         nonlocal best
@@ -180,6 +184,10 @@ def main():
         return vr
 
     update = 0
+    micro = 0
+    accum_loss = 0.0
+    last_lr = 0.0
+    opt.zero_grad(set_to_none=True)
     while update < args.max_updates:
         try:
             batch = next(it)
@@ -188,7 +196,6 @@ def main():
             ds.shared_epoch.value = epoch
             it = iter(loader)
             batch = next(it)
-        opt.zero_grad(set_to_none=True)
         images = batch["img"].cuda(non_blocking=True)
         target = {
             "img": images,
@@ -197,6 +204,7 @@ def main():
             "bboxes": batch["bboxes"].cuda(non_blocking=True),
         }
         lr = lr_at(update, args.max_updates, args.lr0, args.warmup_updates, 0.01)
+        last_lr = lr
         for g in opt.param_groups:
             g["lr"] = lr
         with torch.autocast("cuda", dtype=torch.bfloat16):
@@ -204,17 +212,23 @@ def main():
             loss_parts, items = model.loss(target, preds=preds)
             loss = loss_parts.sum()
         if not torch.isfinite(loss):
-            raise RuntimeError(f"non-finite loss at update {update}")
-        loss.backward()
+            raise RuntimeError(f"non-finite loss at update {update} micro {micro}")
+        (loss / args.accum).backward()
+        accum_loss += float(loss.detach())
+        micro += 1
+        if micro % args.accum:
+            continue
         gn = torch.nn.utils.clip_grad_norm_(model.parameters(), 10.0)
         opt.step()
+        opt.zero_grad(set_to_none=True)
         if ema is not None:
             ema.update(model)
         update += 1
-        losses.append(float(loss.detach()))
+        losses.append(accum_loss / args.accum)
+        accum_loss = 0.0
         if update % 25 == 0:
             recent = losses[-25:]
-            print(f"update {update}/{args.max_updates} lr {lr:.2e} "
+            print(f"update {update}/{args.max_updates} lr {last_lr:.2e} "
                   f"loss {sum(recent) / len(recent):.3f} "
                   f"box {float(loss_parts[0]):.3f} cls {float(loss_parts[1]):.3f} "
                   f"l1 {float(loss_parts[2]):.4f} gnorm {float(gn):.1f} "
