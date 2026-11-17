@@ -119,8 +119,10 @@ accuracy 0.8433, 65,025 predictions, 202,142 internal-boundary candidates
 withheld. Primary checkpoint `best_corrected.pt` (last EMA).
 Artifacts under `runs/yolo11s_c1_directreg_2048x512/stage5_val/` and
 `stage5_examples/`; report `reports/stage5_results.md`.
-A 15-epoch classification-focused fine-tune is running separately
-(`runs/yolo11s_c1_directreg_2048x512_clsft/`); it is not the frozen baseline.
+The 15-epoch classification-weighted fine-tune completed separately
+(`runs/yolo11s_c1_directreg_2048x512_clsft/`) and did **not** beat the
+baseline: corrected mAP 0.6366 vs 0.6427. It is reported as a negative
+follow-up; the baseline `best_corrected.pt` remains the deliverable.
 
 ## Stage 5 - commands
 

@@ -72,7 +72,7 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
    `git push -u origin main`
 2. **test 仍封存**，未做任何 test 评估或调参。
 3. 分类加权 fine-tune（`runs/yolo11s_c1_directreg_2048x512_clsft/`）
-   是 baseline 之后的附加实验，不替代上面的第一场 baseline；结果见
-   `reports/stage5_finetune.md`（完成后）。
+   已完成，但**未超过 baseline**：修正后 mAP 0.6366 vs 0.6427，未采纳；
+   仍以 `best_corrected.pt` 为交付。详见 `reports/stage5_finetune.md`。
 4. 若继续提升，优先处理 0/1 与 3/4/5 的类别混淆（类别加权/更大模型/
    轻度增强），而不是再压缩频率轴或减少切片覆盖。
