@@ -75,9 +75,17 @@ Measured epoch 0: 393 s (first-step startup + a cuDNN autotune of the 10-view
 last batch). `cudnn.benchmark` was disabled and the run resumed at epoch 1;
 subsequent epochs are ~158-164 s. Epoch 0 is preserved in `last.pt`/CSV.
 
-First full validation at epoch 4: 195 s for 24,975 views / 1543 sources,
-mAP@0.5 0.3623 class-aware, 0.6789 class-agnostic, localization recall 0.843.
-The 5-epoch cadence is therefore ~20% overhead and was kept fixed.
+Full validation: 179-195 s for 24,975 views / 1543 sources (~20% wall-time
+overhead at the 5-epoch cadence, kept fixed).
+
+| epoch | mAP50 class-aware | AP50 agnostic | loc recall |
+| ---: | ---: | ---: | ---: |
+| 4 | 0.3623 | 0.6789 | 0.843 |
+| 9 | 0.4465 | 0.7003 | 0.858 |
+| 14 | 0.5174 | 0.7395 | 0.878 |
+
+Localization is strong; class-aware AP is still climbing. Class 13 and the
+dominant class 9 are the main confusion sources so far.
 
 GitHub push: local commits are ready, but the remote requires credentials and
 no PAT/SSH key is available in this environment; push is pending user auth.
