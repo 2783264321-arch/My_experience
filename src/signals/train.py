@@ -207,6 +207,7 @@ def train(args):
         "optimizer": "AdamW",
         "lr0": args.lr0,
         "cls_weight": args.cls_weight,
+        "class_weight_power": args.class_weight_power,
         "weight_decay": args.weight_decay,
         "warmup_epochs": args.warmup,
         "final_lr_frac": args.final_lr_frac,
@@ -249,6 +250,31 @@ def train(args):
 
     model = build_model(str(ROOT / args.model), device=args.device)
     model.args.cls = args.cls_weight
+    if args.class_weight_power > 0:
+        counts = torch.zeros(14, dtype=torch.float64)
+        for r in fit:
+            for sig in r.signals:
+                counts[int(sig["class"])] += 1
+        weights = (counts.mean() / counts.clamp(min=1.0)).pow(args.class_weight_power)
+        weights = weights / weights.mean()
+        model.class_weights = weights.float().to(args.device)
+        model.criterion = model.init_criterion()
+        base_bce = model.criterion.bce
+
+        class _WeightedBCE(torch.nn.Module):
+            def __init__(self, base, w):
+                super().__init__()
+                self.base = base
+                self.register_buffer("w", w)
+
+            def forward(self, pred, target):
+                return self.base(pred, target) * self.w.view(1, 1, -1)
+
+        model.criterion.bce = _WeightedBCE(base_bce, model.class_weights)
+        config["fit_class_counts"] = counts.tolist()
+        config["class_weights"] = weights.tolist()
+        (run_dir / "config.json").write_text(json.dumps(config, indent=2))
+        print("class-weighted BCE:", [round(float(x), 3) for x in weights], flush=True)
     head = model.model[-1]
     assert int(head.nc) == 14 and int(head.reg_max) == 1 and bool(head.end2end) is False
     assert tuple(model.model[0].conv.weight.shape) == (32, 1, 3, 3)
@@ -479,6 +505,7 @@ def parse_args(argv=None):
     p.add_argument("--val-every", type=int, default=5)
     p.add_argument("--lr0", type=float, default=0.001)
     p.add_argument("--cls-weight", type=float, default=0.5)
+    p.add_argument("--class-weight-power", type=float, default=0.0)
     p.add_argument("--init-checkpoint", default="")
     p.add_argument("--weight-decay", type=float, default=0.0005)
     p.add_argument("--warmup", type=float, default=3.0)

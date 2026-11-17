@@ -22,6 +22,7 @@ exec .venv/bin/python -u -m src.signals.train \
   --lr0 0.0002 \
   --weight-decay 0.0005 \
   --cls-weight 1.0 \
+  --class-weight-power 0.5 \
   --warmup 0.5 \
   --final-lr-frac 0.01 \
   --init-checkpoint runs/yolo11s_c1_directreg_2048x512/best.pt \
