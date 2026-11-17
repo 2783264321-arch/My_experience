@@ -21,39 +21,41 @@ class Prediction:
     labels: torch.Tensor
 
 
-def _nms_view_batch(model, images: torch.Tensor, conf=0.001, iou=0.5, max_det=1000):
+def _nms_view_batch(model, images: torch.Tensor, conf=0.001, iou=0.5, max_det=300,
+                    multi_label: bool = False):
     model.eval()
     with torch.no_grad():
         preds, _ = model(images)
-        # multi-label candidates are intentionally retained; 2048x512 needs a longer NMS budget
+        # 2048x512 has 21504 raw anchors per view; give NMS an explicit generous budget.
         dets = non_max_suppression(
             preds, conf_thres=conf, iou_thres=iou, nc=14,
-            max_det=max_det, multi_label=True, max_time_img=20.0,
+            max_det=max_det, multi_label=multi_label, max_time_img=20.0,
+            max_nms=max(30000, max_det),
         )
     return dets
 
 
-def _map_view_dets(det: torch.Tensor, view: View, F: int) -> Prediction:
+def _map_view_dets(det: torch.Tensor, view_type: str, start: int, F: int) -> Prediction:
     """Map a view's xyxy pixel boxes to global normalized coordinates."""
     if len(det) == 0:
         return Prediction(torch.zeros((0, 4)), torch.zeros((0,)), torch.zeros((0,), dtype=torch.long))
     boxes = det[:, :4].clone()
     boxes[:, [0, 2]] /= N_TIME
-    if view.view_type == "fine":
-        boxes[:, [1, 3]] = (boxes[:, [1, 3]] * FINE_H + view.start) / F
+    if view_type == "fine":
+        boxes[:, [1, 3]] = (boxes[:, [1, 3]] * FINE_H + start) / F
     else:
         boxes[:, [1, 3]] /= COARSE_H
     return Prediction(boxes.cpu(), det[:, 4].cpu(), det[:, 5].long().cpu())
 
 
-def _boundary_mask(pred: Prediction, view: View, F: int, margin: int = 16) -> torch.Tensor:
+def _boundary_mask(pred: Prediction, view_type: str, start: int, F: int, margin: int = 16) -> torch.Tensor:
     """True for a fine box close to an internal frequency slice boundary."""
-    if view.view_type != "fine" or len(pred.boxes) == 0:
+    if view_type != "fine" or len(pred.boxes) == 0:
         return torch.zeros((len(pred.boxes),), dtype=torch.bool)
     y1 = pred.boxes[:, 1] * F
     y2 = pred.boxes[:, 3] * F
-    left = view.start
-    right = view.start + FINE_H
+    left = start
+    right = start + FINE_H
     near_left = (left > 0) & (y1 <= left + margin)
     near_right = (right < F) & (y2 >= right - margin)
     return near_left | near_right
@@ -99,8 +101,8 @@ def predict_sample(
         dets = _nms_view_batch(model, images, conf=conf, iou=iou, max_det=1000)
         for det, view in zip(dets, chunk):
             n_raw += len(det)
-            pred = _map_view_dets(det, view, Fbins)
-            bm = _boundary_mask(pred, view, Fbins)
+            pred = _map_view_dets(det, view.view_type, view.start, Fbins)
+            bm = _boundary_mask(pred, view.view_type, view.start, Fbins)
             n_boundary += int(bm.sum())
             if bm.any():
                 pred = Prediction(pred.boxes[~bm], pred.scores[~bm], pred.labels[~bm])
