@@ -66,7 +66,14 @@ fine+coarse views. Strict class-aware mAP@0.5 reached **0.8168 at update 600**
 (target 0.8); losses fell from 66.1 to 6.5. Classes 9/12/13 remain the weak
 points on this small subset and are reported per class.
 
-## Stage 4 - 50 epoch training: RUNNING
+## Stage 4 - 50 epoch training: COMPLETED
+
+Completed 2026-11-18 06:31 CST in 2.694 h. Best checkpoint epoch 29,
+strict class-aware mAP@0.5 **0.5429** (EMA); class-agnostic AP 0.7389,
+localization recall 0.883. Final epoch 49 mAP 0.5319. Full report:
+`reports/stage4_training.md`.
+
+## Stage 4 - launch details
 
 Launched 2026-11-18 03:42 in `screen -S train_main`; log `/tmp/train_main.log`.
 Run directory `runs/yolo11s_c1_directreg_2048x512/`.
@@ -103,7 +110,17 @@ SPACENET_FFT_THREADS=2 PYTHONPATH=. .venv/bin/python -u -m src.signals.train \
 Outputs: `runs/yolo11s_c1_directreg_2048x512/{config.json, train_log.csv,
 val_history.json, best.pt, last.pt, summary.json}`.
 
-## Stage 5 - validation / delivery
+## Stage 5 - validation / delivery: COMPLETED (baseline)
+
+Full val on the 1543 sources / 24,975 views: mAP@0.5 **0.5428**,
+agnostic AP 0.7389, recall 0.8834, classification accuracy 0.8304,
+39,529 predictions, 225,267 internal-boundary candidates withheld.
+Artifacts under `runs/yolo11s_c1_directreg_2048x512/stage5_val/` and
+`stage5_examples/`; report `reports/stage5_results.md`.
+A 15-epoch classification-focused fine-tune is running separately
+(`runs/yolo11s_c1_directreg_2048x512_clsft/`); it is not the frozen baseline.
+
+## Stage 5 - commands
 
 ```bash
 PYTHONPATH=. .venv/bin/python scripts/validate_run.py \

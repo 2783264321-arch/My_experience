@@ -1,8 +1,9 @@
-# Stage 4 - first 50-epoch run
+# Stage 4 - first 50-epoch run (completed)
 
 Run ID: `yolo11s_c1_directreg_2048x512`
 Directory: `runs/yolo11s_c1_directreg_2048x512/`
-Launched: 2026-11-18 03:42 CST, `screen -S train_main` (log `/tmp/train_main.log`).
+Launched 2026-11-18 03:42 CST; completed 06:31 CST; wall time **2.694 h**.
+Training curve: `runs/yolo11s_c1_directreg_2048x512/training_curve.png`.
 
 ## Locked configuration
 
@@ -10,7 +11,7 @@ Launched: 2026-11-18 03:42 CST, `screen -S train_main` (log `/tmp/train_main.log
 | --- | --- |
 | model | YOLO11s body, C=1, nc=14, `reg_max=1`, `end2end=False` |
 | input | `[n,1,2048,512]` real views |
-| pipeline | 0.7 ms Hann, 512 columns, scipy FFT backend |
+| pipeline | 0.7 ms periodic Hann, exactly 512 columns, scipy FFT backend |
 | sampling | 1 coarse + 1 rotating fine view per fit source per epoch |
 | physical batch | 8 sources = 16 views; accumulation 1 |
 | effective batch | 16 views |
@@ -19,37 +20,59 @@ Launched: 2026-11-18 03:42 CST, `screen -S train_main` (log `/tmp/train_main.log
 | precision | BF16 autocast (FP16 rejected in stage 2) |
 | clip | 10.0 |
 | seed | 1729 |
-| workers | 12 train, 12 val |
-| validation | all fine+coarse views of 1543 val sources, every 5 epochs + last |
+| workers | 12 train / 12 val |
+| validation | every 5 epochs + final; all fine+coarse views of 1543 val sources |
 | best selection | strict class-aware mAP@0.5 on EMA weights |
 | split | fit 5957 / val 1543 / test 2500 (frozen manifest) |
 
-## Measured cost
+## Cost
 
 | item | value |
 | --- | --- |
 | epoch 0 | 393 s (startup + last-batch cuDNN autotune) |
 | epochs 1+ | 155-164 s |
-| full validation | 195 s (24,975 views, 1543 sources) |
+| full validation | 176-195 s for 24,975 views / 1543 sources |
 | GPU reserved | 10.1 GiB |
-| val overhead | ~20% of wall time at 5-epoch cadence |
+| total | 2.694 h |
 
 `cudnn.benchmark` was disabled after epoch 0 because the 10-view last batch
 (`5957 % 8 = 5`) triggered a ~100 s autotune every epoch. The run resumed from
-the epoch-0 `last.pt`; epoch 0 remains in the CSV/checkpoint.
+the epoch-0 `last.pt`; epoch 0 is preserved in the CSV/checkpoint. The
+`train_log.csv` epoch-1 row count includes 89 discarded steps from the first
+attempt before the restart; the resumed epoch 1 is the authoritative one.
 
-## Validation history
+## Validation history (EMA weights, all 24,975 views)
 
-Filled from `val_history.json` at the end of the run.
+| epoch | mAP50 | AP50 agnostic | loc recall | cls acc | pred | val s |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 4 | 0.3623 | 0.6789 | 0.843 | 0.746 | 101511 | 195 |
+| 9 | 0.4465 | 0.7003 | 0.858 | 0.783 | 71602 | 180 |
+| 14 | 0.5174 | 0.7395 | 0.878 | 0.812 | 55759 | 179 |
+| 19 | 0.5299 | 0.7327 | 0.880 | 0.821 | 44433 | 184 |
+| 24 | 0.5389 | 0.7388 | 0.882 | 0.825 | 40883 | 180 |
+| **29** | **0.5429** | 0.7389 | 0.884 | 0.830 | 39520 | 178 |
+| 34 | 0.5423 | 0.7415 | 0.883 | 0.830 | 38066 | 176 |
+| 39 | 0.5399 | 0.7423 | 0.882 | 0.831 | 36522 | 183 |
+| 44 | 0.5355 | 0.7410 | 0.879 | 0.831 | 35346 | 191 |
+| 49 | 0.5319 | 0.7417 | 0.877 | 0.828 | 34288 | 186 |
 
-| epoch | mAP50 class-aware | AP50 class-agnostic | localization recall | val time |
-| ---: | ---: | ---: | ---: | ---: |
-| 4 | 0.3623 | 0.6789 | 0.843 | 195 s |
-| 9 | 0.4465 | 0.7003 | 0.858 | 180 s |
-| 14 | 0.5174 | 0.7395 | 0.878 | 179 s |
-| 19 | 0.5299 | 0.7327 | 0.880 | 184 s |
+Best checkpoint: **epoch 29, mAP@0.5 0.5429**, saved as `best.pt`.
+The class-agnostic AP peaks slightly later (0.7423 at epoch 39), while the
+class-aware AP peaks at 29; the fixed selection metric (class-aware mAP@0.5)
+therefore selects epoch 29. No early stopping was used, per plan.
 
-At epoch 14 the strongest classes are 7/8/6 (AP 0.946/0.906/0.859);
-the weakest are 13 (0.201), 4 (0.267), 0 (0.277), 5 (0.312), 1 (0.348).
-Class-agnostic AP (0.740) is much higher than class-aware AP (0.517), so
-localization is ahead of classification. The run continues to epoch 49.
+The raw, non-EMA model at the final epoch was also evaluated
+(`stage5_val_raw_last`): mAP50 0.5196, agnostic 0.7261, recall 0.8688 - lower
+than the EMA best, so `best.pt` (EMA) remains the deliverable.
+
+## Interpretation
+
+- Localization is substantially ahead of classification: agnostic AP ~0.74,
+  localization recall ~0.88, but class-aware AP 0.543.
+- Training loss fell from ~93 (epoch 0, includes the first huge step) to ~16
+  (epoch 49); the class-aware validation peaked before the low-LR tail.
+- Classes 6/7/8 are strong (AP 0.85-0.90); class 13 (0.246), class 1 (0.324),
+  class 5 (0.354), class 4 (0.384) and class 0 (0.384) are weak.
+- A post-baseline classification-focused fine-tune
+  (`runs/yolo11s_c1_directreg_2048x512_clsft/`) was launched separately; the
+  frozen first baseline remains this run.

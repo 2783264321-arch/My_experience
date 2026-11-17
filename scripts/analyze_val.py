@@ -134,7 +134,7 @@ def main():
                         duplicate_groups += 1
 
     fps.sort(key=lambda x: -x["score"])
-    fns.sort(key=lambda x: -x["best_pred_iou"])
+    fns.sort(key=lambda x: -float(x.get("best_pred_iou", -1.0)))
     summary = {
         "n_samples": n,
         "iou_threshold": args.iou,
