@@ -167,7 +167,10 @@ def _validate_gt_guard(batch: dict):
 
 def train(args):
     seed_everything(args.seed)
-    torch.backends.cudnn.benchmark = True
+    # The last batch of each epoch has 10 views instead of 16 (5957 % 8 == 5).
+    # cudnn.benchmark=True autotunes the new shape for ~100 s every epoch; the
+    # heuristic planner is fast and the fixed-shape throughput loss is small.
+    torch.backends.cudnn.benchmark = False
     torch.backends.cuda.matmul.allow_tf32 = True
     if args.workers > 0:
         torch.set_num_threads(4)
@@ -236,6 +239,8 @@ def train(args):
         "normalizer_hi": norm[1],
         "torch": torch.__version__,
         "ultralytics": __import__("ultralytics").__version__,
+        "cudnn_benchmark": False,
+        "cudnn_benchmark_note": "disabled because 5957%8=5 makes the last batch 10 views; benchmark autotuned it for ~100 s per epoch",
     }
     (run_dir / "config.json").write_text(json.dumps(config, indent=2))
     (run_dir / "normalizer.json").write_text((ROOT / "configs/normalizer.json").read_text())
