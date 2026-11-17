@@ -75,8 +75,7 @@ def draw(record, tensor, gt, pred, out_path: Path):
                  f"GT={len(gt.boxes)}  pred={len(pred.boxes)}")
     ax.set_xlabel("time (downsampled 2x)")
     ax.set_ylabel("frequency (coarse 2048)")
-    fig.tight_layout()
-    fig.savefig(out_path)
+    fig.savefig(out_path, bbox_inches="tight")
     plt.close(fig)
 
 

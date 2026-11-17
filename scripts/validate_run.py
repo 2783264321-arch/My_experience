@@ -74,6 +74,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", default="yolo11s_c1_directreg_2048x512")
     ap.add_argument("--checkpoint", default="best.pt")
+    ap.add_argument("--weights", choices=["ema", "model"], default="ema")
     ap.add_argument("--split", choices=["val"], default="val")
     ap.add_argument("--output", default="")
     ap.add_argument("--batch-views", type=int, default=8)
@@ -105,7 +106,7 @@ def main():
     )
 
     model = build_model(str(ROOT / "configs/yolo11s_c1_directreg.yaml"))
-    info = load_weights(model, ckpt_path)
+    info = load_weights(model, ckpt_path, which=args.weights)
     if info["nc"] != 14 or info["reg_max"] != 1 or info["end2end"]:
         raise SystemExit(f"wrong head: {info}")
     if info["first_conv"] != [32, 1, 3, 3]:
