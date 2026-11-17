@@ -63,15 +63,16 @@ in the run config (default every 5 epochs if the measured cost stays under
 16 fit sources, all 14 classes, B in {5,20,30,40,50,80} MHz and T in
 {20,...,150} ms. Same two-view sampling; full-sample validation on all
 fine+coarse views. Strict class-aware mAP@0.5 reached **0.8168 at update 600**
-(target 0.8); losses fell from 66.1 to 6.5. Classes 9/12/13 remain the weak
-points on this small subset and are reported per class.
+(target 0.8); after the stage-5 view-clamp fix the same checkpoint validates at
+**0.8403**. Losses fell from 66.1 to 6.5.
 
 ## Stage 4 - 50 epoch training: COMPLETED
 
-Completed 2026-11-18 06:31 CST in 2.694 h. Best checkpoint epoch 29,
-strict class-aware mAP@0.5 **0.5429** (EMA); class-agnostic AP 0.7389,
-localization recall 0.883. Final epoch 49 mAP 0.5319. Full report:
-`reports/stage4_training.md`.
+Completed 2026-11-18 06:31 CST in 2.694 h. Training-time best was epoch 29
+(mAP@0.5 0.5429, EMA), but the stage-5 view-clamp correction changed the
+metric. Corrected full val: `best.pt` EMA 0.6388, `last.pt` EMA **0.6427**;
+`best_corrected.pt` is the corrected deliverable. Training-time table and
+full explanation: `reports/stage4_training.md`.
 
 ## Stage 4 - launch details
 
@@ -112,9 +113,10 @@ val_history.json, best.pt, last.pt, summary.json}`.
 
 ## Stage 5 - validation / delivery: COMPLETED (baseline)
 
-Full val on the 1543 sources / 24,975 views: mAP@0.5 **0.5428**,
-agnostic AP 0.7389, recall 0.8834, classification accuracy 0.8304,
-39,529 predictions, 225,267 internal-boundary candidates withheld.
+Corrected full val on the 1543 sources / 24,975 views:
+mAP@0.5 **0.6427**, agnostic AP 0.9046, recall 0.9580, classification
+accuracy 0.8433, 65,025 predictions, 202,142 internal-boundary candidates
+withheld. Primary checkpoint `best_corrected.pt` (last EMA).
 Artifacts under `runs/yolo11s_c1_directreg_2048x512/stage5_val/` and
 `stage5_examples/`; report `reports/stage5_results.md`.
 A 15-epoch classification-focused fine-tune is running separately

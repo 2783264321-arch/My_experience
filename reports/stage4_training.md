@@ -5,6 +5,14 @@ Directory: `runs/yolo11s_c1_directreg_2048x512/`
 Launched 2026-11-18 03:42 CST; completed 06:31 CST; wall time **2.694 h**.
 Training curve: `runs/yolo11s_c1_directreg_2048x512/training_curve.png`.
 
+**Post-run correction (important).** Training-time validation did not clip
+fine-view boxes to the view before remapping; out-of-band boxes depressed the
+class-aware metric. Stage 5 added the required clamp and re-ran full
+validation: `best.pt` (EMA epoch 29) = 0.6388, `last.pt` (EMA epoch 49) =
+**0.6427**. The corrected best is `best_corrected.pt` (last EMA). The
+training-time table below is retained as a trend, not as the final metric;
+see `reports/stage5_results.md`.
+
 ## Locked configuration
 
 | item | value |
@@ -56,14 +64,21 @@ attempt before the restart; the resumed epoch 1 is the authoritative one.
 | 44 | 0.5355 | 0.7410 | 0.879 | 0.831 | 35346 | 191 |
 | 49 | 0.5319 | 0.7417 | 0.877 | 0.828 | 34288 | 186 |
 
-Best checkpoint: **epoch 29, mAP@0.5 0.5429**, saved as `best.pt`.
-The class-agnostic AP peaks slightly later (0.7423 at epoch 39), while the
-class-aware AP peaks at 29; the fixed selection metric (class-aware mAP@0.5)
-therefore selects epoch 29. No early stopping was used, per plan.
+Training-time best checkpoint: **epoch 29, mAP@0.5 0.5429**, saved as
+`best.pt`. The class-agnostic AP peaks slightly later (0.7423 at epoch 39),
+while the training-time class-aware AP peaks at 29. No early stopping was
+used, per plan.
 
-The raw, non-EMA model at the final epoch was also evaluated
-(`stage5_val_raw_last`): mAP50 0.5196, agnostic 0.7261, recall 0.8688 - lower
-than the EMA best, so `best.pt` (EMA) remains the deliverable.
+After the stage-5 view-clamp correction, the full-val metrics are:
+
+| checkpoint | mAP50 | AP50 agnostic | recall |
+| --- | ---: | ---: | ---: |
+| `best.pt` (EMA epoch 29) | 0.6388 | 0.8937 | 0.9599 |
+| `last.pt` (EMA epoch 49) | **0.6427** | 0.9046 | 0.9580 |
+
+`best_corrected.pt` is the last EMA and is the corrected deliverable; the
+training-time `best.pt` remains for reproducibility. The raw last model under
+the old protocol was 0.5196, so EMA is clearly better.
 
 ## Interpretation
 

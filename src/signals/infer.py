@@ -36,13 +36,24 @@ def _nms_view_batch(model, images: torch.Tensor, conf=0.001, iou=0.5, max_det=30
 
 
 def _map_view_dets(det: torch.Tensor, view_type: str, start: int, F: int) -> Prediction:
-    """Map a view's xyxy pixel boxes to global normalized coordinates."""
+    """Clip a view's xyxy pixel boxes to the view, then map to global coordinates.
+
+    The plan requires fine predictions to be trimmed to the view boundary
+    before remapping. Without this clamp, DirectReg boxes that extend past the
+    view map to frequencies outside the original band (observed in stage 5).
+    """
     if len(det) == 0:
         return Prediction(torch.zeros((0, 4)), torch.zeros((0,)), torch.zeros((0,), dtype=torch.long))
     boxes = det[:, :4].clone()
+    view_h = FINE_H if view_type == "fine" else COARSE_H
+    # basic indexing gives views; clamp each coordinate in place
+    boxes[:, 0].clamp_(0.0, float(N_TIME))
+    boxes[:, 2].clamp_(0.0, float(N_TIME))
+    boxes[:, 1].clamp_(0.0, float(view_h))
+    boxes[:, 3].clamp_(0.0, float(view_h))
     boxes[:, [0, 2]] /= N_TIME
     if view_type == "fine":
-        boxes[:, [1, 3]] = (boxes[:, [1, 3]] * FINE_H + start) / F
+        boxes[:, [1, 3]] = (boxes[:, [1, 3]] + start) / F
     else:
         boxes[:, [1, 3]] /= COARSE_H
     return Prediction(boxes.cpu(), det[:, 4].cpu(), det[:, 5].long().cpu())

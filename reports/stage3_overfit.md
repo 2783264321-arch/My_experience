@@ -31,6 +31,10 @@ are recorded there too.
 | 500 | 0.7865 | 0.7721 | 0.797 | 924 | 8 s |
 | 600 | **0.8168** | 0.7898 | 0.813 | 569 | 4 s |
 
+After the stage-5 view-clamp fix, re-validating `best_overfit.pt` gives
+**mAP50 0.8403**, agnostic 0.8083, recall 0.8862, with 3,246 boundary
+candidates withheld (the gate still passes; the corrected number is higher).
+
 Loss (25-update mean) fell from 66.1 at update 25 to 6.5 at update 600.
 The run passed at update 600 and stopped early.
 
