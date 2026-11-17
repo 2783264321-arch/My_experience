@@ -71,6 +71,13 @@ points on this small subset and are reported per class.
 Launched 2026-11-18 03:42 in `screen -S train_main`; log `/tmp/train_main.log`.
 Run directory `runs/yolo11s_c1_directreg_2048x512/`.
 
+Measured epoch 0: 393 s (first-step startup + a cuDNN autotune of the 10-view
+last batch). `cudnn.benchmark` was disabled and the run resumed at epoch 1;
+subsequent epochs are ~161 s. Epoch 0 is preserved in `last.pt`/CSV.
+
+GitHub push: local commits are ready, but the remote requires credentials and
+no PAT/SSH key is available in this environment; push is pending user auth.
+
 Command:
 
 ```bash
