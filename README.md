@@ -29,10 +29,11 @@ Key results and artifacts:
 - `reports/stage2_resources.md` - FP32/FP16/BF16 acceptance, memory/time.
 - `reports/stage3_overfit.md` - 16-source overfit gate, passed at 0.8168.
 - `runs/yolo11s_c1_directreg_2048x512/` - 50-epoch run (config, CSV,
-  validation history, best/last checkpoints, summary).
-- `runs/yolo11s_c1_directreg_2048x512/stage5_val/` - full val predictions,
-  metrics, error analysis.
+  validation history, best/last/best_corrected checkpoints, summary).
+- `runs/yolo11s_c1_directreg_2048x512/stage5_val_corrected_last_ema/` -
+  corrected full-val predictions, metrics, per-B/T CSV, error analysis.
 - `runs/yolo11s_c1_directreg_2048x512/stage5_examples/` - qualitative plots.
+- `reports/stage5_results.md` - headline 0.6427 mAP@0.5 (corrected protocol).
 
 Commands:
 
@@ -42,7 +43,7 @@ Commands:
 
 # stage-5 full validation
 PYTHONPATH=. .venv/bin/python scripts/validate_run.py \
-  --run yolo11s_c1_directreg_2048x512 --checkpoint best.pt --workers 12
+  --run yolo11s_c1_directreg_2048x512 --checkpoint best_corrected.pt --workers 12
 
 # error analysis and examples
 PYTHONPATH=. .venv/bin/python scripts/analyze_val.py \
