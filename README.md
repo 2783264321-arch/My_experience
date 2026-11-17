@@ -30,7 +30,7 @@ Key results and artifacts:
 - `reports/stage3_overfit.md` - 16-source overfit gate, passed at 0.8168.
 - `runs/yolo11s_c1_directreg_2048x512/` - 50-epoch run (config, CSV,
   validation history, best/last/best_corrected checkpoints, summary).
-- `runs/yolo11s_c1_directreg_2048x512/stage5_val_corrected_last_ema/` -
+- `runs/yolo11s_c1_directreg_2048x512/stage5_val/` -
   corrected full-val predictions, metrics, per-B/T CSV, error analysis.
 - `runs/yolo11s_c1_directreg_2048x512/stage5_examples/` - qualitative plots.
 - `reports/stage5_results.md` - headline 0.6427 mAP@0.5 (corrected protocol).

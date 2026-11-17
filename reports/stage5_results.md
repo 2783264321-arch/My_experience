@@ -24,7 +24,8 @@ best 0.5429). Stage 5 found this, added the required clamp to
 | `last.pt` | EMA epoch 49 | **0.6427** | 0.9046 | 0.9580 |
 | `last.pt` | raw epoch 49 (old protocol) | 0.5196 | 0.7261 | 0.8688 |
 
-The corrected numbers below supersede the training-time val table.
+The corrected numbers below supersede the training-time val table. The old
+unclipped full-val output is kept as `stage5_val_unclipped/` for the record.
 
 ## Headline
 
@@ -118,7 +119,7 @@ fine-tune job, so timings are slightly conservative.)
 
 ## Artifacts
 
-- `runs/yolo11s_c1_directreg_2048x512/stage5_val_corrected_last_ema/summary.json`
+- `runs/yolo11s_c1_directreg_2048x512/stage5_val/summary.json`
 - `.../val_predictions.npz` (65,025 predictions + GT, per-sample indices)
 - `.../per_bt.csv` (31 B/T groups)
 - `.../error_analysis.json`
