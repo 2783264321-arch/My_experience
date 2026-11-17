@@ -59,7 +59,7 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
 
 - 训练 epoch 0：393 s（启动 + 最后一次 10-view batch 的 cuDNN autotune）；
   之后 155-164 s/epoch。
-- 完整 val：约 3-4.3 min（24,975 views）；每 5 epoch 一次。
+- 完整 val：约 3-6 min（24,975 views；本次修正复算 4.3 min）；每 5 epoch 一次。
 - 训练显存 reserved 10.1 GiB；val 1.32 GiB。
 - 单样本推理：5MHz/20ms 0.10 s；40MHz/80ms 0.79 s；
   80MHz/150ms 1.66 s（CPU STFT 约 1.2 s）。
