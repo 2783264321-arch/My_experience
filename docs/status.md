@@ -56,17 +56,22 @@ Validation uses all fine+coarse views; measured cadence decision is recorded
 in the run config (default every 5 epochs if the measured cost stays under
 1/3 of total).
 
-## Stage 3 - 16-source overfit: PASSED / RUNNING
+## Stage 3 - 16-source overfit: PASSED
 
-`runs/overfit16/`, `runs/overfit16/overfit_history.json`
+`reports/stage3_overfit.md`, `runs/overfit16b/`
 
 16 fit sources, all 14 classes, B in {5,20,30,40,50,80} MHz and T in
 {20,...,150} ms. Same two-view sampling; full-sample validation on all
-fine+coarse views; target strict class-aware mAP@0.5 >= 0.8.
+fine+coarse views. Strict class-aware mAP@0.5 reached **0.8168 at update 600**
+(target 0.8); losses fell from 66.1 to 6.5. Classes 9/12/13 remain the weak
+points on this small subset and are reported per class.
 
-## Stage 4 - 50 epoch training
+## Stage 4 - 50 epoch training: RUNNING
 
-Command (after stage 0-3 gates):
+Launched 2026-11-18 03:42 in `screen -S train_main`; log `/tmp/train_main.log`.
+Run directory `runs/yolo11s_c1_directreg_2048x512/`.
+
+Command:
 
 ```bash
 cd /root/autodl-tmp/workspace/baseline

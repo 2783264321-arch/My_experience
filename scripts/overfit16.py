@@ -81,6 +81,8 @@ def main():
     ap.add_argument("--run", default="overfit16")
     ap.add_argument("--overwrite", action="store_true")
     ap.add_argument("--no-ema", action="store_true")
+    ap.add_argument("--init-checkpoint", default="")
+    ap.add_argument("--start-update", type=int, default=0)
     args = ap.parse_args()
 
     random.seed(args.seed)
@@ -139,6 +141,15 @@ def main():
     epoch = 0
     history = []
     best = -1.0
+    if args.init_checkpoint:
+        ckpt = torch.load(args.init_checkpoint, map_location="cpu", weights_only=False)
+        model.load_state_dict(ckpt["model"])
+        if ema is not None and ckpt.get("ema") is not None:
+            ema.ema.load_state_dict(ckpt["ema"])
+        best = float(ckpt.get("map50", -1.0))
+        history = list(ckpt.get("history", []))
+        print(f"initialized from {args.init_checkpoint} at update {args.start_update}, "
+              f"best={best:.4f}", flush=True)
     t_start = time.perf_counter()
     losses = []
     print(f"overfit samples={len(records)} batch_sources={args.batch_sources} "
@@ -183,7 +194,7 @@ def main():
             print(f"  new best {best:.4f} -> best_overfit.pt", flush=True)
         return vr
 
-    update = 0
+    update = args.start_update
     micro = 0
     accum_loss = 0.0
     last_lr = 0.0
