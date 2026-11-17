@@ -137,4 +137,5 @@ fine-tune job, so timings are slightly conservative.)
 - Test was not evaluated; no test-driven selection.
 - The training-time val_history is a trend only; the corrected stage-5 table
   is the authoritative val result. A post-baseline classification fine-tune
-  is running separately and will be reported on its own.
+  was run separately and did not beat the baseline (0.6366 vs 0.6427);
+  see `reports/stage5_finetune.md`.
