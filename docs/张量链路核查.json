@@ -1,0 +1,1196 @@
+{
+  "environment": {
+    "torch": "2.14.0+cpu",
+    "ultralytics": "8.4.155",
+    "device": "cpu"
+  },
+  "scope": "synthetic IQ and random weights; no training, no real dataset IQ, no GPU benchmark",
+  "stft_cases": [
+    {
+      "B_MHz": 5,
+      "T_ms": 20,
+      "N": 100000,
+      "window": 3500,
+      "hop": 3500,
+      "center": false,
+      "shape": [
+        3500,
+        28
+      ]
+    },
+    {
+      "B_MHz": 5,
+      "T_ms": 20,
+      "N": 100000,
+      "window": 3500,
+      "hop": 3500,
+      "center": true,
+      "shape": [
+        3500,
+        29
+      ]
+    },
+    {
+      "B_MHz": 5,
+      "T_ms": 20,
+      "N": 100000,
+      "window": 3500,
+      "hop": 1750,
+      "center": false,
+      "shape": [
+        3500,
+        56
+      ]
+    },
+    {
+      "B_MHz": 5,
+      "T_ms": 20,
+      "N": 100000,
+      "window": 3500,
+      "hop": 1750,
+      "center": true,
+      "shape": [
+        3500,
+        58
+      ]
+    },
+    {
+      "B_MHz": 20,
+      "T_ms": 80,
+      "N": 1600000,
+      "window": 14000,
+      "hop": 14000,
+      "center": false,
+      "shape": [
+        14000,
+        114
+      ]
+    },
+    {
+      "B_MHz": 20,
+      "T_ms": 80,
+      "N": 1600000,
+      "window": 14000,
+      "hop": 14000,
+      "center": true,
+      "shape": [
+        14000,
+        115
+      ]
+    },
+    {
+      "B_MHz": 20,
+      "T_ms": 80,
+      "N": 1600000,
+      "window": 14000,
+      "hop": 7000,
+      "center": false,
+      "shape": [
+        14000,
+        227
+      ]
+    },
+    {
+      "B_MHz": 20,
+      "T_ms": 80,
+      "N": 1600000,
+      "window": 14000,
+      "hop": 7000,
+      "center": true,
+      "shape": [
+        14000,
+        229
+      ]
+    },
+    {
+      "B_MHz": 80,
+      "T_ms": 20,
+      "N": 1600000,
+      "window": 56000,
+      "hop": 56000,
+      "center": false,
+      "shape": [
+        56000,
+        28
+      ]
+    },
+    {
+      "B_MHz": 80,
+      "T_ms": 20,
+      "N": 1600000,
+      "window": 56000,
+      "hop": 56000,
+      "center": true,
+      "shape": [
+        56000,
+        29
+      ]
+    },
+    {
+      "B_MHz": 80,
+      "T_ms": 20,
+      "N": 1600000,
+      "window": 56000,
+      "hop": 28000,
+      "center": false,
+      "shape": [
+        56000,
+        56
+      ]
+    },
+    {
+      "B_MHz": 80,
+      "T_ms": 20,
+      "N": 1600000,
+      "window": 56000,
+      "hop": 28000,
+      "center": true,
+      "shape": [
+        56000,
+        58
+      ]
+    },
+    {
+      "B_MHz": 5,
+      "T_ms": 150,
+      "N": 750000,
+      "window": 3500,
+      "hop": 3500,
+      "center": false,
+      "shape": [
+        3500,
+        214
+      ]
+    },
+    {
+      "B_MHz": 5,
+      "T_ms": 150,
+      "N": 750000,
+      "window": 3500,
+      "hop": 3500,
+      "center": true,
+      "shape": [
+        3500,
+        215
+      ]
+    },
+    {
+      "B_MHz": 5,
+      "T_ms": 150,
+      "N": 750000,
+      "window": 3500,
+      "hop": 1750,
+      "center": false,
+      "shape": [
+        3500,
+        427
+      ]
+    },
+    {
+      "B_MHz": 5,
+      "T_ms": 150,
+      "N": 750000,
+      "window": 3500,
+      "hop": 1750,
+      "center": true,
+      "shape": [
+        3500,
+        429
+      ]
+    }
+  ],
+  "forward_cases": [
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        32
+      ],
+      "source_complex_shape": [
+        2048,
+        28
+      ],
+      "frequency_offset": 926,
+      "prediction": [
+        1,
+        18,
+        1344
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        32
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        64
+      ],
+      "source_complex_shape": [
+        2048,
+        56
+      ],
+      "frequency_offset": 926,
+      "prediction": [
+        1,
+        18,
+        2688
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        64
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        128
+      ],
+      "source_complex_shape": [
+        2048,
+        114
+      ],
+      "frequency_offset": 6176,
+      "prediction": [
+        1,
+        18,
+        5376
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        128
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        256
+      ],
+      "source_complex_shape": [
+        2048,
+        227
+      ],
+      "frequency_offset": 6176,
+      "prediction": [
+        1,
+        18,
+        10752
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        256
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        32
+      ],
+      "source_complex_shape": [
+        2048,
+        28
+      ],
+      "frequency_offset": 27176,
+      "prediction": [
+        1,
+        18,
+        1344
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        32
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        64
+      ],
+      "source_complex_shape": [
+        2048,
+        56
+      ],
+      "frequency_offset": 27176,
+      "prediction": [
+        1,
+        18,
+        2688
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        64
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        224
+      ],
+      "source_complex_shape": [
+        2048,
+        214
+      ],
+      "frequency_offset": 926,
+      "prediction": [
+        1,
+        18,
+        9408
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        224
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        2048,
+        448
+      ],
+      "source_complex_shape": [
+        2048,
+        427
+      ],
+      "frequency_offset": 926,
+      "prediction": [
+        1,
+        18,
+        18816
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        2048,
+        448
+      ],
+      "finite": true,
+      "representation_roundtrip_exact": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        1024,
+        32
+      ],
+      "prediction": [
+        1,
+        18,
+        672
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        1024,
+        32
+      ],
+      "finite": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        1024,
+        224
+      ],
+      "prediction": [
+        1,
+        18,
+        4704
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        1024,
+        224
+      ],
+      "finite": true
+    },
+    {
+      "input": [
+        1,
+        2,
+        1024,
+        448
+      ],
+      "prediction": [
+        1,
+        18,
+        9408
+      ],
+      "first_layer_seen": [
+        1,
+        2,
+        1024,
+        448
+      ],
+      "finite": true
+    },
+    {
+      "input": [
+        2,
+        2,
+        2048,
+        32
+      ],
+      "prediction": [
+        2,
+        18,
+        1344
+      ],
+      "first_layer_seen": [
+        2,
+        2,
+        2048,
+        32
+      ],
+      "finite": true
+    }
+  ],
+  "summary": {
+    "stft_shape_checks": 16,
+    "network_forward_checks": 12,
+    "all_passed": true,
+    "weights": "random initialization from packaged yolo11s.yaml",
+    "first_conv_weight_shape": [
+      32,
+      2,
+      3,
+      3
+    ],
+    "class_count": 14,
+    "optimizer_steps": 0,
+    "normalization": "complex STFT divided by sqrt(Fs * sum(window**2)); no RGB or /255 pipeline",
+    "single_channel_forward_checks": 2,
+    "single_channel_first_conv_weight_shape": [
+      32,
+      1,
+      3,
+      3
+    ],
+    "boundary_impulse_checks": 12,
+    "frequency_direction_checks": 3
+  },
+  "source_hashes": {
+    "samples.csv": "f882d913a3efccc259dfdfa59f2abc6a9fb080aae1ac0a1f787e7fbb12cbec8b",
+    "instances.csv": "fbd072fa0578fb6ac39377ee0a3e4443c87d12fa78d6da6e98f60f279e5ed0f3"
+  },
+  "single_channel_forward_cases": [
+    {
+      "input": [
+        1,
+        1,
+        2048,
+        32
+      ],
+      "prediction": [
+        1,
+        18,
+        1344
+      ],
+      "finite": true
+    },
+    {
+      "input": [
+        1,
+        1,
+        2048,
+        224
+      ],
+      "prediction": [
+        1,
+        18,
+        9408
+      ],
+      "finite": true
+    }
+  ],
+  "boundary_impulse_checks": [
+    {
+      "T_ms": 20,
+      "hop": 3500,
+      "center": true,
+      "last_sample_observed": false
+    },
+    {
+      "T_ms": 20,
+      "hop": 1750,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 40,
+      "hop": 3500,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 40,
+      "hop": 1750,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 60,
+      "hop": 3500,
+      "center": true,
+      "last_sample_observed": false
+    },
+    {
+      "T_ms": 60,
+      "hop": 1750,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 80,
+      "hop": 3500,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 80,
+      "hop": 1750,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 100,
+      "hop": 3500,
+      "center": true,
+      "last_sample_observed": false
+    },
+    {
+      "T_ms": 100,
+      "hop": 1750,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 150,
+      "hop": 3500,
+      "center": true,
+      "last_sample_observed": true
+    },
+    {
+      "T_ms": 150,
+      "hop": 1750,
+      "center": true,
+      "last_sample_observed": true
+    }
+  ],
+  "frequency_direction_checks": [
+    {
+      "Fs": 5000000,
+      "F": 3500,
+      "fftshift_peak_row": 1950,
+      "expected_row": 1950,
+      "baseband_frequency_Hz": 285714.28571428574
+    },
+    {
+      "Fs": 20000000,
+      "F": 14000,
+      "fftshift_peak_row": 7200,
+      "expected_row": 7200,
+      "baseband_frequency_Hz": 285714.28571428574
+    },
+    {
+      "Fs": 80000000,
+      "F": 56000,
+      "fftshift_peak_row": 28200,
+      "expected_row": 28200,
+      "baseband_frequency_Hz": 285714.28571428574
+    }
+  ],
+  "unified_2048x512": {
+    "status": "candidate; no real-data training",
+    "rule": "L=round(Fs*0.0007), M=L, hop=ceil(N/511), N_extended=511*hop, append IQ zeros, center=True, pad_mode=constant",
+    "all_sample_formula_checks": 10000,
+    "all_sample_formula_checks_passed": true,
+    "extra_IQ_zero_samples_max": 458,
+    "extra_IQ_zero_time_us_max": 31.2,
+    "extra_IQ_zero_time_us_mean": 9.86844825,
+    "actual_synthetic_STFT_cases": [
+      {
+        "B_MHz": 5,
+        "T_ms": 20,
+        "N_original": 100000,
+        "window": 3500,
+        "hop": 196,
+        "N_extended": 100156,
+        "extra_zero_samples": 156,
+        "STFT_shape": [
+          3500,
+          512
+        ],
+        "last_original_sample_visible_in_last_frame": true
+      },
+      {
+        "B_MHz": 20,
+        "T_ms": 40,
+        "N_original": 800000,
+        "window": 14000,
+        "hop": 1566,
+        "N_extended": 800226,
+        "extra_zero_samples": 226,
+        "STFT_shape": [
+          14000,
+          512
+        ],
+        "last_original_sample_visible_in_last_frame": true
+      },
+      {
+        "B_MHz": 80,
+        "T_ms": 150,
+        "N_original": 12000000,
+        "window": 56000,
+        "hop": 23484,
+        "N_extended": 12000324,
+        "extra_zero_samples": 324,
+        "STFT_shape": [
+          56000,
+          512
+        ],
+        "last_original_sample_visible_in_last_frame": true
+      }
+    ],
+    "frequency_tiling": [
+      {
+        "B_MHz": 5,
+        "F": 3500,
+        "slice_height": 2048,
+        "stride": 1639,
+        "tiles": 2,
+        "last_start": 1452,
+        "frequency_image_padding": 0
+      },
+      {
+        "B_MHz": 20,
+        "F": 14000,
+        "slice_height": 2048,
+        "stride": 1639,
+        "tiles": 9,
+        "last_start": 11952,
+        "frequency_image_padding": 0
+      },
+      {
+        "B_MHz": 30,
+        "F": 21000,
+        "slice_height": 2048,
+        "stride": 1639,
+        "tiles": 13,
+        "last_start": 18952,
+        "frequency_image_padding": 0
+      },
+      {
+        "B_MHz": 40,
+        "F": 28000,
+        "slice_height": 2048,
+        "stride": 1639,
+        "tiles": 17,
+        "last_start": 25952,
+        "frequency_image_padding": 0
+      },
+      {
+        "B_MHz": 50,
+        "F": 35000,
+        "slice_height": 2048,
+        "stride": 1639,
+        "tiles": 22,
+        "last_start": 32952,
+        "frequency_image_padding": 0
+      },
+      {
+        "B_MHz": 80,
+        "F": 56000,
+        "slice_height": 2048,
+        "stride": 1639,
+        "tiles": 34,
+        "last_start": 53952,
+        "frequency_image_padding": 0
+      }
+    ],
+    "hop_ranges_by_T": [
+      {
+        "T_ms": 20,
+        "hop_ms_min": 0.03914,
+        "hop_ms_max": 0.0392,
+        "overlap_pct_min": 94.39999999999999,
+        "overlap_pct_max": 94.40857142857143
+      },
+      {
+        "T_ms": 40,
+        "hop_ms_min": 0.07828,
+        "hop_ms_max": 0.07830000000000001,
+        "overlap_pct_min": 88.81428571428572,
+        "overlap_pct_max": 88.81714285714285
+      },
+      {
+        "T_ms": 60,
+        "hop_ms_min": 0.11742,
+        "hop_ms_max": 0.11745,
+        "overlap_pct_min": 83.22142857142858,
+        "overlap_pct_max": 83.22571428571428
+      },
+      {
+        "T_ms": 80,
+        "hop_ms_min": 0.15656,
+        "hop_ms_max": 0.15660000000000002,
+        "overlap_pct_min": 77.62857142857142,
+        "overlap_pct_max": 77.63428571428571
+      },
+      {
+        "T_ms": 100,
+        "hop_ms_min": 0.1957,
+        "hop_ms_max": 0.1957,
+        "overlap_pct_min": 72.04285714285714,
+        "overlap_pct_max": 72.04285714285714
+      },
+      {
+        "T_ms": 150,
+        "hop_ms_min": 0.29355000000000003,
+        "hop_ms_max": 0.2935666666666667,
+        "overlap_pct_min": 58.061904761904756,
+        "overlap_pct_max": 58.06428571428571
+      }
+    ],
+    "model_forward_source": "read-only subagent native CPU evaluation, random weights",
+    "model_forward_cases": [
+      {
+        "input": [
+          1,
+          1,
+          2048,
+          512
+        ],
+        "prediction": [
+          1,
+          18,
+          21504
+        ],
+        "finite": true,
+        "first_conv_weight": [
+          32,
+          1,
+          3,
+          3
+        ]
+      },
+      {
+        "input": [
+          1,
+          2,
+          2048,
+          512
+        ],
+        "prediction": [
+          1,
+          18,
+          21504
+        ],
+        "finite": true,
+        "first_conv_weight": [
+          32,
+          2,
+          3,
+          3
+        ]
+      }
+    ],
+    "model_stage_shapes": [
+      {
+        "index": 0,
+        "module": "Conv",
+        "shape": [
+          1,
+          32,
+          1024,
+          256
+        ]
+      },
+      {
+        "index": 1,
+        "module": "Conv",
+        "shape": [
+          1,
+          64,
+          512,
+          128
+        ]
+      },
+      {
+        "index": 2,
+        "module": "C3k2",
+        "shape": [
+          1,
+          128,
+          512,
+          128
+        ]
+      },
+      {
+        "index": 3,
+        "module": "Conv",
+        "shape": [
+          1,
+          128,
+          256,
+          64
+        ]
+      },
+      {
+        "index": 4,
+        "module": "C3k2",
+        "shape": [
+          1,
+          256,
+          256,
+          64
+        ]
+      },
+      {
+        "index": 5,
+        "module": "Conv",
+        "shape": [
+          1,
+          256,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 6,
+        "module": "C3k2",
+        "shape": [
+          1,
+          256,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 7,
+        "module": "Conv",
+        "shape": [
+          1,
+          512,
+          64,
+          16
+        ]
+      },
+      {
+        "index": 8,
+        "module": "C3k2",
+        "shape": [
+          1,
+          512,
+          64,
+          16
+        ]
+      },
+      {
+        "index": 9,
+        "module": "SPPF",
+        "shape": [
+          1,
+          512,
+          64,
+          16
+        ]
+      },
+      {
+        "index": 10,
+        "module": "C2PSA",
+        "shape": [
+          1,
+          512,
+          64,
+          16
+        ]
+      },
+      {
+        "index": 11,
+        "module": "Upsample",
+        "shape": [
+          1,
+          512,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 12,
+        "module": "Concat",
+        "shape": [
+          1,
+          768,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 13,
+        "module": "C3k2",
+        "shape": [
+          1,
+          256,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 14,
+        "module": "Upsample",
+        "shape": [
+          1,
+          256,
+          256,
+          64
+        ]
+      },
+      {
+        "index": 15,
+        "module": "Concat",
+        "shape": [
+          1,
+          512,
+          256,
+          64
+        ]
+      },
+      {
+        "index": 16,
+        "module": "C3k2",
+        "shape": [
+          1,
+          128,
+          256,
+          64
+        ]
+      },
+      {
+        "index": 17,
+        "module": "Conv",
+        "shape": [
+          1,
+          128,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 18,
+        "module": "Concat",
+        "shape": [
+          1,
+          384,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 19,
+        "module": "C3k2",
+        "shape": [
+          1,
+          256,
+          128,
+          32
+        ]
+      },
+      {
+        "index": 20,
+        "module": "Conv",
+        "shape": [
+          1,
+          256,
+          64,
+          16
+        ]
+      },
+      {
+        "index": 21,
+        "module": "Concat",
+        "shape": [
+          1,
+          768,
+          64,
+          16
+        ]
+      },
+      {
+        "index": 22,
+        "module": "C3k2",
+        "shape": [
+          1,
+          512,
+          64,
+          16
+        ]
+      }
+    ],
+    "detect_inputs": [
+      [
+        1,
+        128,
+        256,
+        64
+      ],
+      [
+        1,
+        256,
+        128,
+        32
+      ],
+      [
+        1,
+        512,
+        64,
+        16
+      ]
+    ],
+    "optimizer_steps": 0,
+    "cost_proxy": [
+      {
+        "split": "train",
+        "mean_tiles": 15.1368,
+        "mean_input_MP": 15.872085196799999,
+        "includes_coarse_view": false
+      },
+      {
+        "split": "test",
+        "mean_tiles": 18.838,
+        "mean_input_MP": 19.753074688,
+        "includes_coarse_view": false
+      }
+    ]
+  },
+  "direct_regression_head_audit": {
+    "environment": {
+      "torch": "2.14.0+cpu",
+      "ultralytics": "8.4.155",
+      "device": "cpu"
+    },
+    "scope": "synthetic tensors; random weights; forward and one backward only; zero optimizer steps; no real IQ or pretrained checkpoint",
+    "architecture": "YOLO11s body, C1, 14 classes, reg_max=1, end2end=False",
+    "reg_max": 1,
+    "input": [
+      1,
+      1,
+      2048,
+      512
+    ],
+    "eval_prediction_shape": [
+      1,
+      18,
+      21504
+    ],
+    "loss_total": 23.004579544067383,
+    "loss_return_aux_type": "dict",
+    "loss_finite": true,
+    "all_present_gradients_finite": true,
+    "has_nonzero_gradients": true,
+    "direct_box_recovery": {
+      "anchor_input_pixels": [
+        [
+          252.0,
+          1020.0
+        ]
+      ],
+      "distances_in_stride_units": [
+        [
+          23.5,
+          127.5,
+          24.5,
+          128.5
+        ]
+      ],
+      "target_xyxy": [
+        [
+          64.0,
+          0.0,
+          448.0,
+          2048.0
+        ]
+      ],
+      "decoded_xyxy": [
+        [
+          64.0,
+          0.0,
+          448.0,
+          2048.0
+        ]
+      ]
+    },
+    "default_R16_max_box_side_at_stride32": 960,
+    "optimizer_steps": 0
+  },
+  "baseline_execution_plan_audit": {
+    "date": "2026-11-18",
+    "storage_uncompressed_payload": {
+      "train": {
+        "complex64_GiB": 701.7917633056641,
+        "power_float32_GiB": 350.89588165283203,
+        "native_log_float16_GiB": 175.44794082641602,
+        "raw_IQ_bytes": 69102400340,
+        "coarse_log_float16_GiB": 14.6484375
+      },
+      "test": {
+        "complex64_GiB": 291.0881042480469,
+        "power_float32_GiB": 145.54405212402344,
+        "native_log_float16_GiB": 72.77202606201172,
+        "raw_IQ_bytes": 33050400176,
+        "coarse_log_float16_GiB": 4.8828125
+      }
+    },
+    "split_planning_check": {
+      "method": "StratifiedGroupKFold,10,shuffle=True,seed1729,fold0; B/T strata, json_sha1 groups",
+      "fit_samples": 6749,
+      "val_samples": 751,
+      "group_overlap": 0
+    },
+    "hardware_source": "user supplied AutoDL instance query, not independently accessed from this local session"
+  }
+}

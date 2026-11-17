@@ -1,0 +1,992 @@
+{
+  "date": "2026-11-17",
+  "source_sha256": {
+    "samples.csv": "f882d913a3efccc259dfdfa59f2abc6a9fb080aae1ac0a1f787e7fbb12cbec8b",
+    "instances.csv": "fbd072fa0578fb6ac39377ee0a3e4443c87d12fa78d6da6e98f60f279e5ed0f3"
+  },
+  "n_samples": 10000,
+  "n_instances": 54773,
+  "grouping_duration_decimals": 3,
+  "threshold_relative_tolerance": 1e-09,
+  "normalization": "w=bw/B; h=dur/T, retaining original precise T",
+  "weighting": "Instance equal by default; sample-equal proportions are separately reported",
+  "counts": {
+    "train": {
+      "n_samples": 7500,
+      "n_instances": 34755,
+      "freq_fraction_p05": 0.0010460000000057,
+      "freq_fraction_p25": 0.0083333333333334,
+      "freq_fraction_p50": 0.0499999999999999,
+      "freq_fraction_p75": 0.25,
+      "freq_fraction_p95": 1.0,
+      "time_fraction_p05": 0.0749999999999999,
+      "time_fraction_p25": 0.3,
+      "time_fraction_p50": 0.5666666666666667,
+      "time_fraction_p75": 0.9,
+      "time_fraction_p95": 1.0,
+      "time_over_freq_p05": 0.36,
+      "time_over_freq_p25": 1.875,
+      "time_over_freq_p50": 10.40000000000001,
+      "time_over_freq_p75": 50.0,
+      "time_over_freq_p95": 535.3563862303747,
+      "pct_time_longer_than_frequency": 83.54193641202706,
+      "pct_time_at_least_4x_frequency": 64.718745504244,
+      "pct_time_at_least_10x_frequency": 52.00115091353762,
+      "pct_time_at_least_100x_frequency": 18.24773413897281,
+      "sample_equal_pct_time_longer": 83.50333333333333,
+      "sample_equal_pct_time_at_least_10x": 48.21388888888889,
+      "pct_freq_lt_1_cells_at_640": 7.895266868076536,
+      "pct_freq_lt_2_cells_at_640": 13.497338512444252,
+      "pct_freq_lt_4_cells_at_640": 20.293482952093225,
+      "pct_time_lt_1_cells_at_640": 0.0,
+      "pct_time_lt_2_cells_at_640": 0.0,
+      "pct_time_lt_4_cells_at_640": 0.0
+    },
+    "test": {
+      "n_samples": 2500,
+      "n_instances": 20018,
+      "freq_fraction_p05": 0.0010460000000057,
+      "freq_fraction_p25": 0.0075000000000045,
+      "freq_fraction_p50": 0.04,
+      "freq_fraction_p75": 0.1999999999999999,
+      "freq_fraction_p95": 1.0,
+      "time_fraction_p05": 0.069997625,
+      "time_fraction_p25": 0.2733333333333333,
+      "time_fraction_p50": 0.52,
+      "time_fraction_p75": 0.8,
+      "time_fraction_p95": 1.0,
+      "time_over_freq_p05": 0.35000000000000003,
+      "time_over_freq_p25": 2.0,
+      "time_over_freq_p50": 11.500000000000023,
+      "time_over_freq_p75": 55.00000000005005,
+      "time_over_freq_p95": 573.5985181613195,
+      "pct_time_longer_than_frequency": 83.49485463083225,
+      "pct_time_at_least_4x_frequency": 67.28444400039965,
+      "pct_time_at_least_10x_frequency": 53.3519832151064,
+      "pct_time_at_least_100x_frequency": 19.097811969227696,
+      "sample_equal_pct_time_longer": 83.47399999999999,
+      "sample_equal_pct_time_at_least_10x": 53.40933333333332,
+      "pct_freq_lt_1_cells_at_640": 8.637226496153461,
+      "pct_freq_lt_2_cells_at_640": 14.432011189929064,
+      "pct_freq_lt_4_cells_at_640": 21.795384154261164,
+      "pct_time_lt_1_cells_at_640": 0.0,
+      "pct_time_lt_2_cells_at_640": 0.0,
+      "pct_time_lt_4_cells_at_640": 0.0
+    }
+  },
+  "train_global_median_h_over_w": 10.40000000000001,
+  "train_BT_shape_range": [
+    3.4999999999999996,
+    40.0
+  ],
+  "train_BT_shape_priors": [
+    {
+      "B_MHz": 5.0,
+      "T_ms": 20.0,
+      "rho": 3.4999999999999996
+    },
+    {
+      "B_MHz": 20.0,
+      "T_ms": 20.0,
+      "rho": 9.500000000000009
+    },
+    {
+      "B_MHz": 20.0,
+      "T_ms": 40.0,
+      "rho": 8.500000000000004
+    },
+    {
+      "B_MHz": 20.0,
+      "T_ms": 60.0,
+      "rho": 7.333333333333342
+    },
+    {
+      "B_MHz": 20.0,
+      "T_ms": 80.0,
+      "rho": 6.250000000000009
+    },
+    {
+      "B_MHz": 20.0,
+      "T_ms": 100.0,
+      "rho": 4.600000000000003
+    },
+    {
+      "B_MHz": 20.0,
+      "T_ms": 150.0,
+      "rho": 3.799996400001202
+    },
+    {
+      "B_MHz": 30.0,
+      "T_ms": 20.0,
+      "rho": 10.50000000000001
+    },
+    {
+      "B_MHz": 30.0,
+      "T_ms": 40.0,
+      "rho": 12.000000000000014
+    },
+    {
+      "B_MHz": 30.0,
+      "T_ms": 60.0,
+      "rho": 11.250000000000012
+    },
+    {
+      "B_MHz": 30.0,
+      "T_ms": 80.0,
+      "rho": 9.000000000000021
+    },
+    {
+      "B_MHz": 30.0,
+      "T_ms": 100.0,
+      "rho": 7.874994750000009
+    },
+    {
+      "B_MHz": 30.0,
+      "T_ms": 150.0,
+      "rho": 5.750000000000005
+    },
+    {
+      "B_MHz": 40.0,
+      "T_ms": 20.0,
+      "rho": 18.0
+    },
+    {
+      "B_MHz": 40.0,
+      "T_ms": 40.0,
+      "rho": 17.750000000000018
+    },
+    {
+      "B_MHz": 40.0,
+      "T_ms": 60.0,
+      "rho": 15.333333333333332
+    },
+    {
+      "B_MHz": 40.0,
+      "T_ms": 80.0,
+      "rho": 11.500000000000023
+    },
+    {
+      "B_MHz": 40.0,
+      "T_ms": 100.0,
+      "rho": 10.600000000000021
+    },
+    {
+      "B_MHz": 40.0,
+      "T_ms": 150.0,
+      "rho": 7.333333333333341
+    },
+    {
+      "B_MHz": 50.0,
+      "T_ms": 20.0,
+      "rho": 17.5
+    },
+    {
+      "B_MHz": 50.0,
+      "T_ms": 40.0,
+      "rho": 23.75000000000006
+    },
+    {
+      "B_MHz": 50.0,
+      "T_ms": 60.0,
+      "rho": 15.0
+    },
+    {
+      "B_MHz": 50.0,
+      "T_ms": 80.0,
+      "rho": 16.25
+    },
+    {
+      "B_MHz": 50.0,
+      "T_ms": 100.0,
+      "rho": 11.500000000000043
+    },
+    {
+      "B_MHz": 50.0,
+      "T_ms": 150.0,
+      "rho": 9.500000000000025
+    },
+    {
+      "B_MHz": 80.0,
+      "T_ms": 20.0,
+      "rho": 40.0
+    },
+    {
+      "B_MHz": 80.0,
+      "T_ms": 40.0,
+      "rho": 31.0
+    },
+    {
+      "B_MHz": 80.0,
+      "T_ms": 60.0,
+      "rho": 30.0
+    },
+    {
+      "B_MHz": 80.0,
+      "T_ms": 80.0,
+      "rho": 23.249982500000087
+    },
+    {
+      "B_MHz": 80.0,
+      "T_ms": 100.0,
+      "rho": 18.800000000000036
+    },
+    {
+      "B_MHz": 80.0,
+      "T_ms": 150.0,
+      "rho": 15.066666666666894
+    }
+  ],
+  "oracle_geometric_coverage": {
+    "train": {
+      "pct_possible_both_ge_2": 100.0,
+      "pct_possible_both_ge_4": 99.96834987771544,
+      "pct_possible_both_ge_8": 99.67486692562221
+    },
+    "test": {
+      "pct_possible_both_ge_2": 100.0,
+      "pct_possible_both_ge_4": 99.96003596762914,
+      "pct_possible_both_ge_8": 99.71026076531122
+    }
+  },
+  "assumptions": [
+    "No IQ read, STFT execution, or training",
+    "Fs=B is user-confirmed official dataset information; N is taken from the exported sample manifest",
+    "critical_ideal: nonoverlap, no zero padding, continuous ideal F=L and K=N/L; no FFT rounding or tail/border effects",
+    "Cell occupancy is label geometry, not measured spectral visibility, resolving power, or detector performance",
+    "Native grid size is N and varies by sample; fixed_409600_cell_budget is a separate representation comparison",
+    "All shape priors are estimated only on train; test is descriptive evaluation of these fixed priors",
+    "Same number of output cells does not imply identical FFT cost or model resource use"
+  ],
+  "scale_rows": 888,
+  "grid_rows": 1368,
+  "sampling_rate_status": "Fs=B, adopted from the user's confirmation of official dataset documentation on 2026-11-17",
+  "physical_window_tradeoff": {
+    "criterion": "b_hz*(W/Fs)/alpha>=q AND d_s/(W/Fs)>=q in at least one complete view",
+    "primary_alpha": 1,
+    "rounding": "W=2*ceil(Fs*tau/2); NFFT=W; hop=W or W/2",
+    "main_windows_ms": [
+      0.125,
+      0.7
+    ],
+    "minimum_non6k_train_bandwidth_Hz": 39999.9999999636,
+    "plans": [
+      {
+        "q": 3,
+        "name": "short",
+        "nominal_windows_ms": [
+          0.125
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34133,
+            "n_failed": 622,
+            "pct_both_ge_q": 98.21032944900014,
+            "coverage_macro_pct": 97.49557094540184
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 19679,
+            "n_failed": 339,
+            "pct_both_ge_q": 98.30652412828455,
+            "coverage_macro_pct": 97.6096460301791
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34133,
+            "pct": 98.21032944900014
+          },
+          "test": {
+            "n_covered": 19679,
+            "pct": 98.30652412828455
+          }
+        }
+      },
+      {
+        "q": 3,
+        "name": "long",
+        "nominal_windows_ms": [
+          0.5
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34538,
+            "n_failed": 217,
+            "pct_both_ge_q": 99.37562940584088,
+            "coverage_macro_pct": 99.31952051814828
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 19892,
+            "n_failed": 126,
+            "pct_both_ge_q": 99.37056649015886,
+            "coverage_macro_pct": 99.34448302120298
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34755,
+            "pct": 100.0
+          },
+          "test": {
+            "n_covered": 20018,
+            "pct": 100.0
+          }
+        }
+      },
+      {
+        "q": 3,
+        "name": "dual",
+        "nominal_windows_ms": [
+          0.125,
+          0.5
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34754,
+            "n_failed": 1,
+            "pct_both_ge_q": 99.99712271615596,
+            "coverage_macro_pct": 99.99597358672894
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 20018,
+            "n_failed": 0,
+            "pct_both_ge_q": 100.0,
+            "coverage_macro_pct": 100.0
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34755,
+            "pct": 100.0
+          },
+          "test": {
+            "n_covered": 20018,
+            "pct": 100.0
+          }
+        }
+      },
+      {
+        "q": 4,
+        "name": "short",
+        "nominal_windows_ms": [
+          0.125
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34133,
+            "n_failed": 622,
+            "pct_both_ge_q": 98.21032944900014,
+            "coverage_macro_pct": 97.49557094540184
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 19679,
+            "n_failed": 339,
+            "pct_both_ge_q": 98.30652412828455,
+            "coverage_macro_pct": 97.6096460301791
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34133,
+            "pct": 98.21032944900014
+          },
+          "test": {
+            "n_covered": 19679,
+            "pct": 98.30652412828455
+          }
+        }
+      },
+      {
+        "q": 4,
+        "name": "long",
+        "nominal_windows_ms": [
+          0.7
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 33990,
+            "n_failed": 765,
+            "pct_both_ge_q": 97.79887785930082,
+            "coverage_macro_pct": 97.70575012387702
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 19623,
+            "n_failed": 395,
+            "pct_both_ge_q": 98.02677590168848,
+            "coverage_macro_pct": 97.94557032900002
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34538,
+            "pct": 99.37562940584088
+          },
+          "test": {
+            "n_covered": 19894,
+            "pct": 99.38055749825158
+          }
+        }
+      },
+      {
+        "q": 4,
+        "name": "dual",
+        "nominal_windows_ms": [
+          0.125,
+          0.7
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34744,
+            "n_failed": 11,
+            "pct_both_ge_q": 99.96834987771544,
+            "coverage_macro_pct": 99.95570945401836
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 20010,
+            "n_failed": 8,
+            "pct_both_ge_q": 99.96003596762914,
+            "coverage_macro_pct": 99.94359046678889
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34754,
+            "pct": 99.99712271615596
+          },
+          "test": {
+            "n_covered": 20018,
+            "pct": 100.0
+          }
+        }
+      },
+      {
+        "q": 5,
+        "name": "short",
+        "nominal_windows_ms": [
+          0.125
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34133,
+            "n_failed": 622,
+            "pct_both_ge_q": 98.21032944900014,
+            "coverage_macro_pct": 97.49557094540184
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 19679,
+            "n_failed": 339,
+            "pct_both_ge_q": 98.30652412828455,
+            "coverage_macro_pct": 97.6096460301791
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34133,
+            "pct": 98.21032944900014
+          },
+          "test": {
+            "n_covered": 19679,
+            "pct": 98.30652412828455
+          }
+        }
+      },
+      {
+        "q": 5,
+        "name": "long",
+        "nominal_windows_ms": [
+          0.9
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 32867,
+            "n_failed": 1888,
+            "pct_both_ge_q": 94.5676881024313,
+            "coverage_macro_pct": 94.46512973673455
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 19048,
+            "n_failed": 970,
+            "pct_both_ge_q": 95.15436107503247,
+            "coverage_macro_pct": 95.02306485458537
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 33999,
+            "pct": 97.82477341389728
+          },
+          "test": {
+            "n_covered": 19623,
+            "pct": 98.02677590168848
+          }
+        }
+      },
+      {
+        "q": 5,
+        "name": "dual",
+        "nominal_windows_ms": [
+          0.125,
+          0.9
+        ],
+        "frequency_proxy_alpha": 1.0,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34724,
+            "n_failed": 31,
+            "pct_both_ge_q": 99.91080420083442,
+            "coverage_macro_pct": 99.8751811885972
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 20004,
+            "n_failed": 14,
+            "pct_both_ge_q": 99.93006294335099,
+            "coverage_macro_pct": 99.90128331688055
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34744,
+            "pct": 99.96834987771544
+          },
+          "test": {
+            "n_covered": 20010,
+            "pct": 99.96003596762914
+          }
+        }
+      },
+      {
+        "q": 4,
+        "name": "dual_ENBW_proxy",
+        "nominal_windows_ms": [
+          0.15,
+          1.0
+        ],
+        "frequency_proxy_alpha": 1.5,
+        "totals": {
+          "train": {
+            "n_instances": 34755,
+            "n_covered": 34728,
+            "n_failed": 27,
+            "pct_both_ge_q": 99.92231333621062,
+            "coverage_macro_pct": 99.89128684168143
+          },
+          "test": {
+            "n_instances": 20018,
+            "n_covered": 20004,
+            "n_failed": 14,
+            "pct_both_ge_q": 99.93006294335099,
+            "coverage_macro_pct": 99.90128331688055
+          }
+        },
+        "halfhop_display_grid_totals": {
+          "train": {
+            "n_covered": 34745,
+            "pct": 99.97122716155948
+          },
+          "test": {
+            "n_covered": 20011,
+            "pct": 99.96503147167549
+          }
+        }
+      }
+    ],
+    "q4_class_coverage": [
+      {
+        "split": "test",
+        "class": 0,
+        "n": 857,
+        "covered": 857,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 1,
+        "n": 915,
+        "covered": 915,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 2,
+        "n": 937,
+        "covered": 937,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 3,
+        "n": 392,
+        "covered": 392,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 4,
+        "n": 380,
+        "covered": 380,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 5,
+        "n": 410,
+        "covered": 410,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 6,
+        "n": 1962,
+        "covered": 1962,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 7,
+        "n": 2036,
+        "covered": 2036,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 8,
+        "n": 4076,
+        "covered": 4076,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 9,
+        "n": 3947,
+        "covered": 3947,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 10,
+        "n": 1040,
+        "covered": 1040,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 11,
+        "n": 1027,
+        "covered": 1027,
+        "pct": 100.0
+      },
+      {
+        "split": "test",
+        "class": 12,
+        "n": 1013,
+        "covered": 1005,
+        "pct": 99.21026653504443
+      },
+      {
+        "split": "test",
+        "class": 13,
+        "n": 1026,
+        "covered": 1026,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 0,
+        "n": 1573,
+        "covered": 1573,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 1,
+        "n": 1597,
+        "covered": 1597,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 2,
+        "n": 1596,
+        "covered": 1596,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 3,
+        "n": 720,
+        "covered": 720,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 4,
+        "n": 694,
+        "covered": 694,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 5,
+        "n": 728,
+        "covered": 728,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 6,
+        "n": 3472,
+        "covered": 3472,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 7,
+        "n": 3507,
+        "covered": 3507,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 8,
+        "n": 7017,
+        "covered": 7017,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 9,
+        "n": 6899,
+        "covered": 6899,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 10,
+        "n": 1770,
+        "covered": 1770,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 11,
+        "n": 1698,
+        "covered": 1698,
+        "pct": 100.0
+      },
+      {
+        "split": "train",
+        "class": 12,
+        "n": 1774,
+        "covered": 1763,
+        "pct": 99.37993235625704
+      },
+      {
+        "split": "train",
+        "class": 13,
+        "n": 1710,
+        "covered": 1710,
+        "pct": 100.0
+      }
+    ],
+    "q4_failed_instances": [
+      {
+        "sample_id": "train/37",
+        "signal_id": 0,
+        "class": 12,
+        "bandwidth_mhz": 50.0,
+        "T_ms": 80.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.9998
+      },
+      {
+        "sample_id": "train/194",
+        "signal_id": 1,
+        "class": 12,
+        "bandwidth_mhz": 80.0,
+        "T_ms": 80.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99942
+      },
+      {
+        "sample_id": "train/1218",
+        "signal_id": 6,
+        "class": 12,
+        "bandwidth_mhz": 40.0,
+        "T_ms": 20.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 2.0
+      },
+      {
+        "sample_id": "train/2192",
+        "signal_id": 0,
+        "class": 12,
+        "bandwidth_mhz": 40.0,
+        "T_ms": 60.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.9998
+      },
+      {
+        "sample_id": "train/2611",
+        "signal_id": 5,
+        "class": 12,
+        "bandwidth_mhz": 40.0,
+        "T_ms": 80.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99955
+      },
+      {
+        "sample_id": "train/2693",
+        "signal_id": 0,
+        "class": 12,
+        "bandwidth_mhz": 30.0,
+        "T_ms": 20.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99987
+      },
+      {
+        "sample_id": "train/4622",
+        "signal_id": 2,
+        "class": 12,
+        "bandwidth_mhz": 50.0,
+        "T_ms": 150.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.9998
+      },
+      {
+        "sample_id": "train/5089",
+        "signal_id": 1,
+        "class": 12,
+        "bandwidth_mhz": 30.0,
+        "T_ms": 20.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.9998699999999976
+      },
+      {
+        "sample_id": "train/6311",
+        "signal_id": 1,
+        "class": 12,
+        "bandwidth_mhz": 5.0,
+        "T_ms": 20.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99948
+      },
+      {
+        "sample_id": "train/6879",
+        "signal_id": 1,
+        "class": 12,
+        "bandwidth_mhz": 40.0,
+        "T_ms": 20.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.0
+      },
+      {
+        "sample_id": "train/6984",
+        "signal_id": 5,
+        "class": 12,
+        "bandwidth_mhz": 50.0,
+        "T_ms": 150.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.9998700000000011
+      },
+      {
+        "sample_id": "test/445",
+        "signal_id": 6,
+        "class": 12,
+        "bandwidth_mhz": 30.0,
+        "T_ms": 60.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99968
+      },
+      {
+        "sample_id": "test/528",
+        "signal_id": 6,
+        "class": 12,
+        "bandwidth_mhz": 30.0,
+        "T_ms": 60.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.9998700000000011
+      },
+      {
+        "sample_id": "test/734",
+        "signal_id": 7,
+        "class": 12,
+        "bandwidth_mhz": 20.0,
+        "T_ms": 150.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 2.0
+      },
+      {
+        "sample_id": "test/877",
+        "signal_id": 0,
+        "class": 12,
+        "bandwidth_mhz": 40.0,
+        "T_ms": 60.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99968
+      },
+      {
+        "sample_id": "test/1085",
+        "signal_id": 5,
+        "class": 12,
+        "bandwidth_mhz": 30.0,
+        "T_ms": 20.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99916
+      },
+      {
+        "sample_id": "test/1484",
+        "signal_id": 1,
+        "class": 12,
+        "bandwidth_mhz": 80.0,
+        "T_ms": 150.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99955
+      },
+      {
+        "sample_id": "test/1547",
+        "signal_id": 0,
+        "class": 12,
+        "bandwidth_mhz": 80.0,
+        "T_ms": 60.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99961
+      },
+      {
+        "sample_id": "test/2241",
+        "signal_id": 5,
+        "class": 12,
+        "bandwidth_mhz": 50.0,
+        "T_ms": 150.0,
+        "bw_mhz": 0.0060000000003128,
+        "dur_ms": 1.99987
+      }
+    ],
+    "cost": "Two full views: about 2N coefficients without overlap, about 4N coefficients at half-window hop; excludes borders",
+    "limits": "Label geometry only; DFT grid occupancy and window-length time scales are not independent resolving cells. ENBW alpha=1.5 is a separate diagnostic proxy."
+  }
+}
