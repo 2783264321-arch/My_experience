@@ -23,10 +23,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SmallCNN(nn.Module):
-    def __init__(self, n_classes: int, in_h: int = 128, in_w: int = 256):
+    def __init__(self, n_classes: int, in_h: int = 128, in_w: int = 256,
+                 in_channels: int = 1):
         super().__init__()
         self.features = nn.Sequential(
-            nn.Conv2d(1, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(inplace=True),
+            nn.Conv2d(in_channels, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(inplace=True),
             nn.Conv2d(32, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(inplace=True),
             nn.MaxPool2d(2),
             nn.Conv2d(64, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(inplace=True),

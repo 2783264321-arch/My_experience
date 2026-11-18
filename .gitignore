@@ -10,3 +10,5 @@ data/
 *.engine
 *.log
 reports/*.npz
+reports/local_rep/*.npz
+reports/local_rep/models/
