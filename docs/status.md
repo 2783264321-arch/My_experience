@@ -126,6 +126,21 @@ The 15-epoch classification-weighted fine-tune completed separately
 baseline: corrected mAP 0.6366 vs 0.6427. It is reported as a negative
 follow-up; the baseline `best_corrected.pt` remains the deliverable.
 
+## Diagnostics (2026-11-18)
+
+- Three-level val: R_agn **0.958** -> AP_agn **0.905** -> AP_cls **0.643**.
+  Pre-boundary/post-boundary/post-NMS/final recall: 0.9645/0.9606/0.9583/0.9578;
+  boundary+NMS+100-box cap cost <0.7 pp. The first ceiling is nearly saturated.
+- Oracle-class AP **0.8639** (gap 22.1 pp): classification loss is concentrated
+  in classes 0/1/2, 3/4/5, 10/11; 6/7/8/9/12/13 are near their oracle ceiling.
+- AP75 **0.5945**, AP50:95 **0.5764** (agnostic 0.8543/0.8203). AP50 stays the
+  primary/checkpoint metric; AP75/AP50:95 are secondary localization diagnostics.
+- Full tables: `reports/stage5_diagnostics.md`, `stage5_val/signal_characteristics.json`,
+  `stage5_val/oracle_class_ap.json`, `stage5_val/stage_recall.json`,
+  `stage5_val/iou_sweep.json`.
+- 8-epoch low-LR continuation: `runs/yolo11s_c1_directreg_2048x512_conv8/`;
+  epoch 0-2 val 0.6384/0.6415/0.6406 vs baseline 0.6427 (flat, no gain so far).
+
 ## Stage 5 - commands
 
 ```bash
