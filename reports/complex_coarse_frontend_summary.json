@@ -1,0 +1,5256 @@
+{
+  "config": {
+    "fine_ms": 0.7,
+    "coarse_nfft": 2048,
+    "dense_hop_max": 1024,
+    "normalization": "Z / sqrt(Fs * sum(w^2)) for both views",
+    "frame_centers": "t_j = j*h, h=ceil(N/511), center=True"
+  },
+  "synthetic": [
+    {
+      "fs_hz": 80000000.0,
+      "N": 1600000,
+      "h": 3132,
+      "n_ext": 1600452,
+      "tone_hz": 5000000.0,
+      "coarse_bin_hz": 5000000.0,
+      "fine_bin_hz": 5000000.0,
+      "amp_coarse_psd": 0.005576512310653925,
+      "amp_fine_psd": 0.029160283505916595,
+      "amp_coarse_coherent": 1.3498587608337402,
+      "amp_fine_coherent": 1.3498587608337402,
+      "phase_diff_rad": 3.0355087332623043e-09,
+      "amp_hann_coherent": 0.0007543156971223652,
+      "phase_diff_hann_rad": -1.5240772643920766e-07,
+      "amp_rect_coherent": 0.07499215751886368,
+      "phase_diff_rect_rad": 3.2048508735726955e-08,
+      "stft_seconds": {
+        "fine": 0.38380150496959686,
+        "sparse": 0.008316658437252045,
+        "dense": 0.045667797327041626
+      },
+      "psd_sum_sparse": 0.023815779015421867,
+      "psd_sum_fine": 0.6496496200561523
+    },
+    {
+      "fs_hz": 20000000.0,
+      "N": 400000,
+      "h": 783,
+      "n_ext": 400113,
+      "tone_hz": 2000000.0,
+      "coarse_bin_hz": 2001953.125,
+      "fine_bin_hz": 2000000.0,
+      "amp_coarse_psd": 0.010868266224861145,
+      "amp_fine_psd": 0.029160283505916595,
+      "amp_coarse_coherent": 1.3153941631317139,
+      "amp_fine_coherent": 1.3498587608337402,
+      "phase_diff_rad": 1.0445215137266928e-08,
+      "amp_hann_coherent": 2.140021271301862e-09,
+      "phase_diff_hann_rad": -0.9340090156871714,
+      "amp_rect_coherent": 0.09641849249601364,
+      "phase_diff_rect_rad": 7.092939102726349e-08,
+      "stft_seconds": {
+        "fine": 0.10225290805101395,
+        "sparse": 0.00902886688709259,
+        "dense": 0.013259120285511017
+      },
+      "psd_sum_sparse": 0.09531649202108383,
+      "psd_sum_fine": 0.6496496796607971
+    }
+  ],
+  "samples": [
+    {
+      "sample_id": "train/29",
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "N": 12000000,
+      "h": 23484,
+      "n_ext": 12000324,
+      "fine_L": 56000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 11720,
+      "coarse_bin_hz": 39062.5,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 4.059106117892952e-07,
+      "seconds": {
+        "fine": 0.6796352341771126,
+        "sparse": 0.04626169800758362,
+        "dense": 0.4348716512322426,
+        "dense_pool": 0.578952245414257,
+        "fine_pool": 0.32468679547309875,
+        "fine_hann_pool": 0.12171042710542679
+      }
+    },
+    {
+      "sample_id": "train/68",
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "N": 12000000,
+      "h": 23484,
+      "n_ext": 12000324,
+      "fine_L": 56000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 11720,
+      "coarse_bin_hz": 39062.5,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 2.0375134113237436e-07,
+      "seconds": {
+        "fine": 0.4254227504134178,
+        "sparse": 0.049186304211616516,
+        "dense": 0.40523821860551834,
+        "dense_pool": 0.5652908161282539,
+        "fine_pool": 0.23684918135404587,
+        "fine_hann_pool": 0.09654319286346436
+      }
+    },
+    {
+      "sample_id": "train/103",
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "N": 12000000,
+      "h": 23484,
+      "n_ext": 12000324,
+      "fine_L": 56000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 11720,
+      "coarse_bin_hz": 39062.5,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 3.1486248985856946e-07,
+      "seconds": {
+        "fine": 0.43649452179670334,
+        "sparse": 0.04512977600097656,
+        "dense": 0.39653246104717255,
+        "dense_pool": 0.5724761337041855,
+        "fine_pool": 0.23333457857370377,
+        "fine_hann_pool": 0.09641600400209427
+      }
+    },
+    {
+      "sample_id": "train/14",
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "N": 6000000,
+      "h": 11742,
+      "n_ext": 6000162,
+      "fine_L": 28000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 5860,
+      "coarse_bin_hz": 19531.25,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 3.502181300518714e-07,
+      "seconds": {
+        "fine": 0.2282937541604042,
+        "sparse": 0.026641756296157837,
+        "dense": 0.20560067147016525,
+        "dense_pool": 0.4120020344853401,
+        "fine_pool": 0.1720355972647667,
+        "fine_hann_pool": 0.0817541629076004
+      }
+    },
+    {
+      "sample_id": "train/15",
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "N": 6000000,
+      "h": 11742,
+      "n_ext": 6000162,
+      "fine_L": 28000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 5860,
+      "coarse_bin_hz": 19531.25,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 3.808578128428053e-07,
+      "seconds": {
+        "fine": 0.21348387002944946,
+        "sparse": 0.02422124147415161,
+        "dense": 0.18855014443397522,
+        "dense_pool": 0.4373372569680214,
+        "fine_pool": 0.14864107966423035,
+        "fine_hann_pool": 0.08432689309120178
+      }
+    },
+    {
+      "sample_id": "train/108",
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "N": 3000000,
+      "h": 5871,
+      "n_ext": 3000081,
+      "fine_L": 14000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 2930,
+      "coarse_bin_hz": 9765.625,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 3.3975126711993653e-07,
+      "seconds": {
+        "fine": 0.10807404667139053,
+        "sparse": 0.007276348769664764,
+        "dense": 0.10211633145809174,
+        "dense_pool": 0.28636986017227173,
+        "fine_pool": 0.10576047003269196,
+        "fine_hann_pool": 0.07529262453317642
+      }
+    },
+    {
+      "sample_id": "train/270",
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "N": 3000001,
+      "h": 5871,
+      "n_ext": 3000081,
+      "fine_L": 14000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 2930,
+      "coarse_bin_hz": 9765.625,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 2.872459674563288e-07,
+      "seconds": {
+        "fine": 0.10158698260784149,
+        "sparse": 0.004738673567771912,
+        "dense": 0.08990173786878586,
+        "dense_pool": 0.27481280267238617,
+        "fine_pool": 0.10528958588838577,
+        "fine_hann_pool": 0.07533983886241913
+      }
+    },
+    {
+      "sample_id": "train/130",
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "N": 1600000,
+      "h": 3132,
+      "n_ext": 1600452,
+      "fine_L": 56000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 1563,
+      "coarse_bin_hz": 39062.5,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 3.2964467777674145e-07,
+      "seconds": {
+        "fine": 0.38620108366012573,
+        "sparse": 0.004056677222251892,
+        "dense": 0.03031942993402481,
+        "dense_pool": 0.23547553271055222,
+        "fine_pool": 0.23315224796533585,
+        "fine_hann_pool": 0.09776482731103897
+      }
+    },
+    {
+      "sample_id": "train/214",
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "N": 1600000,
+      "h": 3132,
+      "n_ext": 1600452,
+      "fine_L": 56000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 1563,
+      "coarse_bin_hz": 39062.5,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 3.592087693959911e-07,
+      "seconds": {
+        "fine": 0.39273297041654587,
+        "sparse": 0.00382126122713089,
+        "dense": 0.03494638949632645,
+        "dense_pool": 0.2285303995013237,
+        "fine_pool": 0.23285335302352905,
+        "fine_hann_pool": 0.0975450798869133
+      }
+    },
+    {
+      "sample_id": "train/33",
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "N": 400000,
+      "h": 783,
+      "n_ext": 400113,
+      "fine_L": 14000,
+      "dense_hop": 391,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 1024,
+      "coarse_bin_hz": 9765.625,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 4.0322112226931495e-07,
+      "seconds": {
+        "fine": 0.08201908320188522,
+        "sparse": 0.004648864269256592,
+        "dense": 0.010407261550426483,
+        "dense_pool": 0.21521202474832535,
+        "fine_pool": 0.10461902618408203,
+        "fine_hann_pool": 0.07457676529884338
+      }
+    },
+    {
+      "sample_id": "train/188",
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "N": 400000,
+      "h": 783,
+      "n_ext": 400113,
+      "fine_L": 14000,
+      "dense_hop": 391,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 1024,
+      "coarse_bin_hz": 9765.625,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 2.9687345204365556e-07,
+      "seconds": {
+        "fine": 0.09648191928863525,
+        "sparse": 0.003936581313610077,
+        "dense": 0.010799646377563477,
+        "dense_pool": 0.2163780927658081,
+        "fine_pool": 0.11062190681695938,
+        "fine_hann_pool": 0.07506483793258667
+      }
+    },
+    {
+      "sample_id": "train/151",
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "N": 1600000,
+      "h": 3132,
+      "n_ext": 1600452,
+      "fine_L": 28000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 1563,
+      "coarse_bin_hz": 19531.25,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 2.971837318455073e-07,
+      "seconds": {
+        "fine": 0.1978418529033661,
+        "sparse": 0.0043633803725242615,
+        "dense": 0.01711062341928482,
+        "dense_pool": 0.21611419320106506,
+        "fine_pool": 0.1482136994600296,
+        "fine_hann_pool": 0.08307092636823654
+      }
+    },
+    {
+      "sample_id": "train/357",
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "N": 12000000,
+      "h": 23484,
+      "n_ext": 12000324,
+      "fine_L": 56000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 11720,
+      "coarse_bin_hz": 39062.5,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 4.080248459104041e-07,
+      "seconds": {
+        "fine": 0.42500949651002884,
+        "sparse": 0.05172938108444214,
+        "dense": 0.409226156771183,
+        "dense_pool": 0.5711083486676216,
+        "fine_pool": 0.3750154376029968,
+        "fine_hann_pool": 0.10829945653676987
+      }
+    },
+    {
+      "sample_id": "train/342",
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "N": 3000001,
+      "h": 5871,
+      "n_ext": 3000081,
+      "fine_L": 14000,
+      "dense_hop": 1024,
+      "fine_frames": 512,
+      "sparse_frames": 512,
+      "dense_frames": 2930,
+      "coarse_bin_hz": 9765.625,
+      "fine_bin_hz": 1428.5714285714287,
+      "time_center_max_diff": 0.0,
+      "fine_power_rel_err": 4.2695580759755103e-07,
+      "seconds": {
+        "fine": 0.10139700770378113,
+        "sparse": 0.011707082390785217,
+        "dense": 0.0949058011174202,
+        "dense_pool": 0.3005695194005966,
+        "fine_pool": 0.13051971048116684,
+        "fine_hann_pool": 0.09643694758415222
+      }
+    }
+  ],
+  "signals": [
+    {
+      "sample_id": "train/29",
+      "signal_id": 0,
+      "class": 7,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 29.0,
+      "end_ms": 83.0,
+      "start_mhz": 2431.0,
+      "end_mhz": 2433.0,
+      "dur_ms": 54.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08722962962962962,
+      "start_center_ms": 0.061450000000000005,
+      "end_center_ms": 0.07464999999998835,
+      "gt_cols": [
+        99,
+        283
+      ],
+      "sparse_support": [
+        121,
+        257
+      ],
+      "sparse_start_err_cols": 22,
+      "sparse_end_err_cols": -26,
+      "sparse_start_err_ms": 6.4581,
+      "sparse_end_err_ms": -7.6323,
+      "dense_power_support": [
+        120,
+        258
+      ],
+      "dense_power_start_err_cols": 21,
+      "dense_power_end_err_cols": -25,
+      "dense_power_start_err_ms": 6.16455,
+      "dense_power_end_err_ms": -7.33875,
+      "fine_support": [
+        120,
+        258
+      ],
+      "fine_start_err_cols": 21,
+      "fine_end_err_cols": -25,
+      "fine_start_err_ms": 6.16455,
+      "fine_end_err_ms": -7.33875,
+      "fine_power_support": [
+        120,
+        258
+      ],
+      "fine_power_start_err_cols": 21,
+      "fine_power_end_err_cols": -25,
+      "fine_power_start_err_ms": 6.16455,
+      "fine_power_end_err_ms": -7.33875,
+      "dense_energy_frac": 6.243465759325773e-05,
+      "sparse_energy_frac": 1.0020242929458618,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.0010930299758911,
+      "dense_complex_coherence": 0.058493335205181254,
+      "fine_complex_coherence": 0.09597630669260418,
+      "fine_hann_complex_coherence": 0.15279339216390642
+    },
+    {
+      "sample_id": "train/29",
+      "signal_id": 1,
+      "class": 4,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 17.0,
+      "end_ms": 90.0,
+      "start_mhz": 2422.0,
+      "end_mhz": 2462.0,
+      "dur_ms": 73.0,
+      "bandwidth_mhz": 40.0,
+      "sparse_coverage": 0.08732054794520548,
+      "start_center_ms": 0.0259,
+      "end_center_ms": 0.11985,
+      "gt_cols": [
+        58,
+        307
+      ],
+      "sparse_support": [
+        48,
+        306
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        48,
+        306
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        48,
+        306
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        48,
+        306
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 8.704641004442237e-06,
+      "sparse_energy_frac": 1.0002686977386475,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9998024702072144,
+      "dense_complex_coherence": 0.057854108298367624,
+      "fine_complex_coherence": 0.09525180447867782,
+      "fine_hann_complex_coherence": 0.1510676520097939
+    },
+    {
+      "sample_id": "train/29",
+      "signal_id": 2,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 16.0,
+      "end_ms": 84.0,
+      "start_mhz": 2471.0,
+      "end_mhz": 2473.0,
+      "dur_ms": 68.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08734117647058824,
+      "start_center_ms": 0.14525000000000002,
+      "end_center_ms": 0.044700000000000004,
+      "gt_cols": [
+        55,
+        286
+      ],
+      "sparse_support": [
+        55,
+        286
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        55,
+        286
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        55,
+        286
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        55,
+        286
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0001203493811772205,
+      "sparse_energy_frac": 1.0145447254180908,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.0054476261138916,
+      "dense_complex_coherence": 0.05828661465865124,
+      "fine_complex_coherence": 0.09530658856582644,
+      "fine_hann_complex_coherence": 0.1505343251109225
+    },
+    {
+      "sample_id": "train/29",
+      "signal_id": 3,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 72.0,
+      "end_ms": 138.0,
+      "start_mhz": 2466.0,
+      "end_mhz": 2468.0,
+      "dur_ms": 66.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08727272727272728,
+      "start_center_ms": 0.08025,
+      "end_center_ms": 0.0315,
+      "gt_cols": [
+        245,
+        470
+      ],
+      "sparse_support": [
+        246,
+        470
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        246,
+        470
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        246,
+        470
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        246,
+        470
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 4.886792885372415e-05,
+      "sparse_energy_frac": 0.9978121519088745,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9990358352661133,
+      "dense_complex_coherence": 0.05610028613645918,
+      "fine_complex_coherence": 0.09519338573869783,
+      "fine_hann_complex_coherence": 0.1524061120242269
+    },
+    {
+      "sample_id": "train/29",
+      "signal_id": 4,
+      "class": 11,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 0.0,
+      "end_ms": 25.0,
+      "start_mhz": 2423.22,
+      "end_mhz": 2430.78,
+      "dur_ms": 25.0,
+      "bandwidth_mhz": 7.5600000000004,
+      "sparse_coverage": 0.087552,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.04825,
+      "gt_cols": [
+        0,
+        85
+      ],
+      "sparse_support": [
+        0,
+        95
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        0,
+        95
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        0,
+        95
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        0,
+        95
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 9.900780241878238e-06,
+      "sparse_energy_frac": 0.9886884093284607,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9900751113891602,
+      "dense_complex_coherence": 0.05830621810089891,
+      "fine_complex_coherence": 0.09418377022841501,
+      "fine_hann_complex_coherence": 0.15057159603800152
+    },
+    {
+      "sample_id": "train/29",
+      "signal_id": 5,
+      "class": 11,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 50.0,
+      "end_ms": 79.75886,
+      "start_mhz": 2412.0,
+      "end_mhz": 2422.0,
+      "dur_ms": 29.75886,
+      "bandwidth_mhz": 10.0,
+      "sparse_coverage": 0.08688504868802098,
+      "start_center_ms": 0.0965,
+      "end_center_ms": 0.08674000000000233,
+      "gt_cols": [
+        170,
+        272
+      ],
+      "sparse_support": [
+        171,
+        271
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        170,
+        272
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        170,
+        272
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        170,
+        272
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 6.615516213059891e-06,
+      "sparse_energy_frac": 0.9906262755393982,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.009708737864077669,
+      "sparse_dense_ratio_median": 0.9962770342826843,
+      "dense_complex_coherence": 0.057550939345165995,
+      "fine_complex_coherence": 0.09427608796709105,
+      "fine_hann_complex_coherence": 0.14940020149915192
+    },
+    {
+      "sample_id": "train/68",
+      "signal_id": 0,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 13.0,
+      "end_ms": 47.0,
+      "start_mhz": 2456.0,
+      "end_mhz": 2458.0,
+      "dur_ms": 34.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08734117647058826,
+      "start_center_ms": 0.0838,
+      "end_center_ms": 0.03199999999999418,
+      "gt_cols": [
+        44,
+        160
+      ],
+      "sparse_support": [
+        45,
+        157
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -3,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": -0.8806499999999999,
+      "dense_power_support": [
+        44,
+        159
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        44,
+        159
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        44,
+        159
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 3.020290023414418e-05,
+      "sparse_energy_frac": 0.9810000658035278,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9620262980461121,
+      "dense_complex_coherence": 0.05672782162082176,
+      "fine_complex_coherence": 0.09471044895874363,
+      "fine_hann_complex_coherence": 0.1510283388059348
+    },
+    {
+      "sample_id": "train/68",
+      "signal_id": 1,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 17.0,
+      "end_ms": 76.0,
+      "start_mhz": 2431.0,
+      "end_mhz": 2433.0,
+      "dur_ms": 59.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08721355932203391,
+      "start_center_ms": 0.0259,
+      "end_center_ms": 0.029450000000011644,
+      "gt_cols": [
+        58,
+        259
+      ],
+      "sparse_support": [
+        58,
+        254
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -5,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -1.46775,
+      "dense_power_support": [
+        58,
+        254
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -5,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -1.46775,
+      "fine_support": [
+        58,
+        254
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -5,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -1.46775,
+      "fine_power_support": [
+        58,
+        254
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -5,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -1.46775,
+      "dense_energy_frac": 6.113933341111988e-05,
+      "sparse_energy_frac": 1.005847454071045,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9995838403701782,
+      "dense_complex_coherence": 0.05759848295476847,
+      "fine_complex_coherence": 0.09505324283254643,
+      "fine_hann_complex_coherence": 0.15001133101321826
+    },
+    {
+      "sample_id": "train/68",
+      "signal_id": 2,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 59.0,
+      "end_ms": 125.0,
+      "start_mhz": 2456.0,
+      "end_mhz": 2458.0,
+      "dur_ms": 66.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08713257575757576,
+      "start_center_ms": 0.0035499999999999998,
+      "end_center_ms": 0.0523,
+      "gt_cols": [
+        201,
+        426
+      ],
+      "sparse_support": [
+        197,
+        425
+      ],
+      "sparse_start_err_cols": -4,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": -1.1742000000000001,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        191,
+        426
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        191,
+        426
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        191,
+        426
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 2.639603553689085e-05,
+      "sparse_energy_frac": 0.9879328012466431,
+      "sparse_missed_bins": 14,
+      "sparse_missed_frac": 0.061946902654867256,
+      "sparse_dense_ratio_median": 0.9558777809143066,
+      "dense_complex_coherence": 0.05839215810570616,
+      "fine_complex_coherence": 0.093558064559651,
+      "fine_hann_complex_coherence": 0.14591507172599033
+    },
+    {
+      "sample_id": "train/68",
+      "signal_id": 3,
+      "class": 0,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 0.0,
+      "end_ms": 66.0,
+      "start_mhz": 2447.0,
+      "end_mhz": 2467.0,
+      "dur_ms": 66.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.08707878787878788,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.04875,
+      "gt_cols": [
+        0,
+        225
+      ],
+      "sparse_support": [
+        0,
+        232
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 7,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 2.05485,
+      "dense_power_support": [
+        0,
+        232
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 7,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 2.05485,
+      "fine_support": [
+        0,
+        232
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 7,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 2.05485,
+      "fine_power_support": [
+        0,
+        232
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 7,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 2.05485,
+      "dense_energy_frac": 1.202735620609019e-05,
+      "sparse_energy_frac": 0.9875230193138123,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9939846992492676,
+      "dense_complex_coherence": 0.05715114994380708,
+      "fine_complex_coherence": 0.09460807486853232,
+      "fine_hann_complex_coherence": 0.1499262308563995
+    },
+    {
+      "sample_id": "train/103",
+      "signal_id": 0,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 0.0,
+      "end_ms": 53.0,
+      "start_mhz": 2471.0,
+      "end_mhz": 2473.0,
+      "dur_ms": 53.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08718490566037736,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.13255,
+      "gt_cols": [
+        0,
+        181
+      ],
+      "sparse_support": [
+        32,
+        180
+      ],
+      "sparse_start_err_cols": 32,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 9.393600000000001,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        36,
+        180
+      ],
+      "dense_power_start_err_cols": 36,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 10.5678,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        35,
+        181
+      ],
+      "fine_start_err_cols": 35,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 10.27425,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        35,
+        181
+      ],
+      "fine_power_start_err_cols": 35,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 10.27425,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 8.67365815793164e-06,
+      "sparse_energy_frac": 1.0081912279129028,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.004833698272705,
+      "dense_complex_coherence": 0.057362617796137175,
+      "fine_complex_coherence": 0.09594638009179658,
+      "fine_hann_complex_coherence": 0.14874607278101643
+    },
+    {
+      "sample_id": "train/103",
+      "signal_id": 1,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 20.0,
+      "end_ms": 64.0,
+      "start_mhz": 2436.0,
+      "end_mhz": 2438.0,
+      "dur_ms": 44.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.08712045454545454,
+      "start_center_ms": 0.0386,
+      "end_center_ms": 0.0061,
+      "gt_cols": [
+        68,
+        218
+      ],
+      "sparse_support": [
+        69,
+        218
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        68,
+        218
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        68,
+        218
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        68,
+        218
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 9.097573638428003e-05,
+      "sparse_energy_frac": 0.9907282590866089,
+      "sparse_missed_bins": 5,
+      "sparse_missed_frac": 0.033112582781456956,
+      "sparse_dense_ratio_median": 0.9708105325698853,
+      "dense_complex_coherence": 0.058589668722378516,
+      "fine_complex_coherence": 0.09430025928744883,
+      "fine_hann_complex_coherence": 0.14754976802060496
+    },
+    {
+      "sample_id": "train/103",
+      "signal_id": 2,
+      "class": 4,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 0.0,
+      "end_ms": 57.0,
+      "start_mhz": 2412.0,
+      "end_mhz": 2452.0,
+      "dur_ms": 57.0,
+      "bandwidth_mhz": 40.0,
+      "sparse_coverage": 0.08735438596491228,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0513,
+      "gt_cols": [
+        0,
+        194
+      ],
+      "sparse_support": [
+        1,
+        204
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        0,
+        204
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        0,
+        204
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        0,
+        204
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 9.454181054024957e-06,
+      "sparse_energy_frac": 0.9913803339004517,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.993891716003418,
+      "dense_complex_coherence": 0.05789626414888886,
+      "fine_complex_coherence": 0.0942220452153699,
+      "fine_hann_complex_coherence": 0.14851640349034276
+    },
+    {
+      "sample_id": "train/103",
+      "signal_id": 3,
+      "class": 3,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 57.0,
+      "end_ms": 150.0,
+      "start_mhz": 2422.0,
+      "end_mhz": 2462.0,
+      "dur_ms": 93.0,
+      "bandwidth_mhz": 40.0,
+      "sparse_coverage": 0.08707903225806451,
+      "start_center_ms": 0.0513,
+      "end_center_ms": 0.00405,
+      "gt_cols": [
+        194,
+        511
+      ],
+      "sparse_support": [
+        184,
+        510
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        184,
+        511
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        184,
+        510
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        184,
+        510
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 1.073118437489029e-05,
+      "sparse_energy_frac": 0.9987664222717285,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.0031446540880503146,
+      "sparse_dense_ratio_median": 0.9975895285606384,
+      "dense_complex_coherence": 0.05763475831636946,
+      "fine_complex_coherence": 0.09499654760563926,
+      "fine_hann_complex_coherence": 0.150638222786298
+    },
+    {
+      "sample_id": "train/103",
+      "signal_id": 4,
+      "class": 0,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 36.0,
+      "end_ms": 82.0,
+      "start_mhz": 2422.0,
+      "end_mhz": 2442.0,
+      "dur_ms": 46.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.08737391304347826,
+      "start_center_ms": 0.10665000000000001,
+      "end_center_ms": 0.09955,
+      "gt_cols": [
+        123,
+        279
+      ],
+      "sparse_support": [
+        114,
+        289
+      ],
+      "sparse_start_err_cols": -9,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": -2.64195,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        113,
+        289
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        113,
+        289
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        113,
+        289
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 1.6893300198717043e-05,
+      "sparse_energy_frac": 1.0012139081954956,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9946789741516113,
+      "dense_complex_coherence": 0.05814399782506542,
+      "fine_complex_coherence": 0.09464559708480079,
+      "fine_hann_complex_coherence": 0.14964819121869175
+    },
+    {
+      "sample_id": "train/103",
+      "signal_id": 5,
+      "class": 7,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 82.0,
+      "end_ms": 98.0,
+      "start_mhz": 2435.0,
+      "end_mhz": 2437.0,
+      "dur_ms": 16.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.0864,
+      "start_center_ms": 0.09955,
+      "end_center_ms": 0.0457,
+      "gt_cols": [
+        279,
+        334
+      ],
+      "sparse_support": [
+        269,
+        344
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        269,
+        344
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        269,
+        344
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        269,
+        344
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 5.635703928419389e-06,
+      "sparse_energy_frac": 0.939514696598053,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9250951409339905,
+      "dense_complex_coherence": 0.056924066331155904,
+      "fine_complex_coherence": 0.09186844331941714,
+      "fine_hann_complex_coherence": 0.14862079459889388
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 0,
+      "class": 5,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 70.0,
+      "end_ms": 79.0,
+      "start_mhz": 2442.0,
+      "end_mhz": 2482.0,
+      "dur_ms": 9.0,
+      "bandwidth_mhz": 40.0,
+      "sparse_coverage": 0.1763555555555558,
+      "start_center_ms": 0.13510000000001163,
+      "end_center_ms": 0.03505,
+      "gt_cols": [
+        238,
+        269
+      ],
+      "sparse_support": [
+        228,
+        279
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        228,
+        279
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        228,
+        279
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        228,
+        279
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 1.0305195246473886e-05,
+      "sparse_energy_frac": 1.001962423324585,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.041449785232544,
+      "dense_complex_coherence": 0.11322519024009323,
+      "fine_complex_coherence": 0.18328475456684296,
+      "fine_hann_complex_coherence": 0.30683226867830377
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 1,
+      "class": 6,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 5.0,
+      "end_ms": 26.0,
+      "start_mhz": 2457.5,
+      "end_mhz": 2458.5,
+      "dur_ms": 21.0,
+      "bandwidth_mhz": 1.0,
+      "sparse_coverage": 0.17386428571428572,
+      "start_center_ms": 0.00965,
+      "end_center_ms": 0.12595,
+      "gt_cols": [
+        17,
+        89
+      ],
+      "sparse_support": [
+        18,
+        88
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        17,
+        88
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        17,
+        89
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        17,
+        89
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0002847470168489963,
+      "sparse_energy_frac": 0.9852474927902222,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.0136986301369863,
+      "sparse_dense_ratio_median": 0.994482696056366,
+      "dense_complex_coherence": 0.11226850623956075,
+      "fine_complex_coherence": 0.18484820686335993,
+      "fine_hann_complex_coherence": 0.3058105502647046
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 2,
+      "class": 11,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 71.0,
+      "end_ms": 77.99992999999999,
+      "start_mhz": 2471.2,
+      "end_mhz": 2472.8,
+      "dur_ms": 6.999929999999992,
+      "bandwidth_mhz": 1.6000000000003638,
+      "sparse_coverage": 0.1755446125889832,
+      "start_center_ms": 0.039100000000011646,
+      "end_center_ms": 0.08437000000001862,
+      "gt_cols": [
+        242,
+        266
+      ],
+      "sparse_support": [
+        242,
+        265
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        242,
+        266
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        242,
+        266
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        242,
+        266
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 3.454516991041601e-05,
+      "sparse_energy_frac": 1.021771788597107,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9737585186958313,
+      "dense_complex_coherence": 0.11352470278497676,
+      "fine_complex_coherence": 0.18277093438532974,
+      "fine_hann_complex_coherence": 0.3036702697329011
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 3,
+      "class": 9,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 32.0,
+      "end_ms": 74.99980000000001,
+      "start_mhz": 2447.97385,
+      "end_mhz": 2448.02615,
+      "dur_ms": 42.99980000000001,
+      "bandwidth_mhz": 0.05230000000028667,
+      "sparse_coverage": 0.17436709007948875,
+      "start_center_ms": 0.00305,
+      "end_center_ms": 0.14454999999999998,
+      "gt_cols": [
+        109,
+        255
+      ],
+      "sparse_support": [
+        109,
+        255
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        109,
+        255
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        109,
+        255
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        109,
+        255
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0015881152357906103,
+      "sparse_energy_frac": 1.0026808977127075,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9995014667510986,
+      "dense_complex_coherence": 0.11315975999153434,
+      "fine_complex_coherence": 0.18651911110813904,
+      "fine_hann_complex_coherence": 0.330400906329355
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 4,
+      "class": 8,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 33.0,
+      "end_ms": 85.0,
+      "start_mhz": 2456.0,
+      "end_mhz": 2458.0,
+      "dur_ms": 52.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.17427692307692305,
+      "start_center_ms": 0.1224,
+      "end_center_ms": 0.12949999999998835,
+      "gt_cols": [
+        112,
+        290
+      ],
+      "sparse_support": [
+        116,
+        286
+      ],
+      "sparse_start_err_cols": 4,
+      "sparse_end_err_cols": -4,
+      "sparse_start_err_ms": 1.1742000000000001,
+      "sparse_end_err_ms": -1.1742000000000001,
+      "dense_power_support": [
+        115,
+        286
+      ],
+      "dense_power_start_err_cols": 3,
+      "dense_power_end_err_cols": -4,
+      "dense_power_start_err_ms": 0.8806499999999999,
+      "dense_power_end_err_ms": -1.1742000000000001,
+      "fine_support": [
+        115,
+        286
+      ],
+      "fine_start_err_cols": 3,
+      "fine_end_err_cols": -4,
+      "fine_start_err_ms": 0.8806499999999999,
+      "fine_end_err_ms": -1.1742000000000001,
+      "fine_power_support": [
+        115,
+        286
+      ],
+      "fine_power_start_err_cols": 3,
+      "fine_power_end_err_cols": -4,
+      "fine_power_start_err_ms": 0.8806499999999999,
+      "fine_power_end_err_ms": -1.1742000000000001,
+      "dense_energy_frac": 0.00041242252336815,
+      "sparse_energy_frac": 1.0245962142944336,
+      "sparse_missed_bins": 8,
+      "sparse_missed_frac": 0.0446927374301676,
+      "sparse_dense_ratio_median": 1.0078825950622559,
+      "dense_complex_coherence": 0.11736992984095349,
+      "fine_complex_coherence": 0.18376163886261407,
+      "fine_hann_complex_coherence": 0.3028852710134902
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 5,
+      "class": 1,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 11.0,
+      "end_ms": 81.0,
+      "start_mhz": 2447.0,
+      "end_mhz": 2467.0,
+      "dur_ms": 70.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.17416285714285729,
+      "start_center_ms": 0.13865,
+      "end_center_ms": 0.019799999999988358,
+      "gt_cols": [
+        37,
+        276
+      ],
+      "sparse_support": [
+        32,
+        286
+      ],
+      "sparse_start_err_cols": -5,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": -1.46775,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        31,
+        286
+      ],
+      "dense_power_start_err_cols": -6,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": -1.7612999999999999,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        31,
+        286
+      ],
+      "fine_start_err_cols": -6,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": -1.7612999999999999,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        31,
+        286
+      ],
+      "fine_power_start_err_cols": -6,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": -1.7612999999999999,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 7.604344864375889e-05,
+      "sparse_energy_frac": 1.0112230777740479,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.000427484512329,
+      "dense_complex_coherence": 0.11519568334908042,
+      "fine_complex_coherence": 0.18434082076430905,
+      "fine_hann_complex_coherence": 0.3051296176282882
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 6,
+      "class": 9,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 22.0,
+      "end_ms": 56.0,
+      "start_mhz": 2471.875,
+      "end_mhz": 2472.125,
+      "dur_ms": 34.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.17440735294117646,
+      "start_center_ms": 0.016249999999999997,
+      "end_center_ms": 0.06805,
+      "gt_cols": [
+        75,
+        191
+      ],
+      "sparse_support": [
+        76,
+        190
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        78,
+        190
+      ],
+      "dense_power_start_err_cols": 3,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.8806499999999999,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        78,
+        190
+      ],
+      "fine_start_err_cols": 3,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.8806499999999999,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        78,
+        190
+      ],
+      "fine_power_start_err_cols": 3,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.8806499999999999,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.0009075666312128305,
+      "sparse_energy_frac": 0.955509603023529,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.008547008547008548,
+      "sparse_dense_ratio_median": 0.6866766810417175,
+      "dense_complex_coherence": 0.11751146690835501,
+      "fine_complex_coherence": 0.17484510537143724,
+      "fine_hann_complex_coherence": 0.2822130961353864
+    },
+    {
+      "sample_id": "train/14",
+      "signal_id": 7,
+      "class": 8,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 51.0,
+      "end_ms": 88.0,
+      "start_mhz": 2451.0,
+      "end_mhz": 2453.0,
+      "dur_ms": 37.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.17435675675675671,
+      "start_center_ms": 0.07770000000001165,
+      "end_center_ms": 0.06499999999999999,
+      "gt_cols": [
+        174,
+        300
+      ],
+      "sparse_support": [
+        174,
+        299
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        174,
+        300
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        174,
+        300
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        174,
+        300
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 7.799367449479178e-05,
+      "sparse_energy_frac": 1.0008398294448853,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.007874015748031496,
+      "sparse_dense_ratio_median": 1.0046194791793823,
+      "dense_complex_coherence": 0.1130812493781109,
+      "fine_complex_coherence": 0.1840273771503074,
+      "fine_hann_complex_coherence": 0.30333693138567236
+    },
+    {
+      "sample_id": "train/15",
+      "signal_id": 0,
+      "class": 0,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 124.0,
+      "end_ms": 128.0,
+      "start_mhz": 2447.0,
+      "end_mhz": 2467.0,
+      "dur_ms": 4.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.17585,
+      "start_center_ms": 0.1219,
+      "end_center_ms": 0.0122,
+      "gt_cols": [
+        422,
+        436
+      ],
+      "sparse_support": [
+        412,
+        446
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        412,
+        446
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        412,
+        446
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        412,
+        446
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 7.679162905560588e-08,
+      "sparse_energy_frac": 1.0185805559158325,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.0146714448928833,
+      "dense_complex_coherence": 0.11289805570311934,
+      "fine_complex_coherence": 0.1851468791870641,
+      "fine_hann_complex_coherence": 0.30292277917925897
+    },
+    {
+      "sample_id": "train/15",
+      "signal_id": 1,
+      "class": 8,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 26.0,
+      "end_ms": 53.0,
+      "start_mhz": 2451.0,
+      "end_mhz": 2453.0,
+      "dur_ms": 27.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.17445925925925926,
+      "start_center_ms": 0.12595,
+      "end_center_ms": 0.13255,
+      "gt_cols": [
+        89,
+        181
+      ],
+      "sparse_support": [
+        89,
+        180
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        89,
+        180
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        89,
+        180
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        89,
+        180
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.0002981313446070999,
+      "sparse_energy_frac": 1.0008530616760254,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.00032639503479,
+      "dense_complex_coherence": 0.11409753515102906,
+      "fine_complex_coherence": 0.18424423197101514,
+      "fine_hann_complex_coherence": 0.30525386249898667
+    },
+    {
+      "sample_id": "train/15",
+      "signal_id": 2,
+      "class": 8,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 105.0,
+      "end_ms": 150.0,
+      "start_mhz": 2471.0,
+      "end_mhz": 2473.0,
+      "dur_ms": 45.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.1745588888888889,
+      "start_center_ms": 0.0909,
+      "end_center_ms": 0.00405,
+      "gt_cols": [
+        358,
+        511
+      ],
+      "sparse_support": [
+        358,
+        511
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        358,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        358,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        358,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.00023116660304367542,
+      "sparse_energy_frac": 0.9931948781013489,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9986616373062134,
+      "dense_complex_coherence": 0.11601457338564813,
+      "fine_complex_coherence": 0.18385887123178155,
+      "fine_hann_complex_coherence": 0.3016295087106416
+    },
+    {
+      "sample_id": "train/15",
+      "signal_id": 3,
+      "class": 8,
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "start_ms": 67.0,
+      "end_ms": 76.0,
+      "start_mhz": 2436.0,
+      "end_mhz": 2438.0,
+      "dur_ms": 9.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.17066666666666688,
+      "start_center_ms": 0.0706,
+      "end_center_ms": 0.029450000000011644,
+      "gt_cols": [
+        228,
+        259
+      ],
+      "sparse_support": [
+        229,
+        256
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -3,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": -0.8806499999999999,
+      "dense_power_support": [
+        228,
+        256
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -3,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.8806499999999999,
+      "fine_support": [
+        228,
+        256
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -3,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -0.8806499999999999,
+      "fine_power_support": [
+        228,
+        256
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -3,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -0.8806499999999999,
+      "dense_energy_frac": 3.549931716406718e-05,
+      "sparse_energy_frac": 0.9102698564529419,
+      "sparse_missed_bins": 2,
+      "sparse_missed_frac": 0.0625,
+      "sparse_dense_ratio_median": 0.9470700621604919,
+      "dense_complex_coherence": 0.11371859121648038,
+      "fine_complex_coherence": 0.17642345039490043,
+      "fine_hann_complex_coherence": 0.29307645121714987
+    },
+    {
+      "sample_id": "train/108",
+      "signal_id": 0,
+      "class": 1,
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "start_ms": 61.0,
+      "end_ms": 69.0,
+      "start_mhz": 2407.0,
+      "end_mhz": 2427.0,
+      "dur_ms": 8.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.35396875,
+      "start_center_ms": 0.0584,
+      "end_center_ms": 0.01575,
+      "gt_cols": [
+        208,
+        235
+      ],
+      "sparse_support": [
+        198,
+        245
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        198,
+        245
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        198,
+        245
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        198,
+        245
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 1.4082866073295008e-05,
+      "sparse_energy_frac": 1.0385167598724365,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.0035157203674316,
+      "dense_complex_coherence": 0.21848863542481692,
+      "fine_complex_coherence": 0.3566971918859627,
+      "fine_hann_complex_coherence": 0.5954531236731271
+    },
+    {
+      "sample_id": "train/108",
+      "signal_id": 1,
+      "class": 8,
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "start_ms": 39.0,
+      "end_ms": 77.99992999999999,
+      "start_mhz": 2416.0,
+      "end_mhz": 2418.0,
+      "dur_ms": 38.99992999999999,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.34897883150046694,
+      "start_center_ms": 0.04215,
+      "end_center_ms": 0.08437000000001862,
+      "gt_cols": [
+        133,
+        266
+      ],
+      "sparse_support": [
+        133,
+        265
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        133,
+        266
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        133,
+        266
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        133,
+        266
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.00011197686399100348,
+      "sparse_energy_frac": 1.0012907981872559,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.007462686567164179,
+      "sparse_dense_ratio_median": 0.9956158995628357,
+      "dense_complex_coherence": 0.2237896759492648,
+      "fine_complex_coherence": 0.3477561080021659,
+      "fine_hann_complex_coherence": 0.5805509204963463
+    },
+    {
+      "sample_id": "train/108",
+      "signal_id": 2,
+      "class": 11,
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "start_ms": 0.0,
+      "end_ms": 22.0,
+      "start_mhz": 2408.22,
+      "end_mhz": 2415.78,
+      "dur_ms": 22.0,
+      "bandwidth_mhz": 7.5600000000004,
+      "sparse_coverage": 0.3483522727272727,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.016249999999999997,
+      "gt_cols": [
+        0,
+        75
+      ],
+      "sparse_support": [
+        0,
+        74
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        0,
+        75
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        75
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        75
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 8.56391852721572e-06,
+      "sparse_energy_frac": 0.9845969676971436,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.013157894736842105,
+      "sparse_dense_ratio_median": 0.9842190742492676,
+      "dense_complex_coherence": 0.22499084258958513,
+      "fine_complex_coherence": 0.3430198142147485,
+      "fine_hann_complex_coherence": 0.5739718439795363
+    },
+    {
+      "sample_id": "train/108",
+      "signal_id": 3,
+      "class": 6,
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "start_ms": 58.0,
+      "end_ms": 128.0,
+      "start_mhz": 2425.5,
+      "end_mhz": 2426.5,
+      "dur_ms": 70.0,
+      "bandwidth_mhz": 1.0,
+      "sparse_coverage": 0.3490657142857143,
+      "start_center_ms": 0.12290000000000001,
+      "end_center_ms": 0.0122,
+      "gt_cols": [
+        198,
+        436
+      ],
+      "sparse_support": [
+        198,
+        436
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        198,
+        436
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        198,
+        436
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        198,
+        436
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0005852464819326997,
+      "sparse_energy_frac": 0.9945434331893921,
+      "sparse_missed_bins": 18,
+      "sparse_missed_frac": 0.07531380753138076,
+      "sparse_dense_ratio_median": 0.994387686252594,
+      "dense_complex_coherence": 0.22287348272382296,
+      "fine_complex_coherence": 0.34971960174660144,
+      "fine_hann_complex_coherence": 0.5850173734860098
+    },
+    {
+      "sample_id": "train/108",
+      "signal_id": 4,
+      "class": 6,
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "start_ms": 60.0,
+      "end_ms": 133.0,
+      "start_mhz": 2407.5,
+      "end_mhz": 2408.5,
+      "dur_ms": 73.0,
+      "bandwidth_mhz": 1.0,
+      "sparse_coverage": 0.3488801369863014,
+      "start_center_ms": 0.1158,
+      "end_center_ms": 0.021849999999999998,
+      "gt_cols": [
+        204,
+        453
+      ],
+      "sparse_support": [
+        205,
+        453
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        205,
+        453
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        205,
+        453
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        205,
+        453
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0008253608830273151,
+      "sparse_energy_frac": 1.016476035118103,
+      "sparse_missed_bins": 25,
+      "sparse_missed_frac": 0.1,
+      "sparse_dense_ratio_median": 0.9973282217979431,
+      "dense_complex_coherence": 0.2219792778144363,
+      "fine_complex_coherence": 0.35287210581913175,
+      "fine_hann_complex_coherence": 0.59363885825972
+    },
+    {
+      "sample_id": "train/108",
+      "signal_id": 5,
+      "class": 8,
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "start_ms": 0.0,
+      "end_ms": 22.0,
+      "start_mhz": 2416.0,
+      "end_mhz": 2418.0,
+      "dur_ms": 22.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.3483522727272727,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.016249999999999997,
+      "gt_cols": [
+        0,
+        75
+      ],
+      "sparse_support": [
+        2,
+        74
+      ],
+      "sparse_start_err_cols": 2,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.5871000000000001,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        1,
+        75
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        1,
+        75
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        1,
+        75
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.000504346564412117,
+      "sparse_energy_frac": 0.9714275598526001,
+      "sparse_missed_bins": 3,
+      "sparse_missed_frac": 0.039473684210526314,
+      "sparse_dense_ratio_median": 0.9916484355926514,
+      "dense_complex_coherence": 0.2259042761867399,
+      "fine_complex_coherence": 0.3401398348271241,
+      "fine_hann_complex_coherence": 0.5720964994421592
+    },
+    {
+      "sample_id": "train/270",
+      "signal_id": 0,
+      "class": 13,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 88.0,
+      "end_ms": 142.0,
+      "start_mhz": 2432.9,
+      "end_mhz": 2433.1,
+      "dur_ms": 54.0,
+      "bandwidth_mhz": 0.1999999999998181,
+      "sparse_coverage": 0.3489185185185187,
+      "start_center_ms": 0.06499999999999999,
+      "end_center_ms": 0.07820000000002329,
+      "gt_cols": [
+        300,
+        484
+      ],
+      "sparse_support": [
+        314,
+        479
+      ],
+      "sparse_start_err_cols": 14,
+      "sparse_end_err_cols": -5,
+      "sparse_start_err_ms": 4.1097,
+      "sparse_end_err_ms": -1.46775,
+      "dense_power_support": [
+        302,
+        483
+      ],
+      "dense_power_start_err_cols": 2,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.5871000000000001,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        308,
+        483
+      ],
+      "fine_start_err_cols": 8,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 2.3484000000000003,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        308,
+        483
+      ],
+      "fine_power_start_err_cols": 8,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 2.3484000000000003,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.010003193281590939,
+      "sparse_energy_frac": 1.0323498249053955,
+      "sparse_missed_bins": 16,
+      "sparse_missed_frac": 0.08648648648648649,
+      "sparse_dense_ratio_median": 0.7972004413604736,
+      "dense_complex_coherence": 0.1387347020377906,
+      "fine_complex_coherence": 0.3595593327648005,
+      "fine_hann_complex_coherence": 0.9278931460596874
+    },
+    {
+      "sample_id": "train/270",
+      "signal_id": 1,
+      "class": 9,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 93.0,
+      "end_ms": 98.0,
+      "start_mhz": 2425.875,
+      "end_mhz": 2426.125,
+      "dur_ms": 5.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.34926,
+      "start_center_ms": 0.055349999999999996,
+      "end_center_ms": 0.0457,
+      "gt_cols": [
+        317,
+        334
+      ],
+      "sparse_support": [
+        319,
+        333
+      ],
+      "sparse_start_err_cols": 2,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.5871000000000001,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        318,
+        333
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        318,
+        334
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        318,
+        333
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.0015400316333398223,
+      "sparse_energy_frac": 1.0832709074020386,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.8141567707061768,
+      "dense_complex_coherence": 0.22889189266416451,
+      "fine_complex_coherence": 0.37811905781955246,
+      "fine_hann_complex_coherence": 0.605502918889913
+    },
+    {
+      "sample_id": "train/270",
+      "signal_id": 2,
+      "class": 7,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 0.0,
+      "end_ms": 57.99993,
+      "start_mhz": 2427.0,
+      "end_mhz": 2429.0,
+      "dur_ms": 57.99993,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.3486900760052642,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.12297000000000699,
+      "gt_cols": [
+        0,
+        198
+      ],
+      "sparse_support": [
+        0,
+        197
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        0,
+        197
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        0,
+        197
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        0,
+        197
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.0002678028540685773,
+      "sparse_energy_frac": 0.9914879202842712,
+      "sparse_missed_bins": 24,
+      "sparse_missed_frac": 0.12060301507537688,
+      "sparse_dense_ratio_median": 0.9927873015403748,
+      "dense_complex_coherence": 0.22403148983816298,
+      "fine_complex_coherence": 0.3466684475332385,
+      "fine_hann_complex_coherence": 0.5830642046751306
+    },
+    {
+      "sample_id": "train/270",
+      "signal_id": 3,
+      "class": 7,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 31.0,
+      "end_ms": 135.0,
+      "start_mhz": 2435.0,
+      "end_mhz": 2437.0,
+      "dur_ms": 104.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.34872884615384614,
+      "start_center_ms": 0.1163,
+      "end_center_ms": 0.033,
+      "gt_cols": [
+        106,
+        460
+      ],
+      "sparse_support": [
+        106,
+        459
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        106,
+        459
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        106,
+        459
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        106,
+        459
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.0013725890312343836,
+      "sparse_energy_frac": 1.0012630224227905,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.0013759136199951,
+      "dense_complex_coherence": 0.22393462866003538,
+      "fine_complex_coherence": 0.34843735298822026,
+      "fine_hann_complex_coherence": 0.579494620544955
+    },
+    {
+      "sample_id": "train/270",
+      "signal_id": 4,
+      "class": 2,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 0.0,
+      "end_ms": 11.0,
+      "start_mhz": 2417.0,
+      "end_mhz": 2437.0,
+      "dur_ms": 11.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.3490909090909091,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.13865,
+      "gt_cols": [
+        0,
+        37
+      ],
+      "sparse_support": [
+        0,
+        47
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        0,
+        47
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        0,
+        47
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        0,
+        47
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 1.714015525067225e-05,
+      "sparse_energy_frac": 0.9888343214988708,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9899489283561707,
+      "dense_complex_coherence": 0.22812537590231521,
+      "fine_complex_coherence": 0.34815895114710316,
+      "fine_hann_complex_coherence": 0.5883852318258049
+    },
+    {
+      "sample_id": "train/270",
+      "signal_id": 5,
+      "class": 8,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 83.0,
+      "end_ms": 150.0,
+      "start_mhz": 2421.0,
+      "end_mhz": 2423.0,
+      "dur_ms": 67.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.3491694029850747,
+      "start_center_ms": 0.07464999999998835,
+      "end_center_ms": 0.00405,
+      "gt_cols": [
+        283,
+        511
+      ],
+      "sparse_support": [
+        283,
+        511
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        283,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        283,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        283,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0020085214637219906,
+      "sparse_energy_frac": 0.9995256662368774,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.0009952783584595,
+      "dense_complex_coherence": 0.22500338565246553,
+      "fine_complex_coherence": 0.34827304972496453,
+      "fine_hann_complex_coherence": 0.5806310793183392
+    },
+    {
+      "sample_id": "train/130",
+      "signal_id": 0,
+      "class": 9,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 3.0,
+      "start_mhz": 2414.875,
+      "end_mhz": 2415.125,
+      "dur_ms": 3.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.6527999999999999,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.014549999999999636,
+      "gt_cols": [
+        0,
+        77
+      ],
+      "sparse_support": [
+        0,
+        76
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        0,
+        77
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        80
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 3,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.11745,
+      "fine_power_support": [
+        0,
+        80
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 3,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.11745,
+      "dense_energy_frac": 0.00031039491295814514,
+      "sparse_energy_frac": 0.9921006560325623,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.01282051282051282,
+      "sparse_dense_ratio_median": 0.9995521903038025,
+      "dense_complex_coherence": 0.41739405389721973,
+      "fine_complex_coherence": 0.0916468826343272,
+      "fine_hann_complex_coherence": 0.14487834607378075
+    },
+    {
+      "sample_id": "train/130",
+      "signal_id": 1,
+      "class": 2,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2437.0,
+      "end_mhz": 2457.0,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.6537975,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        510
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 1.840902041294612e-05,
+      "sparse_energy_frac": 0.9849872589111328,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.001953125,
+      "sparse_dense_ratio_median": 0.9146121740341187,
+      "dense_complex_coherence": 0.3723844336812159,
+      "fine_complex_coherence": 0.09434504433774452,
+      "fine_hann_complex_coherence": 0.16788329169453758
+    },
+    {
+      "sample_id": "train/130",
+      "signal_id": 2,
+      "class": 10,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 4.0,
+      "end_ms": 20.0,
+      "start_mhz": 2466.85,
+      "end_mhz": 2467.15,
+      "dur_ms": 16.0,
+      "bandwidth_mhz": 0.3000000000001819,
+      "sparse_coverage": 0.653628125,
+      "start_center_ms": 0.0067,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        102,
+        511
+      ],
+      "sparse_support": [
+        103,
+        510
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.039150000000000004,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        102,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        100,
+        511
+      ],
+      "fine_start_err_cols": -2,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": -0.07830000000000001,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        100,
+        511
+      ],
+      "fine_power_start_err_cols": -2,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": -0.07830000000000001,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0004114603507332504,
+      "sparse_energy_frac": 1.0118035078048706,
+      "sparse_missed_bins": 2,
+      "sparse_missed_frac": 0.004878048780487805,
+      "sparse_dense_ratio_median": 1.009697675704956,
+      "dense_complex_coherence": 0.4094549065400974,
+      "fine_complex_coherence": 0.09498792259310454,
+      "fine_hann_complex_coherence": 0.1538504703512873
+    },
+    {
+      "sample_id": "train/130",
+      "signal_id": 3,
+      "class": 12,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2455.9,
+      "end_mhz": 2456.1,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 0.1999999999998181,
+      "sparse_coverage": 0.6537975,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        1,
+        510
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.039150000000000004,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        1,
+        511
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.039150000000000004,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0012688279384747148,
+      "sparse_energy_frac": 0.9794753789901733,
+      "sparse_missed_bins": 7,
+      "sparse_missed_frac": 0.013671875,
+      "sparse_dense_ratio_median": 0.8505356311798096,
+      "dense_complex_coherence": 0.36324674401214774,
+      "fine_complex_coherence": 0.09387348737867736,
+      "fine_hann_complex_coherence": 0.1756634284978301
+    },
+    {
+      "sample_id": "train/130",
+      "signal_id": 4,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 16.0,
+      "start_mhz": 2426.0,
+      "end_mhz": 2428.0,
+      "dur_ms": 16.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.653628125,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.01235,
+      "gt_cols": [
+        0,
+        409
+      ],
+      "sparse_support": [
+        0,
+        408
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        0,
+        409
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        412
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 3,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.11745,
+      "fine_power_support": [
+        0,
+        412
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 3,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.11745,
+      "dense_energy_frac": 0.00019775977125391364,
+      "sparse_energy_frac": 1.0008602142333984,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.0024390243902439024,
+      "sparse_dense_ratio_median": 1.0049185752868652,
+      "dense_complex_coherence": 0.40241053725962334,
+      "fine_complex_coherence": 0.09546061529759658,
+      "fine_hann_complex_coherence": 0.15100340260825218
+    },
+    {
+      "sample_id": "train/130",
+      "signal_id": 5,
+      "class": 13,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2400.94,
+      "end_mhz": 2401.06,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 0.11999999999989086,
+      "sparse_coverage": 0.6537975,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        488
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -23,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.90045,
+      "dense_power_support": [
+        0,
+        0
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -511,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -20.00565,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 1.0786138773255516e-06,
+      "sparse_energy_frac": 1.0794806480407715,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.8931559920310974,
+      "dense_complex_coherence": 0.41010815920758786,
+      "fine_complex_coherence": 0.09778033478118428,
+      "fine_hann_complex_coherence": 0.15468863179805514
+    },
+    {
+      "sample_id": "train/214",
+      "signal_id": 0,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 1.0,
+      "end_ms": 20.0,
+      "start_mhz": 2446.0,
+      "end_mhz": 2448.0,
+      "dur_ms": 19.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.65385,
+      "start_center_ms": 0.017900000000000003,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        26,
+        511
+      ],
+      "sparse_support": [
+        136,
+        510
+      ],
+      "sparse_start_err_cols": 110,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 4.306500000000001,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        136,
+        510
+      ],
+      "dense_power_start_err_cols": 110,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 4.306500000000001,
+      "dense_power_end_err_ms": -0.039150000000000004,
+      "fine_support": [
+        139,
+        511
+      ],
+      "fine_start_err_cols": 113,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 4.4239500000000005,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        139,
+        511
+      ],
+      "fine_power_start_err_cols": 113,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 4.4239500000000005,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.000170226747286506,
+      "sparse_energy_frac": 1.0201793909072876,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.989150881767273,
+      "dense_complex_coherence": 0.4156147172275355,
+      "fine_complex_coherence": 0.09805716474858814,
+      "fine_hann_complex_coherence": 0.15232618985905247
+    },
+    {
+      "sample_id": "train/214",
+      "signal_id": 1,
+      "class": 4,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 7.0,
+      "end_ms": 20.0,
+      "start_mhz": 2442.0,
+      "end_mhz": 2482.0,
+      "dur_ms": 13.0,
+      "bandwidth_mhz": 40.0,
+      "sparse_coverage": 0.6539538461538461,
+      "start_center_ms": 0.00785,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        179,
+        511
+      ],
+      "sparse_support": [
+        179,
+        510
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        178,
+        511
+      ],
+      "dense_power_start_err_cols": -1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": -0.039150000000000004,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        169,
+        511
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": -0.39149999999999996,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        169,
+        511
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": -0.39149999999999996,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 3.065708006033674e-05,
+      "sparse_energy_frac": 0.9949988126754761,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.003003003003003003,
+      "sparse_dense_ratio_median": 0.9987508654594421,
+      "dense_complex_coherence": 0.4061538773819809,
+      "fine_complex_coherence": 0.09513325701855889,
+      "fine_hann_complex_coherence": 0.1510835338717167
+    },
+    {
+      "sample_id": "train/214",
+      "signal_id": 2,
+      "class": 9,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 5.0,
+      "end_ms": 20.0,
+      "start_mhz": 2446.875,
+      "end_mhz": 2447.125,
+      "dur_ms": 15.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.6540233333333333,
+      "start_center_ms": 0.011199999999999273,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        128,
+        511
+      ],
+      "sparse_support": [
+        144,
+        509
+      ],
+      "sparse_start_err_cols": 16,
+      "sparse_end_err_cols": -2,
+      "sparse_start_err_ms": 0.6264000000000001,
+      "sparse_end_err_ms": -0.07830000000000001,
+      "dense_power_support": [
+        144,
+        509
+      ],
+      "dense_power_start_err_cols": 16,
+      "dense_power_end_err_cols": -2,
+      "dense_power_start_err_ms": 0.6264000000000001,
+      "dense_power_end_err_ms": -0.07830000000000001,
+      "fine_support": [
+        141,
+        511
+      ],
+      "fine_start_err_cols": 13,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.50895,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        141,
+        511
+      ],
+      "fine_power_start_err_cols": 13,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.50895,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0009211542783305049,
+      "sparse_energy_frac": 1.0449448823928833,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9132890701293945,
+      "dense_complex_coherence": 0.4300995573071803,
+      "fine_complex_coherence": 0.10002551501089268,
+      "fine_hann_complex_coherence": 0.15411474013646947
+    },
+    {
+      "sample_id": "train/214",
+      "signal_id": 3,
+      "class": 8,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 9.0,
+      "end_ms": 20.0,
+      "start_mhz": 2456.0,
+      "end_mhz": 2458.0,
+      "dur_ms": 11.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.6538590909090909,
+      "start_center_ms": 0.0045000000000000005,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        230,
+        511
+      ],
+      "sparse_support": [
+        220,
+        510
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": -0.39149999999999996,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        220,
+        511
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": -0.39149999999999996,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        220,
+        511
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": -0.39149999999999996,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        220,
+        511
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": -0.39149999999999996,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.00011374156747478992,
+      "sparse_energy_frac": 0.9967038035392761,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.0035460992907801418,
+      "sparse_dense_ratio_median": 1.0113673210144043,
+      "dense_complex_coherence": 0.40180351577798845,
+      "fine_complex_coherence": 0.09533408153403072,
+      "fine_hann_complex_coherence": 0.15076622960132416
+    },
+    {
+      "sample_id": "train/214",
+      "signal_id": 4,
+      "class": 0,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2447.0,
+      "end_mhz": 2467.0,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.6537975,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        129,
+        510
+      ],
+      "sparse_start_err_cols": 129,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 5.05035,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        24,
+        511
+      ],
+      "dense_power_start_err_cols": 24,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.9396,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        1,
+        511
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.039150000000000004,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        1,
+        511
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.039150000000000004,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 6.252271123230457e-05,
+      "sparse_energy_frac": 0.9990605115890503,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.001953125,
+      "sparse_dense_ratio_median": 0.9969946146011353,
+      "dense_complex_coherence": 0.40427644085219033,
+      "fine_complex_coherence": 0.09551590839884175,
+      "fine_hann_complex_coherence": 0.15122492596230572
+    },
+    {
+      "sample_id": "train/214",
+      "signal_id": 5,
+      "class": 12,
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "start_ms": 4.0,
+      "end_ms": 20.0,
+      "start_mhz": 2425.9,
+      "end_mhz": 2426.1,
+      "dur_ms": 16.0,
+      "bandwidth_mhz": 0.1999999999998181,
+      "sparse_coverage": 0.653628125,
+      "start_center_ms": 0.0067,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        102,
+        511
+      ],
+      "sparse_support": [
+        103,
+        509
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -2,
+      "sparse_start_err_ms": 0.039150000000000004,
+      "sparse_end_err_ms": -0.07830000000000001,
+      "dense_power_support": [
+        103,
+        511
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.039150000000000004,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        100,
+        511
+      ],
+      "fine_start_err_cols": -2,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": -0.07830000000000001,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        100,
+        511
+      ],
+      "fine_power_start_err_cols": -2,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": -0.07830000000000001,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0023987838067114353,
+      "sparse_energy_frac": 0.9958000183105469,
+      "sparse_missed_bins": 9,
+      "sparse_missed_frac": 0.02195121951219512,
+      "sparse_dense_ratio_median": 0.9038472175598145,
+      "dense_complex_coherence": 0.37166052843319286,
+      "fine_complex_coherence": 0.09553511224857877,
+      "fine_hann_complex_coherence": 0.17218342541419296
+    },
+    {
+      "sample_id": "train/33",
+      "signal_id": 0,
+      "class": 2,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2412.0,
+      "end_mhz": 2432.0,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        511
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.001597261754795909,
+      "sparse_energy_frac": 0.9990857243537903,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9999977350234985,
+      "dense_complex_coherence": 0.8927928641012264,
+      "fine_complex_coherence": 0.34924570288329704,
+      "fine_hann_complex_coherence": 0.5756300513808992
+    },
+    {
+      "sample_id": "train/33",
+      "signal_id": 1,
+      "class": 13,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2430.94,
+      "end_mhz": 2431.06,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 0.11999999999989086,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        511
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.03942989930510521,
+      "sparse_energy_frac": 0.9994400143623352,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.999633252620697,
+      "dense_complex_coherence": 0.8927649450360078,
+      "fine_complex_coherence": 0.35227935174085584,
+      "fine_hann_complex_coherence": 0.5608950629181194
+    },
+    {
+      "sample_id": "train/33",
+      "signal_id": 2,
+      "class": 0,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2412.0,
+      "end_mhz": 2432.0,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        511
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.001597261754795909,
+      "sparse_energy_frac": 0.9990857243537903,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9999977350234985,
+      "dense_complex_coherence": 0.8927928641012264,
+      "fine_complex_coherence": 0.34924570288329704,
+      "fine_hann_complex_coherence": 0.5756300513808992
+    },
+    {
+      "sample_id": "train/33",
+      "signal_id": 3,
+      "class": 8,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2426.0,
+      "end_mhz": 2428.0,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        511
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.003539501689374447,
+      "sparse_energy_frac": 0.9992531538009644,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.999396562576294,
+      "dense_complex_coherence": 0.8928663075087999,
+      "fine_complex_coherence": 0.349178016468398,
+      "fine_hann_complex_coherence": 0.5827286874844599
+    },
+    {
+      "sample_id": "train/33",
+      "signal_id": 4,
+      "class": 8,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 7.0,
+      "start_mhz": 2421.0,
+      "end_mhz": 2423.0,
+      "dur_ms": 7.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.00785,
+      "gt_cols": [
+        0,
+        179
+      ],
+      "sparse_support": [
+        0,
+        189
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.39149999999999996,
+      "dense_power_support": [
+        0,
+        189
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.39149999999999996,
+      "fine_support": [
+        0,
+        189
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.39149999999999996,
+      "fine_power_support": [
+        0,
+        189
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.39149999999999996,
+      "dense_energy_frac": 0.002032988704741001,
+      "sparse_energy_frac": 0.9987296462059021,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.999694287776947,
+      "dense_complex_coherence": 0.8929130022172913,
+      "fine_complex_coherence": 0.34924428592260126,
+      "fine_hann_complex_coherence": 0.5747611343066978
+    },
+    {
+      "sample_id": "train/33",
+      "signal_id": 5,
+      "class": 6,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2421.5,
+      "end_mhz": 2422.5,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 1.0,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        511
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.006707640364766121,
+      "sparse_energy_frac": 0.999204158782959,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9999949932098389,
+      "dense_complex_coherence": 0.8928627264111307,
+      "fine_complex_coherence": 0.34767914936479116,
+      "fine_hann_complex_coherence": 0.5692377682155515
+    },
+    {
+      "sample_id": "train/188",
+      "signal_id": 0,
+      "class": 2,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 6.0,
+      "end_ms": 11.0,
+      "start_mhz": 2422.0,
+      "end_mhz": 2442.0,
+      "dur_ms": 5.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.010050000000000727,
+      "end_center_ms": 0.0011500000000014552,
+      "gt_cols": [
+        153,
+        281
+      ],
+      "sparse_support": [
+        154,
+        291
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": 0.039150000000000004,
+      "sparse_end_err_ms": 0.39149999999999996,
+      "dense_power_support": [
+        154,
+        291
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": 0.039150000000000004,
+      "dense_power_end_err_ms": 0.39149999999999996,
+      "fine_support": [
+        152,
+        291
+      ],
+      "fine_start_err_cols": -1,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": -0.039150000000000004,
+      "fine_end_err_ms": 0.39149999999999996,
+      "fine_power_support": [
+        152,
+        291
+      ],
+      "fine_power_start_err_cols": -1,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": -0.039150000000000004,
+      "fine_power_end_err_ms": 0.39149999999999996,
+      "dense_energy_frac": 0.0001760817103786394,
+      "sparse_energy_frac": 0.9998385906219482,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9993848204612732,
+      "dense_complex_coherence": 0.8928374450982232,
+      "fine_complex_coherence": 0.3496884411520478,
+      "fine_hann_complex_coherence": 0.5789882177314201
+    },
+    {
+      "sample_id": "train/188",
+      "signal_id": 1,
+      "class": 6,
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "start_ms": 10.0,
+      "end_ms": 20.0,
+      "start_mhz": 2431.5,
+      "end_mhz": 2432.5,
+      "dur_ms": 10.0,
+      "bandwidth_mhz": 1.0,
+      "sparse_coverage": 1.0,
+      "start_center_ms": 0.01675,
+      "end_center_ms": 0.0056500000000000005,
+      "gt_cols": [
+        255,
+        511
+      ],
+      "sparse_support": [
+        255,
+        510
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.039150000000000004,
+      "dense_power_support": [
+        255,
+        510
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.039150000000000004,
+      "fine_support": [
+        252,
+        510
+      ],
+      "fine_start_err_cols": -3,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": -0.11745,
+      "fine_end_err_ms": -0.039150000000000004,
+      "fine_power_support": [
+        252,
+        510
+      ],
+      "fine_power_start_err_cols": -3,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": -0.11745,
+      "fine_power_end_err_ms": -0.039150000000000004,
+      "dense_energy_frac": 0.003107042983174324,
+      "sparse_energy_frac": 0.9986398816108704,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9971447587013245,
+      "dense_complex_coherence": 0.8928099231436629,
+      "fine_complex_coherence": 0.35092306300979303,
+      "fine_hann_complex_coherence": 0.592939849790479
+    },
+    {
+      "sample_id": "train/151",
+      "signal_id": 0,
+      "class": 8,
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "start_ms": 0.0,
+      "end_ms": 7.0,
+      "start_mhz": 2441.0,
+      "end_mhz": 2443.0,
+      "dur_ms": 7.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.6546285714285714,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0313,
+      "gt_cols": [
+        0,
+        89
+      ],
+      "sparse_support": [
+        0,
+        89
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        0,
+        89
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        90
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 1,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.07830000000000001,
+      "fine_power_support": [
+        0,
+        90
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 1,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.07830000000000001,
+      "dense_energy_frac": 0.0002521017158869654,
+      "sparse_energy_frac": 0.9929173588752747,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9968007802963257,
+      "dense_complex_coherence": 0.4048690287755185,
+      "fine_complex_coherence": 0.18589462880517876,
+      "fine_hann_complex_coherence": 0.30588188314359166
+    },
+    {
+      "sample_id": "train/151",
+      "signal_id": 1,
+      "class": 7,
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "start_ms": 0.0,
+      "end_ms": 9.0,
+      "start_mhz": 2443.0,
+      "end_mhz": 2445.0,
+      "dur_ms": 9.0,
+      "bandwidth_mhz": 2.0,
+      "sparse_coverage": 0.6537222222222222,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0045000000000000005,
+      "gt_cols": [
+        0,
+        115
+      ],
+      "sparse_support": [
+        0,
+        113
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -2,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.15660000000000002,
+      "dense_power_support": [
+        0,
+        114
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.07830000000000001,
+      "fine_support": [
+        0,
+        115
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        115
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 9.265598782803863e-05,
+      "sparse_energy_frac": 1.0168817043304443,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.008620689655172414,
+      "sparse_dense_ratio_median": 0.9976639747619629,
+      "dense_complex_coherence": 0.40450972241703564,
+      "fine_complex_coherence": 0.1831233097304081,
+      "fine_hann_complex_coherence": 0.3000064747890387
+    },
+    {
+      "sample_id": "train/151",
+      "signal_id": 2,
+      "class": 3,
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "start_ms": 0.0,
+      "end_ms": 40.0,
+      "start_mhz": 2407.0,
+      "end_mhz": 2447.0,
+      "dur_ms": 40.0,
+      "bandwidth_mhz": 40.0,
+      "sparse_coverage": 0.6537975,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.011300000000000001,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        510
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.07830000000000001,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        510
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -0.07830000000000001,
+      "fine_power_support": [
+        0,
+        510
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -0.07830000000000001,
+      "dense_energy_frac": 5.919037721469067e-05,
+      "sparse_energy_frac": 0.9948143362998962,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.001953125,
+      "sparse_dense_ratio_median": 0.9974801540374756,
+      "dense_complex_coherence": 0.40435941280605864,
+      "fine_complex_coherence": 0.18427350647340218,
+      "fine_hann_complex_coherence": 0.3032605017721507
+    },
+    {
+      "sample_id": "train/151",
+      "signal_id": 3,
+      "class": 10,
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "start_ms": 0.0,
+      "end_ms": 40.0,
+      "start_mhz": 2412.0,
+      "end_mhz": 2422.0,
+      "dur_ms": 40.0,
+      "bandwidth_mhz": 10.0,
+      "sparse_coverage": 0.6537975,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.011300000000000001,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        510
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.07830000000000001,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.00010498306073714048,
+      "sparse_energy_frac": 0.9967305660247803,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.001953125,
+      "sparse_dense_ratio_median": 1.000409722328186,
+      "dense_complex_coherence": 0.40317131850951593,
+      "fine_complex_coherence": 0.1845717145667444,
+      "fine_hann_complex_coherence": 0.3042212660357226
+    },
+    {
+      "sample_id": "train/151",
+      "signal_id": 4,
+      "class": 1,
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "start_ms": 0.0,
+      "end_ms": 40.0,
+      "start_mhz": 2407.0,
+      "end_mhz": 2427.0,
+      "dur_ms": 40.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.6537975,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.011300000000000001,
+      "gt_cols": [
+        0,
+        511
+      ],
+      "sparse_support": [
+        0,
+        510
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.07830000000000001,
+      "dense_power_support": [
+        0,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        0,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        0,
+        511
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 7.380188617389649e-05,
+      "sparse_energy_frac": 0.9922975301742554,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.001953125,
+      "sparse_dense_ratio_median": 0.9987883567810059,
+      "dense_complex_coherence": 0.4043348909531399,
+      "fine_complex_coherence": 0.1840509721762927,
+      "fine_hann_complex_coherence": 0.3029713307498401
+    },
+    {
+      "sample_id": "train/151",
+      "signal_id": 5,
+      "class": 9,
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "start_ms": 0.0,
+      "end_ms": 20.0,
+      "start_mhz": 2424.875,
+      "end_mhz": 2425.125,
+      "dur_ms": 20.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.65408,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.0335,
+      "gt_cols": [
+        0,
+        255
+      ],
+      "sparse_support": [
+        3,
+        251
+      ],
+      "sparse_start_err_cols": 3,
+      "sparse_end_err_cols": -4,
+      "sparse_start_err_ms": 0.2349,
+      "sparse_end_err_ms": -0.31320000000000003,
+      "dense_power_support": [
+        3,
+        251
+      ],
+      "dense_power_start_err_cols": 3,
+      "dense_power_end_err_cols": -4,
+      "dense_power_start_err_ms": 0.2349,
+      "dense_power_end_err_ms": -0.31320000000000003,
+      "fine_support": [
+        2,
+        253
+      ],
+      "fine_start_err_cols": 2,
+      "fine_end_err_cols": -2,
+      "fine_start_err_ms": 0.15660000000000002,
+      "fine_end_err_ms": -0.15660000000000002,
+      "fine_power_support": [
+        2,
+        253
+      ],
+      "fine_power_start_err_cols": 2,
+      "fine_power_end_err_cols": -2,
+      "fine_power_start_err_ms": 0.15660000000000002,
+      "fine_power_end_err_ms": -0.15660000000000002,
+      "dense_energy_frac": 0.0007449474069289863,
+      "sparse_energy_frac": 0.9556776285171509,
+      "sparse_missed_bins": 2,
+      "sparse_missed_frac": 0.0078125,
+      "sparse_dense_ratio_median": 0.9243923425674438,
+      "dense_complex_coherence": 0.41182537436422195,
+      "fine_complex_coherence": 0.18022411937028726,
+      "fine_hann_complex_coherence": 0.2948745815746086
+    },
+    {
+      "sample_id": "train/357",
+      "signal_id": 0,
+      "class": 2,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 45.0,
+      "end_ms": 127.0,
+      "start_mhz": 2422.0,
+      "end_mhz": 2442.0,
+      "dur_ms": 82.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.08710243902439024,
+      "start_center_ms": 0.08685,
+      "end_center_ms": 0.10715000000000001,
+      "gt_cols": [
+        153,
+        433
+      ],
+      "sparse_support": [
+        143,
+        432
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        143,
+        432
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        143,
+        432
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        143,
+        432
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 9.330315151601098e-06,
+      "sparse_energy_frac": 0.9966493844985962,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9940759539604187,
+      "dense_complex_coherence": 0.060789150131937586,
+      "fine_complex_coherence": 0.09482000465591703,
+      "fine_hann_complex_coherence": 0.1523981986417566
+    },
+    {
+      "sample_id": "train/357",
+      "signal_id": 1,
+      "class": 9,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 33.0,
+      "end_ms": 55.0,
+      "start_mhz": 2406.875,
+      "end_mhz": 2407.125,
+      "dur_ms": 22.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.08727272727272728,
+      "start_center_ms": 0.1224,
+      "end_center_ms": 0.10615000000000001,
+      "gt_cols": [
+        112,
+        187
+      ],
+      "sparse_support": [
+        113,
+        187
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        113,
+        187
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        113,
+        187
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        113,
+        187
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 4.1999817767646164e-05,
+      "sparse_energy_frac": 0.9807466864585876,
+      "sparse_missed_bins": 2,
+      "sparse_missed_frac": 0.02631578947368421,
+      "sparse_dense_ratio_median": 1.041951298713684,
+      "dense_complex_coherence": 0.05343220348353767,
+      "fine_complex_coherence": 0.08951419836752046,
+      "fine_hann_complex_coherence": 0.13895472070265472
+    },
+    {
+      "sample_id": "train/357",
+      "signal_id": 2,
+      "class": 11,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 62.0,
+      "end_ms": 115.75886,
+      "start_mhz": 2452.0,
+      "end_mhz": 2462.0,
+      "dur_ms": 53.75886,
+      "bandwidth_mhz": 10.0,
+      "sparse_coverage": 0.08714470507745141,
+      "start_center_ms": 0.06095,
+      "end_center_ms": 0.10016000000000931,
+      "gt_cols": [
+        211,
+        394
+      ],
+      "sparse_support": [
+        212,
+        383
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -11,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": -3.22905,
+      "dense_power_support": [
+        212,
+        384
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": -10,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": -2.9355,
+      "fine_support": [
+        212,
+        384
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": -10,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": -2.9355,
+      "fine_power_support": [
+        212,
+        384
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": -10,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": -2.9355,
+      "dense_energy_frac": 3.423932184887235e-06,
+      "sparse_energy_frac": 0.9984615445137024,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.994361162185669,
+      "dense_complex_coherence": 0.05761451442491178,
+      "fine_complex_coherence": 0.09504506255677476,
+      "fine_hann_complex_coherence": 0.15046744560027278
+    },
+    {
+      "sample_id": "train/357",
+      "signal_id": 3,
+      "class": 9,
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "start_ms": 0.0,
+      "end_ms": 56.99968,
+      "start_mhz": 2427.97385,
+      "end_mhz": 2428.02615,
+      "dur_ms": 56.99968,
+      "bandwidth_mhz": 0.05230000000028667,
+      "sparse_coverage": 0.08735487637825336,
+      "start_center_ms": 0.0,
+      "end_center_ms": 0.05097999999999302,
+      "gt_cols": [
+        0,
+        194
+      ],
+      "sparse_support": [
+        0,
+        193
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        0,
+        192
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": -2,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": -0.5871000000000001,
+      "fine_support": [
+        0,
+        194
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        21,
+        179
+      ],
+      "fine_power_start_err_cols": 21,
+      "fine_power_end_err_cols": -15,
+      "fine_power_start_err_ms": 6.16455,
+      "fine_power_end_err_ms": -4.40325,
+      "dense_energy_frac": 0.0005017478251829743,
+      "sparse_energy_frac": 0.9965114593505859,
+      "sparse_missed_bins": 1,
+      "sparse_missed_frac": 0.005128205128205128,
+      "sparse_dense_ratio_median": 1.0035516023635864,
+      "dense_complex_coherence": 0.0023329009355859747,
+      "fine_complex_coherence": 0.09596176245400238,
+      "fine_hann_complex_coherence": 0.20512699281623864
+    },
+    {
+      "sample_id": "train/342",
+      "signal_id": 0,
+      "class": 2,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 27.0,
+      "end_ms": 34.0,
+      "start_mhz": 2462.0,
+      "end_mhz": 2482.0,
+      "dur_ms": 7.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.3447142857142857,
+      "start_center_ms": 0.0066,
+      "end_center_ms": 0.0518,
+      "gt_cols": [
+        92,
+        116
+      ],
+      "sparse_support": [
+        92,
+        126
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 10,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 2.9355,
+      "dense_power_support": [
+        92,
+        126
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 10,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 2.9355,
+      "fine_support": [
+        92,
+        126
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 10,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 2.9355,
+      "fine_power_support": [
+        92,
+        126
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": 10,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": 2.9355,
+      "dense_energy_frac": 8.125539352477062e-06,
+      "sparse_energy_frac": 0.9813924431800842,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9430184960365295,
+      "dense_complex_coherence": 0.21864430286224318,
+      "fine_complex_coherence": 0.35610716367964856,
+      "fine_hann_complex_coherence": 0.6025488260173567
+    },
+    {
+      "sample_id": "train/342",
+      "signal_id": 1,
+      "class": 1,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 139.0,
+      "end_ms": 150.0,
+      "start_mhz": 2462.0,
+      "end_mhz": 2482.0,
+      "dur_ms": 11.0,
+      "bandwidth_mhz": 20.0,
+      "sparse_coverage": 0.348722727272728,
+      "start_center_ms": 0.1426999999999767,
+      "end_center_ms": 0.00405,
+      "gt_cols": [
+        474,
+        511
+      ],
+      "sparse_support": [
+        464,
+        511
+      ],
+      "sparse_start_err_cols": -10,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": -2.9355,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        464,
+        511
+      ],
+      "dense_power_start_err_cols": -10,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": -2.9355,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        464,
+        511
+      ],
+      "fine_start_err_cols": -10,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": -2.9355,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        464,
+        511
+      ],
+      "fine_power_start_err_cols": -10,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": -2.9355,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 8.026313298614696e-05,
+      "sparse_energy_frac": 0.9741058349609375,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9964444637298584,
+      "dense_complex_coherence": 0.21607514590125498,
+      "fine_complex_coherence": 0.35532146926036845,
+      "fine_hann_complex_coherence": 0.6182475732701928
+    },
+    {
+      "sample_id": "train/342",
+      "signal_id": 2,
+      "class": 9,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 53.0,
+      "end_ms": 150.0,
+      "start_mhz": 2470.97385,
+      "end_mhz": 2471.02615,
+      "dur_ms": 97.0,
+      "bandwidth_mhz": 0.05230000000028667,
+      "sparse_coverage": 0.34885721649484536,
+      "start_center_ms": 0.13255,
+      "end_center_ms": 0.00405,
+      "gt_cols": [
+        181,
+        511
+      ],
+      "sparse_support": [
+        187,
+        511
+      ],
+      "sparse_start_err_cols": 6,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 1.7612999999999999,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        187,
+        511
+      ],
+      "dense_power_start_err_cols": 6,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 1.7612999999999999,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        181,
+        511
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        186,
+        511
+      ],
+      "fine_power_start_err_cols": 5,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 1.46775,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.1337471604347229,
+      "sparse_energy_frac": 0.9981975555419922,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9995548129081726,
+      "dense_complex_coherence": 0.22944778844485458,
+      "fine_complex_coherence": 0.34762806766746274,
+      "fine_hann_complex_coherence": 0.588098379367638
+    },
+    {
+      "sample_id": "train/342",
+      "signal_id": 3,
+      "class": 9,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 27.0,
+      "end_ms": 80.0,
+      "start_mhz": 2477.875,
+      "end_mhz": 2478.125,
+      "dur_ms": 53.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.34886415094339623,
+      "start_center_ms": 0.0066,
+      "end_center_ms": 0.13915,
+      "gt_cols": [
+        92,
+        273
+      ],
+      "sparse_support": [
+        93,
+        271
+      ],
+      "sparse_start_err_cols": 1,
+      "sparse_end_err_cols": -2,
+      "sparse_start_err_ms": 0.29355000000000003,
+      "sparse_end_err_ms": -0.5871000000000001,
+      "dense_power_support": [
+        93,
+        272
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": -1,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": -0.29355000000000003,
+      "fine_support": [
+        93,
+        272
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        93,
+        272
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.0012048648204654455,
+      "sparse_energy_frac": 0.9970805048942566,
+      "sparse_missed_bins": 2,
+      "sparse_missed_frac": 0.01098901098901099,
+      "sparse_dense_ratio_median": 0.7386481761932373,
+      "dense_complex_coherence": 0.21685241774291422,
+      "fine_complex_coherence": 0.35227117358785637,
+      "fine_hann_complex_coherence": 0.5964576706936083
+    },
+    {
+      "sample_id": "train/342",
+      "signal_id": 4,
+      "class": 9,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 90.0,
+      "end_ms": 150.0,
+      "start_mhz": 2479.875,
+      "end_mhz": 2480.125,
+      "dur_ms": 60.0,
+      "bandwidth_mhz": 0.25,
+      "sparse_coverage": 0.34894583333333334,
+      "start_center_ms": 0.11985,
+      "end_center_ms": 0.00405,
+      "gt_cols": [
+        307,
+        511
+      ],
+      "sparse_support": [
+        307,
+        510
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": -1,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": -0.29355000000000003,
+      "dense_power_support": [
+        307,
+        511
+      ],
+      "dense_power_start_err_cols": 0,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.0,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        307,
+        510
+      ],
+      "fine_start_err_cols": 0,
+      "fine_end_err_cols": -1,
+      "fine_start_err_ms": 0.0,
+      "fine_end_err_ms": -0.29355000000000003,
+      "fine_power_support": [
+        307,
+        510
+      ],
+      "fine_power_start_err_cols": 0,
+      "fine_power_end_err_cols": -1,
+      "fine_power_start_err_ms": 0.0,
+      "fine_power_end_err_ms": -0.29355000000000003,
+      "dense_energy_frac": 0.012945994734764099,
+      "sparse_energy_frac": 0.9958168268203735,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 1.007622241973877,
+      "dense_complex_coherence": 0.22902715822565828,
+      "fine_complex_coherence": 0.3467243193520729,
+      "fine_hann_complex_coherence": 0.580126035236641
+    },
+    {
+      "sample_id": "train/342",
+      "signal_id": 5,
+      "class": 6,
+      "B_mhz": 20.0,
+      "T_ms": 150.00005,
+      "start_ms": 83.0,
+      "end_ms": 131.0,
+      "start_mhz": 2471.5,
+      "end_mhz": 2472.5,
+      "dur_ms": 48.0,
+      "bandwidth_mhz": 1.0,
+      "sparse_coverage": 0.34986666666666677,
+      "start_center_ms": 0.07464999999998835,
+      "end_center_ms": 0.07669999999999999,
+      "gt_cols": [
+        283,
+        446
+      ],
+      "sparse_support": [
+        283,
+        446
+      ],
+      "sparse_start_err_cols": 0,
+      "sparse_end_err_cols": 0,
+      "sparse_start_err_ms": 0.0,
+      "sparse_end_err_ms": 0.0,
+      "dense_power_support": [
+        284,
+        446
+      ],
+      "dense_power_start_err_cols": 1,
+      "dense_power_end_err_cols": 0,
+      "dense_power_start_err_ms": 0.29355000000000003,
+      "dense_power_end_err_ms": 0.0,
+      "fine_support": [
+        284,
+        446
+      ],
+      "fine_start_err_cols": 1,
+      "fine_end_err_cols": 0,
+      "fine_start_err_ms": 0.29355000000000003,
+      "fine_end_err_ms": 0.0,
+      "fine_power_support": [
+        284,
+        446
+      ],
+      "fine_power_start_err_cols": 1,
+      "fine_power_end_err_cols": 0,
+      "fine_power_start_err_ms": 0.29355000000000003,
+      "fine_power_end_err_ms": 0.0,
+      "dense_energy_frac": 0.0035316264256834984,
+      "sparse_energy_frac": 1.0001955032348633,
+      "sparse_missed_bins": 0,
+      "sparse_missed_frac": 0.0,
+      "sparse_dense_ratio_median": 0.9996933341026306,
+      "dense_complex_coherence": 0.22457486133504884,
+      "fine_complex_coherence": 0.3463579760469441,
+      "fine_hann_complex_coherence": 0.5782692425790694
+    }
+  ],
+  "aggregate": {
+    "n_signals": 76,
+    "coverage_by_bt": {
+      "20/20": {
+        "n": 8,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "20/150": {
+        "n": 18,
+        "median": 0.34889932775241006,
+        "min": 0.3447142857142857,
+        "max": 0.35396875
+      },
+      "40/40": {
+        "n": 6,
+        "median": 0.6537975,
+        "min": 0.6537222222222222,
+        "max": 0.6546285714285714
+      },
+      "40/150": {
+        "n": 12,
+        "median": 0.1743872215103326,
+        "min": 0.17066666666666688,
+        "max": 0.1763555555555558
+      },
+      "80/20": {
+        "n": 12,
+        "median": 0.6537975,
+        "min": 0.6527999999999999,
+        "max": 0.6540233333333333
+      },
+      "80/150": {
+        "n": 20,
+        "median": 0.08722159447583176,
+        "min": 0.0864,
+        "max": 0.087552
+      }
+    },
+    "coverage_overall": {
+      "median": 0.34879303132434575,
+      "min": 0.0864,
+      "max": 1.0
+    },
+    "missed": {
+      "total_bins": 157,
+      "total_signal_bins": 38912,
+      "frac": 0.004034745065789474
+    },
+    "missed_worst": [
+      {
+        "sample_id": "train/270",
+        "signal_id": 2,
+        "class": 7,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "dur_ms": 57.99993,
+        "sparse_missed_bins": 24,
+        "sparse_missed_frac": 0.12060301507537688,
+        "sparse_dense_ratio_median": 0.9927873015403748,
+        "dense_complex_coherence": 0.22403148983816298,
+        "fine_hann_complex_coherence": 0.5830642046751306
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 4,
+        "class": 6,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "dur_ms": 73.0,
+        "sparse_missed_bins": 25,
+        "sparse_missed_frac": 0.1,
+        "sparse_dense_ratio_median": 0.9973282217979431,
+        "dense_complex_coherence": 0.2219792778144363,
+        "fine_hann_complex_coherence": 0.59363885825972
+      },
+      {
+        "sample_id": "train/270",
+        "signal_id": 0,
+        "class": 13,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "dur_ms": 54.0,
+        "sparse_missed_bins": 16,
+        "sparse_missed_frac": 0.08648648648648649,
+        "sparse_dense_ratio_median": 0.7972004413604736,
+        "dense_complex_coherence": 0.1387347020377906,
+        "fine_hann_complex_coherence": 0.9278931460596874
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 3,
+        "class": 6,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "dur_ms": 70.0,
+        "sparse_missed_bins": 18,
+        "sparse_missed_frac": 0.07531380753138076,
+        "sparse_dense_ratio_median": 0.994387686252594,
+        "dense_complex_coherence": 0.22287348272382296,
+        "fine_hann_complex_coherence": 0.5850173734860098
+      },
+      {
+        "sample_id": "train/15",
+        "signal_id": 3,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "dur_ms": 9.0,
+        "sparse_missed_bins": 2,
+        "sparse_missed_frac": 0.0625,
+        "sparse_dense_ratio_median": 0.9470700621604919,
+        "dense_complex_coherence": 0.11371859121648038,
+        "fine_hann_complex_coherence": 0.29307645121714987
+      },
+      {
+        "sample_id": "train/68",
+        "signal_id": 2,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "dur_ms": 66.0,
+        "sparse_missed_bins": 14,
+        "sparse_missed_frac": 0.061946902654867256,
+        "sparse_dense_ratio_median": 0.9558777809143066,
+        "dense_complex_coherence": 0.05839215810570616,
+        "fine_hann_complex_coherence": 0.14591507172599033
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 4,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "dur_ms": 52.0,
+        "sparse_missed_bins": 8,
+        "sparse_missed_frac": 0.0446927374301676,
+        "sparse_dense_ratio_median": 1.0078825950622559,
+        "dense_complex_coherence": 0.11736992984095349,
+        "fine_hann_complex_coherence": 0.3028852710134902
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 5,
+        "class": 8,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "dur_ms": 22.0,
+        "sparse_missed_bins": 3,
+        "sparse_missed_frac": 0.039473684210526314,
+        "sparse_dense_ratio_median": 0.9916484355926514,
+        "dense_complex_coherence": 0.2259042761867399,
+        "fine_hann_complex_coherence": 0.5720964994421592
+      }
+    ],
+    "sparse_dense_ratio": {
+      "median": 0.997534841299057,
+      "min": 0.6866766810417175,
+      "max": 1.041951298713684
+    },
+    "dense_complex_coherence": {
+      "median": 0.22242638026912964,
+      "p10": 0.057574711149967234,
+      "p90": 0.661432251171594,
+      "min": 0.0023329009355859747,
+      "max": 0.8929130022172913
+    },
+    "fine_complex_coherence": {
+      "median": 0.1835231967147285,
+      "p10": 0.09428817362726993,
+      "p90": 0.3515971182988247,
+      "min": 0.08951419836752046,
+      "max": 0.37811905781955246
+    },
+    "fine_hann_complex_coherence": {
+      "median": 0.3029040250963746,
+      "p10": 0.14952419635892183,
+      "p90": 0.590662540808142,
+      "min": 0.13895472070265472,
+      "max": 0.9278931460596874
+    },
+    "boundary": {
+      "sparse": {
+        "n": 152,
+        "median_ms": 0.26422500000000004,
+        "p90_ms": 2.9355,
+        "p95_ms": 2.9355,
+        "max_ms": 9.393600000000001
+      },
+      "dense_power": {
+        "n": 152,
+        "median_ms": 0.0,
+        "p90_ms": 2.9355,
+        "p95_ms": 2.9355,
+        "max_ms": 20.00565
+      },
+      "fine": {
+        "n": 152,
+        "median_ms": 0.0,
+        "p90_ms": 2.9355,
+        "p95_ms": 2.9355,
+        "max_ms": 10.27425
+      },
+      "fine_power": {
+        "n": 152,
+        "median_ms": 0.0,
+        "p90_ms": 2.9355,
+        "p95_ms": 2.9355,
+        "max_ms": 10.27425
+      }
+    },
+    "boundary_by_T_ms": {
+      "20": {
+        "sparse": {
+          "n": 40,
+          "median_ms": 0.039150000000000004,
+          "p90_ms": 0.4149900000000003
+        },
+        "dense_power": {
+          "n": 40,
+          "median_ms": 0.0,
+          "p90_ms": 0.4149900000000003
+        },
+        "fine": {
+          "n": 40,
+          "median_ms": 0.0,
+          "p90_ms": 0.39149999999999996
+        },
+        "fine_power": {
+          "n": 40,
+          "median_ms": 0.0,
+          "p90_ms": 0.39149999999999996
+        }
+      },
+      "40": {
+        "sparse": {
+          "n": 12,
+          "median_ms": 0.039150000000000004,
+          "p90_ms": 0.22707000000000002
+        },
+        "dense_power": {
+          "n": 12,
+          "median_ms": 0.0,
+          "p90_ms": 0.21924000000000005
+        },
+        "fine": {
+          "n": 12,
+          "median_ms": 0.0,
+          "p90_ms": 0.14877000000000004
+        },
+        "fine_power": {
+          "n": 12,
+          "median_ms": 0.0,
+          "p90_ms": 0.14877000000000004
+        }
+      },
+      "150": {
+        "sparse": {
+          "n": 100,
+          "median_ms": 0.29355000000000003,
+          "p90_ms": 2.9355
+        },
+        "dense_power": {
+          "n": 100,
+          "median_ms": 0.29355000000000003,
+          "p90_ms": 2.9355
+        },
+        "fine": {
+          "n": 100,
+          "median_ms": 0.29355000000000003,
+          "p90_ms": 2.9355
+        },
+        "fine_power": {
+          "n": 100,
+          "median_ms": 0.29355000000000003,
+          "p90_ms": 2.9355
+        }
+      }
+    }
+  }
+}
