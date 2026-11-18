@@ -251,6 +251,10 @@ def main():
             ap_agn, _, _ = group_ap(agn_tp[d][g], agn_fp, agn_n_gt[d][g])
             dout[g]["ap50_agnostic"] = ap_agn
             dout[g]["n_gt_all_classes"] = int(agn_n_gt[d][g])
+            dout[g]["recall_agnostic"] = (
+                float(len(agn_tp[d][g]) / agn_n_gt[d][g])
+                if agn_n_gt[d][g] else None
+            )
         out["dims"][d] = dout
 
     # B x relative group
@@ -304,6 +308,7 @@ def main():
                 "dimension": d, "group": g, "n_gt": v["n_gt"],
                 "n_classes": v["n_classes"], "map50": v["map50"],
                 "ap50_agnostic": v.get("ap50_agnostic"),
+                "recall_agnostic": v.get("recall_agnostic"),
                 "recall_matched": v["recall_matched"],
                 "recall@0.25": v["recall@0.25"],
             })

@@ -41,6 +41,20 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
 这是“不静默去重/不 same-box ignore”的直接结果。详见
 `reports/stage5_results.md` 和 `stage5_val/error_analysis.json`。
 
+## 诊断补充（2026-11-18）
+
+- 三级损失分解：R_agn **0.958** → AP_agn **0.905** → AP_cls **0.643**。
+  边界过滤、全局 class-wise NMS、每样本 100 框上限合计只损失约 **0.7 pp**
+  recall；不是瓶颈。
+- Oracle-class AP（匹配框分类完美）为 **0.864**，分类 gap **22.1 pp**；
+  主要集中在 0/1/2、3/4/5、10/11。6/7/8/9/12/13 已接近 oracle：
+  窄带 12/13 的问题是小框定位/排序，不是分类。
+- AP75 = 0.5945，AP50:95 = **0.5764**（class-agnostic 0.8543 / 0.8203）。
+  框较紧；建议 **AP50 继续作为主指标/选模指标**，AP75/AP50:95 作为二级诊断，
+  按类别/带宽组报告，不用 AP50:95 替换 AP50。
+- 详细表：`reports/stage5_diagnostics.md`、`stage5_val/signal_characteristics.json`、
+  `oracle_class_ap.json`、`stage_recall.json`、`iou_sweep.json`。
+
 ## 产物
 
 - `runs/yolo11s_c1_directreg_2048x512/`：config、train_log.csv、

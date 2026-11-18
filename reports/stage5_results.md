@@ -128,6 +128,19 @@ fine-tune job, so timings are slightly conservative.)
 - `runs/yolo11s_c1_directreg_2048x512/best_corrected.pt`
 - `runs/yolo11s_c1_directreg_2048x512/selection_corrected.json`
 
+## Diagnostics (added after the initial report)
+
+- AP75 = 0.5945, AP50:95 = **0.5764** (class-agnostic: 0.8543 / 0.8203).
+  The AP50 -> AP50:95 drop is 6.6 pp; boxes are reasonably tight, so the
+  high-IoU metric does not change the weak/strong class ranking.
+- Three-level decomposition: R_agn **0.958** -> AP_agn **0.905** ->
+  AP_cls **0.643**. Boundary filtering, global class-wise NMS and the 100-box
+  cap together cost <0.7 pp of recall; they are not the bottleneck.
+- Oracle-class AP (perfect class for matched boxes) is **0.8639**, i.e. a
+  22.1 pp classification gap. It is concentrated in classes 0/1/2, 3/4/5 and
+  10/11; classes 6/7/8/9/12/13 are already at their oracle ceiling.
+- Full three-level/group/stage tables: `reports/stage5_diagnostics.md`.
+
 ## Caveats
 
 - This is the **first baseline**, not a tuned detector. It uses DirectReg
