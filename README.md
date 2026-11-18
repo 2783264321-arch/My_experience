@@ -22,6 +22,14 @@ Frozen split: `fit 5957 / val 1543 / test 2500` from
 `/root/autodl-tmp/workspace/spacenet/analysis/outputs/split_manifest.csv`
 (SHA256 `224ff3d4...a2a69`). Test is sealed.
 
+Documentation:
+
+- `docs/inference_pipeline.md` - full single-sample inference pipeline
+  (IQ -> STFT -> fine/coarse views -> DirectReg -> NMS -> physical boxes)
+  with the underlying principles and pitfalls.
+- `reports/inference_trace_train_872.md` - reproducible single-sample trace
+  on val sample `train/872` (B=80 MHz, T=150 ms, 35 views).
+
 Key results and artifacts:
 
 - `reports/stage0_audit.json` - paths, hashes, split, IQ spec, versions.
