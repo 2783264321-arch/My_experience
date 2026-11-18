@@ -171,13 +171,29 @@ Not a priority: boundary rule / global NMS / 100-box cap (total recall loss
 
 ---
 
-## 6. 8-epoch convergence continuation
+## 6. 8-epoch convergence continuation (completed)
 
-Pure continuation from `last.pt` (EMA), lr=2e-5, warmup=0, same loss, corrected
-val every epoch. **Result: see `runs/yolo11s_c1_directreg_2048x512_conv8/`.**
+Pure continuation from `last.pt` (EMA), lr=2e-5, cosine to 2e-7, warmup=0,
+same loss/views; corrected val every epoch. Run:
+`runs/yolo11s_c1_directreg_2048x512_conv8/` (0.797 h wall).
 
-- epoch 0 val: mAP50 0.6384, agnostic 0.9017, recall 0.9563 (baseline 0.6427 /
-  0.9046 / 0.9580).
-- The remaining 7 epochs will decide whether the plateau is a true convergence
-  or a small additional gain; the run is intentionally short (8 epochs), not a
-  50-epoch retrain.
+| epoch | mAP50 | AP50 agnostic | loc recall | pred |
+| ---: | ---: | ---: | ---: | ---: |
+| 0 | 0.6384 | 0.9017 | 0.9563 | 66108 |
+| 1 | 0.6415 | 0.9018 | 0.9580 | 67430 |
+| 2 | 0.6406 | 0.9019 | 0.9573 | 64809 |
+| 3 | **0.6423** | 0.9027 | 0.9576 | 64121 |
+| 4 | 0.6414 | 0.9021 | 0.9581 | 68011 |
+| 5 | 0.6398 | 0.9011 | 0.9581 | 68661 |
+| 6 | 0.6403 | 0.9020 | 0.9576 | 66133 |
+| 7 | 0.6405 | 0.9014 | 0.9584 | 67762 |
+
+Baseline `best_corrected.pt`: 0.6427. Continuation best: **0.6423** at epoch 3
+(-0.0004, within noise). Final epoch 7: 0.6405. Training loss stayed at
+~14-20; LR ended at 2e-7.
+
+**Verdict: no gain; the model is effectively converged for this configuration.**
+Further same-loss/same-representation training is not worthwhile. The
+baseline `best_corrected.pt` remains the deliverable; the next work should be
+targeted (classification/verification for wide classes, short-signal time
+representation, tiny-box localization), not more epochs.

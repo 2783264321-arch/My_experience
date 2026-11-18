@@ -138,8 +138,9 @@ follow-up; the baseline `best_corrected.pt` remains the deliverable.
 - Full tables: `reports/stage5_diagnostics.md`, `stage5_val/signal_characteristics.json`,
   `stage5_val/oracle_class_ap.json`, `stage5_val/stage_recall.json`,
   `stage5_val/iou_sweep.json`.
-- 8-epoch low-LR continuation: `runs/yolo11s_c1_directreg_2048x512_conv8/`;
-  epoch 0-2 val 0.6384/0.6415/0.6406 vs baseline 0.6427 (flat, no gain so far).
+- 8-epoch low-LR continuation completed:
+  `runs/yolo11s_c1_directreg_2048x512_conv8/`; best **0.6423** (epoch 3) vs
+  baseline **0.6427**; final 0.6405. No gain; convergence confirmed.
 
 ## Stage 5 - commands
 

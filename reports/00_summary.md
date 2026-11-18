@@ -52,6 +52,8 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
 - AP75 = 0.5945，AP50:95 = **0.5764**（class-agnostic 0.8543 / 0.8203）。
   框较紧；建议 **AP50 继续作为主指标/选模指标**，AP75/AP50:95 作为二级诊断，
   按类别/带宽组报告，不用 AP50:95 替换 AP50。
+- 8 epoch 低 LR 纯续训：best **0.6423**（epoch 3）vs baseline **0.6427**，
+  final 0.6405；差异在噪声内，判定**已收敛**，不再靠加 epoch 提升。
 - 详细表：`reports/stage5_diagnostics.md`、`stage5_val/signal_characteristics.json`、
   `oracle_class_ap.json`、`stage_recall.json`、`iou_sweep.json`。
 

@@ -139,6 +139,8 @@ fine-tune job, so timings are slightly conservative.)
 - Oracle-class AP (perfect class for matched boxes) is **0.8639**, i.e. a
   22.1 pp classification gap. It is concentrated in classes 0/1/2, 3/4/5 and
   10/11; classes 6/7/8/9/12/13 are already at their oracle ceiling.
+- 8-epoch low-LR continuation: best 0.6423 vs baseline 0.6427 (no gain;
+  convergence confirmed).
 - Full three-level/group/stage tables: `reports/stage5_diagnostics.md`.
 
 ## Caveats
