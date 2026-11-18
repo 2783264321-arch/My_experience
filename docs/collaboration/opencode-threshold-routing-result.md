@@ -1,8 +1,16 @@
-# OpenCode 结果：0–5 分类器阈值/路由复核
+# OpenCode 结果：0–5 分类器阈值/路由复核（已修正口径）
 
 依据 `docs/collaboration/README.md` 与 `opencode-coarse-classifier-result.md`。
 对照：共享 fine-0-5 过滤完整 val **0.649725**（AP_agn 0.905977，R_agn
 0.957833，n_pred 47,784；0/1/2 0.4212，3/4/5 0.4550；177 s）。
+
+> **上一版口径错误，本版已修正。** 旧表把“仍错但改成了另一个错类”也算进
+> `wrong`，净收益写成 `corrected - 所有改动后错误`，因此把 wrong→another-wrong
+> 当成新的 correct→wrong；阈值 >0 的 `acc_after` 也用了分类器原始标签，而不是
+> gate 后实际采用的标签。本版按采用标签计算准确率，并拆分三类转移：
+> wrong→correct、correct→wrong、wrong→another-wrong。旧表 pred-routed
+> t=0 net -172 修正为 **-48**；t=0.70 net -2 修正为 **+4**。结论不变：
+> 覆盖太小且不稳定，不能锁阈值。
 
 ## 1. 留出集
 
@@ -13,68 +21,142 @@
 - 同一 GT/pred 组 701；**跨组 60（7.9%）**。
 - 训练按真值类组取样；部署按预测类组路由。跨组框会被错误分类器处理，
   预测在 0–5 之外的框则不会改类。
+- 这是 fit holdout，不是 val。完整 val 的 0–5 框为 **4,844** 个（全部预测
+  47,784），下面覆盖率只按这 4,844 个框的规模折算。
 
-## 2. 置信度门槛（holdout）
+## 2. 口径与检查
 
-`changed / corrected / wrong / net / ratio / precision`
+每个 gate/阈值 `t`：分类器通过 gate 时采用分类器类，否则保留检测器类。
+`changed = adopted != old`；转移拆为：
 
-| routing | t | changed | corr | wrong | net | ratio | prec |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| GT-routed（oracle 路由） | 0.0 | 452 | 150 | 302 | -152 | 0.594 | 0.332 |
-| GT-routed | 0.5 | 132 | 44 | 88 | -44 | 0.173 | 0.333 |
-| GT-routed | 0.70 | 16 | 6 | 10 | -4 | 0.021 | 0.375 |
-| pred-routed same（干净部署子集） | 0.0 | 392 | 127 | 265 | -138 | 0.559 | 0.324 |
-| pred-routed same | 0.5 | 104 | 32 | 72 | -40 | 0.148 | 0.308 |
-| **pred-routed same** | **0.70** | **10** | **6** | **4** | **+2** | **0.014** | **0.600** |
-| pred-routed all（含跨组） | 0.0 | 426 | 127 | 299 | -172 | 0.560 | 0.298 |
-| pred-routed all | 0.5 | 117 | 32 | 85 | -53 | 0.154 | 0.274 |
-| pred-routed all | 0.70 | 14 | 6 | 8 | -2 | 0.018 | 0.429 |
-| cross-family only | 0.0 | 34 | 0 | 34 | -34 | 0.567 | 0.000 |
-| cross-family only | 0.5 | 13 | 0 | 13 | -13 | 0.217 | 0.000 |
+- `W2C = old != GT, adopted == GT`
+- `C2W = old == GT, adopted != GT`
+- `W2W = old != GT, adopted != GT, adopted != old`
+- `net = W2C - C2W`，必须等于 `correct_after - correct_before`
+- `n_changed_samples` 按样本去重，不按 crop 数
 
-准确率：GT-routed 0.472→0.439；pred-routed same 0.512→0.444；
-pred-routed all 0.472→0.409。margin sweep 也全负（GT-routed margin 0/0.1/
-0.2/0.3 = -152/-83/-50/-30）。
+脚本对每一行断言：
 
-## 3. 路由差异
+```
+changed == W2C + C2W + W2W
+net == correct_after - correct_before
+```
+
+请求的两项检查均通过：pred-routed all `t=0` net **-48**；pred-routed
+same-family `t=0` 也是 **-48**（t=0 跨组改动全是 W2W，不影响准确率）。
+
+## 3. 置信度门槛（holdout）
+
+`coverage = changed / n`；`precision = W2C / changed`；准确率用采用标签。
+
+| routing | t | changed | W2C | C2W | W2W | net | coverage | prec | acc before -> after | samples |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| GT-routed（oracle） | 0.00 | 452 | 150 | 175 | 127 | **-25** | 0.594 | 0.332 | 0.4717 -> 0.4389 | 239 |
+| GT-routed | 0.50 | 132 | 44 | 50 | 38 | **-6** | 0.173 | 0.333 | 0.4717 -> 0.4639 | 93 |
+| GT-routed | 0.65 | 28 | 10 | 8 | 10 | **+2** | 0.037 | 0.357 | 0.4717 -> 0.4744 | 22 |
+| GT-routed | 0.70 | 16 | 6 | 2 | 8 | **+4** | 0.021 | 0.375 | 0.4717 -> 0.4770 | 12 |
+| GT-routed | 0.75 | 9 | 1 | 1 | 7 | **0** | 0.012 | 0.111 | 0.4717 -> 0.4717 | 8 |
+| pred-routed same | 0.00 | 392 | 127 | 175 | 90 | **-48** | 0.559 | 0.324 | 0.5121 -> 0.4437 | 224 |
+| pred-routed same | 0.50 | 104 | 32 | 50 | 22 | **-18** | 0.148 | 0.308 | 0.5121 -> 0.4864 | 76 |
+| pred-routed same | 0.65 | 19 | 8 | 8 | 3 | **0** | 0.027 | 0.421 | 0.5121 -> 0.5121 | 16 |
+| **pred-routed same** | **0.70** | **10** | **6** | **2** | **2** | **+4** | **0.014** | **0.600** | **0.5121 -> 0.5178** | **8** |
+| pred-routed same | 0.75 | 4 | 1 | 1 | 2 | **0** | 0.006 | 0.250 | 0.5121 -> 0.5121 | 4 |
+| pred-routed all | 0.00 | 426 | 127 | 175 | 124 | **-48** | 0.560 | 0.298 | 0.4717 -> 0.4087 | 234 |
+| pred-routed all | 0.50 | 117 | 32 | 50 | 35 | **-18** | 0.154 | 0.274 | 0.4717 -> 0.4481 | 82 |
+| pred-routed all | 0.65 | 24 | 8 | 8 | 8 | **0** | 0.032 | 0.333 | 0.4717 -> 0.4717 | 20 |
+| **pred-routed all** | **0.70** | **14** | **6** | **2** | **6** | **+4** | **0.018** | **0.429** | **0.4717 -> 0.4770** | **12** |
+| pred-routed all | 0.75 | 8 | 1 | 1 | 6 | **0** | 0.011 | 0.125 | 0.4717 -> 0.4717 | 8 |
+| cross-family only | 0.00 | 34 | 0 | 0 | 34 | **0** | 0.567 | 0.000 | 0.0000 -> 0.0000 | 32 |
+| cross-family only | 0.70 | 4 | 0 | 0 | 4 | **0** | 0.067 | 0.000 | 0.0000 -> 0.0000 | 4 |
+
+请求的 pred-routed 精确行：
+
+- **t=0 all**：426 改 / 234 样本；W2C 127，C2W 175，W2W 124；net **-48**；
+  准确率 0.4717 -> 0.4087。
+- **t=0.70 all**：14 改 / 12 样本；W2C 6，C2W 2，W2W 6；net **+4**；
+  准确率 0.4717 -> 0.4770；覆盖 1.8%。
+- **t=0.70 same**：10 改 / 8 样本；W2C 6，C2W 2，W2W 2；net **+4**；
+  准确率 0.5121 -> 0.5178；覆盖 1.4%。
+- **t=0.70 cross**：4 改 / 4 样本，全 W2W，net 0；跨组头无法输出 GT 组，
+  这些框不可能被改对。
+
+margin sweep 没有可部署的正点：GT-routed 最好为 0（margin 0.15，177 改，
+61 W2C / 61 C2W / 55 W2W）；pred-routed all 每个 margin 都为负
+（0.0 -48，0.1 -30，0.2 -19，0.3 -10）。完整表在 JSON。
+
+## 4. 稳定性：+4 是单点波动
+
+唯一正的可部署点是 0.70，且不稳定：
+
+- **相邻阈值归零**：0.65 为 24 改 / 8 W2C / 8 C2W / net 0；0.75 为
+  8 改 / 1 W2C / 1 C2W / net 0。正点只存在于 12 个阈值中的一个点，而且是
+  在 4 种 routing 视图下看过的。
+- **统计上不能区分于 0**：6 W2C vs 2 C2W 的 McNemar 精确检验 **p=0.289**；
+  按 761 个 crop 的样本级 cluster bootstrap（10,000 次）95% net 区间
+  **[-2, +11]**，包含 0。
+- **由少数样本驱动**：6 个纠错来自 5 个样本（train/5463 贡献 2 个），
+  2 个回退来自 2 个样本。
+- **覆盖太小**：holdout 0–5 proposal 的 1.8%（同组 1.4%）；按完整 val
+  4,844 个 0–5 框折算只是 10^2 量级，不足以支撑 AP 结论。
+- 分类器本身仍接近随机（0/1/2 0.431，3/4/5 0.451），这个 holdout 上没有
+  可靠信号可供 gate 使用。
+
+门槛要求：覆盖能影响相当一部分 4,844 个 0–5 框、net 的 95% 区间排除 0、
+相邻阈值同号。最优点三项中后两项不满足，覆盖仅约 90 框。因此未达到
+“覆盖足够且稳定”的门槛。
+
+## 5. 路由差异
 
 - 7.9% 跨组；预测在 0–5 之外的还有 11 个。
-- 跨组改动 **全部错误**（t=0 34/34；t=0.5 13/13；t=0.7 4/4）。
-- 即使用 oracle GT 路由，净纠错仍为负；问题不只在路由，分类器本身也弱。
-- 唯一正 net 是 t=0.70 同组：10 改 / 6 对 / 4 错，净 +2，覆盖 1.4%；
-  不构成可靠净纠错。
-- 现有两家族分别划分 holdout，跨组 pred-routed 数字只作指示；要干净估计
-  需要共享样本 holdout 重训。
+- 跨组改动按构造全部错误：t=0 34/34，t=0.70 4/4；两家族头无法修正跨组。
+- 即使 oracle GT 路由，t=0 net 仍为 -25，正点也只有 +2/+4；问题不只在
+  路由，分类器本身也弱。
+- 现有两家族分别划分 holdout，跨组 pred-routed 数字只作指示；干净估计
+  需要共享样本 holdout。
 
-## 4. 决定：不锁定阈值，不跑第二组完整 val
+## 6. 决定：不锁阈值，不跑第二组完整 val
 
 没有门槛达到可靠净纠错。按约定，未锁阈值，也没有跑复核组完整 val；
 对照仍是 **0.649725**。小型 coarse-crop 分类器不可用。
 
-## 5. 下一步：先试更强的粗图模型，再考虑同框原生 STFT
+修正后的记录：旧口径 t=0 的 -172 实际准确率净变化是 **-48**；分类器没有
+第一版报告说的那么有害，但无 gate 仍然有害，而唯一正 gate 太小、太脆，
+不能采纳。
 
-**建议先做更强的 coarse 分类器，不先做 native crop。**
+## 7. 下一步：共享 holdout 的统一 0–5 coarse 模型
 
-- 当前小 CNN 是主要混淆项：欠拟合（loss ~0.98/0.90）、holdout 接近随机；
-  即使 oracle GT 路由也负。
-- 路由错配只有 7.9%，不足解释失败；先排除分类器容量/训练问题。
-- native crop 更高（7–27 倍）且 resize 会丢细节；等强 coarse 模型仍失败
-  再做更合理。
+**建议：重训一个统一的 0–5 coarse-image 分类器，用共享样本级 holdout；
+不再继续调两个家族头。**
 
-下一轮分类器建议：
+理由：
 
-- 两家族共享样本级 holdout；6 类+background（处理 2↔3 跨组）或家族头+gate。
-- ResNet18/ConvNeXt-Tiny（1 通道），或检测器 P5/ROI 特征；更多 hard
-  negatives、轻量增强、更长训练。
-- confidence/margin gate，阈值在共享 fit holdout 上定，不在 val 上调。
-- 仍用全局合并前同一批候选框，只改类、保留框/分数，两组各合并一次。
+- **跨组路由用两个头修不了**：7.9% 跨组，跨组改动全是 W2W。统一 6 类头
+  （0–5，可选 +background）可以直接输出 2↔3 和跨组类。
+- **共享 holdout 去掉泄漏 caveat**：所有类用同一个按样本划分，部署估计
+  干净；不会出现某个 crop 被“见过它”的另一家族头打分。
+- **当前 holdout 信号不足以调 gate**：最好可部署点只是 761 个 crop 上的
+  +4，区间含 0。应先让更强模型在共享 holdout 上稳定做到 W2C > C2W，再谈
+  完整 val。
 
-若强 coarse 模型仍无可靠净纠错，再做同框 native STFT 对照：同 proposal
-框/物理 context/结构/划分/融合规则；用 256×256/512×512 或 1D frequency
-profile/双分支；实测裁块 0.15–0.27 ms、分类器 0.07–0.15 ms/proposal，
-4.8k 框约多 1–5 s。
+具体下一轮：
+
+- 冻结同一检测器，同一全局合并前候选框，同一 coarse crop 与物理 context；
+  只换分类器。
+- 统一 6 类头（0–5，+background 可选），共享样本级 holdout（如 10–15%
+  样本），类平衡采样 + hard negatives。
+- 更强 backbone：ResNet18 / ConvNeXt-Tiny（1 通道输入），或检测器 P5/ROI
+  特征；轻量增强、更长训练，在共享 holdout 上早停。保留当前小 CNN 作为
+  结构对照。
+- gate 阈值只在共享 fit holdout 上定；要求 W2C > C2W 且置信区间排除 0、
+  覆盖有意义，才允许跑完整 val。
+- 若 gate 通过，用固定框/分数只改类，class-wise NMS + 100，与 filtered
+  **0.649725** 对照；每组只合并一次，不在 val 上调参。
+- 若统一 coarse 模型仍失败，再做同框 coarse vs native STFT 对照：同
+  proposal 框、同物理 context、同结构/划分/融合规则；不要把 16.8k–33.6k
+  行的 native crop 直接 resize 到 128×256。
 
 10/11 仍单独处理；6/7/8/9/12/13 不做分类；test 继续封存。
 
-详细表：`reports/classifier_threshold_and_routing.md`、
-`reports/classifier_threshold_sweep.json`。
+详细表与逐阈值数据：`reports/classifier_threshold_and_routing.md`、
+`reports/classifier_threshold_sweep.json`；脚本：
+`scripts/classifier_threshold_sweep.py`。
