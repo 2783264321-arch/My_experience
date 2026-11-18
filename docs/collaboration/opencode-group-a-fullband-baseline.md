@@ -139,6 +139,14 @@ A 的 wall time 更低，部分来自缓存与 coarse-only 验证更便宜（~77
 - 缓存用 BF16 位模式；训练路径核验 loss/preds/grad 全 0，最终验证用现场 float32。
 - test 继续封存；所有选择只在 val 上完成。
 
+## 勘误与待复核（2026-11-18）
+
+- `reports/group_a_results.md` 正文曾把物理带宽 `≤0.25 MHz` 的 C−A best 写成 **+5.29 pp**。
+- 原始分组结果核正：A best `0.5001996`，C `0.7804442`，**C−A = +28.0245 pp**。
+- `+5.2914 pp` 是 A best 在 `medium 0.3–2 MHz` 相对 C 的优势（`0.8917338` vs `0.8388196`），不是窄带。
+- 正文已改为 `+28.02 pp`，并保留 medium 的 `+5.29 pp` 表述；核验明细见 `reports/group_a_narrowband_check.json`。
+- **待复核**：请 Codex / Baseline-1 抽查上述两处与原始 `signal_characteristics.json` 是否一致，并确认文中没有其他把 `+5.29` 归到窄带的表述。
+
 ## 产物
 
 - 训练：`runs/yolo11s_c1_directreg_coarseonly_2048x512/`

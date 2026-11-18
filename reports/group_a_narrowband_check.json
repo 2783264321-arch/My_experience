@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-11-18 23:48:08",
+  "definition": "AP@0.5 per physical signal bandwidth group; same evaluator and val split for all rows",
+  "sources": {
+    "A_best": "runs/yolo11s_c1_directreg_coarseonly_2048x512/stage5_val_best/signal_characteristics.json",
+    "B_coarse": "runs/regression/c_coarse/signal_characteristics.json",
+    "C_all": "/root/autodl-tmp/workspace/baseline/runs/yolo11s_c1_directreg_2048x512/stage5_val/signal_characteristics.json"
+  },
+  "values": {
+    "A_best": {
+      "narrow_<=0.25MHz": 0.5001996427864939,
+      "medium_0.3-2MHz": 0.8917337976045427
+    },
+    "B_coarse": {
+      "narrow_<=0.25MHz": 0.4837904928672459,
+      "medium_0.3-2MHz": 0.7474320064615086
+    },
+    "C_all": {
+      "narrow_<=0.25MHz": 0.7804441677354662,
+      "medium_0.3-2MHz": 0.8388195882117591
+    }
+  },
+  "deltas_pp": {
+    "narrow_<=0.25MHz_C_minus_A_best": 28.024452494897233,
+    "narrow_<=0.25MHz_B_minus_A_best": -1.6409149919247967,
+    "medium_0.3-2MHz_A_best_minus_C": 5.291420939278368,
+    "medium_0.3-2MHz_A_best_minus_B": 14.43017911430341
+  },
+  "conclusion": "A_best narrow=0.5001996, C narrow=0.7804442 => C-A=+28.0245 pp. A_best medium=0.8917338, C medium=0.8388196 => A-C=+5.2914 pp. The 5.29 pp figure belongs to medium, not narrow."
+}

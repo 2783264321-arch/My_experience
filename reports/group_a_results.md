@@ -92,10 +92,11 @@ Interpretation:
    and has slightly higher AP_agn/recall. It is a valid full-band single-image
    baseline, but it does not beat simply running the joint weights on the
    coarse view.
-2. **C's gain is narrowband.** C−A best = +6.64 pp overall, but +28.02 pp on
-   9/12/13 and +5.29 pp on narrow ≤0.25 MHz; on medium 0.3–2 MHz A best is
-   **+5.29 pp** better, and on wide/very wide/ultra C is only +0.91/+1.81/+1.30
-   pp. The single image is not uniformly worse.
+2. **C's gain is narrowband.** C−A best = +6.64 pp overall. The narrowband
+   groups (9/12/13 and physical ≤0.25 MHz) go from 0.5002 to 0.7804,
+   **+28.02 pp**; on medium 0.3–2 MHz A best is **+5.29 pp** better
+   (0.8917 vs 0.8388), and on wide/very wide/ultra C is only
+   +0.91/+1.81/+1.30 pp. The single image is not uniformly worse.
 3. **A last is not a fair single-image score without the overfitting caveat.**
    Last is 3.59 pp below best; training loss kept falling while val declined.
    The pre-registered main table uses last for both A and C, but the paper

@@ -104,7 +104,7 @@ A（100 epoch，修正版 coarse-only）：
 - **开销注明测量范围。** 在同一批 128 个分层样本上，端到端 p50 为 A 0.327 s、C 0.509 s。训练耗时和 A 的一次性缓存构建分开记。第 70 轮早停来自事后模拟，A 的实际训练与末轮权重仍以第 100 轮为准。 [延迟记录](../../reports/group_a_latency.json)
 - **结果使用范围。** 当前是单种子的验证集对照，test 继续封存。未来若启用早停，配对实验在同一评测与权重选择规则下执行，同时报告最佳和末轮指标及实际训练步数。
 
-Baseline-0 至此收尾。物理带宽组 `≤0.25 MHz` 的正文增益待 OpenCode 对照表格核正。下一阶段从 [Baseline-1 复数粗图的前端比较](opencode-complex-coarse-decision.md) 接续。
+Baseline-0 至此收尾。物理带宽组 `≤0.25 MHz` 的正文增益已核正为 **+28.02 个百分点**；`+5.29` 个百分点是 A best 在 `0.3–2 MHz` 相对 C 的优势。核验明细与待复核项见下。下一阶段从 [Baseline-1 复数粗图的前端比较](opencode-complex-coarse-decision.md) 接续。
 
 ## 状态日志
 
@@ -176,6 +176,11 @@ Baseline-0 至此收尾。物理带宽组 `≤0.25 MHz` 的正文增益待 OpenC
 - 训练成本：A 1.62 h + 缓存 2,050 s（11.63 GiB）；C 2.69 h；峰值显存均 10.1 GiB。
 - 早停复盘：4 次事件会在 ep69 停，省约 30 epoch（~26 min）；3 次会在 ep59 停但会误停 C（ep44）；5 次太晚。
 - 详细结果：`docs/collaboration/opencode-group-a-fullband-baseline.md`、`reports/group_a_results.md`、`reports/group_a_training.md`。
+
+## 待复核项
+
+- [x] **`≤0.25 MHz` 正文增益**：原始分组 A best `0.5001996`、C `0.7804442`，C−A = **+28.0245 pp**；原文 `+5.29 pp` 已修正。`+5.2914 pp` 是 A best 在 `medium 0.3–2 MHz` 相对 C 的优势（`0.8917338` vs `0.8388196`）。明细：`reports/group_a_narrowband_check.json`。
+- [ ] 请 Codex / Baseline-1 抽查上述两处与原始 `signal_characteristics.json` 是否一致，并确认全文没有其他把 `+5.29 pp` 归到窄带的表述。
 
 ## 复核边界
 
