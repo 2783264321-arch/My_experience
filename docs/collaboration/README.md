@@ -4,9 +4,9 @@
 
 ## 当前路线
 
-- **Baseline-0 · 全频单图。** 独立训练 YOLO11s-C1-DirectReg。每个样本把 0.7 ms 原生 STFT 的功率聚合成一张全频 `2048×512` 图。近似等预算的 A/B/C 对照使用末轮 EMA，最新进度与运行口径见 [Baseline-0 工作记录](Baseline-0.md)。
+- **Baseline-0 · 全频单图已收尾。** 每个样本用一张 `2048×512` 全频功率图独立训练和推理。100 轮训练、固定验证集评测和延迟测量均已完成。 [末轮与最佳权重的论文口径](Baseline-0.md#收尾与论文比较口径)
 - **Baseline-1 · 全频粗图与沿频率轴的细片。** 原生时频图为 `F×512`，F 随观测带宽变化，每个粗细视图都是 `2048×512`。固定 1,543 个验证样本，原联合 mAP@0.5 为 0.6427，AP75 为 0.5945，忽略类别的 AP@0.5 为 0.9046。联合权重只跑粗图为 0.5794。加细片类别过滤的工程对照为 0.6497。旧训练曲线使用裁框修正前的口径。 [执行状态](../status.md) · [修正后验证](../../reports/stage5_results.md) · [视图归因](opencode-view-attribution.md) · [过滤对照](opencode-filter-and-classifier-proposal.md)
-- **当前研究问题。** 研究保留复数 STFT 对端到端检测的影响。已有 `128×256` 裁块实验衡量框内分类，用作诊断记录。端到端实验先检查能否从原 IQ 直接构造物理意义一致的复数粗图和细片，再决定正式训练方案。 [裁块诊断](opencode-modulation-separability-result.md) · [本轮前端方案](#复数-stft-粗图前端验证) · [前端核查结果](opencode-complex-coarse-frontend.md) · [候选对照与选择](opencode-complex-coarse-decision.md)
+- **当前研究重点 · Baseline-1 复数粗图。** 研究在端到端检测里保留复数 STFT 的价值。前端对照已提交，接下来审查全频粗图的输入方案与公平训练对照。 [裁块诊断](opencode-modulation-separability-result.md) · [研究动机与前端方案](#复数-stft-粗图前端验证) · [首轮核查](opencode-complex-coarse-frontend.md) · [最新候选对照](opencode-complex-coarse-decision.md)
 
 ## 复数 STFT 粗图前端验证
 
@@ -63,15 +63,9 @@ OpenCode 在完整 1,543 个验证源上复核了每视图上限 300 与 1,000�
 
 ## Group A 全频单图基线（已完成）
 
-独立训练 YOLO11s-C1-DirectReg，每个 fit 源只提供一张 `2048×512` 全频粗图，
-100 epoch，与 C 的 50 epoch 在 595,700 张图像 / 37,300 vs 37,250 步上对齐。
+独立训练的 A 跑满 100 轮。固定验证集上的 mAP@0.5 为末轮 **0.5404**、最佳 **0.5763**。同一粗细联合权重仅跑粗图 **0.5794**，跑全视图 **0.6427**。
 
-- A best（ep29）**0.5763**，A last（ep99）0.5404，B 仅粗图 0.5794，C 全视图 0.6427。
-- B−A best **+0.31 pp**；C−A best **+6.64 pp**；C−B +6.33 pp。
-- A best 在 10/11（0.6399）与 medium 0.3–2 MHz（0.8917）不弱，主要短板是窄带 9/12/13（0.5002 vs C 0.7804）。
-- 推理 views/sample：A 1 vs C 19.10；model-only C/A 8.64×，端到端 p50 仅 1.56×（STFT 主导）。
-- A last 明显过拟合；4 次验证事件早停会在 ep69 停，省约 30 epoch。后续实验统一启用早停、主 checkpoint 用 best EMA。
-- 详细结果：[Group A 结果](opencode-group-a-fullband-baseline.md) · [训练报告](../../reports/group_a_training.md) · [对照表](../../reports/group_a_results.md)
+论文保留末轮对末轮的近似等预算主对照（C−A **+10.23** 个百分点），同时给出最佳单图作为更强参照（C−A **+6.64** 个百分点）。同权重下加入细片为 **+6.33** 个百分点。早停是事后模拟，本轮实际训练按 100 轮记录。 [已确认的论文口径](Baseline-0.md#收尾与论文比较口径) · [完整结果](opencode-group-a-fullband-baseline.md) · [对照表](../../reports/group_a_results.md)
 
 ## 协作方式
 

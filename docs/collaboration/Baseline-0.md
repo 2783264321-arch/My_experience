@@ -1,6 +1,6 @@
 # Baseline-0：全频单图基线（Group A）
 
-状态：**执行中**
+状态：**已完成，Baseline-0 收尾**
 会话：Baseline-0（OpenCode）
 工作树：`/root/autodl-tmp/worktrees/baseline-0-group-a`
 分支：`baseline-0/group-a`（基于 `main@87b6a22`）
@@ -90,6 +90,22 @@ A（100 epoch，修正版 coarse-only）：
 - `scripts/validate_run.py`：`--view-mode`。
 - 新增 `scripts/build_coarse_cache.py`、`scripts/verify_coarse_cache.py`、`scripts/bench_view_modes.py`、`scripts/class_group_metrics.py`、`scripts/run_group_a.sh`。
 
+## 收尾与论文比较口径
+
+训练已按原计划跑满 100 轮，完整评测使用固定的 1,543 个验证样本。A 是独立训练的全频单图模型。B 和 C 共用 Baseline-1 的末轮 EMA，分别使用仅粗图和粗图加细片推理。C 为未加细片类别过滤的结果。 [训练与预算](../../reports/group_a_training.md) · [完整结果](opencode-group-a-fullband-baseline.md)
+
+| 论文用途 | 全频单图 A | 粗细联合 C | C−A mAP@0.5 |
+| --- | ---: | ---: | ---: |
+| 近似等预算主对照，均使用末轮 EMA | 0.5404（第 100 轮） | 0.6427（第 50 轮） | +10.23 个百分点 |
+| 补充对照，给出更强的单图参照 | 0.5763（验证最佳，第 30 轮） | 0.6427（同上） | +6.64 个百分点 |
+
+- **两行都报。** 末轮对末轮沿用事先约定的权重选择。两组各处理 595,700 张训练视图，更新步数相差约 0.13%。A 的验证曲线第 30 轮后回落，因此同时报告最佳 EMA。C 的 0.6427 是按修正版评测复核的末轮 EMA，修正版历史比较覆盖当时保存的两份权重。 [C 的复评记录](../../reports/stage5_results.md#L12-L28)
+- **同权重的推理切片收益单列。** B 为 0.5794，C 为 0.6427，相差 6.33 个百分点。A 最佳和 B 相差 0.31 个百分点，两者都仅跑粗图，本轮单种子下表现接近。C 相比 A 最佳，窄带类别 `9/12/13` 的 AP 从 0.5002 升至 0.7804，贡献约九成的总体 mAP 差值。 [总表和分组](../../reports/group_a_results.md)
+- **开销注明测量范围。** 在同一批 128 个分层样本上，端到端 p50 为 A 0.327 s、C 0.509 s。训练耗时和 A 的一次性缓存构建分开记。第 70 轮早停来自事后模拟，A 的实际训练与末轮权重仍以第 100 轮为准。 [延迟记录](../../reports/group_a_latency.json)
+- **结果使用范围。** 当前是单种子的验证集对照，test 继续封存。未来若启用早停，配对实验在同一评测与权重选择规则下执行，同时报告最佳和末轮指标及实际训练步数。
+
+Baseline-0 至此收尾。物理带宽组 `≤0.25 MHz` 的正文增益待 OpenCode 对照表格核正。下一阶段从 [Baseline-1 复数粗图的前端比较](opencode-complex-coarse-decision.md) 接续。
+
 ## 状态日志
 
 ### 2026-11-18 20:29
@@ -161,14 +177,9 @@ A（100 epoch，修正版 coarse-only）：
 - 早停复盘：4 次事件会在 ep69 停，省约 30 epoch（~26 min）；3 次会在 ep59 停但会误停 C（ep44）；5 次太晚。
 - 详细结果：`docs/collaboration/opencode-group-a-fullband-baseline.md`、`reports/group_a_results.md`、`reports/group_a_training.md`。
 
-## 待确认 / 风险
+## 复核边界
 
-- 单 seed 1729；A best/last 差异大，若论文要置信区间，建议补 A/C 同 seed 重复。
-- A 这轮实际未早停，ep69 只是事后模拟；后续实验才真正早停。
-- A last 明显过拟合，论文主表需同时给 A best 并说明；不要把 0.5404 当作单图方法上限。
-- test 继续封存；所有选择只在 val 上完成。
-- 单 seed 1729；如 A 与 C 差距很小，再补一对同 seed A/C 结果判断波动。
-- 若 A 末轮仍在上升，补 8 epoch 低 LR 续训作为收敛诊断，不替换主结果。
+权重、缓存与原始运行产物保存在 AutoDL。共享目录保留配置、评测明细与结论，后续复用按本页「收尾与论文比较口径」执行。
 
 ## 提交记录
 
