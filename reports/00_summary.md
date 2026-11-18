@@ -64,12 +64,11 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
 - 单样本推理：5MHz/20ms 0.10 s；40MHz/80ms 0.79 s；
   80MHz/150ms 1.66 s（CPU STFT 约 1.2 s）。
 
-## 未完成 / 需要你决定
+## 已完成 / 可选后续
 
-1. **GitHub push**：本地 `main` 已有完整提交，但当前环境没有 GitHub
-   PAT/SSH 私钥，`git push` 被拒。你提供 PAT 后可：
-   `git remote set-url origin https://<PAT>@github.com/2783264321-arch/My_experience.git`
-   `git push -u origin main`
+1. **GitHub push 已完成**：`main` 已推送到
+   `https://github.com/2783264321-arch/My_experience`，使用仓库级
+   write deploy key；本地与远程 `main` 同步。
 2. **test 仍封存**，未做任何 test 评估或调参。
 3. 分类加权 fine-tune（`runs/yolo11s_c1_directreg_2048x512_clsft/`）
    已完成，但**未超过 baseline**：修正后 mAP 0.6366 vs 0.6427，未采纳；

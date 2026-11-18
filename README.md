@@ -49,7 +49,7 @@ PYTHONPATH=. .venv/bin/python scripts/validate_run.py \
 PYTHONPATH=. .venv/bin/python scripts/analyze_val.py \
   --run yolo11s_c1_directreg_2048x512
 PYTHONPATH=. .venv/bin/python scripts/predict_examples.py \
-  --run yolo11s_c1_directreg_2048x512 --checkpoint best.pt --limit 10
+  --run yolo11s_c1_directreg_2048x512 --checkpoint best_corrected.pt --limit 10
 ```
 
 Do not modify original IQ/JSON. Do not create a different split. Do not use

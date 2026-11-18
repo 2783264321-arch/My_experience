@@ -95,8 +95,10 @@ overhead at the 5-epoch cadence, kept fixed).
 Localization is strong; class-aware AP is still climbing. Class 13 and the
 dominant class 9 are the main confusion sources so far.
 
-GitHub push: local commits are ready, but the remote requires credentials and
-no PAT/SSH key is available in this environment; push is pending user auth.
+GitHub push: **completed**. `main` is pushed to
+`https://github.com/2783264321-arch/My_experience` via a repo-scoped
+write-enabled deploy key (`~/.ssh/id_ed25519_my_experience`); remote head
+tracks local `main`.
 
 Command:
 
@@ -128,9 +130,9 @@ follow-up; the baseline `best_corrected.pt` remains the deliverable.
 
 ```bash
 PYTHONPATH=. .venv/bin/python scripts/validate_run.py \
-  --run yolo11s_c1_directreg_2048x512 --checkpoint best.pt --workers 12
+  --run yolo11s_c1_directreg_2048x512 --checkpoint best_corrected.pt --workers 12
 PYTHONPATH=. .venv/bin/python scripts/predict_examples.py \
-  --run yolo11s_c1_directreg_2048x512 --checkpoint best.pt --limit 10
+  --run yolo11s_c1_directreg_2048x512 --checkpoint best_corrected.pt --limit 10
 ```
 
 Test split stays sealed.
