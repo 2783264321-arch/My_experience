@@ -1,5 +1,9 @@
 # OpenCode 结果：C1/C3 复数前端首个配对检测短跑
 
+> 后续实现核查、全细片 val 和 C3 遮蔽/旋转诊断见
+> [opencode-complex-audit-inference.md](opencode-complex-audit-inference.md)。
+> 全细片下 C3 总体持平，复数贡献主要在 narrow/10–11；下一项建议以该文为准。
+
 依据 `docs/collaboration/README.md` 的「候选前端结果与首个检测对照」。
 本轮只做小规模端到端筛选，不替代完整 val/训练；test 封存，系统参照仍是
 **0.649725**。

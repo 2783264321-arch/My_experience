@@ -1,0 +1,231 @@
+{
+  "samples": [
+    {
+      "sample_id": "train/1305",
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "cache_index": 1,
+      "fine_start": 0,
+      "F": 14000,
+      "coarse_max_abs_diff": 0.0,
+      "fine_max_abs_diff": 0.0,
+      "coarse_bitwise": true,
+      "fine_bitwise": true,
+      "fine_power_vs_stft_fast_max_abs": 0.00024443864822387695,
+      "fine_power_vs_complex_max_abs": 0.000244140625,
+      "fine_complex_vs_recompute_max_abs": 8.881092071533203e-05,
+      "coarse_boxes_max_abs_diff": 0.0,
+      "fine_boxes_max_abs_diff": 0.0,
+      "coarse_labels_equal": true,
+      "fine_labels_equal": true,
+      "power_identical_ch0": true,
+      "coarse_power_clip": 0.0,
+      "fine_power_clip": 0.002582550048828125,
+      "coarse_complex_clip": 0.0,
+      "fine_complex_clip": 0.0
+    },
+    {
+      "sample_id": "train/1205",
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "cache_index": 14,
+      "fine_start": 19668,
+      "F": 28000,
+      "coarse_max_abs_diff": 0.0,
+      "fine_max_abs_diff": 0.0,
+      "coarse_bitwise": true,
+      "fine_bitwise": true,
+      "fine_power_vs_stft_fast_max_abs": 0.00024437904357910156,
+      "fine_power_vs_complex_max_abs": 0.000244140625,
+      "fine_complex_vs_recompute_max_abs": 0.0002440810203552246,
+      "coarse_boxes_max_abs_diff": 0.0,
+      "fine_boxes_max_abs_diff": 0.0,
+      "coarse_labels_equal": true,
+      "fine_labels_equal": true,
+      "power_identical_ch0": true,
+      "coarse_power_clip": 0.001461029052734375,
+      "fine_power_clip": 0.0053577423095703125,
+      "coarse_complex_clip": 2.288818359375e-05,
+      "fine_complex_clip": 0.000125885009765625
+    },
+    {
+      "sample_id": "train/5435",
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "cache_index": 6,
+      "fine_start": 6556,
+      "F": 14000,
+      "coarse_max_abs_diff": 0.0,
+      "fine_max_abs_diff": 0.0,
+      "coarse_bitwise": true,
+      "fine_bitwise": true,
+      "fine_power_vs_stft_fast_max_abs": 0.00024437904357910156,
+      "fine_power_vs_complex_max_abs": 0.000244140625,
+      "fine_complex_vs_recompute_max_abs": 0.000244140625,
+      "coarse_boxes_max_abs_diff": 0.0,
+      "fine_boxes_max_abs_diff": 0.0,
+      "coarse_labels_equal": true,
+      "fine_labels_equal": true,
+      "power_identical_ch0": true,
+      "coarse_power_clip": 0.005616188049316406,
+      "fine_power_clip": 0.039862632751464844,
+      "coarse_complex_clip": 0.0008101463317871094,
+      "fine_complex_clip": 0.004757881164550781
+    },
+    {
+      "sample_id": "train/5953",
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "cache_index": 30,
+      "fine_start": 14751,
+      "F": 56000,
+      "coarse_max_abs_diff": 0.0,
+      "fine_max_abs_diff": 0.0,
+      "coarse_bitwise": true,
+      "fine_bitwise": true,
+      "fine_power_vs_stft_fast_max_abs": 0.00024431943893432617,
+      "fine_power_vs_complex_max_abs": 0.000244140625,
+      "fine_complex_vs_recompute_max_abs": 3.0517578125e-05,
+      "coarse_boxes_max_abs_diff": 0.0,
+      "fine_boxes_max_abs_diff": 0.0,
+      "coarse_labels_equal": true,
+      "fine_labels_equal": true,
+      "power_identical_ch0": true,
+      "coarse_power_clip": 0.0,
+      "fine_power_clip": 0.01619243621826172,
+      "coarse_complex_clip": 0.0,
+      "fine_complex_clip": 0.0
+    }
+  ],
+  "weights": {
+    "c1_init": {
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "channel_norm": [
+        4.786976337432861
+      ],
+      "channel_std": [
+        0.2825593054294586
+      ],
+      "total_norm": 4.7869768142700195
+    },
+    "c3_init": {
+      "shape": [
+        32,
+        3,
+        3,
+        3
+      ],
+      "channel_norm": [
+        4.7869768142700195,
+        0.0,
+        0.0
+      ],
+      "channel_std": [
+        0.2825593054294586,
+        0.0,
+        0.0
+      ],
+      "total_norm": 4.7869768142700195
+    },
+    "complex_pilot50_c1": {
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "channel_norm": [
+        4.790358543395996
+      ],
+      "channel_std": [
+        0.28276464343070984
+      ],
+      "total_norm": 4.790358543395996
+    },
+    "complex_pilot50_c3": {
+      "shape": [
+        32,
+        3,
+        3,
+        3
+      ],
+      "channel_norm": [
+        4.787250995635986,
+        0.4597131907939911,
+        0.4290761649608612
+      ],
+      "channel_std": [
+        0.2825801968574524,
+        0.027132336050271988,
+        0.02528141252696514
+      ],
+      "total_norm": 4.828375816345215
+    },
+    "complex_pilot50_c1_s1730": {
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "channel_norm": [
+        4.785384178161621
+      ],
+      "channel_std": [
+        0.282467246055603
+      ],
+      "total_norm": 4.785384178161621
+    },
+    "complex_pilot50_c3_s1730": {
+      "shape": [
+        32,
+        3,
+        3,
+        3
+      ],
+      "channel_norm": [
+        4.784236431121826,
+        0.48982012271881104,
+        0.5191174149513245
+      ],
+      "channel_std": [
+        0.2823992967605591,
+        0.028910521417856216,
+        0.030564963817596436
+      ],
+      "total_norm": 4.83718204498291
+    },
+    "c1_1729_input_grad_rms": [
+      0.004595182836055756
+    ],
+    "c3_1729_input_grad_rms": [
+      0.005232049617916346,
+      0.0007652725325897336,
+      0.0013235898222774267
+    ],
+    "c3_1730_input_grad_rms": [
+      0.003217162098735571,
+      0.0007839968311600387,
+      0.0005608637584373355
+    ]
+  },
+  "rotation": [
+    {
+      "sample_id": "train/1305",
+      "coarse_rot_eq_max_abs": 0.0,
+      "fine_rot_eq_max_abs": 0.0,
+      "coarse_power_eq_max_abs": 0.0
+    },
+    {
+      "sample_id": "train/1205",
+      "coarse_rot_eq_max_abs": 0.0,
+      "fine_rot_eq_max_abs": 0.0,
+      "coarse_power_eq_max_abs": 0.0
+    }
+  ]
+}
