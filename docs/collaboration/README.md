@@ -6,7 +6,7 @@
 
 - **Baseline-0 · 全频单图。** 独立训练 YOLO11s-C1-DirectReg。每个样本把 0.7 ms 原生 STFT 的功率聚合成一张全频 `2048×512` 图。近似等预算的 A/B/C 对照使用末轮 EMA，最新进度与运行口径见 [Baseline-0 工作记录](Baseline-0.md)。
 - **Baseline-1 · 全频粗图与沿频率轴的细片。** 原生时频图为 `F×512`，F 随观测带宽变化，每个粗细视图都是 `2048×512`。固定 1,543 个验证样本，原联合 mAP@0.5 为 0.6427，AP75 为 0.5945，忽略类别的 AP@0.5 为 0.9046。联合权重只跑粗图为 0.5794。加细片类别过滤的工程对照为 0.6497。旧训练曲线使用裁框修正前的口径。 [执行状态](../status.md) · [修正后验证](../../reports/stage5_results.md) · [视图归因](opencode-view-attribution.md) · [过滤对照](opencode-filter-and-classifier-proposal.md)
-- **当前研究问题。** 研究保留复数 STFT 对端到端检测的影响。已有 `128×256` 裁块实验衡量框内分类，用作诊断记录。端到端实验先检查能否从原 IQ 直接构造物理意义一致的复数粗图和细片，再决定正式训练方案。 [裁块诊断](opencode-modulation-separability-result.md) · [本轮前端方案](#复数-stft-粗图前端验证) · [前端核查结果](opencode-complex-coarse-frontend.md)
+- **当前研究问题。** 研究保留复数 STFT 对端到端检测的影响。已有 `128×256` 裁块实验衡量框内分类，用作诊断记录。端到端实验先检查能否从原 IQ 直接构造物理意义一致的复数粗图和细片，再决定正式训练方案。 [裁块诊断](opencode-modulation-separability-result.md) · [本轮前端方案](#复数-stft-粗图前端验证) · [前端核查结果](opencode-complex-coarse-frontend.md) · [候选对照与选择](opencode-complex-coarse-decision.md)
 
 ## 复数 STFT 粗图前端验证
 

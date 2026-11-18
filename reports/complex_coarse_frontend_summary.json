@@ -5020,7 +5020,10 @@
     "missed": {
       "total_bins": 157,
       "total_signal_bins": 38912,
-      "frac": 0.004034745065789474
+      "frac": 0.004034745065789474,
+      "total_signal_bins_gt_interval": 17619,
+      "frac_gt_interval": 0.008910834894148362,
+      "frac_all_512_columns": 0.004034745065789474
     },
     "missed_worst": [
       {
@@ -5182,6 +5185,19 @@
         "p90_ms": 2.9355,
         "p95_ms": 2.9355,
         "max_ms": 10.27425
+      },
+      "p90_note": "p90 at 150 ms hits the 10-column outward search limit; not a true boundary error",
+      "clipped_start_signals": {
+        "sparse": 30,
+        "dense_power": 33,
+        "fine": 35,
+        "fine_power": 34
+      },
+      "clipped_end_signals": {
+        "sparse": 21,
+        "dense_power": 33,
+        "fine": 33,
+        "fine_power": 33
       }
     },
     "boundary_by_T_ms": {

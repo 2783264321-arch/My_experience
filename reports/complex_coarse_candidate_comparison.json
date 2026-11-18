@@ -1,0 +1,1141 @@
+{
+  "config": {
+    "fs_hz": 80000000.0,
+    "coarse_nfft": 2048,
+    "fine_ms": 0.7,
+    "overlap": "50% linear Hann"
+  },
+  "band_tones": [
+    {
+      "f0_hz": -39900000.0,
+      "band": 2,
+      "column": 256,
+      "sparse": {
+        "-1": 0.18872281908988953,
+        "0": 1.0980236530303955,
+        "1": 1.1895257234573364,
+        "sum_adjacent": 2.4762721955776215
+      },
+      "overlap": {
+        "-1": 1.0763598901064597e-08,
+        "0": 2.65478253364563,
+        "1": 0.0449351966381073,
+        "sum_adjacent": 2.699717741047336
+      },
+      "single_hann": {
+        "-1": 1.879169708729478e-08,
+        "0": 2.52773380279541,
+        "1": 8.752761182506674e-09,
+        "sum_adjacent": 2.5277338303398684
+      },
+      "rect": {
+        "-1": 5.1001296519359585e-09,
+        "0": 2.6997175216674805,
+        "1": 2.3273521776445705e-08,
+        "sum_adjacent": 2.699717550041132
+      }
+    },
+    {
+      "f0_hz": -39500000.0,
+      "band": 12,
+      "column": 256,
+      "sparse": {
+        "-1": 0.06263784319162369,
+        "0": 0.8769294023513794,
+        "1": 1.3153941631317139,
+        "sum_adjacent": 2.254961408674717
+      },
+      "overlap": {
+        "-1": 8.223208780577806e-09,
+        "0": 2.0768725872039795,
+        "1": 0.6228452920913696,
+        "sum_adjacent": 2.699717887518558
+      },
+      "single_hann": {
+        "-1": 7.885320840728127e-09,
+        "0": 0.5941928625106812,
+        "1": 1.9410828500099342e-08,
+        "sum_adjacent": 0.5941928898068305
+      },
+      "rect": {
+        "-1": 6.8785523943404314e-09,
+        "0": 2.6997177600860596,
+        "1": 1.1800678656470609e-08,
+        "sum_adjacent": 2.6997177787652906
+      }
+    },
+    {
+      "f0_hz": 5000000.0,
+      "band": 1151,
+      "column": 256,
+      "sparse": {
+        "-1": 1.561782880799001e-08,
+        "0": 0.6749293804168701,
+        "1": 1.3498587608337402,
+        "sum_adjacent": 2.024788156868439
+      },
+      "overlap": {
+        "-1": 2.073616300890535e-08,
+        "0": 1.2726125717163086,
+        "1": 1.4271049499511719,
+        "sum_adjacent": 2.6997175424036435
+      },
+      "single_hann": {
+        "-1": 7.217728636987886e-09,
+        "0": 1.3907755835873559e-08,
+        "1": 0.009806106798350811,
+        "sum_adjacent": 0.009806127923835284
+      },
+      "rect": {
+        "-1": 2.6307301226324853e-08,
+        "0": 0.6749293208122253,
+        "1": 2.0247881412506104,
+        "sum_adjacent": 2.699717488370137
+      }
+    },
+    {
+      "f0_hz": 5019531.25,
+      "band": 1152,
+      "column": 256,
+      "sparse": {
+        "-1": 0.2291591465473175,
+        "0": 1.1457958221435547,
+        "1": 1.1457957029342651,
+        "sum_adjacent": 2.5207506716251373
+      },
+      "overlap": {
+        "-1": 0.0004524076939560473,
+        "0": 2.6930484771728516,
+        "1": 0.0063141933642327785,
+        "sum_adjacent": 2.6998150782310404
+      },
+      "single_hann": {
+        "-1": 5.960622218026401e-08,
+        "0": 2.662609338760376,
+        "1": 4.603846548434376e-08,
+        "sum_adjacent": 2.6626094444050636
+      },
+      "rect": {
+        "-1": 6.721825047861785e-05,
+        "0": 2.699695110321045,
+        "1": 8.434574556304142e-05,
+        "sum_adjacent": 2.6998466743170866
+      }
+    },
+    {
+      "f0_hz": 5039062.5,
+      "band": 1152,
+      "column": 256,
+      "sparse": {
+        "-1": 1.6158482551986708e-08,
+        "0": 0.6749293804168701,
+        "1": 1.3498587608337402,
+        "sum_adjacent": 2.024788157409093
+      },
+      "overlap": {
+        "-1": 5.604148611837445e-08,
+        "0": 1.2726126909255981,
+        "1": 1.4271049499511719,
+        "sum_adjacent": 2.699717696918256
+      },
+      "single_hann": {
+        "-1": 8.832398812330666e-09,
+        "0": 0.00020516924269031733,
+        "1": 0.01889788918197155,
+        "sum_adjacent": 0.01910306725706068
+      },
+      "rect": {
+        "-1": 9.901214070850983e-06,
+        "0": 0.32193341851234436,
+        "1": 2.3777835369110107,
+        "sum_adjacent": 2.699726856637426
+      }
+    },
+    {
+      "f0_hz": 39500000.0,
+      "band": 2035,
+      "column": 256,
+      "sparse": {
+        "-1": 0.47832515835762024,
+        "0": 1.3153941631317139,
+        "1": 0.8769294023513794,
+        "sum_adjacent": 2.6706487238407135
+      },
+      "overlap": {
+        "-1": 0.4978582262992859,
+        "0": 2.201859712600708,
+        "1": 1.606375299445517e-08,
+        "sum_adjacent": 2.699717954963747
+      },
+      "single_hann": {
+        "-1": 5.397989610855802e-09,
+        "0": 0.8781469464302063,
+        "1": 1.2372747271172102e-08,
+        "sum_adjacent": 0.8781469642009432
+      },
+      "rect": {
+        "-1": 1.292741380609641e-08,
+        "0": 2.6997177600860596,
+        "1": 1.8758539610530534e-08,
+        "sum_adjacent": 2.699717791772013
+      }
+    },
+    {
+      "f0_hz": 39900000.0,
+      "band": 2045,
+      "column": 256,
+      "sparse": {
+        "-1": 0.2730059027671814,
+        "0": 1.1895254850387573,
+        "1": 1.0980236530303955,
+        "sum_adjacent": 2.5605550408363342
+      },
+      "overlap": {
+        "-1": 0.015986207872629166,
+        "0": 2.6837315559387207,
+        "1": 4.4068554416298866e-05,
+        "sum_adjacent": 2.699761832365766
+      },
+      "single_hann": {
+        "-1": 1.5827543720092763e-08,
+        "0": 2.6414506435394287,
+        "1": 1.977001851116711e-08,
+        "sum_adjacent": 2.641450679136991
+      },
+      "rect": {
+        "-1": 2.9171804527550194e-08,
+        "0": 2.6997175216674805,
+        "1": 2.9479771512797015e-08,
+        "sum_adjacent": 2.6997175803190565
+      }
+    }
+  ],
+  "dual_tones": [
+    {
+      "phase_rad": 0.0,
+      "band": 1152,
+      "sparse_amp": 1.5906411409378052,
+      "overlap_amp": 3.708033323287964,
+      "single_hann_amp": 3.5427517890930176,
+      "rect_amp": 3.7548723220825195,
+      "overlap_power": 0.0013790724333375692,
+      "rect_power": 0.0013958163326606154
+    },
+    {
+      "phase_rad": 1.5707963267948966,
+      "band": 1152,
+      "sparse_amp": 0.714745283126831,
+      "overlap_amp": 1.659480094909668,
+      "single_hann_amp": 1.589697003364563,
+      "rect_amp": 1.6803147792816162,
+      "overlap_power": 0.0013868178939446807,
+      "rect_power": 0.0014035505009815097
+    },
+    {
+      "phase_rad": 3.141592653589793,
+      "band": 1152,
+      "sparse_amp": 0.5878397822380066,
+      "overlap_amp": 1.3615182638168335,
+      "single_hann_amp": 1.3063459396362305,
+      "rect_amp": 1.378548502922058,
+      "overlap_power": 0.0013874522410333157,
+      "rect_power": 0.00140418391674757
+    }
+  ],
+  "bursts": [
+    {
+      "dur_ms": 0.1,
+      "offset_samples": 0.0,
+      "true_cols": [
+        256.0,
+        256.3406148867314
+      ],
+      "profiles": {
+        "sparse": {
+          "peak_snr": 4116031.9597111084,
+          "support": [
+            256,
+            256
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.09998749999999461
+        },
+        "dense_power": {
+          "peak_snr": 3102588.379988447,
+          "support": [
+            256,
+            256
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.09998749999999461
+        },
+        "overlap_power": {
+          "peak_snr": 84524035.62841937,
+          "support": [
+            256,
+            256
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.09998749999999461
+        },
+        "fine_power": {
+          "peak_snr": 84542392.86947995,
+          "support": [
+            256,
+            256
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.09998749999999461
+        }
+      }
+    },
+    {
+      "dur_ms": 0.1,
+      "offset_samples": 11742.0,
+      "true_cols": [
+        256.5,
+        256.8406148867314
+      ],
+      "profiles": {
+        "sparse": {
+          "peak_snr": 0.08623536726284214,
+          "support": [
+            -1,
+            -1
+          ],
+          "start_err_ms": null,
+          "end_err_ms": null
+        },
+        "dense_power": {
+          "peak_snr": 3142557.7162735863,
+          "support": [
+            257,
+            257
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": 0.0467875000000054
+        },
+        "overlap_power": {
+          "peak_snr": 64360152.46436,
+          "support": [
+            256,
+            257
+          ],
+          "start_err_ms": -0.14677500000000002,
+          "end_err_ms": 0.0467875000000054
+        },
+        "fine_power": {
+          "peak_snr": 64374071.37127593,
+          "support": [
+            256,
+            257
+          ],
+          "start_err_ms": -0.14677500000000002,
+          "end_err_ms": 0.0467875000000054
+        }
+      }
+    },
+    {
+      "dur_ms": 0.3,
+      "offset_samples": 0.0,
+      "true_cols": [
+        256.0,
+        257.0219298245614
+      ],
+      "profiles": {
+        "sparse": {
+          "peak_snr": 8850736.77636683,
+          "support": [
+            256,
+            257
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.006437500000006441
+        },
+        "dense_power": {
+          "peak_snr": 4835505.478695268,
+          "support": [
+            256,
+            257
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.006437500000006441
+        },
+        "overlap_power": {
+          "peak_snr": 133255176.47899687,
+          "support": [
+            256,
+            257
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.006437500000006441
+        },
+        "fine_power": {
+          "peak_snr": 133256486.15136743,
+          "support": [
+            256,
+            257
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.006437500000006441
+        }
+      }
+    },
+    {
+      "dur_ms": 0.3,
+      "offset_samples": 11742.0,
+      "true_cols": [
+        256.5,
+        257.5219298245614
+      ],
+      "profiles": {
+        "sparse": {
+          "peak_snr": 9324842.72198053,
+          "support": [
+            257,
+            257
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": -0.15321250000000644
+        },
+        "dense_power": {
+          "peak_snr": 9308359.9495003,
+          "support": [
+            257,
+            257
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": -0.15321250000000644
+        },
+        "overlap_power": {
+          "peak_snr": 220320624.06651676,
+          "support": [
+            257,
+            257
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": -0.15321250000000644
+        },
+        "fine_power": {
+          "peak_snr": 220317742.78730154,
+          "support": [
+            257,
+            257
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": -0.15321250000000644
+        }
+      }
+    },
+    {
+      "dur_ms": 1.0,
+      "offset_samples": 0.0,
+      "true_cols": [
+        256.0,
+        259.40653210696644
+      ],
+      "profiles": {
+        "sparse": {
+          "peak_snr": 9324842.72198053,
+          "support": [
+            256,
+            259
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.1193374999999978
+        },
+        "dense_power": {
+          "peak_snr": 9324448.910774663,
+          "support": [
+            256,
+            259
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.1193374999999978
+        },
+        "overlap_power": {
+          "peak_snr": 255101884.2495978,
+          "support": [
+            256,
+            259
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.1193374999999978
+        },
+        "fine_power": {
+          "peak_snr": 255092774.75066483,
+          "support": [
+            256,
+            259
+          ],
+          "start_err_ms": 0.0,
+          "end_err_ms": -0.1193374999999978
+        }
+      }
+    },
+    {
+      "dur_ms": 1.0,
+      "offset_samples": 11742.0,
+      "true_cols": [
+        256.5,
+        259.90653210696644
+      ],
+      "profiles": {
+        "sparse": {
+          "peak_snr": 9324842.72198053,
+          "support": [
+            257,
+            259
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": -0.2661124999999978
+        },
+        "dense_power": {
+          "peak_snr": 9324488.01904684,
+          "support": [
+            257,
+            260
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": 0.02743750000000218
+        },
+        "overlap_power": {
+          "peak_snr": 255101884.2495978,
+          "support": [
+            257,
+            260
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": 0.02743750000000218
+        },
+        "fine_power": {
+          "peak_snr": 255092774.75066483,
+          "support": [
+            257,
+            260
+          ],
+          "start_err_ms": 0.14677500000000002,
+          "end_err_ms": 0.02743750000000218
+        }
+      }
+    }
+  ],
+  "real_iq_overlap": {
+    "n": 76,
+    "median": 0.14491709376507356,
+    "p10": 0.07290028303223636,
+    "p90": 0.28432534199227355,
+    "signals": [
+      {
+        "sample_id": "train/29",
+        "signal_id": 0,
+        "class": 7,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.0736801722353446
+      },
+      {
+        "sample_id": "train/29",
+        "signal_id": 1,
+        "class": 4,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07314948374470369
+      },
+      {
+        "sample_id": "train/29",
+        "signal_id": 2,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07347048096299537
+      },
+      {
+        "sample_id": "train/29",
+        "signal_id": 3,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07297279826086854
+      },
+      {
+        "sample_id": "train/29",
+        "signal_id": 4,
+        "class": 11,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.0726393438889274
+      },
+      {
+        "sample_id": "train/29",
+        "signal_id": 5,
+        "class": 11,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.0726511384378329
+      },
+      {
+        "sample_id": "train/68",
+        "signal_id": 0,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07304797174667442
+      },
+      {
+        "sample_id": "train/68",
+        "signal_id": 1,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07320952365978421
+      },
+      {
+        "sample_id": "train/68",
+        "signal_id": 2,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.0719707372564295
+      },
+      {
+        "sample_id": "train/68",
+        "signal_id": 3,
+        "class": 0,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07276428756680746
+      },
+      {
+        "sample_id": "train/103",
+        "signal_id": 0,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.0732835954701061
+      },
+      {
+        "sample_id": "train/103",
+        "signal_id": 1,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.0728426646807679
+      },
+      {
+        "sample_id": "train/103",
+        "signal_id": 2,
+        "class": 4,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07256088355196649
+      },
+      {
+        "sample_id": "train/103",
+        "signal_id": 3,
+        "class": 3,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07308460472086016
+      },
+      {
+        "sample_id": "train/103",
+        "signal_id": 4,
+        "class": 0,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07297918366037602
+      },
+      {
+        "sample_id": "train/103",
+        "signal_id": 5,
+        "class": 7,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07044006063879892
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 0,
+        "class": 5,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14462489650785412
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 1,
+        "class": 6,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14518576723282553
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 2,
+        "class": 11,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14592297936949455
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 3,
+        "class": 9,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14870586349022377
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 4,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14582784035529942
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 5,
+        "class": 1,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.1456287823811147
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 6,
+        "class": 9,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.1356809583045713
+      },
+      {
+        "sample_id": "train/14",
+        "signal_id": 7,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14505427809481355
+      },
+      {
+        "sample_id": "train/15",
+        "signal_id": 0,
+        "class": 0,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14591221682497502
+      },
+      {
+        "sample_id": "train/15",
+        "signal_id": 1,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.14515143383245882
+      },
+      {
+        "sample_id": "train/15",
+        "signal_id": 2,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.1449039122918454
+      },
+      {
+        "sample_id": "train/15",
+        "signal_id": 3,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.1367958268467712
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 0,
+        "class": 1,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.2894994257054359
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 1,
+        "class": 8,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.2827081320264475
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 2,
+        "class": 11,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.2780194905604078
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 3,
+        "class": 6,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.2825151151315866
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 4,
+        "class": 6,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.2864203934322606
+      },
+      {
+        "sample_id": "train/108",
+        "signal_id": 5,
+        "class": 8,
+        "B_mhz": 20.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.2748723268028806
+      },
+      {
+        "sample_id": "train/270",
+        "signal_id": 0,
+        "class": 13,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.3179162688199665
+      },
+      {
+        "sample_id": "train/270",
+        "signal_id": 1,
+        "class": 9,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.30824907922652006
+      },
+      {
+        "sample_id": "train/270",
+        "signal_id": 2,
+        "class": 7,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.2817085411299141
+      },
+      {
+        "sample_id": "train/270",
+        "signal_id": 3,
+        "class": 7,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.28277810877951837
+      },
+      {
+        "sample_id": "train/270",
+        "signal_id": 4,
+        "class": 2,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.2833997410846837
+      },
+      {
+        "sample_id": "train/270",
+        "signal_id": 5,
+        "class": 8,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.2826408593233326
+      },
+      {
+        "sample_id": "train/130",
+        "signal_id": 0,
+        "class": 9,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07534285275285946
+      },
+      {
+        "sample_id": "train/130",
+        "signal_id": 1,
+        "class": 2,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.0749306077555603
+      },
+      {
+        "sample_id": "train/130",
+        "signal_id": 2,
+        "class": 10,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07404755848884643
+      },
+      {
+        "sample_id": "train/130",
+        "signal_id": 3,
+        "class": 12,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07569881859398553
+      },
+      {
+        "sample_id": "train/130",
+        "signal_id": 4,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07336831255191213
+      },
+      {
+        "sample_id": "train/130",
+        "signal_id": 5,
+        "class": 13,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07741311224026196
+      },
+      {
+        "sample_id": "train/214",
+        "signal_id": 0,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07464712243880338
+      },
+      {
+        "sample_id": "train/214",
+        "signal_id": 1,
+        "class": 4,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07301589959155233
+      },
+      {
+        "sample_id": "train/214",
+        "signal_id": 2,
+        "class": 9,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07633013707652993
+      },
+      {
+        "sample_id": "train/214",
+        "signal_id": 3,
+        "class": 8,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07311655651895159
+      },
+      {
+        "sample_id": "train/214",
+        "signal_id": 4,
+        "class": 0,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07335352535792952
+      },
+      {
+        "sample_id": "train/214",
+        "signal_id": 5,
+        "class": 12,
+        "B_mhz": 80.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.07646722430049613
+      },
+      {
+        "sample_id": "train/33",
+        "signal_id": 0,
+        "class": 2,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.28288638506565045
+      },
+      {
+        "sample_id": "train/33",
+        "signal_id": 1,
+        "class": 13,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.28366088775188464
+      },
+      {
+        "sample_id": "train/33",
+        "signal_id": 2,
+        "class": 0,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.28288638506565045
+      },
+      {
+        "sample_id": "train/33",
+        "signal_id": 3,
+        "class": 8,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.28323275864914776
+      },
+      {
+        "sample_id": "train/33",
+        "signal_id": 4,
+        "class": 8,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.2830695119608448
+      },
+      {
+        "sample_id": "train/33",
+        "signal_id": 5,
+        "class": 6,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.2820158668160199
+      },
+      {
+        "sample_id": "train/188",
+        "signal_id": 0,
+        "class": 2,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.2839315142607972
+      },
+      {
+        "sample_id": "train/188",
+        "signal_id": 1,
+        "class": 6,
+        "B_mhz": 20.0,
+        "T_ms": 20.0,
+        "overlap_coherence": 0.2857253133048007
+      },
+      {
+        "sample_id": "train/151",
+        "signal_id": 0,
+        "class": 8,
+        "B_mhz": 40.0,
+        "T_ms": 40.0,
+        "overlap_coherence": 0.14624923299674678
+      },
+      {
+        "sample_id": "train/151",
+        "signal_id": 1,
+        "class": 7,
+        "B_mhz": 40.0,
+        "T_ms": 40.0,
+        "overlap_coherence": 0.1458463862633695
+      },
+      {
+        "sample_id": "train/151",
+        "signal_id": 2,
+        "class": 3,
+        "B_mhz": 40.0,
+        "T_ms": 40.0,
+        "overlap_coherence": 0.14493027523830168
+      },
+      {
+        "sample_id": "train/151",
+        "signal_id": 3,
+        "class": 10,
+        "B_mhz": 40.0,
+        "T_ms": 40.0,
+        "overlap_coherence": 0.1450116568928665
+      },
+      {
+        "sample_id": "train/151",
+        "signal_id": 4,
+        "class": 1,
+        "B_mhz": 40.0,
+        "T_ms": 40.0,
+        "overlap_coherence": 0.14453194193447896
+      },
+      {
+        "sample_id": "train/151",
+        "signal_id": 5,
+        "class": 9,
+        "B_mhz": 40.0,
+        "T_ms": 40.0,
+        "overlap_coherence": 0.14120457734514735
+      },
+      {
+        "sample_id": "train/357",
+        "signal_id": 0,
+        "class": 2,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07295790138370481
+      },
+      {
+        "sample_id": "train/357",
+        "signal_id": 1,
+        "class": 9,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07088869222504766
+      },
+      {
+        "sample_id": "train/357",
+        "signal_id": 2,
+        "class": 11,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07296303770998654
+      },
+      {
+        "sample_id": "train/357",
+        "signal_id": 3,
+        "class": 9,
+        "B_mhz": 80.0,
+        "T_ms": 150.0,
+        "overlap_coherence": 0.07682892422856433
+      },
+      {
+        "sample_id": "train/342",
+        "signal_id": 0,
+        "class": 2,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.2875389750708953
+      },
+      {
+        "sample_id": "train/342",
+        "signal_id": 1,
+        "class": 1,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.2868404712800035
+      },
+      {
+        "sample_id": "train/342",
+        "signal_id": 2,
+        "class": 9,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.28471916972374983
+      },
+      {
+        "sample_id": "train/342",
+        "signal_id": 3,
+        "class": 9,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.2837888388075623
+      },
+      {
+        "sample_id": "train/342",
+        "signal_id": 4,
+        "class": 9,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.28210650086425426
+      },
+      {
+        "sample_id": "train/342",
+        "signal_id": 5,
+        "class": 6,
+        "B_mhz": 20.0,
+        "T_ms": 150.00005,
+        "overlap_coherence": 0.2810104557432838
+      }
+    ],
+    "coherence_kind": "sum-normalized 50%-overlap weights; 0..1"
+  },
+  "elapsed_s": 50.39594203978777
+}

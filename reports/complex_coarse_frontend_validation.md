@@ -1,5 +1,8 @@
 # Complex coarse STFT front-end validation
 
+> Follow-up: the candidate decision after band-edge/dual-tone/burst tests is in
+> `reports/complex_coarse_decision.md`.
+
 Question: can a 2048-point full-band complex STFT at the original IQ sample
 rate share time-frequency coordinates and a complex channel definition with the
 existing 0.7 ms complex fine slices? What do the short-window gaps do on long
@@ -113,20 +116,20 @@ Measured on the 76 GT instances:
 
 - sparse/dense power ratio median **0.998** (range 0.687-1.042), so the center
   snapshot is an approximately unbiased energy estimate for continuous signals;
-- missed bins (dense bin energy >5x sparse) **157 / 38,912 = 0.40%** overall;
+- missed bins (dense bin energy >5x sparse) **157 / 17,619 GT-interval columns = 0.89%**;
   worst **12.1%** for one 20 MHz/150 ms BLE/Zigbee-like signal. The worst cases
   are bursty narrowband signals, not continuous WiFi;
 - boundary errors (support threshold 10% of peak): median **0.039 ms** at
-  20/40 ms and **0.294 ms** at 150 ms (one column), p90 2.94 ms. Dense power and
-  0.7 ms fine have the same p90; the boundary error is dominated by the
-  512-column grid and signal strength, not by the short-window gap. The sparse
-  short window is actually sharper in time than the 0.7 ms fine window; its
-  column spacing `h` sets the boundary quantization.
+  20/40 ms and **0.294 ms** at 150 ms (one column). The 2.94 ms p90 is **not a
+  true boundary error**: 30-35 support estimates hit the 10-column outward
+  search limit, mostly from adjacent-signal/leakage energy. The real-IQ support
+  metric is therefore only a visibility check; known-boundary synthetic bursts
+  are needed for a clean boundary comparison (next round).
 
-The minimum GT signal duration in this dataset is 4 ms, much larger than the
-0.294 ms column spacing at 150 ms, so an entire annotated signal cannot fall
-into one gap. The risk is internal bursts/dropouts shorter than the column
-spacing, not losing the whole box.
+The raw train minimum annotation is 1 ms; the 76-instance subset minimum is
+3 ms. At 150 ms the column spacing is 0.294 ms, so a 1 ms signal spans more than
+three columns and cannot be entirely skipped, but an internal burst shorter
+than the column spacing can be weakly sampled or missed.
 
 So on long samples the short-window gaps do **not** break box boundaries or
 wholesale signal detection for continuous signals; they reduce temporal
@@ -183,9 +186,10 @@ only after (a) the frame-center phase correction and (b) an explicit amplitude
 convention: PSD for power, coherent gain for Re/Im (or a fixed per-view scale).
 
 **Do long-sample gaps hurt?** For continuous WiFi-like signals, no catastrophic
-boundary or detection effect: sparse/dense energy ratio ~1, missed bins 0.4%
-overall, boundary median one column (0.294 ms at 150 ms, same p90 as dense/fine).
-For bursty narrowband signals, up to 6-12% of time bins are missed at 150 ms,
+boundary or detection effect: sparse/dense energy ratio ~1, missed bins 0.89%
+overall, boundary median one column (0.294 ms at 150 ms). The real-IQ p90 is
+search-limited, so it is not used as a boundary comparison; synthetic bursts
+are needed. For bursty narrowband signals, up to 6-12% of time bins are missed at 150 ms,
 and the 25.6 us snapshot cannot carry the 0.7 ms modulation detail. The sparse
 2048 view is usable as a cheap localization/context view, not as the sole
 coarse view for all classes.
