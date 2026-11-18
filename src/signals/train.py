@@ -110,6 +110,23 @@ def lr_at(epoch_float: float, epochs: int, lr0: float, warmup: float, final_frac
     return lr0 * (final_frac + (1.0 - final_frac) * 0.5 * (1.0 + math.cos(math.pi * progress)))
 
 
+def should_early_stop(
+    evals_since_improve: int,
+    n_evals: int,
+    patience_evals: int,
+    min_evals: int,
+) -> bool:
+    """True after `patience_evals` consecutive validations without improvement.
+
+    Patience is in validation events, not epochs, because A and C have
+    different optimizer steps per epoch. Four events at the current cadence is
+    ~14,920 steps for both arms (about 20 C epochs or 40 A epochs).
+    """
+    if patience_evals <= 0:
+        return False
+    return n_evals >= min_evals and evals_since_improve >= patience_evals
+
+
 def build_param_groups(model, weight_decay: float):
     decay, no_decay = [], []
     for name, p in model.named_parameters():
@@ -136,12 +153,20 @@ def save_checkpoint(
     args: dict,
     metrics: dict,
     include_optimizer: bool = True,
+    best_epoch: int = -1,
+    patience_best: float = -1.0,
+    last_improve_eval: int = -1,
+    evals_since_improve: int = 0,
 ):
     payload = {
         "model": model.state_dict(),
         "ema": ema.ema.state_dict() if ema is not None else None,
         "epoch": epoch,
         "best_fitness": best_fitness,
+        "best_epoch": int(best_epoch),
+        "patience_best": float(patience_best),
+        "last_improve_eval": int(last_improve_eval),
+        "evals_since_improve": int(evals_since_improve),
         "args": args,
         "metrics": metrics,
         "reg_max": int(model.model[-1].reg_max),
@@ -228,6 +253,9 @@ def train(args):
         "val_every_steps": val_every_steps,
         "total_image_views": total_image_views,
         "coarse_cache": str(coarse_cache) if coarse_cache else None,
+        "early_stop_evals": args.early_stop_evals,
+        "early_stop_min_delta": args.early_stop_min_delta,
+        "early_stop_min_evals": args.early_stop_min_evals,
         "workers": args.workers,
         "optimizer": "AdamW",
         "lr0": args.lr0,
@@ -334,6 +362,11 @@ def train(args):
 
     start_epoch = 0
     best_fitness = -1.0
+    best_epoch = -1
+    patience_best = -1.0
+    last_improve_eval = -1
+    evals_since_improve = 0
+    stop_requested = False
     if args.resume:
         ckpt_path = run_dir / "last.pt"
         if not ckpt_path.exists():
@@ -346,7 +379,12 @@ def train(args):
         scaler.load_state_dict(ckpt.get("scaler", {}))
         start_epoch = int(ckpt["epoch"]) + 1
         best_fitness = float(ckpt.get("best_fitness", -1.0))
-        print(f"resumed from {ckpt_path} at epoch {start_epoch}", flush=True)
+        best_epoch = int(ckpt.get("best_epoch", start_epoch - 1))
+        patience_best = float(ckpt.get("patience_best", best_fitness))
+        last_improve_eval = int(ckpt.get("last_improve_eval", -1))
+        evals_since_improve = int(ckpt.get("evals_since_improve", 0))
+        print(f"resumed from {ckpt_path} at epoch {start_epoch} "
+              f"(best={best_fitness:.4f}@{best_epoch})", flush=True)
 
     log_path = run_dir / "train_log.csv"
     log_exists = log_path.exists() and log_path.stat().st_size > 0
@@ -504,32 +542,76 @@ def train(args):
                   f"agnostic={vr.map50_agnostic:.4f} loc_recall={vr.localization_recall} "
                   f"pred={vr.n_pred} views={vr.stats['n_views']} "
                   f"time={vr.elapsed_s:.0f}s", flush=True)
-            if vr.map50 > best_fitness:
+            improved = vr.map50 > best_fitness
+            if improved:
                 best_fitness = vr.map50
+                best_epoch = epoch
+            if vr.map50 > patience_best + args.early_stop_min_delta:
+                patience_best = vr.map50
+                last_improve_eval = len(val_history) - 1
+                evals_since_improve = 0
+            else:
+                evals_since_improve += 1
+            if improved:
                 save_checkpoint(
                     run_dir / "best.pt", model, ema, optimizer, scaler,
                     epoch, best_fitness, config, entry, include_optimizer=False,
+                    best_epoch=best_epoch, patience_best=patience_best,
+                    last_improve_eval=last_improve_eval,
+                    evals_since_improve=evals_since_improve,
                 )
                 print(f"new best mAP50={best_fitness:.4f} -> best.pt", flush=True)
+            stop_requested = should_early_stop(
+                evals_since_improve, len(val_history),
+                args.early_stop_evals, args.early_stop_min_evals,
+            )
+            if stop_requested:
+                print(
+                    f"early stop at epoch {epoch}: {evals_since_improve} "
+                    f"validations without improvement >= "
+                    f"{args.early_stop_min_delta:g} (patience="
+                    f"{args.early_stop_evals} evals, last improve eval="
+                    f"{last_improve_eval}, best epoch={best_epoch}, "
+                    f"best mAP50={best_fitness:.4f})",
+                    flush=True,
+                )
         save_checkpoint(
             run_dir / "last.pt", model, ema, optimizer, scaler,
             epoch, best_fitness, config, val_history[-1] if val_history else {},
-            include_optimizer=True,
+            include_optimizer=True, best_epoch=best_epoch,
+            patience_best=patience_best, last_improve_eval=last_improve_eval,
+            evals_since_improve=evals_since_improve,
         )
         log_f.flush()
+        if stop_requested:
+            break
 
     total_s = time.perf_counter() - t_run
+    stopped_epoch = int(val_history[-1]["epoch"]) if val_history else -1
     summary = {
         "run": args.run,
         "epochs": args.epochs,
+        "stopped_epoch": stopped_epoch,
+        "early_stopped": bool(stop_requested and stopped_epoch < args.epochs - 1),
+        "early_stop_evals": args.early_stop_evals,
+        "early_stop_min_delta": args.early_stop_min_delta,
+        "early_stop_min_evals": args.early_stop_min_evals,
         "best_fitness": best_fitness,
+        "best_epoch": best_epoch,
+        "patience_best": patience_best,
+        "last_improve_eval": last_improve_eval,
+        "evals_since_improve": evals_since_improve,
+        "actual_optimizer_steps": (stopped_epoch + 1) * steps_per_epoch if stopped_epoch >= 0 else 0,
         "total_s": total_s,
         "total_h": total_s / 3600,
         "val_history": val_history,
         "config": config,
     }
     (run_dir / "summary.json").write_text(json.dumps(summary, indent=2))
-    print(f"training complete: best mAP50={best_fitness:.4f} total={total_s / 3600:.2f}h", flush=True)
+    print(f"training complete: best mAP50={best_fitness:.4f} "
+          f"best_epoch={best_epoch} stopped_epoch={stopped_epoch} "
+          f"early_stopped={summary['early_stopped']} total={total_s / 3600:.2f}h",
+          flush=True)
 
 
 def parse_args(argv=None):
@@ -547,6 +629,12 @@ def parse_args(argv=None):
     p.add_argument("--val-workers", type=int, default=4)
     p.add_argument("--val-batch-views", type=int, default=8)
     p.add_argument("--val-every", type=int, default=5)
+    p.add_argument("--early-stop-evals", type=int, default=0,
+                   help="stop after N validations without an improvement; 0 disables")
+    p.add_argument("--early-stop-min-delta", type=float, default=0.001,
+                   help="minimum mAP50 gain that resets the patience window")
+    p.add_argument("--early-stop-min-evals", type=int, default=3,
+                   help="do not early-stop before this many validation events")
     p.add_argument("--drop-fine-classes", default="")
     p.add_argument("--lr0", type=float, default=0.001)
     p.add_argument("--cls-weight", type=float, default=0.5)

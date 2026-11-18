@@ -59,6 +59,15 @@ plus 50 rotating fine slices.
 Both match the historical protocol exactly. B class-group AP: 0/1/2 0.4212,
 3/4/5 0.4550, 10/11 0.5908, 9/12/13 0.4838.
 
+## Early stopping
+
+This A run intentionally has **no early stopping**: it completes the planned
+100 epochs as the equal-budget, no-early-stop reference. Future experiments
+will use 4 validation events without a >=0.001 mAP50 improvement (about 14,920
+steps; slightly wider than the 15-epoch JDM scheme), `--early-stop-min-evals 3`,
+and will select the **best EMA** checkpoint while also reporting the stopped
+epoch, last EMA, and actual optimizer steps.
+
 ## Training cost
 
 - Pending A run. Expected ~2.2-2.5 h on the RTX 4090, ~80-90 s/epoch plus

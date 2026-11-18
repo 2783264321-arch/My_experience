@@ -42,6 +42,20 @@ A、B、C 主表统一使用**最后一轮 EMA**；A 的 `best` 另列。B 使�
 - 窄带同时报：物理带宽 `≤0.25 MHz` 与类别组 `9/12/13`，均用同一脚本重算。
 - 训练开销分列：缓存构建、训练 wall time、推理延迟。
 
+## 后续实验早停策略（2026-11-18 确认）
+
+当前 A 这轮**不早停**，跑满 100 epoch，作为无早停对照。后续实验统一启用早停：
+
+- 成熟 JDM 方案：`patience=15` epoch、`min_delta=0.1pp`（0–100 准确率），即 mAP 尺度 `0.001`。
+- 本项目的 A/C 每 epoch 优化步数不同（373 vs 745），因此耐心窗口按**验证事件**计，而不是按 epoch：
+  - `--early-stop-evals 4`：连续 4 次 val 没有 ≥0.001 mAP50 提升就停；
+  - `--early-stop-min-delta 0.001`（0.1pp）；
+  - `--early-stop-min-evals 3`。
+- 4 次验证约 **14,920 步**，比成熟的 15 epoch（C 约 3 次验证 / 11,175 步）宽约 33%，符合“稍微宽一点点”；同时能保住 C 已知在 epoch 49 的末轮最好结果（3 次会在 44 停，4 次在 49 停）。
+- 对当前 A：best 在 epoch 29；若用 4 次事件，会在 epoch 69 停，节省 31 epoch（约 26 min）。
+- 后续启用早停的实验，主 checkpoint 用 **best EMA**（早停后 last 通常不是最优），同时报 last、stopped_epoch、actual_optimizer_steps；所有对照臂使用同一早停规则。
+- 代码：`src/signals/train.py` 新增 `--early-stop-evals/min-delta/min-evals`，默认 0 关闭，现有运行不受影响。
+
 ## 代码计划
 
 - `src/signals/data.py`：coarse-only dataset、BF16 缓存 dataset、`coarse_targets()`、`collate_coarse()`。
