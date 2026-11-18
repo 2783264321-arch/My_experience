@@ -97,6 +97,7 @@ def predict_sample(
     conf: float = 0.001,
     iou: float = 0.5,
     max_det: int = 100,
+    max_det_view: int = 300,
 ) -> tuple[Prediction, dict]:
     """Full-sample inference: all fine slices + one coarse view."""
     Fbins = int(round(record.B_mhz * 700))
@@ -109,7 +110,7 @@ def predict_sample(
     for begin in range(0, len(views), batch_views):
         chunk = views[begin:begin + batch_views]
         images = torch.stack([v.tensor for v in chunk], 0).cuda()
-        dets = _nms_view_batch(model, images, conf=conf, iou=iou, max_det=1000)
+        dets = _nms_view_batch(model, images, conf=conf, iou=iou, max_det=max_det_view)
         for det, view in zip(dets, chunk):
             n_raw += len(det)
             pred = _map_view_dets(det, view.view_type, view.start, Fbins)
