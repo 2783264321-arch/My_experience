@@ -136,6 +136,9 @@ def main():
         if not md.is_absolute():
             md = ROOT / md
         md.parent.mkdir(parents=True, exist_ok=True)
+        def f4(x):
+            return "n/a" if x is None else f"{float(x):.4f}"
+
         lines = [
             f"# Class-group metrics: {result['name']}",
             "",
@@ -144,11 +147,11 @@ def main():
         ]
         for name, gr in result["class_groups"].items():
             lines.append(
-                f"| {name} | {gr['n_gt']} | {gr['mean_per_class_ap']:.4f} | "
-                f"{gr['map50_group_filtered']:.4f} | "
-                f"{gr['ap50_agnostic_group_filtered']:.4f} | "
-                f"{gr['localization_recall_group_filtered']:.4f} | "
-                f"{gr['classification_accuracy_group_filtered']:.4f} |"
+                f"| {name} | {gr['n_gt']} | {f4(gr['mean_per_class_ap'])} | "
+                f"{f4(gr['map50_group_filtered'])} | "
+                f"{f4(gr['ap50_agnostic_group_filtered'])} | "
+                f"{f4(gr['localization_recall_group_filtered'])} | "
+                f"{f4(gr['classification_accuracy_group_filtered'])} |"
             )
         md.write_text("\n".join(lines) + "\n", encoding="utf-8")
         print(f"wrote {md}", flush=True)
