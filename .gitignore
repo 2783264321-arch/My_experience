@@ -13,3 +13,4 @@ reports/*.npz
 reports/local_rep/*.npz
 reports/local_rep/models/
 reports/complex_coarse_frontend.json
+reports/complex_pilot_cache/

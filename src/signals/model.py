@@ -8,16 +8,22 @@ import torch
 from ultralytics.nn.tasks import DetectionModel
 
 
-def build_model(config: str = "configs/yolo11s_c1_directreg.yaml", device: str = "cuda") -> DetectionModel:
-    model = DetectionModel(config, ch=1, nc=14, verbose=False)
+def build_model(config: str = "configs/yolo11s_c1_directreg.yaml", device: str = "cuda",
+                ch: int = 1) -> DetectionModel:
+    model = DetectionModel(config, ch=int(ch), nc=14, verbose=False)
     model.args = SimpleNamespace(box=7.5, cls=0.5, dfl=1.5)
     model = model.to(device)
     model.names = {i: str(i) for i in range(14)}
     return model
 
 
-def transfer_pretrained(model: DetectionModel, weights: str | Path, verbose: bool = True) -> dict:
-    """Transfer body weights; C1 RGB stem is summed, head shape mismatches are skipped."""
+def transfer_pretrained(model: DetectionModel, weights: str | Path, verbose: bool = True,
+                        ch: int = 1) -> dict:
+    """Transfer body weights; C1 RGB stem is summed, C3 power stem is summed.
+
+    For ch=3 the first source channel (power) gets the RGB sum and the Re/Im
+    input channels start at zero, so C1 and C3 have the same initial power path.
+    """
     ckpt = torch.load(str(weights), map_location="cpu", weights_only=False)
     src = ckpt.get("model", ckpt)
     if hasattr(src, "float"):
@@ -30,14 +36,19 @@ def transfer_pretrained(model: DetectionModel, weights: str | Path, verbose: boo
             skipped += 1
             continue
         s = src_sd[k]
-        if k == "model.0.conv.weight" and s.shape != tgt.shape:
-            if s.ndim == 4 and tgt.ndim == 4 and s.shape[0] == tgt.shape[0] and s.shape[1] == 3 and tgt.shape[1] == 1:
+        if k == "model.0.conv.weight" and s.ndim == 4 and tgt.ndim == 4 \
+                and s.shape[0] == tgt.shape[0] and s.shape[1] == 3:
+            if tgt.shape[1] == 1:
                 tgt.copy_(s.sum(dim=1, keepdim=True))
                 copied += 1
                 stem += 1
                 continue
-            skipped += 1
-            continue
+            if tgt.shape[1] == 3 and int(ch) == 3:
+                tgt.zero_()
+                tgt[:, 0] = s.sum(dim=1)
+                copied += 1
+                stem += 1
+                continue
         if s.shape == tgt.shape:
             tgt.copy_(s)
             copied += 1
