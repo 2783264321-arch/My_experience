@@ -60,6 +60,17 @@ A、B、C 主表统一使用**最后一轮 EMA**；A 的 `best` 另列。B 使�
 - Baseline-1 正在训练 `train_local_representation_classifiers.py`（GPU 12.4 GiB），并启动 `collect_local_proposal_crops.py --win-ms 0.35,0.7`（CPU 451%）。等待其结束，再建缓存/启动 A。
 - 本阶段只做代码与文档，不占 GPU。
 
+### 2026-11-18 21:05
+
+- 代码提交 `d6aa382`：coarse-only 训练/验证/推理路径、BF16 缓存构建与核验、延迟基准、类别组指标、对照报告脚本；`view_mode` 默认仍为 `all`，不影响现有 B/C 路径。
+- 已完成 CPU 侧 smoke：
+  - `SpaceNetCoarseViews` 与 `build_sample_views(..., [])` 的框/标签逐元素一致；
+  - 8 样本 BF16 缓存与在线路径逐元素一致，标签一致；
+  - `FullViewDataset(view_mode="coarse")` 每样本 1 个 view。
+- Baseline-1 的裁块任务已结束（输出 4.6 GB），但当前有 3 个 100-epoch 表示分类器任务占用约 20 GiB GPU。A 训练继续等待 GPU 独占。
+- 全量 fit BF16 缓存构建中：5957 样本，约 2.9 samples/s，预计 21:20 左右完成；完成后做 32 样本位模式核验和同权重同批次前向/loss/梯度核验。
+- 回归门（C 全视图 0.6427、C 仅粗图 0.5794）待 GPU 空闲后执行。
+
 ## 待确认 / 风险
 
 - Baseline-1 的 GPU 任务占用 12.4 GiB，A 训练必须等它结束，避免 OOM/争抢。
