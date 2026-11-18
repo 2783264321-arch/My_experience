@@ -1,0 +1,849 @@
+{
+  "synthetic": [
+    {
+      "fs_mhz": 20.0,
+      "T_ms": 20.0,
+      "N": 400000,
+      "h": 783,
+      "target_row": 500,
+      "tone_hz": -5112304.6875,
+      "sparse_peak_rows": [
+        500,
+        501,
+        499
+      ],
+      "sparse_peak_ratio": 1.9999998807907104,
+      "unshifted_peak_rows": [
+        501,
+        500,
+        499
+      ],
+      "unshifted_peak_ratio": 1.0000000159267195,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": 1.0052378374147963e-10,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 200,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 20.0,
+      "T_ms": 20.0,
+      "N": 400000,
+      "h": 783,
+      "target_row": 1000,
+      "tone_hz": -229492.1875,
+      "sparse_peak_rows": [
+        1000,
+        1001,
+        999
+      ],
+      "sparse_peak_ratio": 1.9999998807907104,
+      "unshifted_peak_rows": [
+        1001,
+        1000,
+        1002
+      ],
+      "unshifted_peak_ratio": 1.0000000132438933,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -4.794888042169987e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 200,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 20.0,
+      "T_ms": 20.0,
+      "N": 400000,
+      "h": 783,
+      "target_row": 1500,
+      "tone_hz": 4653320.3125,
+      "sparse_peak_rows": [
+        1500,
+        1501,
+        1499
+      ],
+      "sparse_peak_ratio": 2.0,
+      "unshifted_peak_rows": [
+        1500,
+        1501,
+        1502
+      ],
+      "unshifted_peak_ratio": 1.0000000906103126,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": 5.001535852144912e-10,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 200,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 20.0,
+      "T_ms": 20.0,
+      "N": 400000,
+      "h": 783,
+      "target_row": 1900,
+      "tone_hz": 8559570.3125,
+      "sparse_peak_rows": [
+        1900,
+        1899,
+        1901
+      ],
+      "sparse_peak_ratio": 1.9999996423721313,
+      "unshifted_peak_rows": [
+        1901,
+        1900,
+        1899
+      ],
+      "unshifted_peak_ratio": 1.0000000340101334,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -3.3708880131655405e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 200,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 40.0,
+      "T_ms": 20.0,
+      "N": 800000,
+      "h": 1566,
+      "target_row": 500,
+      "tone_hz": -10224609.375,
+      "sparse_peak_rows": [
+        500,
+        501,
+        499
+      ],
+      "sparse_peak_ratio": 1.999999761581421,
+      "unshifted_peak_rows": [
+        501,
+        500,
+        499
+      ],
+      "unshifted_peak_ratio": 1.0000000311828652,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -1.410277117308567e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 40.0,
+      "T_ms": 20.0,
+      "N": 800000,
+      "h": 1566,
+      "target_row": 1000,
+      "tone_hz": -458984.375,
+      "sparse_peak_rows": [
+        1000,
+        1001,
+        999
+      ],
+      "sparse_peak_ratio": 1.999999761581421,
+      "unshifted_peak_rows": [
+        1000,
+        1001,
+        999
+      ],
+      "unshifted_peak_ratio": 1.0000000604496804,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": 1.7390203721490138e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 40.0,
+      "T_ms": 20.0,
+      "N": 800000,
+      "h": 1566,
+      "target_row": 1500,
+      "tone_hz": 9306640.625,
+      "sparse_peak_rows": [
+        1500,
+        1501,
+        1499
+      ],
+      "sparse_peak_ratio": 1.999999761581421,
+      "unshifted_peak_rows": [
+        1501,
+        1500,
+        1499
+      ],
+      "unshifted_peak_ratio": 1.0000000320288673,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -4.341401460550287e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 40.0,
+      "T_ms": 20.0,
+      "N": 800000,
+      "h": 1566,
+      "target_row": 1900,
+      "tone_hz": 17119140.625,
+      "sparse_peak_rows": [
+        1900,
+        1901,
+        1899
+      ],
+      "sparse_peak_ratio": 1.999999761581421,
+      "unshifted_peak_rows": [
+        1900,
+        1901,
+        1899
+      ],
+      "unshifted_peak_ratio": 1.0000000322555695,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -1.5256249596973248e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 80.0,
+      "T_ms": 20.0,
+      "N": 1600000,
+      "h": 3132,
+      "target_row": 500,
+      "tone_hz": -20449218.75,
+      "sparse_peak_rows": [
+        500,
+        501,
+        499
+      ],
+      "sparse_peak_ratio": 1.9999998807907104,
+      "unshifted_peak_rows": [
+        500,
+        501,
+        499
+      ],
+      "unshifted_peak_ratio": 1.0000000326972482,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -4.1410619378012825e-10,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 800,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 80.0,
+      "T_ms": 20.0,
+      "N": 1600000,
+      "h": 3132,
+      "target_row": 1000,
+      "tone_hz": -917968.75,
+      "sparse_peak_rows": [
+        1000,
+        1001,
+        999
+      ],
+      "sparse_peak_ratio": 1.9999998807907104,
+      "unshifted_peak_rows": [
+        1000,
+        1001,
+        999
+      ],
+      "unshifted_peak_ratio": 1.0000000045112325,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": 3.206240828390605e-11,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 800,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 80.0,
+      "T_ms": 20.0,
+      "N": 1600000,
+      "h": 3132,
+      "target_row": 1500,
+      "tone_hz": 18613281.25,
+      "sparse_peak_rows": [
+        1500,
+        1501,
+        1499
+      ],
+      "sparse_peak_ratio": 1.9999998807907104,
+      "unshifted_peak_rows": [
+        1500,
+        1501,
+        1499
+      ],
+      "unshifted_peak_ratio": 1.0000000843204675,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -6.7145879967256406e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 800,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    },
+    {
+      "fs_mhz": 80.0,
+      "T_ms": 20.0,
+      "N": 1600000,
+      "h": 3132,
+      "target_row": 1900,
+      "tone_hz": 34238281.25,
+      "sparse_peak_rows": [
+        1900,
+        1899,
+        1901
+      ],
+      "sparse_peak_ratio": 1.9999996423721313,
+      "unshifted_peak_rows": [
+        1901,
+        1900,
+        1899
+      ],
+      "unshifted_peak_ratio": 1.0000000180295692,
+      "dense_row_corr_re": 1.0,
+      "dense_row_corr_im": -1.4002549120206709e-09,
+      "dense_row_corr_mag": 1.0,
+      "dense": {
+        "dense_hop_samples": 800,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      }
+    }
+  ],
+  "real": [
+    {
+      "sample_id": "train/29",
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "N": 12000000,
+      "h": 23484,
+      "overlap_seconds": 1.1733252704143524,
+      "sparse_seconds": 0.06491415202617645,
+      "dense_seconds": 1.4046915173530579,
+      "shapes": {
+        "overlap": [
+          2048,
+          512
+        ],
+        "sparse": [
+          2048,
+          512
+        ],
+        "dense": [
+          2,
+          2048,
+          512
+        ]
+      },
+      "overlap_abs_p99_5": 0.00022600812371820211,
+      "sparse_abs_p99_5": 0.0008434228948317468,
+      "dense_mean_mag": 0.3166017532348633,
+      "dense_frac_mag_gt_0_99": 0.0,
+      "dense": {
+        "dense_hop_samples": 800,
+        "dense_hop_us": 10.0,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 14,
+        "first_column_pairs": 15,
+        "min_column_pairs": 14,
+        "max_column_pairs": 30,
+        "last_column_pair_indices": [
+          14996,
+          14997,
+          14998,
+          14999
+        ],
+        "last_column_pair_midpoints_us": [
+          149965.0,
+          149975.0,
+          149985.0,
+          149995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "power_exact": true
+    },
+    {
+      "sample_id": "train/14",
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "N": 6000000,
+      "h": 11742,
+      "overlap_seconds": 0.6517979875206947,
+      "sparse_seconds": 0.04094409942626953,
+      "dense_seconds": 1.352826900780201,
+      "shapes": {
+        "overlap": [
+          2048,
+          512
+        ],
+        "sparse": [
+          2048,
+          512
+        ],
+        "dense": [
+          2,
+          2048,
+          512
+        ]
+      },
+      "overlap_abs_p99_5": 0.0007529011345468462,
+      "sparse_abs_p99_5": 0.002008733805269003,
+      "dense_mean_mag": 0.6884080171585083,
+      "dense_frac_mag_gt_0_99": 0.00039005279541015625,
+      "dense": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 14,
+        "first_column_pairs": 15,
+        "min_column_pairs": 14,
+        "max_column_pairs": 30,
+        "last_column_pair_indices": [
+          14996,
+          14997,
+          14998,
+          14999
+        ],
+        "last_column_pair_midpoints_us": [
+          149965.0,
+          149975.0,
+          149985.0,
+          149995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "power_exact": true
+    },
+    {
+      "sample_id": "train/108",
+      "B_mhz": 20.0,
+      "T_ms": 150.0,
+      "N": 3000000,
+      "h": 5871,
+      "overlap_seconds": 0.4000367969274521,
+      "sparse_seconds": 0.013632826507091522,
+      "dense_seconds": 1.3181842789053917,
+      "shapes": {
+        "overlap": [
+          2048,
+          512
+        ],
+        "sparse": [
+          2048,
+          512
+        ],
+        "dense": [
+          2,
+          2048,
+          512
+        ]
+      },
+      "overlap_abs_p99_5": 0.001783102983608842,
+      "sparse_abs_p99_5": 0.0033688675612211227,
+      "dense_mean_mag": 0.8872476816177368,
+      "dense_frac_mag_gt_0_99": 0.0007171630859375,
+      "dense": {
+        "dense_hop_samples": 200,
+        "dense_hop_us": 10.0,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 14,
+        "first_column_pairs": 15,
+        "min_column_pairs": 14,
+        "max_column_pairs": 30,
+        "last_column_pair_indices": [
+          14996,
+          14997,
+          14998,
+          14999
+        ],
+        "last_column_pair_midpoints_us": [
+          149965.0,
+          149975.0,
+          149985.0,
+          149995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "power_exact": true
+    },
+    {
+      "sample_id": "train/130",
+      "B_mhz": 80.0,
+      "T_ms": 20.0,
+      "N": 1600000,
+      "h": 3132,
+      "overlap_seconds": 1.1364781036973,
+      "sparse_seconds": 0.03792582452297211,
+      "dense_seconds": 0.09623672068119049,
+      "shapes": {
+        "overlap": [
+          2048,
+          512
+        ],
+        "sparse": [
+          2048,
+          512
+        ],
+        "dense": [
+          2,
+          2048,
+          512
+        ]
+      },
+      "overlap_abs_p99_5": 0.0002854093909263611,
+      "sparse_abs_p99_5": 0.0010784193873405457,
+      "dense_mean_mag": 0.523206353187561,
+      "dense_frac_mag_gt_0_99": 0.005061149597167969,
+      "dense": {
+        "dense_hop_samples": 800,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "power_exact": true
+    },
+    {
+      "sample_id": "train/33",
+      "B_mhz": 20.0,
+      "T_ms": 20.0,
+      "N": 400000,
+      "h": 783,
+      "overlap_seconds": 0.4169837161898613,
+      "sparse_seconds": 0.012468583881855011,
+      "dense_seconds": 0.08661317080259323,
+      "shapes": {
+        "overlap": [
+          2048,
+          512
+        ],
+        "sparse": [
+          2048,
+          512
+        ],
+        "dense": [
+          2,
+          2048,
+          512
+        ]
+      },
+      "overlap_abs_p99_5": 0.0033909729681909084,
+      "sparse_abs_p99_5": 0.006519111804664135,
+      "dense_mean_mag": 0.9332507252693176,
+      "dense_frac_mag_gt_0_99": 0.42505455017089844,
+      "dense": {
+        "dense_hop_samples": 200,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "power_exact": true
+    },
+    {
+      "sample_id": "train/1",
+      "B_mhz": 5.0,
+      "T_ms": 20.0,
+      "N": 100000,
+      "h": 196,
+      "overlap_seconds": 0.20719602704048157,
+      "sparse_seconds": 0.012162797152996063,
+      "dense_seconds": 0.10397658497095108,
+      "shapes": {
+        "overlap": [
+          2048,
+          512
+        ],
+        "sparse": [
+          2048,
+          512
+        ],
+        "dense": [
+          2,
+          2048,
+          512
+        ]
+      },
+      "overlap_abs_p99_5": 0.029616177082061768,
+      "sparse_abs_p99_5": 0.034079186618328094,
+      "dense_mean_mag": 0.9955122470855713,
+      "dense_frac_mag_gt_0_99": 0.9578046798706055,
+      "dense": {
+        "dense_hop_samples": 50,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2004,
+        "pairs": 2003,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 2,
+        "first_column_pairs": 2,
+        "min_column_pairs": 2,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          2001,
+          2002
+        ],
+        "last_column_pair_midpoints_us": [
+          20015.0,
+          20025.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "power_exact": true
+    }
+  ],
+  "timing": {
+    "real_samples": 6,
+    "sum_seconds": 8.530395358800888,
+    "per_sample_seconds": 1.421732559800148,
+    "estimated_1536_fit_plus_384_val_seconds": 2729.726514816284,
+    "note": "includes overlap + sparse + dense, one after another; not a pipeline total"
+  }
+}
