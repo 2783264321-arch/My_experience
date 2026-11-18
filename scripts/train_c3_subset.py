@@ -317,9 +317,9 @@ def main():
                 optimizer.zero_grad(set_to_none=True)
                 ema.update(model)
             global_step += 1
-            log.writerow([epoch, global_step, f"{lr:.8f}", f"{float(loss):.6f}",
-                          f"{float(parts[0]):.6f}", f"{float(parts[1]):.6f}",
-                          f"{float(parts[2]):.6f}", "",
+            log.writerow([epoch, global_step, f"{lr:.8f}", f"{float(loss.detach()):.6f}",
+                          f"{float(parts[0].detach()):.6f}", f"{float(parts[1].detach()):.6f}",
+                          f"{float(parts[2].detach()):.6f}", "",
                           round(torch.cuda.memory_allocated() / 1024 ** 3, 3),
                           round(torch.cuda.memory_reserved() / 1024 ** 3, 3),
                           time.strftime("%Y-%m-%d %H:%M:%S")])
