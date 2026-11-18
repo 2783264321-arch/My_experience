@@ -25,6 +25,7 @@ from src.signals.data import (
     SPLIT_MANIFEST, load_manifest, frequency_starts, N_TIME,
 )
 from src.signals.metrics import ImagePredictions, ImageTargets, evaluate
+from src.signals.infer import parse_class_set
 from src.signals.model import build_model
 from src.signals.validate import run_validation
 
@@ -84,6 +85,7 @@ def main():
     ap.add_argument("--max-det", type=int, default=100)
     ap.add_argument("--max-det-view", type=int, default=300)
     ap.add_argument("--multi-label", action="store_true")
+    ap.add_argument("--drop-fine-classes", default="")
     ap.add_argument("--max-samples", type=int, default=0)
     args = ap.parse_args()
 
@@ -120,6 +122,7 @@ def main():
         conf=args.conf, iou=args.iou,
         max_det_view=args.max_det_view, max_det=args.max_det,
         multi_label=args.multi_label, log_interval_s=60,
+        drop_fine_classes=parse_class_set(args.drop_fine_classes),
     )
     if vr.stats["n_views"] != expected_views:
         raise SystemExit(
@@ -157,6 +160,7 @@ def main():
         "conf": args.conf, "iou": args.iou,
         "max_det": args.max_det, "max_det_view": args.max_det_view,
         "multi_label": args.multi_label,
+        "drop_fine_classes": parse_class_set(args.drop_fine_classes),
     }
     npz = {}
     for name, arrs in [("pred", preds), ("gt", gts)]:

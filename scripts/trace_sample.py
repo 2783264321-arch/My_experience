@@ -25,7 +25,7 @@ from src.signals.data import (
 )
 from src.signals.infer import (
     Prediction, _boundary_mask, _map_view_dets, _nms_view_batch,
-    global_classwise_nms, gt_global,
+    filter_fine_classes, global_classwise_nms, gt_global, parse_class_set,
 )
 from src.signals.metrics import ImagePredictions, ImageTargets, evaluate
 from src.signals.model import build_model
@@ -62,6 +62,7 @@ def main():
     ap.add_argument("--batch-views", type=int, default=8)
     ap.add_argument("--fft-threads", type=int, default=2)
     ap.add_argument("--top", type=int, default=15)
+    ap.add_argument("--drop-fine-classes", default="")
     ap.add_argument("--out-dir", default="reports")
     args = ap.parse_args()
 
@@ -214,6 +215,7 @@ def main():
             nb = int(bm.sum())
             if nb:
                 pred = Prediction(pred.boxes[~bm], pred.scores[~bm], pred.labels[~bm])
+            pred = filter_fine_classes(pred, v.view_type, parse_class_set(args.drop_fine_classes))
             n_raw += int(len(det))
             n_boundary += nb
             parts.append(pred)

@@ -11,7 +11,7 @@ import numpy as np
 import torch
 
 from src.signals.data import SPLIT_MANIFEST, build_sample_views, load_manifest, frequency_starts
-from src.signals.infer import gt_global, predict_sample
+from src.signals.infer import gt_global, parse_class_set, predict_sample
 from src.signals.model import build_model
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,6 +26,7 @@ def main():
     ap.add_argument("--batch-views", type=int, default=8)
     ap.add_argument("--repeats", type=int, default=3)
     ap.add_argument("--conf", type=float, default=0.001)
+    ap.add_argument("--drop-fine-classes", default="")
     args = ap.parse_args()
     run = ROOT / "runs" / args.run
     ckpt_path = Path(args.checkpoint)
@@ -52,13 +53,15 @@ def main():
     for r in picks:
         views = len(frequency_starts(int(round(r.B_mhz * 700)))) + 1
         # warm
-        predict_sample(model, r, norm, batch_views=args.batch_views, conf=args.conf)
+        predict_sample(model, r, norm, batch_views=args.batch_views, conf=args.conf,
+                       drop_fine_classes=parse_class_set(args.drop_fine_classes))
         times = []
         for _ in range(args.repeats):
             torch.cuda.synchronize()
             t = time.perf_counter()
             pred, stats = predict_sample(
                 model, r, norm, batch_views=args.batch_views, conf=args.conf,
+                drop_fine_classes=parse_class_set(args.drop_fine_classes),
             )
             torch.cuda.synchronize()
             times.append(time.perf_counter() - t)

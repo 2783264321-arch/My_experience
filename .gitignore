@@ -9,3 +9,4 @@ data/
 *.onnx
 *.engine
 *.log
+reports/*.npz

@@ -14,6 +14,34 @@ from .data import (
 )
 
 
+def parse_class_set(spec: str | None) -> list[int] | None:
+    """Parse '0-5', '0,1,2', or '0-5,10' into a sorted class list."""
+    if not spec:
+        return None
+    out: set[int] = set()
+    for part in str(spec).replace(" ", "").split(","):
+        if not part:
+            continue
+        if "-" in part:
+            a, b = part.split("-", 1)
+            out.update(range(int(a), int(b) + 1))
+        else:
+            out.add(int(part))
+    return sorted(out)
+
+
+def filter_fine_classes(pred: "Prediction", view_type: str,
+                        drop_classes: list[int] | None) -> "Prediction":
+    """Drop predictions from fine views whose predicted class is in drop_classes."""
+    if view_type != "fine" or not drop_classes or len(pred.boxes) == 0:
+        return pred
+    drop = torch.tensor(drop_classes, dtype=pred.labels.dtype, device=pred.labels.device)
+    keep = ~torch.isin(pred.labels, drop)
+    if keep.all():
+        return pred
+    return Prediction(pred.boxes[keep], pred.scores[keep], pred.labels[keep])
+
+
 @dataclass
 class Prediction:
     boxes: torch.Tensor   # normalized xyxy global
@@ -98,6 +126,7 @@ def predict_sample(
     iou: float = 0.5,
     max_det: int = 100,
     max_det_view: int = 300,
+    drop_fine_classes: list[int] | None = None,
 ) -> tuple[Prediction, dict]:
     """Full-sample inference: all fine slices + one coarse view."""
     Fbins = int(round(record.B_mhz * 700))
@@ -118,6 +147,7 @@ def predict_sample(
             n_boundary += int(bm.sum())
             if bm.any():
                 pred = Prediction(pred.boxes[~bm], pred.scores[~bm], pred.labels[~bm])
+            pred = filter_fine_classes(pred, view.view_type, drop_fine_classes)
             all_boxes.append(pred.boxes)
             all_scores.append(pred.scores)
             all_labels.append(pred.labels)

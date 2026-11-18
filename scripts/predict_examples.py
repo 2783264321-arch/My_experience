@@ -17,7 +17,7 @@ from matplotlib.patches import Rectangle
 from src.signals.data import (
     COARSE_H, N_TIME, SPLIT_MANIFEST, build_sample_views, load_manifest,
 )
-from src.signals.infer import gt_global, predict_sample
+from src.signals.infer import gt_global, parse_class_set, predict_sample
 from src.signals.model import build_model
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -89,6 +89,7 @@ def main():
     ap.add_argument("--batch-views", type=int, default=8)
     ap.add_argument("--conf", type=float, default=0.05)
     ap.add_argument("--iou", type=float, default=0.5)
+    ap.add_argument("--drop-fine-classes", default="")
     args = ap.parse_args()
 
     run_dir = ROOT / "runs" / args.run
@@ -118,6 +119,7 @@ def main():
         pred, stats = predict_sample(
             model, r, norm, batch_views=args.batch_views,
             conf=args.conf, iou=args.iou, max_det=100,
+            drop_fine_classes=parse_class_set(args.drop_fine_classes),
         )
         gt = gt_global(r, (r.N + 510) // 511)
         coarse, _, _ = build_sample_views(r, norm, [0])

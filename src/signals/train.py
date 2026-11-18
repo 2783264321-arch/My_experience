@@ -33,6 +33,7 @@ from ultralytics.utils.torch_utils import ModelEMA
 from .data import (
     SPLIT_MANIFEST, SampleRecord, SpaceNetViews, collate_views, load_manifest,
 )
+from .infer import parse_class_set
 from .model import build_model, transfer_pretrained
 from .validate import run_validation
 
@@ -217,6 +218,7 @@ def train(args):
         "val_every": args.val_every,
         "val_batch_views": args.val_batch_views,
         "val_workers": args.val_workers,
+        "drop_fine_classes": parse_class_set(args.drop_fine_classes),
         "conf": args.conf,
         "iou": args.iou,
         "max_det": args.max_det,
@@ -441,6 +443,7 @@ def train(args):
                 batch_views=args.val_batch_views, workers=args.val_workers,
                 conf=args.conf, iou=args.iou, max_det=args.max_det,
                 max_det_view=args.max_det_view,
+                drop_fine_classes=parse_class_set(args.drop_fine_classes),
             )
             entry = {
                 "epoch": epoch,
@@ -503,6 +506,7 @@ def parse_args(argv=None):
     p.add_argument("--val-workers", type=int, default=4)
     p.add_argument("--val-batch-views", type=int, default=8)
     p.add_argument("--val-every", type=int, default=5)
+    p.add_argument("--drop-fine-classes", default="")
     p.add_argument("--lr0", type=float, default=0.001)
     p.add_argument("--cls-weight", type=float, default=0.5)
     p.add_argument("--class-weight-power", type=float, default=0.0)

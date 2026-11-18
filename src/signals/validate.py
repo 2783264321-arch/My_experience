@@ -18,7 +18,7 @@ from torch.utils.data import DataLoader, Dataset
 from .data import N_TIME, SampleRecord, build_sample_views, frequency_starts
 from .infer import (
     Prediction, _boundary_mask, _map_view_dets, _nms_view_batch,
-    global_classwise_nms, gt_global,
+    filter_fine_classes, global_classwise_nms, gt_global,
 )
 from .metrics import ImagePredictions, ImageTargets, evaluate
 
@@ -75,6 +75,7 @@ def _run_view_chunk(
     iou: float,
     max_det_view: int,
     multi_label: bool,
+    drop_fine_classes: list[int] | None = None,
 ) -> Dict[int, Prediction]:
     """NMS a chunk of views, remap coordinates and drop internal-boundary boxes."""
     images = torch.stack([b["tensor"] for b in chunk], 0).cuda(non_blocking=True)
@@ -91,6 +92,7 @@ def _run_view_chunk(
         if bm.any():
             n_boundary += int(bm.sum())
             pred = Prediction(pred.boxes[~bm], pred.scores[~bm], pred.labels[~bm])
+        pred = filter_fine_classes(pred, b["view_type"], drop_fine_classes)
         grouped.setdefault(b["index"], []).append(pred)
     for idx in grouped:
         parts = grouped[idx]
@@ -113,6 +115,7 @@ def run_validation(
     max_det_view: int = 300,
     max_det: int = 100,
     multi_label: bool = False,
+    drop_fine_classes: Optional[Sequence[int]] = None,
     log_interval_s: float = 60.0,
     max_samples: Optional[int] = None,
 ) -> tuple[ValResult, List[ImageTargets], List[ImagePredictions]]:
@@ -137,7 +140,8 @@ def run_validation(
     def flush(chunk):
         nonlocal n_boundary
         merged, nb = _run_view_chunk(
-            model, chunk, batch_views, conf, iou, max_det_view, multi_label
+            model, chunk, batch_views, conf, iou, max_det_view, multi_label,
+            list(drop_fine_classes) if drop_fine_classes else None,
         )
         n_boundary += nb
         for idx, pred in merged.items():
