@@ -1,0 +1,85 @@
+{
+  "pass": true,
+  "cache": "/root/autodl-tmp/worktrees/baseline-0-group-a/cache/coarse_fit_bf16.npy",
+  "init": {
+    "pretrained": "/root/autodl-tmp/worktrees/baseline-0-group-a/yolo11s.pt",
+    "transferred": 456,
+    "skipped": 42,
+    "stem_summed": 1
+  },
+  "sample_indices": [
+    5355,
+    368,
+    3365,
+    4106
+  ],
+  "sample_ids": [
+    "train/6753",
+    "train/454",
+    "train/4289",
+    "train/5175"
+  ],
+  "precision": "bf16",
+  "images": {
+    "max_abs_diff": 0.001953125,
+    "bf16_bit_exact": true,
+    "shapes": [
+      [
+        4,
+        1,
+        2048,
+        512
+      ],
+      [
+        4,
+        1,
+        2048,
+        512
+      ]
+    ]
+  },
+  "targets": {
+    "batch_idx_exact": true,
+    "cls_exact": true,
+    "bboxes_max_abs_diff": 0.0,
+    "bboxes_exact": true
+  },
+  "online_repeat_noise": {
+    "loss_abs_diff": 0.0,
+    "preds": {
+      "n_tensors": 5,
+      "max_abs_diff": 0.0,
+      "mismatched_tensors": 0
+    },
+    "grads": {
+      "n_params": 255,
+      "n_different": 0,
+      "max_abs_diff": 0.0,
+      "rel_l2": 0.0,
+      "cosine": 1.0
+    }
+  },
+  "cache_vs_online": {
+    "loss_abs_diff": 0.0,
+    "loss_online": 167.17332458496094,
+    "loss_cached": 167.17332458496094,
+    "preds": {
+      "n_tensors": 5,
+      "max_abs_diff": 0.0,
+      "mismatched_tensors": 0
+    },
+    "grads": {
+      "n_params": 255,
+      "n_different": 0,
+      "max_abs_diff": 0.0,
+      "rel_l2": 0.0,
+      "cosine": 1.0
+    }
+  },
+  "tolerances": {
+    "loss_abs_diff": 0.0001,
+    "preds_max_abs_diff": 0.001,
+    "grad_rel_l2": 0.0001
+  },
+  "elapsed_s": 3.3839185312390327
+}
