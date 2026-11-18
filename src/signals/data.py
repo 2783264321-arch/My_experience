@@ -11,6 +11,7 @@ The implementation follows docs/Baseline执行计划.md:
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import os
@@ -35,6 +36,14 @@ COARSE_H = 2048
 # for the long 0.7 ms windows. Set SPACENET_STFT_BACKEND=torch to fall back.
 STFT_BACKEND = os.environ.get("SPACENET_STFT_BACKEND", "scipy").lower()
 FFT_THREADS = int(os.environ.get("SPACENET_FFT_THREADS", "1"))
+
+
+def file_sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with Path(path).open("rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 @dataclass
@@ -234,6 +243,18 @@ def _label_boxes(
     )
 
 
+def coarse_targets(record: SampleRecord) -> tuple[torch.Tensor, torch.Tensor, List[int], torch.Tensor]:
+    """GT for the full-band coarse view, without computing an STFT.
+
+    The native STFT has F = round(B MHz * 0.7 ms * 1000) frequency bins; the
+    coarse view aggregates those bins to COARSE_H rows. This helper mirrors
+    build_sample_views(..., fine_indices=[]) so cached images can reuse the
+    exact same target geometry.
+    """
+    fbins = int(round(record.B_mhz * WINDOW_MS * 1000.0))
+    return _label_boxes(record.signals, record, fbins, h_for_n(record.N), None)
+
+
 def build_sample_views(
     record: SampleRecord,
     normalizer: tuple[float, float],
@@ -393,6 +414,131 @@ class SpaceNetViews(torch.utils.data.Dataset):
         )
         meta["source_index"] = idx
         return {"coarse": coarse, "fine": fines[0], "meta": meta}
+
+
+class SpaceNetCoarseViews(torch.utils.data.Dataset):
+    """Training dataset: exactly one full-band coarse view per source."""
+
+    def __init__(
+        self,
+        records: Sequence[SampleRecord],
+        normalizer: tuple[float, float],
+    ):
+        self.records = list(records)
+        self.normalizer = normalizer
+
+    def __len__(self):
+        return len(self.records)
+
+    def __getitem__(self, idx: int):
+        record = self.records[idx]
+        coarse, _, meta = build_sample_views(record, self.normalizer, [])
+        meta["source_index"] = idx
+        return {
+            "tensor": coarse.tensor,
+            "boxes": coarse.boxes,
+            "labels": coarse.labels,
+            "meta": meta,
+        }
+
+
+class CoarseCacheDataset(torch.utils.data.Dataset):
+    """Read precomputed BF16-bit coarse views from a .npy memmap.
+
+    The cache stores the exact BFloat16 values the BF16-autocast training path
+    would see, packed as int16 bit patterns. __getitem__ expands them to
+    float32 without changing the values, so the training step is numerically
+    identical to the on-the-fly f32 -> autocast(bf16) path.
+    """
+
+    def __init__(
+        self,
+        records: Sequence[SampleRecord],
+        normalizer: tuple[float, float],
+        cache_path: str | Path,
+        meta_path: str | Path | None = None,
+    ):
+        self.records = list(records)
+        self.normalizer = (float(normalizer[0]), float(normalizer[1]))
+        self.cache_path = Path(cache_path)
+        meta_path = Path(meta_path) if meta_path else self.cache_path.with_suffix(".json")
+        self.meta = json.loads(Path(meta_path).read_text(encoding="utf-8"))
+
+        if self.meta.get("format") != "coarse-bf16-bits-v1":
+            raise ValueError(f"unsupported cache format: {self.meta.get('format')!r}")
+        if self.meta.get("dtype") != "bfloat16_bits":
+            raise ValueError(f"unsupported cache dtype: {self.meta.get('dtype')!r}")
+        ids = [r.sample_id for r in self.records]
+        if self.meta.get("sample_ids") != ids:
+            raise ValueError("cache sample order does not match the manifest")
+        if int(self.meta.get("n_samples", -1)) != len(self.records):
+            raise ValueError("cache sample count does not match the manifest")
+        if abs(float(self.meta["normalizer_lo"]) - self.normalizer[0]) > 1e-9:
+            raise ValueError("cache normalizer lo mismatch")
+        if abs(float(self.meta["normalizer_hi"]) - self.normalizer[1]) > 1e-9:
+            raise ValueError("cache normalizer hi mismatch")
+        if self.meta.get("split_manifest_sha256") != file_sha256(SPLIT_MANIFEST):
+            raise ValueError("cache split manifest hash mismatch")
+
+        self.images = np.load(self.cache_path, mmap_mode="r")
+        expected = (len(self.records), 1, COARSE_H, N_TIME)
+        if tuple(self.images.shape) != expected:
+            raise ValueError(f"cache shape {self.images.shape} != {expected}")
+        if self.images.dtype != np.int16:
+            raise ValueError(f"cache dtype {self.images.dtype} != int16 bit patterns")
+
+    def __len__(self):
+        return len(self.records)
+
+    def __getitem__(self, idx: int):
+        bits = np.asarray(self.images[idx]).copy()
+        tensor = torch.from_numpy(bits).view(torch.bfloat16).float()
+        boxes, labels, _, _ = coarse_targets(self.records[idx])
+        meta = {
+            "sample_id": self.records[idx].sample_id,
+            "B_mhz": self.records[idx].B_mhz,
+            "T_ms": self.records[idx].T_ms,
+            "source_index": idx,
+        }
+        return {
+            "tensor": tensor,
+            "boxes": boxes,
+            "labels": labels,
+            "meta": meta,
+        }
+
+
+def collate_coarse(items: list[dict]) -> dict:
+    """Stack one coarse view per source into the training/validation batch."""
+    images = torch.stack([item["tensor"] for item in items], dim=0)
+    boxes = []
+    labels = []
+    batch_idx = []
+    for image_i, item in enumerate(items):
+        if len(item["boxes"]):
+            boxes.append(item["boxes"])
+            labels.append(item["labels"])
+            batch_idx.append(torch.full((len(item["boxes"]),), image_i, dtype=torch.long))
+    if boxes:
+        boxes = torch.cat(boxes, dim=0).float()
+        boxes_xywh = torch.cat(
+            [(boxes[:, :2] + boxes[:, 2:]) / 2, boxes[:, 2:] - boxes[:, :2]], dim=1
+        )
+        labels = torch.cat(labels, dim=0).long()
+        batch_idx = torch.cat(batch_idx, dim=0).long()
+    else:
+        boxes_xywh = torch.zeros((0, 4), dtype=torch.float32)
+        labels = torch.zeros((0,), dtype=torch.long)
+        batch_idx = torch.zeros((0,), dtype=torch.long)
+    return {
+        "img": images,
+        "batch_idx": batch_idx,
+        "cls": labels[:, None],
+        "bboxes": boxes_xywh,
+        "meta": [item["meta"] for item in items],
+        "view_types": ["coarse"] * len(items),
+        "starts": [0] * len(items),
+    }
 
 
 def collate_views(items: list[dict]) -> dict:

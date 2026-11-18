@@ -117,10 +117,10 @@ def global_classwise_nms(pred: Prediction, iou: float = 0.5, max_det: int = 100)
     return Prediction(pred.boxes[keep], pred.scores[keep], pred.labels[keep])
 
 
-def predict_sample(
+def predict_views(
     model,
-    record: SampleRecord,
-    normalizer: tuple[float, float],
+    views: Sequence[View],
+    Fbins: int,
     batch_views: int = 8,
     conf: float = 0.001,
     iou: float = 0.5,
@@ -128,11 +128,7 @@ def predict_sample(
     max_det_view: int = 300,
     drop_fine_classes: list[int] | None = None,
 ) -> tuple[Prediction, dict]:
-    """Full-sample inference: all fine slices + one coarse view."""
-    Fbins = int(round(record.B_mhz * 700))
-    starts = frequency_starts(Fbins)
-    coarse, fines, meta = build_sample_views(record, normalizer, list(range(len(starts))))
-    views = [coarse] + fines
+    """Run NMS/mapping/merge on an already-built list of views."""
     all_boxes, all_scores, all_labels = [], [], []
     n_boundary = 0
     n_raw = 0
@@ -162,6 +158,40 @@ def predict_sample(
         "n_final": len(merged.boxes),
     }
     return merged, stats
+
+
+def predict_sample(
+    model,
+    record: SampleRecord,
+    normalizer: tuple[float, float],
+    batch_views: int = 8,
+    conf: float = 0.001,
+    iou: float = 0.5,
+    max_det: int = 100,
+    max_det_view: int = 300,
+    drop_fine_classes: list[int] | None = None,
+    view_mode: str = "all",
+) -> tuple[Prediction, dict]:
+    """Full-sample inference.
+
+    view_mode="all" uses one coarse + all fine slices (C). view_mode="coarse"
+    uses only the full-band view (B coarse-only / A deployment).
+    """
+    Fbins = int(round(record.B_mhz * 700))
+    if view_mode == "coarse":
+        coarse, _, _ = build_sample_views(record, normalizer, [])
+        views = [coarse]
+    elif view_mode == "all":
+        starts = frequency_starts(Fbins)
+        coarse, fines, _ = build_sample_views(record, normalizer, list(range(len(starts))))
+        views = [coarse] + fines
+    else:
+        raise ValueError(f"unsupported view_mode: {view_mode!r}")
+    return predict_views(
+        model, views, Fbins, batch_views=batch_views, conf=conf, iou=iou,
+        max_det=max_det, max_det_view=max_det_view,
+        drop_fine_classes=drop_fine_classes,
+    )
 
 
 def gt_global(record: SampleRecord, h: int) -> Prediction:

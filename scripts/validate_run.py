@@ -77,6 +77,7 @@ def main():
     ap.add_argument("--checkpoint", default="best.pt")
     ap.add_argument("--weights", choices=["ema", "model"], default="ema")
     ap.add_argument("--split", choices=["val"], default="val")
+    ap.add_argument("--view-mode", choices=["all", "coarse"], default="all")
     ap.add_argument("--output", default="")
     ap.add_argument("--batch-views", type=int, default=8)
     ap.add_argument("--workers", type=int, default=12)
@@ -95,7 +96,8 @@ def main():
         ckpt_path = run_dir / ckpt_path
     if not ckpt_path.exists():
         raise SystemExit(f"checkpoint not found: {ckpt_path}")
-    out_dir = Path(args.output) if args.output else run_dir / "stage5_val"
+    default_out = "stage5_val" if args.view_mode == "all" else "stage5_val_coarse"
+    out_dir = Path(args.output) if args.output else run_dir / default_out
     out_dir.mkdir(parents=True, exist_ok=True)
 
     norm_cfg = json.loads((ROOT / "configs/normalizer.json").read_text())
@@ -103,9 +105,12 @@ def main():
     records = load_manifest(SPLIT_MANIFEST, split="val")
     if args.max_samples:
         records = records[: args.max_samples]
-    expected_views = sum(
-        len(frequency_starts(int(round(r.B_mhz * 700)))) + 1 for r in records
-    )
+    if args.view_mode == "coarse":
+        expected_views = len(records)
+    else:
+        expected_views = sum(
+            len(frequency_starts(int(round(r.B_mhz * 700)))) + 1 for r in records
+        )
 
     model = build_model(str(ROOT / "configs/yolo11s_c1_directreg.yaml"))
     info = load_weights(model, ckpt_path, which=args.weights)
@@ -123,6 +128,7 @@ def main():
         max_det_view=args.max_det_view, max_det=args.max_det,
         multi_label=args.multi_label, log_interval_s=60,
         drop_fine_classes=parse_class_set(args.drop_fine_classes),
+        view_mode=args.view_mode,
     )
     if vr.stats["n_views"] != expected_views:
         raise SystemExit(
@@ -157,6 +163,7 @@ def main():
         "n_samples": len(records),
         "n_views": vr.stats["n_views"],
         "expected_views": expected_views,
+        "view_mode": args.view_mode,
         "conf": args.conf, "iou": args.iou,
         "max_det": args.max_det, "max_det_view": args.max_det_view,
         "multi_label": args.multi_label,

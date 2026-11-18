@@ -31,7 +31,8 @@ from torch.utils.data import DataLoader
 from ultralytics.utils.torch_utils import ModelEMA
 
 from .data import (
-    SPLIT_MANIFEST, SampleRecord, SpaceNetViews, collate_views, load_manifest,
+    SPLIT_MANIFEST, CoarseCacheDataset, SampleRecord, SpaceNetCoarseViews,
+    SpaceNetViews, collate_coarse, collate_views, load_manifest,
 )
 from .infer import parse_class_set
 from .model import build_model, transfer_pretrained
@@ -77,11 +78,12 @@ class SharedEpochViews(SpaceNetViews):
 
 
 def make_loader(
-    ds: SpaceNetViews,
+    ds,
     batch_sources: int,
     workers: int,
     seed: int,
     shuffle: bool = True,
+    collate_fn=collate_views,
 ) -> DataLoader:
     gen = torch.Generator()
     gen.manual_seed(seed)
@@ -91,7 +93,7 @@ def make_loader(
         shuffle=shuffle,
         generator=gen,
         num_workers=workers,
-        collate_fn=collate_views,
+        collate_fn=collate_fn,
         pin_memory=True,
         drop_last=False,
         prefetch_factor=4 if workers > 0 else None,
@@ -190,20 +192,42 @@ def train(args):
     if args.limit_sources:
         fit = fit[: args.limit_sources]
         val = val[: max(8, args.limit_sources // 4)]
-    effective_views = args.batch_sources * 2 * args.accum
+    views_per_source = 2 if args.view_mode == "all" else 1
+    effective_views = args.batch_sources * views_per_source * args.accum
     if not args.allow_any_effective_batch and effective_views != args.target_views:
         raise SystemExit(
             f"effective views {effective_views} != target {args.target_views}; "
             "use --allow-any-effective-batch only for diagnostics"
         )
+    micro_per_epoch = math.ceil(len(fit) / args.batch_sources)
+    steps_per_epoch = micro_per_epoch // args.accum
+    total_steps = steps_per_epoch * args.epochs
+    warmup_steps = int(round(args.warmup * steps_per_epoch))
+    val_every_steps = args.val_every * steps_per_epoch
+    total_image_views = len(fit) * views_per_source * args.epochs
+    coarse_cache = None
+    if args.coarse_cache:
+        coarse_cache = Path(args.coarse_cache)
+        if not coarse_cache.is_absolute():
+            coarse_cache = ROOT / coarse_cache
 
     config = {
         "baseline_id": DEFAULT_RUN,
+        "run": args.run,
+        "view_mode": args.view_mode,
+        "views_per_source": views_per_source,
         "model": "configs/yolo11s_c1_directreg.yaml",
         "epochs": args.epochs,
         "batch_sources": args.batch_sources,
         "accum": args.accum,
         "effective_views": effective_views,
+        "micro_per_epoch": micro_per_epoch,
+        "steps_per_epoch": steps_per_epoch,
+        "total_optimizer_steps": total_steps,
+        "warmup_steps": warmup_steps,
+        "val_every_steps": val_every_steps,
+        "total_image_views": total_image_views,
+        "coarse_cache": str(coarse_cache) if coarse_cache else None,
         "workers": args.workers,
         "optimizer": "AdamW",
         "lr0": args.lr0,
@@ -342,19 +366,33 @@ def train(args):
 
     model.train()
     print(f"run={args.run} fit={len(fit)} val={len(val)} "
-          f"batch_sources={args.batch_sources} accum={args.accum} "
-          f"effective_views={effective_views} precision={args.precision}", flush=True)
-    micro_per_epoch = math.ceil(len(fit) / args.batch_sources)
-    steps_per_epoch = micro_per_epoch // args.accum
+          f"view_mode={args.view_mode} batch_sources={args.batch_sources} "
+          f"accum={args.accum} effective_views={effective_views} "
+          f"precision={args.precision}", flush=True)
     print(f"micro/epoch={micro_per_epoch} opt_steps/epoch={steps_per_epoch} "
-          f"total_steps~{steps_per_epoch * args.epochs}", flush=True)
-    train_ds = SharedEpochViews(fit, norm, seed=args.seed, epoch=start_epoch)
-    train_loader = make_loader(train_ds, args.batch_sources, args.workers, args.seed)
+          f"total_steps={total_steps} warmup_steps={warmup_steps} "
+          f"total_image_views={total_image_views}", flush=True)
+    if args.view_mode == "coarse":
+        if coarse_cache:
+            train_ds = CoarseCacheDataset(fit, norm, coarse_cache)
+            print(f"using coarse BF16 cache {coarse_cache}", flush=True)
+        else:
+            train_ds = SpaceNetCoarseViews(fit, norm)
+            print("using on-the-fly coarse views", flush=True)
+        train_collate = collate_coarse
+    else:
+        train_ds = SharedEpochViews(fit, norm, seed=args.seed, epoch=start_epoch)
+        train_collate = collate_views
+    train_loader = make_loader(
+        train_ds, args.batch_sources, args.workers, args.seed,
+        collate_fn=train_collate,
+    )
 
     t_run = time.perf_counter()
     for epoch in range(start_epoch, args.epochs):
         t_epoch = time.perf_counter()
-        train_ds.shared_epoch.value = epoch
+        if hasattr(train_ds, "shared_epoch"):
+            train_ds.shared_epoch.value = epoch
         loader = train_loader
         optimizer.zero_grad(set_to_none=True)
         accum_loss = torch.zeros(3, device=args.device)
@@ -444,6 +482,7 @@ def train(args):
                 conf=args.conf, iou=args.iou, max_det=args.max_det,
                 max_det_view=args.max_det_view,
                 drop_fine_classes=parse_class_set(args.drop_fine_classes),
+                view_mode=args.view_mode,
             )
             entry = {
                 "epoch": epoch,
@@ -497,6 +536,8 @@ def parse_args(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--run", default=DEFAULT_RUN)
     p.add_argument("--model", default="configs/yolo11s_c1_directreg.yaml")
+    p.add_argument("--view-mode", choices=["all", "coarse"], default="all")
+    p.add_argument("--coarse-cache", default="")
     p.add_argument("--epochs", type=int, default=50)
     p.add_argument("--batch-sources", type=int, default=4)
     p.add_argument("--accum", type=int, default=2)

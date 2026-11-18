@@ -24,22 +24,35 @@ from .metrics import ImagePredictions, ImageTargets, evaluate
 
 
 class FullViewDataset(Dataset):
-    """One item = every view of one source sample, computed on the fly."""
+    """One item = every requested view of one source sample, computed on the fly.
 
-    def __init__(self, records: Sequence[SampleRecord], normalizer: tuple[float, float]):
+    view_mode="all" keeps the delivered coarse + all fine slices. view_mode=
+    "coarse" builds only the full-band view, which is the deployment input of
+    the Group-A single-image baseline.
+    """
+
+    def __init__(self, records: Sequence[SampleRecord], normalizer: tuple[float, float],
+                 view_mode: str = "all"):
+        if view_mode not in ("all", "coarse"):
+            raise ValueError(f"unsupported view_mode: {view_mode!r}")
         self.records = list(records)
         self.normalizer = normalizer
+        self.view_mode = view_mode
 
     def __len__(self):
         return len(self.records)
 
     def __getitem__(self, idx: int):
         record = self.records[idx]
-        n_fine = len(frequency_starts(int(round(record.B_mhz * 700))))
-        coarse, fines, meta = build_sample_views(
-            record, self.normalizer, list(range(n_fine))
-        )
-        views = [coarse] + fines
+        if self.view_mode == "coarse":
+            coarse, _, meta = build_sample_views(record, self.normalizer, [])
+            views = [coarse]
+        else:
+            n_fine = len(frequency_starts(int(round(record.B_mhz * 700))))
+            coarse, fines, meta = build_sample_views(
+                record, self.normalizer, list(range(n_fine))
+            )
+            views = [coarse] + fines
         return {
             "index": idx,
             "tensors": [v.tensor for v in views],
@@ -118,12 +131,13 @@ def run_validation(
     drop_fine_classes: Optional[Sequence[int]] = None,
     log_interval_s: float = 60.0,
     max_samples: Optional[int] = None,
+    view_mode: str = "all",
 ) -> tuple[ValResult, List[ImageTargets], List[ImagePredictions]]:
     t_start = time.perf_counter()
     was_training = model.training
     model.eval()
     recs = list(records[:max_samples] if max_samples else records)
-    ds = FullViewDataset(recs, normalizer)
+    ds = FullViewDataset(recs, normalizer, view_mode=view_mode)
     loader = DataLoader(
         ds, batch_size=1, shuffle=False, num_workers=workers,
         collate_fn=_collate_one, pin_memory=False,
@@ -193,7 +207,8 @@ def run_validation(
         n_pred=n_pred,
         per_class=per_iou["per_class"],
         confusion=result["classification"]["confusion_gt_x_pred"],
-        stats={"n_views": n_views, "n_samples": len(recs), "n_boundary_dropped": n_boundary},
+        stats={"n_views": n_views, "n_samples": len(recs),
+               "n_boundary_dropped": n_boundary, "view_mode": view_mode},
         elapsed_s=elapsed,
     )
     if was_training:
