@@ -2,7 +2,7 @@
 
 Run: `yolo11s_c1_directreg_coarseonly_2048x512`
 Worktree: `/root/autodl-tmp/worktrees/baseline-0-group-a`
-Status: **waiting for exclusive GPU** (protocol/cache/gates complete)
+Status: **completed** (100 epochs, no early stopping)
 
 ## Protocol
 
@@ -14,7 +14,8 @@ Status: **waiting for exclusive GPU** (protocol/cache/gates complete)
 - Initialization: `yolo11s.pt` body transfer (same summed C1 stem), independent
   training; **not** initialized from C.
 - Inference: one coarse view per sample; no fine slices, no boundary filtering.
-- Primary checkpoint: last-epoch EMA. `best.pt` is reported separately.
+- Primary checkpoint: last-epoch EMA (per the pre-registered A/C rule).
+  `best.pt` is reported separately; it is the early-stop-style model.
 - Seed 1729; BF16 autocast; AdamW; EMA 0.9999/tau 2000.
 
 ## Budget parity
@@ -59,28 +60,61 @@ plus 50 rotating fine slices.
 Both match the historical protocol exactly. B class-group AP: 0/1/2 0.4212,
 3/4/5 0.4550, 10/11 0.5908, 9/12/13 0.4838.
 
-## Early stopping
+## Training result
+
+| metric | A last (ep99) | A best (ep29) |
+| --- | ---: | ---: |
+| mAP@0.5 | 0.5404 | **0.5763** |
+| AP50 agnostic | 0.8020 | **0.8208** |
+| localization recall | 0.8570 | **0.8789** |
+| classification accuracy | 0.8328 | 0.8270 |
+| predictions | 16,173 | 30,981 |
+| val views | 1,543 | 1,543 |
+| val time | 76 s | 82 s |
+
+Validation history (last EMA, coarse-only):
+
+| epoch | 9 | 19 | 29 | 39 | 49 | 59 | 69 | 79 | 89 | 99 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| mAP50 | .4405 | .5546 | **.5763** | .5745 | .5611 | .5557 | .5508 | .5468 | .5436 | .5403 |
+| AP_agn | .7590 | .8195 | **.8208** | .8185 | .8177 | .8135 | .8114 | .8100 | .8084 | .8019 |
+| R_agn | .8443 | **.8843** | .8789 | .8746 | .8721 | .8690 | .8657 | .8641 | .8615 | .8569 |
+
+The model peaks at epoch 29 and then overfits: training loss falls from 66.5
+to ~13, while val mAP/AP_agn/recall all decline. Last is **3.59 pp** below best.
+
+## Convergence / early stopping
 
 This A run intentionally has **no early stopping**: it completes the planned
-100 epochs as the equal-budget, no-early-stop reference. Future experiments
-will use **4 validation events** without a >=0.001 mAP50 improvement
-(`--early-stop-evals 4 --early-stop-min-delta 0.001 --early-stop-min-evals 3`),
-about 14,920 optimizer steps. This is 1.2x the mature 3-event/15-epoch window:
-on A it would stop at epoch 69 (best epoch 29, saving 31 epochs); on C it would
-stop at epoch 49 (the corrected best), not before. Future runs select the
-**best EMA** checkpoint and also report last EMA, stopped epoch, and actual
-optimizer steps.
+100 epochs as the equal-budget, no-early-stop reference.
 
-## Training cost
+Future experiments will use **4 validation events** without a >=0.001 mAP50
+improvement (`--early-stop-evals 4 --early-stop-min-delta 0.001
+--early-stop-min-evals 3`), about 14,920 optimizer steps. This is 1.2x the
+mature 3-event/15-epoch window: on A it would stop at epoch 69 (best epoch 29,
+saving 30 epochs); on C it would stop at epoch 49 (the corrected best), not
+before. Future runs select the **best EMA** checkpoint and also report last EMA,
+stopped epoch, and actual optimizer steps.
 
-- Pending A run. Expected ~2.2-2.5 h on the RTX 4090, ~80-90 s/epoch plus
-  coarse-only validation (~10 x 1,543 views).
-- Data-loader throughput on the cache: ~400 samples/s with 8 workers; training
-  is GPU-bound, not STFT-bound.
-- Cache build is a one-time 34 min CPU cost; it is reported separately from the
-  training budget.
+## Cost
 
-## Convergence and results
+| item | C | A |
+| --- | ---: | ---: |
+| training wall time | 2.69 h | **1.62 h** |
+| peak reserved | 10.1 GiB | 10.1 GiB |
+| cache build | none | 2,049.6 s / 11.63 GiB |
+| A including cache | — | ~2.19 h |
+| data loader throughput | — | ~400 samples/s (8 workers) |
 
-Pending. The final report will include the training curve, last-epoch EMA and
-best EMA metrics, class groups, physical-bandwidth groups, and latency.
+A's shorter wall time is partly the cheaper coarse-only validation (~77 s vs
+~180 s per validation) and the cache; the model sees the same 595,700 images
+and makes 37,300 vs 37,250 optimizer steps.
+
+## Artifacts
+
+- `runs/yolo11s_c1_directreg_coarseonly_2048x512/`
+- `reports/group_a_results.md` / `.json`
+- `reports/group_a_latency.json`
+- `reports/group_a_training_curve.png`
+- `reports/group_a_class_groups_stage5_val*.json`
+- `docs/collaboration/opencode-group-a-fullband-baseline.md`

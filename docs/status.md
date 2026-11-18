@@ -152,3 +152,22 @@ PYTHONPATH=. .venv/bin/python scripts/predict_examples.py \
 ```
 
 Test split stays sealed.
+
+## Group A - full-band single-image baseline: COMPLETED
+
+Worktree `/root/autodl-tmp/worktrees/baseline-0-group-a`, run
+`yolo11s_c1_directreg_coarseonly_2048x512`.
+
+- 100 epochs, one coarse view per source; equal budget with C: 595,700 image
+  presentations, 37,300 vs 37,250 optimizer steps, effective batch 16.
+- Best EMA (ep29) **0.5763**, last EMA (ep99) **0.5403**; clear overfitting
+  after ep29 (train loss kept falling, val mAP/AP_agn/recall declined).
+- B (same joint weights, coarse only) **0.5794**; C (all views) **0.6427**.
+  B−A best +0.31 pp; C−A best +6.64 pp; C−B +6.33 pp.
+- A best is strong on 10/11 (0.6399) and medium 0.3–2 MHz (0.8917); weak on
+  narrow 9/12/13 (0.5002 vs C 0.7804) and the 0–5 wide classes.
+- Inference: 1 view vs C 19.10; model-only 8.64x, end-to-end p50 1.56x.
+- Future runs enable 4-event early stopping (min_delta 0.001, min_evals 3)
+  and select best EMA. Artifacts:
+  `reports/group_a_results.md`, `reports/group_a_training.md`,
+  `docs/collaboration/opencode-group-a-fullband-baseline.md`.

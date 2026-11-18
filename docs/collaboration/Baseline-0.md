@@ -146,10 +146,27 @@ A（100 epoch，修正版 coarse-only）：
 - 训练速度约 50 s/epoch + 每 10 epoch 77 s val；预计 **23:25 左右**完成。
 - 下一个节点：epoch 99 完成。
 
+### 2026-11-18 23:30（节点 3/4：训练完成 + 评测）
+
+- 100 epoch 完成，总 **1.62 h**；best **ep29 = 0.5763**，last **ep99 = 0.5403**。
+- 后段 val：ep59 0.5557，ep69 0.5508，ep79 0.5468，ep89 0.5436，ep99 0.5403；训练 loss 继续下降，确认过拟合。
+- A last 完整评测：mAP50 0.5404，AP_agn 0.8020，R 0.8570，pred 16,173。
+- A best 完整评测：mAP50 **0.5763**，AP_agn 0.8208，R 0.8789，pred 30,981。
+- 对照：
+  - B（联合权重仅粗图）0.5794；C（全视图）0.6427。
+  - B−A best = **+0.31 pp**；C−A best = **+6.64 pp**；C−B = +6.33 pp。
+  - A best 在 10/11 0.6399（≈C）、medium 0.3–2 MHz 0.8917（>C）；窄带 9/12/13 0.5002（C 0.7804）。
+- 延迟（128 样本）：A 1 view，端到端 p50 0.327 s；C 19.10 views，0.509 s；model-only C/A 8.64×，端到端 1.56×。
+- 训练成本：A 1.62 h + 缓存 2,050 s（11.63 GiB）；C 2.69 h；峰值显存均 10.1 GiB。
+- 早停复盘：4 次事件会在 ep69 停，省约 30 epoch（~26 min）；3 次会在 ep59 停但会误停 C（ep44）；5 次太晚。
+- 详细结果：`docs/collaboration/opencode-group-a-fullband-baseline.md`、`reports/group_a_results.md`、`reports/group_a_training.md`。
+
 ## 待确认 / 风险
 
-- Baseline-1 的 GPU 任务占用 12.4 GiB，A 训练必须等它结束，避免 OOM/争抢。
-- 缓存 11.63 GiB；磁盘当前剩余 36 GB，需持续监控。
+- 单 seed 1729；A best/last 差异大，若论文要置信区间，建议补 A/C 同 seed 重复。
+- A 这轮实际未早停，ep69 只是事后模拟；后续实验才真正早停。
+- A last 明显过拟合，论文主表需同时给 A best 并说明；不要把 0.5404 当作单图方法上限。
+- test 继续封存；所有选择只在 val 上完成。
 - 单 seed 1729；如 A 与 C 差距很小，再补一对同 seed A/C 结果判断波动。
 - 若 A 末轮仍在上升，补 8 epoch 低 LR 续训作为收敛诊断，不替换主结果。
 

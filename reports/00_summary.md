@@ -91,3 +91,16 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
    仍以 `best_corrected.pt` 为交付。详见 `reports/stage5_finetune.md`。
 4. 若继续提升，优先处理 0/1 与 3/4/5 的类别混淆（类别加权/更大模型/
    轻度增强），而不是再压缩频率轴或减少切片覆盖。
+
+## Group A 全频单图基线（补充）
+
+- 独立训练、每源只跑 1 张全频粗图、100 epoch；与 C 的 50 epoch 在
+  595,700 张图像 / 37,300 vs 37,250 步上对齐。
+- **A best（ep29）= 0.5763**，A last（ep99）= 0.5404；
+  B 仅粗图 = 0.5794，C 全视图 = 0.6427。
+- B−A best **+0.31 pp**，C−A best **+6.64 pp**，C−B +6.33 pp。
+- A last 明显过拟合；未来实验启用 4 次验证事件早停（约 14,920 步），
+  主 checkpoint 用 best EMA。
+- 推理 views/sample：A 1 vs C 19.10；model-only 8.64×，端到端 p50 1.56×。
+- 详见 `reports/group_a_results.md`、
+  `docs/collaboration/opencode-group-a-fullband-baseline.md`。

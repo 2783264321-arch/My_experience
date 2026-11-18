@@ -42,12 +42,22 @@ Key results and artifacts:
   corrected full-val predictions, metrics, per-B/T CSV, error analysis.
 - `runs/yolo11s_c1_directreg_2048x512/stage5_examples/` - qualitative plots.
 - `reports/stage5_results.md` - headline 0.6427 mAP@0.5 (corrected protocol).
+- `reports/group_a_results.md` - full-band single-image A vs B/C
+  (A best 0.5763, A last 0.5404, B 0.5794, C 0.6427).
+- `docs/collaboration/opencode-group-a-fullband-baseline.md` - A/B/C
+  protocol, class/bandwidth groups, latency and early-stop analysis.
 
 Commands:
 
 ```bash
 # 50-epoch training (see scripts/run_training.sh)
 ./scripts/run_training.sh
+
+# Group A full-band single-image baseline (cache once, then 100 epochs)
+SPACENET_FFT_THREADS=1 PYTHONPATH=. .venv/bin/python \
+  scripts/build_coarse_cache.py --split fit \
+  --output cache/coarse_fit_bf16.npy --check-samples 32
+./scripts/run_group_a.sh
 
 # stage-5 full validation
 PYTHONPATH=. .venv/bin/python scripts/validate_run.py \
