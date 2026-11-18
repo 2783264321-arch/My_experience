@@ -63,10 +63,13 @@ Both match the historical protocol exactly. B class-group AP: 0/1/2 0.4212,
 
 This A run intentionally has **no early stopping**: it completes the planned
 100 epochs as the equal-budget, no-early-stop reference. Future experiments
-will use 4 validation events without a >=0.001 mAP50 improvement (about 14,920
-steps; slightly wider than the 15-epoch JDM scheme), `--early-stop-min-evals 3`,
-and will select the **best EMA** checkpoint while also reporting the stopped
-epoch, last EMA, and actual optimizer steps.
+will use **4 validation events** without a >=0.001 mAP50 improvement
+(`--early-stop-evals 4 --early-stop-min-delta 0.001 --early-stop-min-evals 3`),
+about 14,920 optimizer steps. This is 1.2x the mature 3-event/15-epoch window:
+on A it would stop at epoch 69 (best epoch 29, saving 31 epochs); on C it would
+stop at epoch 49 (the corrected best), not before. Future runs select the
+**best EMA** checkpoint and also report last EMA, stopped epoch, and actual
+optimizer steps.
 
 ## Training cost
 
