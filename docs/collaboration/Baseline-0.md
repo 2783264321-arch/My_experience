@@ -76,6 +76,19 @@ A、B、C 主表统一使用**最后一轮 EMA**；A 的 `best` 另列。B 使�
 - 缓存训练路径核验通过（4 样本、同权重、同 batch）：在线重复噪声为 0；缓存 vs 在线 loss 差 0、preds 差 0、grad 最大差 0、grad rel-L2 0、cosine 1.0；图像 BF16 位模式一致，框/标签一致。
 - 16 源 smoke 首次尝试 OOM：Baseline-1 同时启动了两个新 GPU 任务（12.14 + 8.29 GiB），GPU 仅剩 178 MiB；不是代码错误。等待 GPU 完全空闲后再跑 smoke 和 A 正式训练。
 
+### 2026-11-18 21:57（节点 1：首个 val）
+
+- Baseline-1 sweep 结束，wrapper 检测到 GPU 空闲；64 源 smoke 完成（80 updates，val mAP 0.0561，只作代码路径 smoke，不作质量门）。
+- 正式 A 于 **21:45** 启动，GPU 独占 10.84 GiB；epoch 约 **50 s**，当前 epoch 11/100。
+- 配置核对：37,300 steps、warmup 2,238、595,700 image views、有效 batch 16。
+- **epoch 9 首个 val（3,730 步）**：
+  - mAP50 **0.4405**
+  - AP_agn **0.7590**
+  - localization recall **0.8443**
+  - predictions 53,380 / 1,543 views；val 77 s
+- 参照：C 在 epoch 4（3,725 步）为 mAP50 0.3623、AP_agn 0.6789、R 0.843；A 在同 step 预算下更高，但 A 对每个源看了 10 次粗图，C 是 5 粗 + 5 细，不能直接等同为方法优劣。
+- 下一个汇报节点：epoch 49 val（约 18.6k steps）；之后 epoch 99 完成。
+
 ## 待确认 / 风险
 
 - Baseline-1 的 GPU 任务占用 12.4 GiB，A 训练必须等它结束，避免 OOM/争抢。
