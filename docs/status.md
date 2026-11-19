@@ -210,3 +210,14 @@ did not replicate; localization recall not higher. Do not expand full training.
 Next, only a pre-registered checkpoint-rule multi-seed study + live capacity
 control is defensible. Details: `reports/c3_holdout_replication.md`,
 `docs/collaboration/opencode-c3-holdout.md`.
+
+## C3 holdout B/T stratification: COMPLETED
+
+Read-only reuse of 1,159 holdout predictions. 3/4/5 GT only at B=40/50/80.
+B signs (dense-only minus zero3-only across 4 frozen checkpoints): 40 MHz
+`- - + -`, 50 MHz `- + + -`, 80 MHz `- - + -`; no B condition all dense-positive.
+Only T=100 ms is consistent, favouring zero3 (`- - - -`). No BxT condition with
+common>=10 is all dense-positive; 40x80 is `- - + +`, not a valid target.
+Close this dense C3 front-end; do not expand full training or start a
+content-bearing channel follow-up on a holdout subgroup. Details:
+`reports/c3_holdout_strata.md`, `docs/collaboration/opencode-c3-holdout.md`.

@@ -148,3 +148,14 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
   power+power+power/随机活通道的活容量对照。
 - 详见 `reports/c3_holdout_replication.md`、
   `docs/collaboration/opencode-c3-holdout.md`。
+
+### C3 holdout 分层诊断（B/T）
+
+- 复用 1,159 留出预测，不重训/不重选/不调阈值；3/4/5 GT 只在 B=40/50/80。
+- B 汇总四对比符号：40 MHz `- - + -`，50 MHz `- + + -`，80 MHz `- - + -`；
+  没有 B 条件四对比全为 dense 正。
+- T 仅 100 ms 一致，方向为 **zero3 更好**（`- - - -`）；其余 T 为 mixed。
+- B×T 无 common≥10 且四对比全 dense 正；`40×80` 为 `- - + +`，不选为目标；
+  `80×80 + + + 0`、`50×60 + + + -` 也不满足严格一致。
+- **建议收尾这版稠密短窗前端，不扩全量。**
+- 详见 `reports/c3_holdout_strata.md`、`docs/collaboration/opencode-c3-holdout.md`。

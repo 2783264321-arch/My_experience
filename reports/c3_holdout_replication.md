@@ -101,3 +101,34 @@ selection already made on the 384 subset, this is not a stable effect.
    checkpoint rule and a live uninformative capacity control
    (power+power+power or random live channels); otherwise stop C3-for-3/4/5.
 6. Test remains sealed; this is a 1,159-sample holdout, not the test split.
+
+## Stratified B/T diagnostic
+
+Full tables: `reports/c3_holdout_strata.md` / `.json`. Groups with
+`n_samples>=10` and `n_gt_345>=10`; signs are
+dense-only-correct minus zero3-only-correct across
+`s1729_best, s1729_last, s1730_best, s1730_last`.
+
+- 3/4/5 GT only exist at observation B = 40/50/80 MHz. B = 5/20/30 have
+  **zero** 3/4/5 GT in the holdout, so there is no 3/4/5 condition there.
+- By B, signs are mixed:
+  - 40 MHz: `- - + -` (deltas -1, -1, +11, -1; common 91/85/93/85)
+  - 50 MHz: `- + + -` (deltas -7, +1, +11, -7; common 100/89/104/87)
+  - 80 MHz: `- - + -` (deltas -1, -3, +6, -5; common 69/66/71/67)
+  No B has all four comparisons positive.
+- By T, only **T=100 ms** is consistent, and it favours **zero3**
+  (`- - - -`; deltas -1,-2,-1,-5; common 29/26/31/25). T=20/40/60/80/150
+  are mixed.
+- By B×T, **no** group with common>=10 has all four dense-positive.
+  40x80 is mixed (`- - + +`; deltas -2,-1,+1,+4), so its higher dense
+  numbers in s1730 do not replicate in s1729. 80x80 is `+ + + 0`,
+  50x60 is `+ + + -`; both fail a strict four-way consistency check.
+- The single-group `40 MHz x 80 ms` row (24 IQ, 17 GT345, 14-16 common) is
+  reported separately in the strata table but is **not** selected as a target:
+  s1729 favours zero3, s1730 favours dense.
+
+**Decision:** no observation-B, duration-T, or B×T condition shows a
+cross-seed, best/last-consistent dense advantage. The only consistent
+condition favours zero3 (T=100 ms). Close this version of the dense C3
+front-end; do not expand to full training or launch a content-bearing channel
+follow-up on a subgroup selected from this holdout.

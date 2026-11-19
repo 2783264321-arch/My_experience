@@ -104,6 +104,11 @@ C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
   （dense +10.45 pp，p=0.007），其余偏向 zero3。**不扩全量训练**；若继续，
   需预注册 checkpoint 规则 + 多 seed + 活容量对照。
   [留出复核](opencode-c3-holdout.md) · [对照表](../../reports/c3_holdout_replication.md)
+- **分层诊断（B/T）无跨 seed 一致条件**：3/4/5 GT 只在 40/50/80 MHz；B 汇总
+  40/50/80 均为 mixed（如 40 MHz `- - + -`）；T 仅 100 ms 一致，但方向是
+  zero3 更好；B×T 无 common≥10 且四对比全 dense 正的条件。`40×80` 为
+  `- - + +`，不据此选目标。**建议收尾这版稠密短窗前端**。
+  [分层表](../../reports/c3_holdout_strata.md) · [留出复核](opencode-c3-holdout.md)
 - [完整复核](opencode-c3-frontends.md#复核dense-seed1730--zero-complex-3-通道对照2026-11-19) ·
   [对照表](../../reports/c3_pilot_results.md) · [复核报告](../../reports/c3_replication_results.md) ·
   [前端验证](../../reports/c3_frontend_validation.md)
