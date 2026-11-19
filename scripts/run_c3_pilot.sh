@@ -8,7 +8,7 @@ export PYTHONPATH=.
 export OMP_NUM_THREADS=4
 ROOT=$(pwd)
 COMMON=(--total-steps 20000 --batch-sources 16 --workers 8
-        --val-every-steps 1280 --early-stop-evals 4 --seed 1729)
+        --val-every-steps 1280 --early-stop-evals 0 --seed 1729)
 
 wait_file() {
   local path="$1"

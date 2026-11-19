@@ -104,3 +104,17 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
 - 推理 views/sample：A 1 vs C 19.10；model-only 8.64×，端到端 p50 1.56×。
 - 详见 `reports/group_a_results.md`、
   `docs/collaboration/opencode-group-a-fullband-baseline.md`。
+
+## C3 三套粗图前端 pilot（补充）
+
+- 同一原版 C1 功率图，1536 fit / 384 val、20k steps、best EMA；C1/overlap/
+  sparse 各 2 seed，dense 1 seed。
+- C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
+  （−0.01 pp）；dense 0.5072（+0.73 pp）。
+- **0/1/2 没有稳定收益**：overlap 0.3019→0.2473，sparse 0.2819→0.2336；
+  seed1729 的增益未复现。
+- **3/4/5 是唯一复现的收益**：overlap 两 seed 0.4012/0.3940（mean +4.01 pp）；
+  dense 单 seed 0.4646（+10.70 pp，错类 79→69）；sparse 不稳。
+- dense 是 3/4/5 专用，不是全局替换；sparse 总体 +2.51 pp 是 seed 波动。
+- 仍有 1 通道 C1 vs 3 通道 C3 的容量混杂，需 C3-zero-complex 才能因果归因。
+- 详见 `docs/collaboration/opencode-c3-frontends.md`、`reports/c3_pilot_results.md`。

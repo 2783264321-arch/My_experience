@@ -1,0 +1,7816 @@
+{
+  "format": "c3-complex-f16-v1",
+  "frontend": "overlap",
+  "channels": 2,
+  "dtype": "float16",
+  "shape": [
+    1536,
+    2,
+    2048,
+    512
+  ],
+  "normalizer_lo": -103.23661804199219,
+  "normalizer_hi": -45.258453369140625,
+  "scale": 0.003779524937272072,
+  "dense_hop_us": 10.0,
+  "subset_path": "/root/autodl-tmp/worktrees/baseline-0-group-a/cache/c3_subset.json",
+  "fit_ids": [
+    "train/740",
+    "train/1305",
+    "train/565",
+    "train/6972",
+    "train/2873",
+    "train/2864",
+    "train/5435",
+    "train/1265",
+    "train/2051",
+    "train/3937",
+    "train/1157",
+    "train/1097",
+    "train/1440",
+    "train/4004",
+    "train/1205",
+    "train/1417",
+    "train/1299",
+    "train/3241",
+    "train/6933",
+    "train/6213",
+    "train/6656",
+    "train/5114",
+    "train/7036",
+    "train/888",
+    "train/1744",
+    "train/4463",
+    "train/1336",
+    "train/1855",
+    "train/5586",
+    "train/5707",
+    "train/5953",
+    "train/6133",
+    "train/5848",
+    "train/6684",
+    "train/803",
+    "train/5327",
+    "train/6949",
+    "train/5160",
+    "train/630",
+    "train/5221",
+    "train/890",
+    "train/0",
+    "train/5560",
+    "train/3968",
+    "train/3455",
+    "train/1021",
+    "train/4176",
+    "train/150",
+    "train/174",
+    "train/2772",
+    "train/4127",
+    "train/2418",
+    "train/2703",
+    "train/124",
+    "train/7026",
+    "train/4923",
+    "train/910",
+    "train/313",
+    "train/4851",
+    "train/2349",
+    "train/2230",
+    "train/4898",
+    "train/6856",
+    "train/3156",
+    "train/1047",
+    "train/667",
+    "train/4956",
+    "train/359",
+    "train/5570",
+    "train/6489",
+    "train/6202",
+    "train/5023",
+    "train/340",
+    "train/6914",
+    "train/6458",
+    "train/7134",
+    "train/4946",
+    "train/3485",
+    "train/4530",
+    "train/44",
+    "train/3492",
+    "train/5914",
+    "train/83",
+    "train/7211",
+    "train/3700",
+    "train/162",
+    "train/6846",
+    "train/637",
+    "train/6262",
+    "train/4212",
+    "train/1380",
+    "train/6406",
+    "train/2017",
+    "train/1354",
+    "train/3235",
+    "train/5115",
+    "train/7158",
+    "train/547",
+    "train/3972",
+    "train/2911",
+    "train/4453",
+    "train/4549",
+    "train/3109",
+    "train/4391",
+    "train/6828",
+    "train/959",
+    "train/1163",
+    "train/3450",
+    "train/5551",
+    "train/4001",
+    "train/3879",
+    "train/2866",
+    "train/4532",
+    "train/3727",
+    "train/72",
+    "train/4317",
+    "train/2455",
+    "train/4622",
+    "train/3532",
+    "train/1492",
+    "train/2884",
+    "train/4119",
+    "train/809",
+    "train/5353",
+    "train/5077",
+    "train/3021",
+    "train/3294",
+    "train/3183",
+    "train/2997",
+    "train/6498",
+    "train/2158",
+    "train/2009",
+    "train/23",
+    "train/5298",
+    "train/5990",
+    "train/5209",
+    "train/7361",
+    "train/6718",
+    "train/4878",
+    "train/1885",
+    "train/1287",
+    "train/6719",
+    "train/14",
+    "train/1245",
+    "train/5717",
+    "train/5116",
+    "train/5309",
+    "train/1373",
+    "train/6258",
+    "train/4645",
+    "train/3721",
+    "train/4376",
+    "train/3025",
+    "train/1248",
+    "train/1964",
+    "train/425",
+    "train/4417",
+    "train/6873",
+    "train/6339",
+    "train/1739",
+    "train/3692",
+    "train/5891",
+    "train/3318",
+    "train/4758",
+    "train/5703",
+    "train/6648",
+    "train/678",
+    "train/3274",
+    "train/421",
+    "train/5763",
+    "train/3496",
+    "train/3410",
+    "train/2322",
+    "train/5870",
+    "train/3545",
+    "train/2449",
+    "train/4092",
+    "train/5336",
+    "train/6750",
+    "train/1767",
+    "train/4307",
+    "train/6119",
+    "train/3597",
+    "train/5109",
+    "train/5229",
+    "train/2077",
+    "train/1481",
+    "train/1693",
+    "train/7487",
+    "train/948",
+    "train/2821",
+    "train/681",
+    "train/374",
+    "train/1449",
+    "train/1294",
+    "train/5803",
+    "train/6664",
+    "train/2297",
+    "train/485",
+    "train/2517",
+    "train/2391",
+    "train/5470",
+    "train/6208",
+    "train/3674",
+    "train/3026",
+    "train/1141",
+    "train/5201",
+    "train/1568",
+    "train/5247",
+    "train/57",
+    "train/71",
+    "train/149",
+    "train/5126",
+    "train/3869",
+    "train/612",
+    "train/4259",
+    "train/4552",
+    "train/6547",
+    "train/2983",
+    "train/5941",
+    "train/6145",
+    "train/1719",
+    "train/3925",
+    "train/930",
+    "train/5924",
+    "train/2604",
+    "train/6372",
+    "train/386",
+    "train/5367",
+    "train/1325",
+    "train/165",
+    "train/1058",
+    "train/4210",
+    "train/4568",
+    "train/3433",
+    "train/4528",
+    "train/5011",
+    "train/2070",
+    "train/6908",
+    "train/6566",
+    "train/4614",
+    "train/2054",
+    "train/6085",
+    "train/1488",
+    "train/3271",
+    "train/4029",
+    "train/5466",
+    "train/6788",
+    "train/2269",
+    "train/5455",
+    "train/6580",
+    "train/1303",
+    "train/2816",
+    "train/7405",
+    "train/3444",
+    "train/5519",
+    "train/2029",
+    "train/1966",
+    "train/1609",
+    "train/3513",
+    "train/7243",
+    "train/1016",
+    "train/5589",
+    "train/3543",
+    "train/7034",
+    "train/324",
+    "train/15",
+    "train/329",
+    "train/5657",
+    "train/4938",
+    "train/7220",
+    "train/5978",
+    "train/7082",
+    "train/2374",
+    "train/4090",
+    "train/5296",
+    "train/2171",
+    "train/7072",
+    "train/4275",
+    "train/4173",
+    "train/6997",
+    "train/4442",
+    "train/5236",
+    "train/1803",
+    "train/3650",
+    "train/2302",
+    "train/1374",
+    "train/7017",
+    "train/2892",
+    "train/3336",
+    "train/657",
+    "train/4358",
+    "train/769",
+    "train/1986",
+    "train/321",
+    "train/6792",
+    "train/1670",
+    "train/6881",
+    "train/4734",
+    "train/534",
+    "train/3",
+    "train/2862",
+    "train/2992",
+    "train/6064",
+    "train/839",
+    "train/2028",
+    "train/806",
+    "train/1351",
+    "train/6188",
+    "train/6507",
+    "train/2792",
+    "train/3203",
+    "train/2073",
+    "train/1470",
+    "train/4578",
+    "train/1551",
+    "train/3487",
+    "train/2881",
+    "train/4279",
+    "train/3082",
+    "train/6646",
+    "train/3434",
+    "train/6691",
+    "train/7002",
+    "train/2804",
+    "train/2933",
+    "train/5234",
+    "train/2362",
+    "train/6284",
+    "train/4632",
+    "train/5332",
+    "train/511",
+    "train/2103",
+    "train/2116",
+    "train/6984",
+    "train/6091",
+    "train/585",
+    "train/7396",
+    "train/3572",
+    "train/6010",
+    "train/4295",
+    "train/6587",
+    "train/301",
+    "train/1140",
+    "train/6994",
+    "train/4356",
+    "train/369",
+    "train/7120",
+    "train/2427",
+    "train/885",
+    "train/7289",
+    "train/3193",
+    "train/2555",
+    "train/4105",
+    "train/1769",
+    "train/4204",
+    "train/4543",
+    "train/4601",
+    "train/2484",
+    "train/1620",
+    "train/6394",
+    "train/3307",
+    "train/4129",
+    "train/3153",
+    "train/7113",
+    "train/1026",
+    "train/298",
+    "train/2452",
+    "train/997",
+    "train/1858",
+    "train/6436",
+    "train/3357",
+    "train/6544",
+    "train/6954",
+    "train/2415",
+    "train/3074",
+    "train/7169",
+    "train/7236",
+    "train/6926",
+    "train/723",
+    "train/2026",
+    "train/6454",
+    "train/2921",
+    "train/1698",
+    "train/6510",
+    "train/2354",
+    "train/7024",
+    "train/4110",
+    "train/553",
+    "train/2083",
+    "train/6807",
+    "train/6605",
+    "train/5358",
+    "train/7372",
+    "train/1489",
+    "train/1196",
+    "train/4667",
+    "train/436",
+    "train/6874",
+    "train/1179",
+    "train/1795",
+    "train/5377",
+    "train/7150",
+    "train/2244",
+    "train/6308",
+    "train/2779",
+    "train/4064",
+    "train/2494",
+    "train/1566",
+    "train/270",
+    "train/1806",
+    "train/1352",
+    "train/6659",
+    "train/7384",
+    "train/5346",
+    "train/2610",
+    "train/355",
+    "train/4760",
+    "train/659",
+    "train/4419",
+    "train/5300",
+    "train/4820",
+    "train/347",
+    "train/1660",
+    "train/6353",
+    "train/4976",
+    "train/938",
+    "train/4415",
+    "train/2539",
+    "train/4025",
+    "train/5890",
+    "train/4978",
+    "train/989",
+    "train/357",
+    "train/1667",
+    "train/75",
+    "train/5342",
+    "train/1084",
+    "train/4856",
+    "train/7189",
+    "train/2112",
+    "train/6307",
+    "train/5965",
+    "train/1601",
+    "train/4248",
+    "train/5204",
+    "train/733",
+    "train/6813",
+    "train/935",
+    "train/3353",
+    "train/7436",
+    "train/3127",
+    "train/6884",
+    "train/1270",
+    "train/4104",
+    "train/2747",
+    "train/775",
+    "train/4258",
+    "train/4916",
+    "train/7100",
+    "train/3630",
+    "train/6701",
+    "train/5954",
+    "train/739",
+    "train/6651",
+    "train/7028",
+    "train/7454",
+    "train/2865",
+    "train/3578",
+    "train/2591",
+    "train/6327",
+    "train/1676",
+    "train/1409",
+    "train/6009",
+    "train/6622",
+    "train/2874",
+    "train/5567",
+    "train/5326",
+    "train/4020",
+    "train/2422",
+    "train/3599",
+    "train/7451",
+    "train/3967",
+    "train/6757",
+    "train/4664",
+    "train/4826",
+    "train/2850",
+    "train/5451",
+    "train/3192",
+    "train/7043",
+    "train/676",
+    "train/3131",
+    "train/5680",
+    "train/1323",
+    "train/6897",
+    "train/4315",
+    "train/6194",
+    "train/3819",
+    "train/4049",
+    "train/2842",
+    "train/545",
+    "train/6960",
+    "train/799",
+    "train/7370",
+    "train/3585",
+    "train/3817",
+    "train/805",
+    "train/7031",
+    "train/3861",
+    "train/2239",
+    "train/5477",
+    "train/1786",
+    "train/1645",
+    "train/3341",
+    "train/1928",
+    "train/5957",
+    "train/2104",
+    "train/700",
+    "train/6487",
+    "train/5197",
+    "train/3128",
+    "train/446",
+    "train/6104",
+    "train/4732",
+    "train/3378",
+    "train/5314",
+    "train/7058",
+    "train/6753",
+    "train/3747",
+    "train/2211",
+    "train/2179",
+    "train/832",
+    "train/1490",
+    "train/4642",
+    "train/139",
+    "train/1587",
+    "train/182",
+    "train/1911",
+    "train/7033",
+    "train/3502",
+    "train/999",
+    "train/3313",
+    "train/5507",
+    "train/3524",
+    "train/6763",
+    "train/2608",
+    "train/2195",
+    "train/4751",
+    "train/6570",
+    "train/5542",
+    "train/6417",
+    "train/7378",
+    "train/3160",
+    "train/293",
+    "train/6384",
+    "train/1764",
+    "train/6330",
+    "train/5706",
+    "train/1235",
+    "train/616",
+    "train/7252",
+    "train/5153",
+    "train/5850",
+    "train/6193",
+    "train/6765",
+    "train/5497",
+    "train/3244",
+    "train/2052",
+    "train/6120",
+    "train/3379",
+    "train/4685",
+    "train/3414",
+    "train/6961",
+    "train/2296",
+    "train/7163",
+    "train/5362",
+    "train/5969",
+    "train/917",
+    "train/5814",
+    "train/3737",
+    "train/4626",
+    "train/7070",
+    "train/4533",
+    "train/2014",
+    "train/3858",
+    "train/2419",
+    "train/2632",
+    "train/6187",
+    "train/4691",
+    "train/6410",
+    "train/2654",
+    "train/5600",
+    "train/6068",
+    "train/3756",
+    "train/5105",
+    "train/3631",
+    "train/3145",
+    "train/6183",
+    "train/6389",
+    "train/1640",
+    "train/3098",
+    "train/3020",
+    "train/1009",
+    "train/5745",
+    "train/3935",
+    "train/709",
+    "train/6414",
+    "train/6913",
+    "train/6435",
+    "train/5632",
+    "train/142",
+    "train/2300",
+    "train/978",
+    "train/7421",
+    "train/6084",
+    "train/5878",
+    "train/3196",
+    "train/1836",
+    "train/166",
+    "train/1579",
+    "train/5482",
+    "train/3040",
+    "train/789",
+    "train/1510",
+    "train/5258",
+    "train/4353",
+    "train/354",
+    "train/3080",
+    "train/965",
+    "train/6466",
+    "train/5080",
+    "train/7294",
+    "train/2630",
+    "train/5898",
+    "train/4937",
+    "train/7137",
+    "train/1424",
+    "train/1356",
+    "train/7248",
+    "train/5722",
+    "train/2460",
+    "train/5041",
+    "train/3908",
+    "train/2255",
+    "train/1487",
+    "train/6380",
+    "train/5683",
+    "train/123",
+    "train/2623",
+    "train/2377",
+    "train/767",
+    "train/4363",
+    "train/6863",
+    "train/422",
+    "train/4511",
+    "train/2381",
+    "train/2813",
+    "train/5548",
+    "train/2725",
+    "train/2832",
+    "train/7342",
+    "train/5546",
+    "train/4161",
+    "train/6623",
+    "train/1832",
+    "train/3748",
+    "train/3445",
+    "train/3277",
+    "train/1614",
+    "train/6658",
+    "train/1103",
+    "train/3018",
+    "train/2732",
+    "train/3349",
+    "train/102",
+    "train/7394",
+    "train/7407",
+    "train/1201",
+    "train/5553",
+    "train/4935",
+    "train/2488",
+    "train/1099",
+    "train/4019",
+    "train/3542",
+    "train/1630",
+    "train/4002",
+    "train/3351",
+    "train/3375",
+    "train/1965",
+    "train/6801",
+    "train/2770",
+    "train/3953",
+    "train/1031",
+    "train/4476",
+    "train/6915",
+    "train/2130",
+    "train/5056",
+    "train/1439",
+    "train/2599",
+    "train/2216",
+    "train/7179",
+    "train/5414",
+    "train/2847",
+    "train/7083",
+    "train/1469",
+    "train/2634",
+    "train/669",
+    "train/1817",
+    "train/2762",
+    "train/5345",
+    "train/3137",
+    "train/4078",
+    "train/1121",
+    "train/51",
+    "train/6595",
+    "train/4274",
+    "train/609",
+    "train/1774",
+    "train/3993",
+    "train/6045",
+    "train/6450",
+    "train/6839",
+    "train/1593",
+    "train/5563",
+    "train/4409",
+    "train/4803",
+    "train/1862",
+    "train/1785",
+    "train/1311",
+    "train/3034",
+    "train/4073",
+    "train/5167",
+    "train/4361",
+    "train/3921",
+    "train/5445",
+    "train/1275",
+    "train/3991",
+    "train/3536",
+    "train/1851",
+    "train/2780",
+    "train/7013",
+    "train/1894",
+    "train/964",
+    "train/6478",
+    "train/4742",
+    "train/727",
+    "train/2227",
+    "train/5664",
+    "train/3327",
+    "train/4499",
+    "train/3222",
+    "train/7310",
+    "train/3924",
+    "train/2920",
+    "train/2466",
+    "train/3482",
+    "train/6440",
+    "train/6239",
+    "train/5844",
+    "train/1765",
+    "train/4350",
+    "train/3239",
+    "train/6243",
+    "train/4468",
+    "train/5847",
+    "train/1022",
+    "train/5082",
+    "train/5662",
+    "train/7077",
+    "train/764",
+    "train/5753",
+    "train/5110",
+    "train/1957",
+    "train/3983",
+    "train/7117",
+    "train/3709",
+    "train/4385",
+    "train/3091",
+    "train/4791",
+    "train/6141",
+    "train/5605",
+    "train/2774",
+    "train/810",
+    "train/4681",
+    "train/5494",
+    "train/5888",
+    "train/458",
+    "train/21",
+    "train/84",
+    "train/4959",
+    "train/1733",
+    "train/3148",
+    "train/302",
+    "train/554",
+    "train/3512",
+    "train/4604",
+    "train/2825",
+    "train/2015",
+    "train/4994",
+    "train/2032",
+    "train/4483",
+    "train/5921",
+    "train/5061",
+    "train/3392",
+    "train/5769",
+    "train/1687",
+    "train/2986",
+    "train/2057",
+    "train/7309",
+    "train/2442",
+    "train/4526",
+    "train/5417",
+    "train/1876",
+    "train/3710",
+    "train/1392",
+    "train/610",
+    "train/7402",
+    "train/3960",
+    "train/5984",
+    "train/1790",
+    "train/6822",
+    "train/3676",
+    "train/5623",
+    "train/2522",
+    "train/1272",
+    "train/2368",
+    "train/483",
+    "train/998",
+    "train/4951",
+    "train/6899",
+    "train/4246",
+    "train/1850",
+    "train/5151",
+    "train/4413",
+    "train/5712",
+    "train/6931",
+    "train/6619",
+    "train/3175",
+    "train/2890",
+    "train/2191",
+    "train/2474",
+    "train/341",
+    "train/5985",
+    "train/3001",
+    "train/4872",
+    "train/1933",
+    "train/452",
+    "train/4192",
+    "train/6108",
+    "train/3558",
+    "train/2464",
+    "train/5528",
+    "train/38",
+    "train/976",
+    "train/5931",
+    "train/4072",
+    "train/6937",
+    "train/960",
+    "train/3722",
+    "train/581",
+    "train/4054",
+    "train/2471",
+    "train/4408",
+    "train/2180",
+    "train/2231",
+    "train/1734",
+    "train/3619",
+    "train/5019",
+    "train/2755",
+    "train/2578",
+    "train/3841",
+    "train/713",
+    "train/911",
+    "train/5835",
+    "train/5246",
+    "train/6561",
+    "train/1010",
+    "train/6486",
+    "train/5992",
+    "train/1263",
+    "train/2062",
+    "train/416",
+    "train/1332",
+    "train/5853",
+    "train/4443",
+    "train/4780",
+    "train/297",
+    "train/2905",
+    "train/5573",
+    "train/5318",
+    "train/5562",
+    "train/2901",
+    "train/7401",
+    "train/3928",
+    "train/5594",
+    "train/5580",
+    "train/2656",
+    "train/4728",
+    "train/5093",
+    "train/5561",
+    "train/6773",
+    "train/3063",
+    "train/4867",
+    "train/3571",
+    "train/7392",
+    "train/2946",
+    "train/7446",
+    "train/163",
+    "train/5514",
+    "train/307",
+    "train/2457",
+    "train/5267",
+    "train/3663",
+    "train/160",
+    "train/7379",
+    "train/968",
+    "train/3381",
+    "train/5170",
+    "train/4963",
+    "train/1192",
+    "train/7272",
+    "train/541",
+    "train/5192",
+    "train/4958",
+    "train/2639",
+    "train/13",
+    "train/2167",
+    "train/1335",
+    "train/1679",
+    "train/6179",
+    "train/5187",
+    "train/1185",
+    "train/6419",
+    "train/607",
+    "train/1264",
+    "train/756",
+    "train/6911",
+    "train/116",
+    "train/5289",
+    "train/3011",
+    "train/967",
+    "train/6273",
+    "train/1326",
+    "train/1388",
+    "train/6789",
+    "train/3767",
+    "train/598",
+    "train/7068",
+    "train/4377",
+    "train/7393",
+    "train/4324",
+    "train/2299",
+    "train/7004",
+    "train/6496",
+    "train/435",
+    "train/2927",
+    "train/5387",
+    "train/660",
+    "train/755",
+    "train/1560",
+    "train/711",
+    "train/5418",
+    "train/4548",
+    "train/7276",
+    "train/5239",
+    "train/1321",
+    "train/7322",
+    "train/5036",
+    "train/6522",
+    "train/5128",
+    "train/3643",
+    "train/6974",
+    "train/5406",
+    "train/5224",
+    "train/2836",
+    "train/2542",
+    "train/704",
+    "train/5854",
+    "train/5719",
+    "train/20",
+    "train/7381",
+    "train/2182",
+    "train/3965",
+    "train/7012",
+    "train/7299",
+    "train/7427",
+    "train/4982",
+    "train/6315",
+    "train/2993",
+    "train/5774",
+    "train/990",
+    "train/1688",
+    "train/5721",
+    "train/5240",
+    "train/1364",
+    "train/7084",
+    "train/6305",
+    "train/1246",
+    "train/818",
+    "train/6235",
+    "train/4432",
+    "train/7352",
+    "train/2788",
+    "train/2802",
+    "train/5411",
+    "train/5359",
+    "train/266",
+    "train/5266",
+    "train/7416",
+    "train/6781",
+    "train/5845",
+    "train/1784",
+    "train/2384",
+    "train/3291",
+    "train/6184",
+    "train/947",
+    "train/2382",
+    "train/5402",
+    "train/6157",
+    "train/7434",
+    "train/1395",
+    "train/4571",
+    "train/4869",
+    "train/3342",
+    "train/6036",
+    "train/3419",
+    "train/4207",
+    "train/5228",
+    "train/6532",
+    "train/7389",
+    "train/7055",
+    "train/117",
+    "train/3738",
+    "train/2994",
+    "train/3998",
+    "train/2950",
+    "train/1639",
+    "train/255",
+    "train/6",
+    "train/3669",
+    "train/843",
+    "train/4480",
+    "train/3276",
+    "train/7459",
+    "train/4848",
+    "train/212",
+    "train/4608",
+    "train/3909",
+    "train/5653",
+    "train/6063",
+    "train/7180",
+    "train/5967",
+    "train/2734",
+    "train/6647",
+    "train/4796",
+    "train/4244",
+    "train/1176",
+    "train/5002",
+    "train/7288",
+    "train/1051",
+    "train/1929",
+    "train/4289",
+    "train/1512",
+    "train/1215",
+    "train/1715",
+    "train/7455",
+    "train/5503",
+    "train/762",
+    "train/3883",
+    "train/2957",
+    "train/4754",
+    "train/4241",
+    "train/1286",
+    "train/6998",
+    "train/3882",
+    "train/5833",
+    "train/6744",
+    "train/4491",
+    "train/4854",
+    "train/2389",
+    "train/909",
+    "train/1959",
+    "train/1978",
+    "train/5556",
+    "train/6707",
+    "train/2736",
+    "train/4123",
+    "train/7212",
+    "train/750",
+    "train/4855",
+    "train/6555",
+    "train/2129",
+    "train/608",
+    "train/3504",
+    "train/761",
+    "train/5782",
+    "train/1330",
+    "train/6325",
+    "train/7449",
+    "train/4586",
+    "train/211",
+    "train/4197",
+    "train/6040",
+    "train/5486",
+    "train/5407",
+    "train/3398",
+    "train/2178",
+    "train/7489",
+    "train/7089",
+    "train/2416",
+    "train/2320",
+    "train/2810",
+    "train/4325",
+    "train/1375",
+    "train/1494",
+    "train/4765",
+    "train/7357",
+    "train/2153",
+    "train/6636",
+    "train/1927",
+    "train/6963",
+    "train/1637",
+    "train/7417",
+    "train/2795",
+    "train/5338",
+    "train/2235",
+    "train/6234",
+    "train/736",
+    "train/6700",
+    "train/2900",
+    "train/6175",
+    "train/3770",
+    "train/4998",
+    "train/7490",
+    "train/2312",
+    "train/3640",
+    "train/2959",
+    "train/4790",
+    "train/993",
+    "train/3784",
+    "train/2969",
+    "train/1736",
+    "train/2998",
+    "train/274",
+    "train/3795",
+    "train/326",
+    "train/3822",
+    "train/1813",
+    "train/6475",
+    "train/1982",
+    "train/3610",
+    "train/5804",
+    "train/2206",
+    "train/3668",
+    "train/7238",
+    "train/2713",
+    "train/4611",
+    "train/4132",
+    "train/4086",
+    "train/6971",
+    "train/6538",
+    "train/5874",
+    "train/5812",
+    "train/5827",
+    "train/2534",
+    "train/3224",
+    "train/550",
+    "train/5743",
+    "train/4579",
+    "train/5619",
+    "train/1770",
+    "train/7029",
+    "train/5772",
+    "train/6640",
+    "train/43",
+    "train/3683",
+    "train/1284",
+    "train/6320",
+    "train/3237",
+    "train/66",
+    "train/6008",
+    "train/5862",
+    "train/3234",
+    "train/2833",
+    "train/2644",
+    "train/569",
+    "train/6005",
+    "train/2798",
+    "train/2469",
+    "train/2843",
+    "train/5379",
+    "train/2612",
+    "train/6887",
+    "train/2192",
+    "train/3186",
+    "train/2649",
+    "train/4089",
+    "train/5285",
+    "train/6551",
+    "train/4678",
+    "train/7369",
+    "train/3628",
+    "train/2906",
+    "train/5713",
+    "train/10",
+    "train/2500",
+    "train/4167",
+    "train/4239",
+    "train/4753",
+    "train/6121",
+    "train/3826",
+    "train/1214",
+    "train/2338",
+    "train/5073",
+    "train/5790",
+    "train/1527",
+    "train/5926",
+    "train/5206",
+    "train/7300",
+    "train/3039",
+    "train/5998",
+    "train/89",
+    "train/2653",
+    "train/5001",
+    "train/5096",
+    "train/420",
+    "train/7430",
+    "train/1461",
+    "train/3712",
+    "train/840",
+    "train/5588",
+    "train/4715",
+    "train/4857",
+    "train/7185",
+    "train/86",
+    "train/4877",
+    "train/5422",
+    "train/2880",
+    "train/1835",
+    "train/4723",
+    "train/412",
+    "train/602",
+    "train/145",
+    "train/7160",
+    "train/2882",
+    "train/7136",
+    "train/1981",
+    "train/1136",
+    "train/3413",
+    "train/6800",
+    "train/5668",
+    "train/2288",
+    "train/7465",
+    "train/725",
+    "train/5651",
+    "train/2922",
+    "train/4396",
+    "train/6418",
+    "train/4654",
+    "train/3907",
+    "train/5679",
+    "train/4366",
+    "train/1465",
+    "train/2343",
+    "train/3178",
+    "train/409",
+    "train/451",
+    "train/5390",
+    "train/7130",
+    "train/580",
+    "train/3158",
+    "train/4503",
+    "train/5475",
+    "train/5403",
+    "train/6412",
+    "train/4534",
+    "train/5970",
+    "train/1699",
+    "train/5564",
+    "train/3358",
+    "train/6146",
+    "train/7247",
+    "train/7139",
+    "train/5592",
+    "train/1549",
+    "train/4198",
+    "train/5692",
+    "train/7431",
+    "train/4393",
+    "train/4977",
+    "train/1037",
+    "train/2030",
+    "train/4789",
+    "train/1916",
+    "train/3219",
+    "train/6599",
+    "train/1980",
+    "train/5649",
+    "train/209",
+    "train/4182",
+    "train/4449",
+    "train/2453",
+    "train/396",
+    "train/2140",
+    "train/584",
+    "train/501",
+    "train/5534",
+    "train/6206",
+    "train/7173",
+    "train/5419",
+    "train/6797",
+    "train/4896",
+    "train/2741",
+    "train/414",
+    "train/5554",
+    "train/5215",
+    "train/361",
+    "train/5161",
+    "train/4557",
+    "train/7479",
+    "train/6123",
+    "train/5076",
+    "train/6044",
+    "train/6678",
+    "train/4718",
+    "train/1615",
+    "train/2687",
+    "train/6385",
+    "train/2234",
+    "train/4882",
+    "train/804",
+    "train/5250",
+    "train/5276",
+    "train/6237",
+    "train/4807",
+    "train/3320",
+    "train/3875",
+    "train/1343",
+    "train/49",
+    "train/5880",
+    "train/6055",
+    "train/2351",
+    "train/3550",
+    "train/5202",
+    "train/2394",
+    "train/1295",
+    "train/486",
+    "train/4547",
+    "train/3209",
+    "train/2820",
+    "train/5186",
+    "train/3856",
+    "train/5489",
+    "train/5822",
+    "train/1868",
+    "train/323",
+    "train/4873",
+    "train/2328",
+    "train/4079",
+    "train/303",
+    "train/2304",
+    "train/5378",
+    "train/5101",
+    "train/6633",
+    "train/6675",
+    "train/6159",
+    "train/4208",
+    "train/3068",
+    "train/5936",
+    "train/2794",
+    "train/4101",
+    "train/7340",
+    "train/4781",
+    "train/3675",
+    "train/408",
+    "train/7007",
+    "train/3930",
+    "train/4276",
+    "train/4368",
+    "train/4594",
+    "train/6593",
+    "train/4381",
+    "train/3964",
+    "train/46",
+    "train/1746",
+    "train/6335",
+    "train/2486",
+    "train/3551",
+    "train/7275",
+    "train/214",
+    "train/3108",
+    "train/6940",
+    "train/5540",
+    "train/1840",
+    "train/349",
+    "train/5311",
+    "train/5330",
+    "train/1224",
+    "train/5963",
+    "train/3517",
+    "train/2876",
+    "train/5697",
+    "train/4114",
+    "train/2664",
+    "train/5097",
+    "train/2318",
+    "train/4372",
+    "train/353",
+    "train/6722",
+    "train/7225",
+    "train/4911",
+    "train/3278",
+    "train/716",
+    "train/3441",
+    "train/4062",
+    "train/2042",
+    "train/2432",
+    "train/7386",
+    "train/7423",
+    "train/950",
+    "train/3833",
+    "train/4478",
+    "train/3885",
+    "train/6833",
+    "train/5785",
+    "train/5690",
+    "train/4703",
+    "train/6376",
+    "train/3579",
+    "train/6289",
+    "train/7290",
+    "train/1843",
+    "train/2024",
+    "train/4620",
+    "train/4191",
+    "train/5949",
+    "train/3321",
+    "train/557",
+    "train/4986",
+    "train/3471",
+    "train/6172",
+    "train/6343",
+    "train/977",
+    "train/6928",
+    "train/164",
+    "train/4917",
+    "train/2006",
+    "train/3120",
+    "train/2274",
+    "train/5472",
+    "train/2482",
+    "train/4461",
+    "train/5428",
+    "train/1316",
+    "train/6060",
+    "train/6453",
+    "train/363",
+    "train/780",
+    "train/5343",
+    "train/2894",
+    "train/3641",
+    "train/4346",
+    "train/3348",
+    "train/6416",
+    "train/1893",
+    "train/391",
+    "train/4202",
+    "train/1591",
+    "train/2582",
+    "train/1475",
+    "train/5395",
+    "train/1172",
+    "train/334",
+    "train/4456",
+    "train/6613",
+    "train/45",
+    "train/6165",
+    "train/4022",
+    "train/4493",
+    "train/7312",
+    "train/2250",
+    "train/3134",
+    "train/3154",
+    "train/3395",
+    "train/5584",
+    "train/562",
+    "train/6263",
+    "train/2194",
+    "train/7057",
+    "train/3408",
+    "train/2912",
+    "train/6959",
+    "train/3786",
+    "train/223",
+    "train/718",
+    "train/3736",
+    "train/6499",
+    "train/4437",
+    "train/327",
+    "train/4438",
+    "train/3658",
+    "train/2203",
+    "train/6481",
+    "train/6548",
+    "train/6912",
+    "train/7037",
+    "train/4919",
+    "train/6843",
+    "train/800",
+    "train/4735",
+    "train/6668",
+    "train/4139",
+    "train/3081",
+    "train/4560",
+    "train/5750",
+    "train/6845",
+    "train/7441",
+    "train/6871",
+    "train/2562",
+    "train/4319",
+    "train/7204",
+    "train/3735",
+    "train/206",
+    "train/4083",
+    "train/4039",
+    "train/1564",
+    "train/3435",
+    "train/599",
+    "train/903",
+    "train/5008",
+    "train/2704",
+    "train/5405",
+    "train/3853",
+    "train/714",
+    "train/5143",
+    "train/6043"
+  ],
+  "val_ids": [
+    "train/2618",
+    "train/56",
+    "train/1503",
+    "train/1053",
+    "train/5415",
+    "train/2233",
+    "train/2949",
+    "train/4893",
+    "train/314",
+    "train/6631",
+    "train/4206",
+    "train/4015",
+    "train/3902",
+    "train/5434",
+    "train/4726",
+    "train/975",
+    "train/5524",
+    "train/4000",
+    "train/1148",
+    "train/651",
+    "train/3546",
+    "train/3618",
+    "train/2208",
+    "train/1903",
+    "train/4825",
+    "train/5271",
+    "train/3286",
+    "train/2878",
+    "train/7253",
+    "train/365",
+    "train/814",
+    "train/4509",
+    "train/2819",
+    "train/520",
+    "train/1110",
+    "train/7041",
+    "train/2886",
+    "train/5067",
+    "train/207",
+    "train/5549",
+    "train/7467",
+    "train/6888",
+    "train/1056",
+    "train/2530",
+    "train/4256",
+    "train/390",
+    "train/1458",
+    "train/5138",
+    "train/384",
+    "train/5765",
+    "train/1613",
+    "train/5768",
+    "train/5510",
+    "train/3982",
+    "train/6920",
+    "train/5277",
+    "train/3973",
+    "train/6144",
+    "train/792",
+    "train/6268",
+    "train/4574",
+    "train/5999",
+    "train/2581",
+    "train/2209",
+    "train/5919",
+    "train/2561",
+    "train/6938",
+    "train/4355",
+    "train/2458",
+    "train/3295",
+    "train/5545",
+    "train/6413",
+    "train/1907",
+    "train/1580",
+    "train/268",
+    "train/7424",
+    "train/675",
+    "train/5429",
+    "train/2569",
+    "train/1230",
+    "train/5613",
+    "train/1537",
+    "train/1658",
+    "train/7008",
+    "train/6382",
+    "train/2138",
+    "train/4249",
+    "train/6248",
+    "train/6132",
+    "train/6692",
+    "train/1777",
+    "train/4932",
+    "train/3362",
+    "train/5977",
+    "train/6066",
+    "train/5181",
+    "train/1584",
+    "train/1909",
+    "train/6446",
+    "train/3661",
+    "train/5831",
+    "train/2428",
+    "train/551",
+    "train/2331",
+    "train/5310",
+    "train/3232",
+    "train/6171",
+    "train/6900",
+    "train/7095",
+    "train/1433",
+    "train/786",
+    "train/1068",
+    "train/1444",
+    "train/4794",
+    "train/4698",
+    "train/6645",
+    "train/3476",
+    "train/3305",
+    "train/7481",
+    "train/1477",
+    "train/6742",
+    "train/2681",
+    "train/4014",
+    "train/1181",
+    "train/1638",
+    "train/4214",
+    "train/417",
+    "train/4179",
+    "train/4536",
+    "train/156",
+    "train/5789",
+    "train/4804",
+    "train/4985",
+    "train/3457",
+    "train/2107",
+    "train/2536",
+    "train/519",
+    "train/4321",
+    "train/1243",
+    "train/5877",
+    "train/6375",
+    "train/6031",
+    "train/4711",
+    "train/3256",
+    "train/2281",
+    "train/2633",
+    "train/37",
+    "train/3330",
+    "train/1649",
+    "train/5610",
+    "train/3204",
+    "train/2698",
+    "train/3645",
+    "train/6207",
+    "train/3887",
+    "train/1054",
+    "train/3254",
+    "train/5759",
+    "train/4153",
+    "train/6340",
+    "train/2306",
+    "train/4440",
+    "train/2967",
+    "train/1334",
+    "train/1366",
+    "train/6000",
+    "train/1115",
+    "train/2151",
+    "train/2898",
+    "train/5070",
+    "train/2278",
+    "train/1307",
+    "train/2985",
+    "train/7260",
+    "train/2893",
+    "train/5968",
+    "train/6390",
+    "train/4257",
+    "train/6470",
+    "train/4012",
+    "train/778",
+    "train/2852",
+    "train/5364",
+    "train/3132",
+    "train/1821",
+    "train/4082",
+    "train/5299",
+    "train/4704",
+    "train/6745",
+    "train/2510",
+    "train/5701",
+    "train/1807",
+    "train/48",
+    "train/3843",
+    "train/3750",
+    "train/4113",
+    "train/2443",
+    "train/6439",
+    "train/4843",
+    "train/2626",
+    "train/284",
+    "train/2119",
+    "train/4310",
+    "train/5909",
+    "train/6615",
+    "train/6492",
+    "train/6734",
+    "train/2702",
+    "train/7298",
+    "train/1237",
+    "train/1402",
+    "train/5102",
+    "train/3797",
+    "train/3166",
+    "train/1032",
+    "train/2019",
+    "train/957",
+    "train/3760",
+    "train/2468",
+    "train/6732",
+    "train/6299",
+    "train/4815",
+    "train/5214",
+    "train/4031",
+    "train/6639",
+    "train/65",
+    "train/6371",
+    "train/3705",
+    "train/6039",
+    "train/6293",
+    "train/2511",
+    "train/3651",
+    "train/4788",
+    "train/1338",
+    "train/7326",
+    "train/6354",
+    "train/5628",
+    "train/2524",
+    "train/1005",
+    "train/4724",
+    "train/4146",
+    "train/6893",
+    "train/4245",
+    "train/798",
+    "train/2075",
+    "train/6514",
+    "train/6377",
+    "train/4921",
+    "train/1177",
+    "train/3707",
+    "train/110",
+    "train/6252",
+    "train/1394",
+    "train/3023",
+    "train/4184",
+    "train/4008",
+    "train/605",
+    "train/5730",
+    "train/2714",
+    "train/6166",
+    "train/1664",
+    "train/5286",
+    "train/2533",
+    "train/6858",
+    "train/2948",
+    "train/5438",
+    "train/4369",
+    "train/1684",
+    "train/730",
+    "train/487",
+    "train/2424",
+    "train/227",
+    "train/3142",
+    "train/6383",
+    "train/7281",
+    "train/6875",
+    "train/3078",
+    "train/6919",
+    "train/1114",
+    "train/7219",
+    "train/5375",
+    "train/3356",
+    "train/4674",
+    "train/3803",
+    "train/1958",
+    "train/4792",
+    "train/1794",
+    "train/2446",
+    "train/6459",
+    "train/2413",
+    "train/5866",
+    "train/3439",
+    "train/1300",
+    "train/144",
+    "train/5284",
+    "train/3625",
+    "train/6565",
+    "train/4954",
+    "train/5016",
+    "train/969",
+    "train/6721",
+    "train/1308",
+    "train/4607",
+    "train/1838",
+    "train/5079",
+    "train/3236",
+    "train/5667",
+    "train/3825",
+    "train/5601",
+    "train/5069",
+    "train/7228",
+    "train/2219",
+    "train/3742",
+    "train/5729",
+    "train/2173",
+    "train/6096",
+    "train/4811",
+    "train/1236",
+    "train/264",
+    "train/2723",
+    "train/3564",
+    "train/1636",
+    "train/1212",
+    "train/6918",
+    "train/4175",
+    "train/6281",
+    "train/6077",
+    "train/4752",
+    "train/922",
+    "train/2169",
+    "train/5344",
+    "train/5749",
+    "train/661",
+    "train/2071",
+    "train/1704",
+    "train/7147",
+    "train/6564",
+    "train/5799",
+    "train/2638",
+    "train/2647",
+    "train/1703",
+    "train/2369",
+    "train/6253",
+    "train/1175",
+    "train/4749",
+    "train/3401",
+    "train/6164",
+    "train/7193",
+    "train/7338",
+    "train/6999",
+    "train/4067",
+    "train/4980",
+    "train/1563",
+    "train/1899",
+    "train/5035",
+    "train/399",
+    "train/1852",
+    "train/3197",
+    "train/2463",
+    "train/595",
+    "train/7308",
+    "train/3319",
+    "train/6250",
+    "train/6345",
+    "train/5972",
+    "train/3265",
+    "train/1562",
+    "train/1766",
+    "train/3077",
+    "train/6033",
+    "train/2838",
+    "train/3009",
+    "train/5652",
+    "train/6796",
+    "train/7373",
+    "train/867",
+    "train/5751",
+    "train/5412",
+    "train/2689",
+    "train/118",
+    "train/6042",
+    "train/1737",
+    "train/453",
+    "train/3205"
+  ],
+  "power_cache": "/root/autodl-tmp/worktrees/baseline-0-group-a/cache/coarse_fit_bf16.npy",
+  "val_power_cache": "/root/autodl-tmp/worktrees/baseline-0-group-a/cache/c3_subset_val_power_bf16.npy",
+  "power_is_original_c1": true,
+  "per_sample": {
+    "fit": {
+      "train/740": {
+        "clip_frac": 0.024833202362060547
+      },
+      "train/1305": {
+        "clip_frac": 0.0
+      },
+      "train/565": {
+        "clip_frac": 0.0006108283996582031
+      },
+      "train/6972": {
+        "clip_frac": 0.0013175010681152344
+      },
+      "train/2873": {
+        "clip_frac": 0.002628326416015625
+      },
+      "train/2864": {
+        "clip_frac": 0.0004076957702636719
+      },
+      "train/5435": {
+        "clip_frac": 0.0015115737915039062
+      },
+      "train/1265": {
+        "clip_frac": 0.0002875328063964844
+      },
+      "train/2051": {
+        "clip_frac": 0.0003113746643066406
+      },
+      "train/3937": {
+        "clip_frac": 0.00020265579223632812
+      },
+      "train/1157": {
+        "clip_frac": 0.00058746337890625
+      },
+      "train/1097": {
+        "clip_frac": 0.00017642974853515625
+      },
+      "train/1440": {
+        "clip_frac": 0.0005359649658203125
+      },
+      "train/4004": {
+        "clip_frac": 0.0
+      },
+      "train/1205": {
+        "clip_frac": 0.0001983642578125
+      },
+      "train/1417": {
+        "clip_frac": 6.246566772460938e-05
+      },
+      "train/1299": {
+        "clip_frac": 2.86102294921875e-05
+      },
+      "train/3241": {
+        "clip_frac": 0.00015115737915039062
+      },
+      "train/6933": {
+        "clip_frac": 4.1961669921875e-05
+      },
+      "train/6213": {
+        "clip_frac": 0.000164031982421875
+      },
+      "train/6656": {
+        "clip_frac": 9.489059448242188e-05
+      },
+      "train/5114": {
+        "clip_frac": 0.0
+      },
+      "train/7036": {
+        "clip_frac": 0.0
+      },
+      "train/888": {
+        "clip_frac": 2.956390380859375e-05
+      },
+      "train/1744": {
+        "clip_frac": 0.0
+      },
+      "train/4463": {
+        "clip_frac": 0.0
+      },
+      "train/1336": {
+        "clip_frac": 0.0
+      },
+      "train/1855": {
+        "clip_frac": 0.0
+      },
+      "train/5586": {
+        "clip_frac": 0.0
+      },
+      "train/5707": {
+        "clip_frac": 0.0
+      },
+      "train/5953": {
+        "clip_frac": 0.0
+      },
+      "train/6133": {
+        "clip_frac": 0.1298813819885254
+      },
+      "train/5848": {
+        "clip_frac": 0.0
+      },
+      "train/6684": {
+        "clip_frac": 0.00013971328735351562
+      },
+      "train/803": {
+        "clip_frac": 0.0023670196533203125
+      },
+      "train/5327": {
+        "clip_frac": 0.0025315284729003906
+      },
+      "train/6949": {
+        "clip_frac": 0.0007195472717285156
+      },
+      "train/5160": {
+        "clip_frac": 0.0005292892456054688
+      },
+      "train/630": {
+        "clip_frac": 0.00017595291137695312
+      },
+      "train/5221": {
+        "clip_frac": 0.0002551078796386719
+      },
+      "train/890": {
+        "clip_frac": 0.0010671615600585938
+      },
+      "train/0": {
+        "clip_frac": 0.0004887580871582031
+      },
+      "train/5560": {
+        "clip_frac": 0.00014925003051757812
+      },
+      "train/3968": {
+        "clip_frac": 1.9550323486328125e-05
+      },
+      "train/3455": {
+        "clip_frac": 0.0002770423889160156
+      },
+      "train/1021": {
+        "clip_frac": 1.811981201171875e-05
+      },
+      "train/4176": {
+        "clip_frac": 0.0001468658447265625
+      },
+      "train/150": {
+        "clip_frac": 0.0
+      },
+      "train/174": {
+        "clip_frac": 6.580352783203125e-05
+      },
+      "train/2772": {
+        "clip_frac": 8.344650268554688e-05
+      },
+      "train/4127": {
+        "clip_frac": 1.33514404296875e-05
+      },
+      "train/2418": {
+        "clip_frac": 2.09808349609375e-05
+      },
+      "train/2703": {
+        "clip_frac": 4.00543212890625e-05
+      },
+      "train/124": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/7026": {
+        "clip_frac": 0.0
+      },
+      "train/4923": {
+        "clip_frac": 0.0
+      },
+      "train/910": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/313": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/4851": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/2349": {
+        "clip_frac": 0.0
+      },
+      "train/2230": {
+        "clip_frac": 0.0
+      },
+      "train/4898": {
+        "clip_frac": 0.0
+      },
+      "train/6856": {
+        "clip_frac": 0.2052326202392578
+      },
+      "train/3156": {
+        "clip_frac": 0.0008683204650878906
+      },
+      "train/1047": {
+        "clip_frac": 0.0024094581604003906
+      },
+      "train/667": {
+        "clip_frac": 0.0021338462829589844
+      },
+      "train/4956": {
+        "clip_frac": 0.002749919891357422
+      },
+      "train/359": {
+        "clip_frac": 0.0018229484558105469
+      },
+      "train/5570": {
+        "clip_frac": 0.001842498779296875
+      },
+      "train/6489": {
+        "clip_frac": 0.0
+      },
+      "train/6202": {
+        "clip_frac": 0.0006375312805175781
+      },
+      "train/5023": {
+        "clip_frac": 1.239776611328125e-05
+      },
+      "train/340": {
+        "clip_frac": 0.0005884170532226562
+      },
+      "train/6914": {
+        "clip_frac": 1.5735626220703125e-05
+      },
+      "train/6458": {
+        "clip_frac": 0.00022268295288085938
+      },
+      "train/7134": {
+        "clip_frac": 7.43865966796875e-05
+      },
+      "train/4946": {
+        "clip_frac": 0.0002608299255371094
+      },
+      "train/3485": {
+        "clip_frac": 0.00017309188842773438
+      },
+      "train/4530": {
+        "clip_frac": 0.0003428459167480469
+      },
+      "train/44": {
+        "clip_frac": 7.390975952148438e-05
+      },
+      "train/3492": {
+        "clip_frac": 0.0
+      },
+      "train/5914": {
+        "clip_frac": 0.0
+      },
+      "train/83": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/7211": {
+        "clip_frac": 0.0
+      },
+      "train/3700": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/162": {
+        "clip_frac": 0.0
+      },
+      "train/6846": {
+        "clip_frac": 0.0
+      },
+      "train/637": {
+        "clip_frac": 0.0
+      },
+      "train/6262": {
+        "clip_frac": 0.0
+      },
+      "train/4212": {
+        "clip_frac": 0.0
+      },
+      "train/1380": {
+        "clip_frac": 0.0
+      },
+      "train/6406": {
+        "clip_frac": 3.814697265625e-06
+      },
+      "train/2017": {
+        "clip_frac": 0.0
+      },
+      "train/1354": {
+        "clip_frac": 0.1889200210571289
+      },
+      "train/3235": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/5115": {
+        "clip_frac": 0.0012378692626953125
+      },
+      "train/7158": {
+        "clip_frac": 0.00316619873046875
+      },
+      "train/547": {
+        "clip_frac": 0.0008225440979003906
+      },
+      "train/3972": {
+        "clip_frac": 0.0007143020629882812
+      },
+      "train/2911": {
+        "clip_frac": 0.0005288124084472656
+      },
+      "train/4453": {
+        "clip_frac": 0.00023794174194335938
+      },
+      "train/4549": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/3109": {
+        "clip_frac": 0.00011396408081054688
+      },
+      "train/4391": {
+        "clip_frac": 6.67572021484375e-06
+      },
+      "train/6828": {
+        "clip_frac": 5.7697296142578125e-05
+      },
+      "train/959": {
+        "clip_frac": 9.918212890625e-05
+      },
+      "train/1163": {
+        "clip_frac": 0.00018215179443359375
+      },
+      "train/3450": {
+        "clip_frac": 6.771087646484375e-05
+      },
+      "train/5551": {
+        "clip_frac": 5.1021575927734375e-05
+      },
+      "train/4001": {
+        "clip_frac": 0.00022220611572265625
+      },
+      "train/3879": {
+        "clip_frac": 5.340576171875e-05
+      },
+      "train/2866": {
+        "clip_frac": 9.393692016601562e-05
+      },
+      "train/4532": {
+        "clip_frac": 1.9550323486328125e-05
+      },
+      "train/3727": {
+        "clip_frac": 0.0
+      },
+      "train/72": {
+        "clip_frac": 1.4781951904296875e-05
+      },
+      "train/4317": {
+        "clip_frac": 0.0
+      },
+      "train/2455": {
+        "clip_frac": 0.0
+      },
+      "train/4622": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/3532": {
+        "clip_frac": 0.0
+      },
+      "train/1492": {
+        "clip_frac": 0.0
+      },
+      "train/2884": {
+        "clip_frac": 0.0
+      },
+      "train/4119": {
+        "clip_frac": 0.0
+      },
+      "train/809": {
+        "clip_frac": 0.0
+      },
+      "train/5353": {
+        "clip_frac": 0.0
+      },
+      "train/5077": {
+        "clip_frac": 0.023882389068603516
+      },
+      "train/3021": {
+        "clip_frac": 0.0
+      },
+      "train/3294": {
+        "clip_frac": 0.0011806488037109375
+      },
+      "train/3183": {
+        "clip_frac": 0.00045871734619140625
+      },
+      "train/2997": {
+        "clip_frac": 0.0014638900756835938
+      },
+      "train/6498": {
+        "clip_frac": 0.0018901824951171875
+      },
+      "train/2158": {
+        "clip_frac": 0.0005550384521484375
+      },
+      "train/2009": {
+        "clip_frac": 0.0
+      },
+      "train/23": {
+        "clip_frac": 0.0004987716674804688
+      },
+      "train/5298": {
+        "clip_frac": 0.0004563331604003906
+      },
+      "train/5990": {
+        "clip_frac": 0.0
+      },
+      "train/5209": {
+        "clip_frac": 0.00015497207641601562
+      },
+      "train/7361": {
+        "clip_frac": 0.00010156631469726562
+      },
+      "train/6718": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/4878": {
+        "clip_frac": 0.0
+      },
+      "train/1885": {
+        "clip_frac": 0.0
+      },
+      "train/1287": {
+        "clip_frac": 5.14984130859375e-05
+      },
+      "train/6719": {
+        "clip_frac": 0.00011587142944335938
+      },
+      "train/14": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/1245": {
+        "clip_frac": 0.00013208389282226562
+      },
+      "train/5717": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/5116": {
+        "clip_frac": 6.151199340820312e-05
+      },
+      "train/5309": {
+        "clip_frac": 1.8596649169921875e-05
+      },
+      "train/1373": {
+        "clip_frac": 7.152557373046875e-06
+      },
+      "train/6258": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/4645": {
+        "clip_frac": 0.0
+      },
+      "train/3721": {
+        "clip_frac": 0.0
+      },
+      "train/4376": {
+        "clip_frac": 0.0
+      },
+      "train/3025": {
+        "clip_frac": 0.0
+      },
+      "train/1248": {
+        "clip_frac": 0.0
+      },
+      "train/1964": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/425": {
+        "clip_frac": 0.07065582275390625
+      },
+      "train/4417": {
+        "clip_frac": 0.0
+      },
+      "train/6873": {
+        "clip_frac": 0.0023093223571777344
+      },
+      "train/6339": {
+        "clip_frac": 0.004084587097167969
+      },
+      "train/1739": {
+        "clip_frac": 0.0014023780822753906
+      },
+      "train/3692": {
+        "clip_frac": 0.0004405975341796875
+      },
+      "train/5891": {
+        "clip_frac": 0.00046539306640625
+      },
+      "train/3318": {
+        "clip_frac": 0.0
+      },
+      "train/4758": {
+        "clip_frac": 0.0009260177612304688
+      },
+      "train/5703": {
+        "clip_frac": 2.09808349609375e-05
+      },
+      "train/6648": {
+        "clip_frac": 0.0005388259887695312
+      },
+      "train/678": {
+        "clip_frac": 0.00012683868408203125
+      },
+      "train/3274": {
+        "clip_frac": 0.0
+      },
+      "train/421": {
+        "clip_frac": 6.628036499023438e-05
+      },
+      "train/5763": {
+        "clip_frac": 0.0
+      },
+      "train/3496": {
+        "clip_frac": 0.00016450881958007812
+      },
+      "train/3410": {
+        "clip_frac": 0.00013875961303710938
+      },
+      "train/2322": {
+        "clip_frac": 2.384185791015625e-05
+      },
+      "train/5870": {
+        "clip_frac": 1.71661376953125e-05
+      },
+      "train/3545": {
+        "clip_frac": 0.0
+      },
+      "train/2449": {
+        "clip_frac": 0.0
+      },
+      "train/4092": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/5336": {
+        "clip_frac": 0.0
+      },
+      "train/6750": {
+        "clip_frac": 5.1975250244140625e-05
+      },
+      "train/1767": {
+        "clip_frac": 0.0
+      },
+      "train/4307": {
+        "clip_frac": 0.0
+      },
+      "train/6119": {
+        "clip_frac": 0.0
+      },
+      "train/3597": {
+        "clip_frac": 0.0
+      },
+      "train/5109": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/5229": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/2077": {
+        "clip_frac": 0.0
+      },
+      "train/1481": {
+        "clip_frac": 0.11533784866333008
+      },
+      "train/1693": {
+        "clip_frac": 0.0009365081787109375
+      },
+      "train/7487": {
+        "clip_frac": 0.0029549598693847656
+      },
+      "train/948": {
+        "clip_frac": 0.003940105438232422
+      },
+      "train/2821": {
+        "clip_frac": 0.0022063255310058594
+      },
+      "train/681": {
+        "clip_frac": 0.0004887580871582031
+      },
+      "train/374": {
+        "clip_frac": 0.0004792213439941406
+      },
+      "train/1449": {
+        "clip_frac": 0.0002942085266113281
+      },
+      "train/1294": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/5803": {
+        "clip_frac": 5.7220458984375e-06
+      },
+      "train/6664": {
+        "clip_frac": 0.0008373260498046875
+      },
+      "train/2297": {
+        "clip_frac": 0.0004849433898925781
+      },
+      "train/485": {
+        "clip_frac": 0.00025844573974609375
+      },
+      "train/2517": {
+        "clip_frac": 0.0
+      },
+      "train/2391": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/5470": {
+        "clip_frac": 6.4849853515625e-05
+      },
+      "train/6208": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/3674": {
+        "clip_frac": 0.00024175643920898438
+      },
+      "train/3026": {
+        "clip_frac": 2.9087066650390625e-05
+      },
+      "train/1141": {
+        "clip_frac": 0.0
+      },
+      "train/5201": {
+        "clip_frac": 0.0
+      },
+      "train/1568": {
+        "clip_frac": 0.0
+      },
+      "train/5247": {
+        "clip_frac": 2.3365020751953125e-05
+      },
+      "train/57": {
+        "clip_frac": 1.71661376953125e-05
+      },
+      "train/71": {
+        "clip_frac": 1.049041748046875e-05
+      },
+      "train/149": {
+        "clip_frac": 0.0
+      },
+      "train/5126": {
+        "clip_frac": 0.0
+      },
+      "train/3869": {
+        "clip_frac": 0.0
+      },
+      "train/612": {
+        "clip_frac": 0.0
+      },
+      "train/4259": {
+        "clip_frac": 0.0
+      },
+      "train/4552": {
+        "clip_frac": 0.0
+      },
+      "train/6547": {
+        "clip_frac": 0.11521196365356445
+      },
+      "train/2983": {
+        "clip_frac": 0.0015301704406738281
+      },
+      "train/5941": {
+        "clip_frac": 0.003647327423095703
+      },
+      "train/6145": {
+        "clip_frac": 0.0005970001220703125
+      },
+      "train/1719": {
+        "clip_frac": 0.0005130767822265625
+      },
+      "train/3925": {
+        "clip_frac": 9.5367431640625e-06
+      },
+      "train/930": {
+        "clip_frac": 4.8160552978515625e-05
+      },
+      "train/5924": {
+        "clip_frac": 0.0003185272216796875
+      },
+      "train/2604": {
+        "clip_frac": 0.0003352165222167969
+      },
+      "train/6372": {
+        "clip_frac": 0.0015764236450195312
+      },
+      "train/386": {
+        "clip_frac": 8.630752563476562e-05
+      },
+      "train/5367": {
+        "clip_frac": 8.58306884765625e-05
+      },
+      "train/1325": {
+        "clip_frac": 0.00010633468627929688
+      },
+      "train/165": {
+        "clip_frac": 0.00014781951904296875
+      },
+      "train/1058": {
+        "clip_frac": 6.771087646484375e-05
+      },
+      "train/4210": {
+        "clip_frac": 0.0
+      },
+      "train/4568": {
+        "clip_frac": 7.724761962890625e-05
+      },
+      "train/3433": {
+        "clip_frac": 7.104873657226562e-05
+      },
+      "train/4528": {
+        "clip_frac": 1.0967254638671875e-05
+      },
+      "train/5011": {
+        "clip_frac": 0.0
+      },
+      "train/2070": {
+        "clip_frac": 0.0
+      },
+      "train/6908": {
+        "clip_frac": 0.0
+      },
+      "train/6566": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/4614": {
+        "clip_frac": 0.0
+      },
+      "train/2054": {
+        "clip_frac": 2.6226043701171875e-05
+      },
+      "train/6085": {
+        "clip_frac": 0.0
+      },
+      "train/1488": {
+        "clip_frac": 0.0
+      },
+      "train/3271": {
+        "clip_frac": 0.0
+      },
+      "train/4029": {
+        "clip_frac": 0.0
+      },
+      "train/5466": {
+        "clip_frac": 0.0
+      },
+      "train/6788": {
+        "clip_frac": 0.0
+      },
+      "train/2269": {
+        "clip_frac": 0.012086868286132812
+      },
+      "train/5455": {
+        "clip_frac": 0.0026521682739257812
+      },
+      "train/6580": {
+        "clip_frac": 0.0009450912475585938
+      },
+      "train/1303": {
+        "clip_frac": 0.00020170211791992188
+      },
+      "train/2816": {
+        "clip_frac": 0.0019936561584472656
+      },
+      "train/7405": {
+        "clip_frac": 0.002289295196533203
+      },
+      "train/3444": {
+        "clip_frac": 0.0010957717895507812
+      },
+      "train/5519": {
+        "clip_frac": 0.000263214111328125
+      },
+      "train/2029": {
+        "clip_frac": 5.91278076171875e-05
+      },
+      "train/1966": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/1609": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/3513": {
+        "clip_frac": 3.814697265625e-05
+      },
+      "train/7243": {
+        "clip_frac": 4.38690185546875e-05
+      },
+      "train/1016": {
+        "clip_frac": 0.0
+      },
+      "train/5589": {
+        "clip_frac": 0.0
+      },
+      "train/3543": {
+        "clip_frac": 3.147125244140625e-05
+      },
+      "train/7034": {
+        "clip_frac": 0.0
+      },
+      "train/324": {
+        "clip_frac": 0.0
+      },
+      "train/15": {
+        "clip_frac": 0.0
+      },
+      "train/329": {
+        "clip_frac": 0.0
+      },
+      "train/5657": {
+        "clip_frac": 1.7642974853515625e-05
+      },
+      "train/4938": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/7220": {
+        "clip_frac": 1.4781951904296875e-05
+      },
+      "train/5978": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/7082": {
+        "clip_frac": 0.0
+      },
+      "train/2374": {
+        "clip_frac": 0.0
+      },
+      "train/4090": {
+        "clip_frac": 0.0
+      },
+      "train/5296": {
+        "clip_frac": 0.0
+      },
+      "train/2171": {
+        "clip_frac": 0.0
+      },
+      "train/7072": {
+        "clip_frac": 0.0
+      },
+      "train/4275": {
+        "clip_frac": 0.0
+      },
+      "train/4173": {
+        "clip_frac": 0.25387096405029297
+      },
+      "train/6997": {
+        "clip_frac": 0.0
+      },
+      "train/4442": {
+        "clip_frac": 0.001659393310546875
+      },
+      "train/5236": {
+        "clip_frac": 0.0007772445678710938
+      },
+      "train/1803": {
+        "clip_frac": 0.004076480865478516
+      },
+      "train/3650": {
+        "clip_frac": 0.0002446174621582031
+      },
+      "train/2302": {
+        "clip_frac": 0.001972675323486328
+      },
+      "train/1374": {
+        "clip_frac": 0.0
+      },
+      "train/7017": {
+        "clip_frac": 3.4809112548828125e-05
+      },
+      "train/2892": {
+        "clip_frac": 0.0004086494445800781
+      },
+      "train/3336": {
+        "clip_frac": 9.775161743164062e-05
+      },
+      "train/657": {
+        "clip_frac": 0.00018167495727539062
+      },
+      "train/4358": {
+        "clip_frac": 4.863739013671875e-05
+      },
+      "train/769": {
+        "clip_frac": 0.00012445449829101562
+      },
+      "train/1986": {
+        "clip_frac": 2.6702880859375e-05
+      },
+      "train/321": {
+        "clip_frac": 0.00020885467529296875
+      },
+      "train/6792": {
+        "clip_frac": 9.5367431640625e-06
+      },
+      "train/1670": {
+        "clip_frac": 0.00011539459228515625
+      },
+      "train/6881": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/4734": {
+        "clip_frac": 0.0
+      },
+      "train/534": {
+        "clip_frac": 1.1444091796875e-05
+      },
+      "train/3": {
+        "clip_frac": 8.58306884765625e-06
+      },
+      "train/2862": {
+        "clip_frac": 0.0
+      },
+      "train/2992": {
+        "clip_frac": 1.71661376953125e-05
+      },
+      "train/6064": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/839": {
+        "clip_frac": 0.0
+      },
+      "train/2028": {
+        "clip_frac": 0.0
+      },
+      "train/806": {
+        "clip_frac": 0.0
+      },
+      "train/1351": {
+        "clip_frac": 0.0
+      },
+      "train/6188": {
+        "clip_frac": 0.0
+      },
+      "train/6507": {
+        "clip_frac": 0.0
+      },
+      "train/2792": {
+        "clip_frac": 0.0013790130615234375
+      },
+      "train/3203": {
+        "clip_frac": 0.0011115074157714844
+      },
+      "train/2073": {
+        "clip_frac": 0.0005297660827636719
+      },
+      "train/1470": {
+        "clip_frac": 0.0010628700256347656
+      },
+      "train/4578": {
+        "clip_frac": 0.003310680389404297
+      },
+      "train/1551": {
+        "clip_frac": 0.0013570785522460938
+      },
+      "train/3487": {
+        "clip_frac": 0.0005621910095214844
+      },
+      "train/2881": {
+        "clip_frac": 0.0
+      },
+      "train/4279": {
+        "clip_frac": 0.0008597373962402344
+      },
+      "train/3082": {
+        "clip_frac": 2.47955322265625e-05
+      },
+      "train/6646": {
+        "clip_frac": 0.0004496574401855469
+      },
+      "train/3434": {
+        "clip_frac": 0.0005116462707519531
+      },
+      "train/6691": {
+        "clip_frac": 3.7670135498046875e-05
+      },
+      "train/7002": {
+        "clip_frac": 0.0
+      },
+      "train/2804": {
+        "clip_frac": 0.0
+      },
+      "train/2933": {
+        "clip_frac": 5.8650970458984375e-05
+      },
+      "train/5234": {
+        "clip_frac": 0.00019073486328125
+      },
+      "train/2362": {
+        "clip_frac": 0.00011539459228515625
+      },
+      "train/6284": {
+        "clip_frac": 0.0001430511474609375
+      },
+      "train/4632": {
+        "clip_frac": 0.0
+      },
+      "train/5332": {
+        "clip_frac": 4.8160552978515625e-05
+      },
+      "train/511": {
+        "clip_frac": 0.0
+      },
+      "train/2103": {
+        "clip_frac": 0.0
+      },
+      "train/2116": {
+        "clip_frac": 0.0
+      },
+      "train/6984": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/6091": {
+        "clip_frac": 0.0
+      },
+      "train/585": {
+        "clip_frac": 0.0
+      },
+      "train/7396": {
+        "clip_frac": 0.0
+      },
+      "train/3572": {
+        "clip_frac": 0.0
+      },
+      "train/6010": {
+        "clip_frac": 0.0
+      },
+      "train/4295": {
+        "clip_frac": 0.0
+      },
+      "train/6587": {
+        "clip_frac": 0.06716203689575195
+      },
+      "train/301": {
+        "clip_frac": 0.0004582405090332031
+      },
+      "train/1140": {
+        "clip_frac": 0.0008816719055175781
+      },
+      "train/6994": {
+        "clip_frac": 0.0007872581481933594
+      },
+      "train/4356": {
+        "clip_frac": 0.0010480880737304688
+      },
+      "train/369": {
+        "clip_frac": 0.0012693405151367188
+      },
+      "train/7120": {
+        "clip_frac": 0.0008449554443359375
+      },
+      "train/2427": {
+        "clip_frac": 0.00014591217041015625
+      },
+      "train/885": {
+        "clip_frac": 6.4849853515625e-05
+      },
+      "train/7289": {
+        "clip_frac": 0.0008807182312011719
+      },
+      "train/3193": {
+        "clip_frac": 0.00029659271240234375
+      },
+      "train/2555": {
+        "clip_frac": 4.100799560546875e-05
+      },
+      "train/4105": {
+        "clip_frac": 7.772445678710938e-05
+      },
+      "train/1769": {
+        "clip_frac": 2.384185791015625e-05
+      },
+      "train/4204": {
+        "clip_frac": 0.0
+      },
+      "train/4543": {
+        "clip_frac": 0.0
+      },
+      "train/4601": {
+        "clip_frac": 8.0108642578125e-05
+      },
+      "train/2484": {
+        "clip_frac": 0.0
+      },
+      "train/1620": {
+        "clip_frac": 0.0
+      },
+      "train/6394": {
+        "clip_frac": 0.0
+      },
+      "train/3307": {
+        "clip_frac": 3.337860107421875e-05
+      },
+      "train/4129": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/3153": {
+        "clip_frac": 2.574920654296875e-05
+      },
+      "train/7113": {
+        "clip_frac": 0.0
+      },
+      "train/1026": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/298": {
+        "clip_frac": 0.0
+      },
+      "train/2452": {
+        "clip_frac": 0.0
+      },
+      "train/997": {
+        "clip_frac": 0.0
+      },
+      "train/1858": {
+        "clip_frac": 0.0
+      },
+      "train/6436": {
+        "clip_frac": 0.0
+      },
+      "train/3357": {
+        "clip_frac": 0.0
+      },
+      "train/6544": {
+        "clip_frac": 0.0015411376953125
+      },
+      "train/6954": {
+        "clip_frac": 8.96453857421875e-05
+      },
+      "train/2415": {
+        "clip_frac": 2.765655517578125e-05
+      },
+      "train/3074": {
+        "clip_frac": 0.0013408660888671875
+      },
+      "train/7169": {
+        "clip_frac": 0.0005650520324707031
+      },
+      "train/7236": {
+        "clip_frac": 0.00042629241943359375
+      },
+      "train/6926": {
+        "clip_frac": 0.0
+      },
+      "train/723": {
+        "clip_frac": 0.0004911422729492188
+      },
+      "train/2026": {
+        "clip_frac": 0.00012731552124023438
+      },
+      "train/6454": {
+        "clip_frac": 0.0
+      },
+      "train/2921": {
+        "clip_frac": 0.00011396408081054688
+      },
+      "train/1698": {
+        "clip_frac": 9.393692016601562e-05
+      },
+      "train/6510": {
+        "clip_frac": 0.00018835067749023438
+      },
+      "train/2354": {
+        "clip_frac": 0.0
+      },
+      "train/7024": {
+        "clip_frac": 0.0002846717834472656
+      },
+      "train/4110": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/553": {
+        "clip_frac": 0.0
+      },
+      "train/2083": {
+        "clip_frac": 4.863739013671875e-05
+      },
+      "train/6807": {
+        "clip_frac": 2.002716064453125e-05
+      },
+      "train/6605": {
+        "clip_frac": 0.0
+      },
+      "train/5358": {
+        "clip_frac": 0.0
+      },
+      "train/7372": {
+        "clip_frac": 6.198883056640625e-05
+      },
+      "train/1489": {
+        "clip_frac": 0.0
+      },
+      "train/1196": {
+        "clip_frac": 5.7220458984375e-06
+      },
+      "train/4667": {
+        "clip_frac": 0.0
+      },
+      "train/436": {
+        "clip_frac": 0.0
+      },
+      "train/6874": {
+        "clip_frac": 0.0
+      },
+      "train/1179": {
+        "clip_frac": 0.0
+      },
+      "train/1795": {
+        "clip_frac": 0.0
+      },
+      "train/5377": {
+        "clip_frac": 0.0
+      },
+      "train/7150": {
+        "clip_frac": 0.0
+      },
+      "train/2244": {
+        "clip_frac": 0.042102813720703125
+      },
+      "train/6308": {
+        "clip_frac": 0.00017452239990234375
+      },
+      "train/2779": {
+        "clip_frac": 0.0020856857299804688
+      },
+      "train/4064": {
+        "clip_frac": 0.0003447532653808594
+      },
+      "train/2494": {
+        "clip_frac": 0.0011343955993652344
+      },
+      "train/1566": {
+        "clip_frac": 0.0004425048828125
+      },
+      "train/270": {
+        "clip_frac": 0.0005545616149902344
+      },
+      "train/1806": {
+        "clip_frac": 2.1457672119140625e-05
+      },
+      "train/1352": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/6659": {
+        "clip_frac": 0.00023984909057617188
+      },
+      "train/7384": {
+        "clip_frac": 0.0005412101745605469
+      },
+      "train/5346": {
+        "clip_frac": 0.0002980232238769531
+      },
+      "train/2610": {
+        "clip_frac": 0.00012493133544921875
+      },
+      "train/355": {
+        "clip_frac": 0.00011539459228515625
+      },
+      "train/4760": {
+        "clip_frac": 0.00011110305786132812
+      },
+      "train/659": {
+        "clip_frac": 4.482269287109375e-05
+      },
+      "train/4419": {
+        "clip_frac": 0.00016117095947265625
+      },
+      "train/5300": {
+        "clip_frac": 0.00017642974853515625
+      },
+      "train/4820": {
+        "clip_frac": 0.0
+      },
+      "train/347": {
+        "clip_frac": 0.0
+      },
+      "train/1660": {
+        "clip_frac": 9.5367431640625e-06
+      },
+      "train/6353": {
+        "clip_frac": 5.7220458984375e-06
+      },
+      "train/4976": {
+        "clip_frac": 0.0
+      },
+      "train/938": {
+        "clip_frac": 4.3392181396484375e-05
+      },
+      "train/4415": {
+        "clip_frac": 0.0
+      },
+      "train/2539": {
+        "clip_frac": 0.0
+      },
+      "train/4025": {
+        "clip_frac": 0.0
+      },
+      "train/5890": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/4978": {
+        "clip_frac": 0.0
+      },
+      "train/989": {
+        "clip_frac": 0.0
+      },
+      "train/357": {
+        "clip_frac": 0.0
+      },
+      "train/1667": {
+        "clip_frac": 0.0493016242980957
+      },
+      "train/75": {
+        "clip_frac": 0.0005359649658203125
+      },
+      "train/5342": {
+        "clip_frac": 0.0002741813659667969
+      },
+      "train/1084": {
+        "clip_frac": 0.0009131431579589844
+      },
+      "train/4856": {
+        "clip_frac": 0.00027370452880859375
+      },
+      "train/7189": {
+        "clip_frac": 0.0024871826171875
+      },
+      "train/2112": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/6307": {
+        "clip_frac": 0.0001430511474609375
+      },
+      "train/5965": {
+        "clip_frac": 0.0005846023559570312
+      },
+      "train/1601": {
+        "clip_frac": 4.38690185546875e-05
+      },
+      "train/4248": {
+        "clip_frac": 0.000278472900390625
+      },
+      "train/5204": {
+        "clip_frac": 0.00010728836059570312
+      },
+      "train/733": {
+        "clip_frac": 4.291534423828125e-05
+      },
+      "train/6813": {
+        "clip_frac": 8.106231689453125e-06
+      },
+      "train/935": {
+        "clip_frac": 5.7220458984375e-06
+      },
+      "train/3353": {
+        "clip_frac": 0.00017070770263671875
+      },
+      "train/7436": {
+        "clip_frac": 6.4849853515625e-05
+      },
+      "train/3127": {
+        "clip_frac": 0.00022792816162109375
+      },
+      "train/6884": {
+        "clip_frac": 0.00011587142944335938
+      },
+      "train/1270": {
+        "clip_frac": 0.0
+      },
+      "train/4104": {
+        "clip_frac": 0.0
+      },
+      "train/2747": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/775": {
+        "clip_frac": 0.0
+      },
+      "train/4258": {
+        "clip_frac": 0.0
+      },
+      "train/4916": {
+        "clip_frac": 0.0
+      },
+      "train/7100": {
+        "clip_frac": 0.0
+      },
+      "train/3630": {
+        "clip_frac": 0.0
+      },
+      "train/6701": {
+        "clip_frac": 0.0
+      },
+      "train/5954": {
+        "clip_frac": 0.0
+      },
+      "train/739": {
+        "clip_frac": 0.0
+      },
+      "train/6651": {
+        "clip_frac": 0.0
+      },
+      "train/7028": {
+        "clip_frac": 0.014846324920654297
+      },
+      "train/7454": {
+        "clip_frac": 0.0001354217529296875
+      },
+      "train/2865": {
+        "clip_frac": 0.0034465789794921875
+      },
+      "train/3578": {
+        "clip_frac": 0.003360748291015625
+      },
+      "train/2591": {
+        "clip_frac": 0.0036568641662597656
+      },
+      "train/6327": {
+        "clip_frac": 0.0013976097106933594
+      },
+      "train/1676": {
+        "clip_frac": 0.0004124641418457031
+      },
+      "train/1409": {
+        "clip_frac": 0.00011110305786132812
+      },
+      "train/6009": {
+        "clip_frac": 0.0008392333984375
+      },
+      "train/6622": {
+        "clip_frac": 0.0005669593811035156
+      },
+      "train/2874": {
+        "clip_frac": 1.621246337890625e-05
+      },
+      "train/5567": {
+        "clip_frac": 2.384185791015625e-05
+      },
+      "train/5326": {
+        "clip_frac": 0.00017499923706054688
+      },
+      "train/4020": {
+        "clip_frac": 2.6702880859375e-05
+      },
+      "train/2422": {
+        "clip_frac": 1.621246337890625e-05
+      },
+      "train/3599": {
+        "clip_frac": 0.00010919570922851562
+      },
+      "train/7451": {
+        "clip_frac": 2.956390380859375e-05
+      },
+      "train/3967": {
+        "clip_frac": 0.0
+      },
+      "train/6757": {
+        "clip_frac": 2.0503997802734375e-05
+      },
+      "train/4664": {
+        "clip_frac": 0.0
+      },
+      "train/4826": {
+        "clip_frac": 1.9073486328125e-05
+      },
+      "train/2850": {
+        "clip_frac": 0.0
+      },
+      "train/5451": {
+        "clip_frac": 3.147125244140625e-05
+      },
+      "train/3192": {
+        "clip_frac": 0.0
+      },
+      "train/7043": {
+        "clip_frac": 3.7670135498046875e-05
+      },
+      "train/676": {
+        "clip_frac": 0.0
+      },
+      "train/3131": {
+        "clip_frac": 0.0
+      },
+      "train/5680": {
+        "clip_frac": 0.0
+      },
+      "train/1323": {
+        "clip_frac": 0.0
+      },
+      "train/6897": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/4315": {
+        "clip_frac": 0.0
+      },
+      "train/6194": {
+        "clip_frac": 0.011426448822021484
+      },
+      "train/3819": {
+        "clip_frac": 2.8133392333984375e-05
+      },
+      "train/4049": {
+        "clip_frac": 0.002501964569091797
+      },
+      "train/2842": {
+        "clip_frac": 0.002246379852294922
+      },
+      "train/545": {
+        "clip_frac": 0.0010309219360351562
+      },
+      "train/6960": {
+        "clip_frac": 0.0011982917785644531
+      },
+      "train/799": {
+        "clip_frac": 0.0015344619750976562
+      },
+      "train/7370": {
+        "clip_frac": 0.0
+      },
+      "train/3585": {
+        "clip_frac": 0.0003056526184082031
+      },
+      "train/3817": {
+        "clip_frac": 0.0004878044128417969
+      },
+      "train/805": {
+        "clip_frac": 0.00017213821411132812
+      },
+      "train/7031": {
+        "clip_frac": 0.00011205673217773438
+      },
+      "train/3861": {
+        "clip_frac": 0.0
+      },
+      "train/2239": {
+        "clip_frac": 0.0
+      },
+      "train/5477": {
+        "clip_frac": 9.250640869140625e-05
+      },
+      "train/1786": {
+        "clip_frac": 0.0001354217529296875
+      },
+      "train/1645": {
+        "clip_frac": 3.1948089599609375e-05
+      },
+      "train/3341": {
+        "clip_frac": 1.239776611328125e-05
+      },
+      "train/1928": {
+        "clip_frac": 8.678436279296875e-05
+      },
+      "train/5957": {
+        "clip_frac": 0.0
+      },
+      "train/2104": {
+        "clip_frac": 2.574920654296875e-05
+      },
+      "train/700": {
+        "clip_frac": 0.0
+      },
+      "train/6487": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/5197": {
+        "clip_frac": 2.86102294921875e-05
+      },
+      "train/3128": {
+        "clip_frac": 0.0
+      },
+      "train/446": {
+        "clip_frac": 8.58306884765625e-06
+      },
+      "train/6104": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/4732": {
+        "clip_frac": 0.0
+      },
+      "train/3378": {
+        "clip_frac": 0.0
+      },
+      "train/5314": {
+        "clip_frac": 0.0
+      },
+      "train/7058": {
+        "clip_frac": 0.0
+      },
+      "train/6753": {
+        "clip_frac": 0.05452108383178711
+      },
+      "train/3747": {
+        "clip_frac": 0.0
+      },
+      "train/2211": {
+        "clip_frac": 0.004593849182128906
+      },
+      "train/2179": {
+        "clip_frac": 0.001007080078125
+      },
+      "train/832": {
+        "clip_frac": 0.0012454986572265625
+      },
+      "train/1490": {
+        "clip_frac": 0.0004801750183105469
+      },
+      "train/4642": {
+        "clip_frac": 0.0020651817321777344
+      },
+      "train/139": {
+        "clip_frac": 2.1457672119140625e-05
+      },
+      "train/1587": {
+        "clip_frac": 0.0004687309265136719
+      },
+      "train/182": {
+        "clip_frac": 0.00019788742065429688
+      },
+      "train/1911": {
+        "clip_frac": 0.0006651878356933594
+      },
+      "train/7033": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/3502": {
+        "clip_frac": 0.0002837181091308594
+      },
+      "train/999": {
+        "clip_frac": 0.0
+      },
+      "train/3313": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/5507": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/3524": {
+        "clip_frac": 7.867813110351562e-05
+      },
+      "train/6763": {
+        "clip_frac": 0.0
+      },
+      "train/2608": {
+        "clip_frac": 0.0
+      },
+      "train/2195": {
+        "clip_frac": 0.0
+      },
+      "train/4751": {
+        "clip_frac": 2.384185791015625e-05
+      },
+      "train/6570": {
+        "clip_frac": 0.0
+      },
+      "train/5542": {
+        "clip_frac": 3.814697265625e-06
+      },
+      "train/6417": {
+        "clip_frac": 7.343292236328125e-05
+      },
+      "train/7378": {
+        "clip_frac": 2.3365020751953125e-05
+      },
+      "train/3160": {
+        "clip_frac": 0.0
+      },
+      "train/293": {
+        "clip_frac": 0.0
+      },
+      "train/6384": {
+        "clip_frac": 0.0
+      },
+      "train/1764": {
+        "clip_frac": 0.0
+      },
+      "train/6330": {
+        "clip_frac": 0.0
+      },
+      "train/5706": {
+        "clip_frac": 0.0
+      },
+      "train/1235": {
+        "clip_frac": 0.08359766006469727
+      },
+      "train/616": {
+        "clip_frac": 0.0003662109375
+      },
+      "train/7252": {
+        "clip_frac": 0.0013995170593261719
+      },
+      "train/5153": {
+        "clip_frac": 0.00057220458984375
+      },
+      "train/5850": {
+        "clip_frac": 0.0014333724975585938
+      },
+      "train/6193": {
+        "clip_frac": 0.0010523796081542969
+      },
+      "train/6765": {
+        "clip_frac": 0.0008168220520019531
+      },
+      "train/5497": {
+        "clip_frac": 0.0
+      },
+      "train/3244": {
+        "clip_frac": 0.0003590583801269531
+      },
+      "train/2052": {
+        "clip_frac": 7.05718994140625e-05
+      },
+      "train/6120": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/3379": {
+        "clip_frac": 0.0005297660827636719
+      },
+      "train/4685": {
+        "clip_frac": 8.821487426757812e-05
+      },
+      "train/3414": {
+        "clip_frac": 0.0
+      },
+      "train/6961": {
+        "clip_frac": 0.0
+      },
+      "train/2296": {
+        "clip_frac": 0.0
+      },
+      "train/7163": {
+        "clip_frac": 0.00011157989501953125
+      },
+      "train/5362": {
+        "clip_frac": 0.0
+      },
+      "train/5969": {
+        "clip_frac": 0.00010204315185546875
+      },
+      "train/917": {
+        "clip_frac": 4.2438507080078125e-05
+      },
+      "train/5814": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/3737": {
+        "clip_frac": 0.0
+      },
+      "train/4626": {
+        "clip_frac": 0.0
+      },
+      "train/7070": {
+        "clip_frac": 6.008148193359375e-05
+      },
+      "train/4533": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/2014": {
+        "clip_frac": 0.0
+      },
+      "train/3858": {
+        "clip_frac": 0.0
+      },
+      "train/2419": {
+        "clip_frac": 0.0
+      },
+      "train/2632": {
+        "clip_frac": 0.0
+      },
+      "train/6187": {
+        "clip_frac": 0.0
+      },
+      "train/4691": {
+        "clip_frac": 0.0
+      },
+      "train/6410": {
+        "clip_frac": 0.07480430603027344
+      },
+      "train/2654": {
+        "clip_frac": 0.0
+      },
+      "train/5600": {
+        "clip_frac": 0.0032958984375
+      },
+      "train/6068": {
+        "clip_frac": 0.00061798095703125
+      },
+      "train/3756": {
+        "clip_frac": 0.00011920928955078125
+      },
+      "train/5105": {
+        "clip_frac": 0.0005197525024414062
+      },
+      "train/3631": {
+        "clip_frac": 0.0014657974243164062
+      },
+      "train/3145": {
+        "clip_frac": 0.0003314018249511719
+      },
+      "train/6183": {
+        "clip_frac": 0.0001468658447265625
+      },
+      "train/6389": {
+        "clip_frac": 0.00023603439331054688
+      },
+      "train/1640": {
+        "clip_frac": 5.5789947509765625e-05
+      },
+      "train/3098": {
+        "clip_frac": 7.915496826171875e-05
+      },
+      "train/3020": {
+        "clip_frac": 2.09808349609375e-05
+      },
+      "train/1009": {
+        "clip_frac": 0.0
+      },
+      "train/5745": {
+        "clip_frac": 0.00014495849609375
+      },
+      "train/3935": {
+        "clip_frac": 4.291534423828125e-06
+      },
+      "train/709": {
+        "clip_frac": 4.6253204345703125e-05
+      },
+      "train/6414": {
+        "clip_frac": 0.00011539459228515625
+      },
+      "train/6913": {
+        "clip_frac": 1.0967254638671875e-05
+      },
+      "train/6435": {
+        "clip_frac": 0.0
+      },
+      "train/5632": {
+        "clip_frac": 0.0
+      },
+      "train/142": {
+        "clip_frac": 0.0
+      },
+      "train/2300": {
+        "clip_frac": 0.0
+      },
+      "train/978": {
+        "clip_frac": 0.0001277923583984375
+      },
+      "train/7421": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/6084": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/5878": {
+        "clip_frac": 0.0
+      },
+      "train/3196": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/1836": {
+        "clip_frac": 0.0
+      },
+      "train/166": {
+        "clip_frac": 0.0
+      },
+      "train/1579": {
+        "clip_frac": 0.0
+      },
+      "train/5482": {
+        "clip_frac": 0.05434274673461914
+      },
+      "train/3040": {
+        "clip_frac": 0.0007357597351074219
+      },
+      "train/789": {
+        "clip_frac": 0.0016012191772460938
+      },
+      "train/1510": {
+        "clip_frac": 0.0008640289306640625
+      },
+      "train/5258": {
+        "clip_frac": 0.0010766983032226562
+      },
+      "train/4353": {
+        "clip_frac": 0.0009412765502929688
+      },
+      "train/354": {
+        "clip_frac": 0.0010533332824707031
+      },
+      "train/3080": {
+        "clip_frac": 0.0
+      },
+      "train/965": {
+        "clip_frac": 0.0
+      },
+      "train/6466": {
+        "clip_frac": 0.0004096031188964844
+      },
+      "train/5080": {
+        "clip_frac": 9.393692016601562e-05
+      },
+      "train/7294": {
+        "clip_frac": 0.0007224082946777344
+      },
+      "train/2630": {
+        "clip_frac": 1.9073486328125e-05
+      },
+      "train/5898": {
+        "clip_frac": 0.0
+      },
+      "train/4937": {
+        "clip_frac": 0.0
+      },
+      "train/7137": {
+        "clip_frac": 4.9114227294921875e-05
+      },
+      "train/1424": {
+        "clip_frac": 4.1484832763671875e-05
+      },
+      "train/1356": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/7248": {
+        "clip_frac": 0.0
+      },
+      "train/5722": {
+        "clip_frac": 0.0
+      },
+      "train/2460": {
+        "clip_frac": 0.0
+      },
+      "train/5041": {
+        "clip_frac": 5.8650970458984375e-05
+      },
+      "train/3908": {
+        "clip_frac": 2.288818359375e-05
+      },
+      "train/2255": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/1487": {
+        "clip_frac": 3.0994415283203125e-05
+      },
+      "train/6380": {
+        "clip_frac": 0.0
+      },
+      "train/5683": {
+        "clip_frac": 0.0
+      },
+      "train/123": {
+        "clip_frac": 0.0
+      },
+      "train/2623": {
+        "clip_frac": 0.0
+      },
+      "train/2377": {
+        "clip_frac": 0.0
+      },
+      "train/767": {
+        "clip_frac": 0.0
+      },
+      "train/4363": {
+        "clip_frac": 0.11571168899536133
+      },
+      "train/6863": {
+        "clip_frac": 0.0014581680297851562
+      },
+      "train/422": {
+        "clip_frac": 0.006562709808349609
+      },
+      "train/4511": {
+        "clip_frac": 0.0028901100158691406
+      },
+      "train/2381": {
+        "clip_frac": 0.0006694793701171875
+      },
+      "train/2813": {
+        "clip_frac": 0.0012068748474121094
+      },
+      "train/5548": {
+        "clip_frac": 0.0006327629089355469
+      },
+      "train/2725": {
+        "clip_frac": 0.0003533363342285156
+      },
+      "train/2832": {
+        "clip_frac": 0.0003285408020019531
+      },
+      "train/7342": {
+        "clip_frac": 0.0
+      },
+      "train/5546": {
+        "clip_frac": 0.0006628036499023438
+      },
+      "train/4161": {
+        "clip_frac": 0.0002951622009277344
+      },
+      "train/6623": {
+        "clip_frac": 0.0002384185791015625
+      },
+      "train/1832": {
+        "clip_frac": 0.0
+      },
+      "train/3748": {
+        "clip_frac": 0.000232696533203125
+      },
+      "train/3445": {
+        "clip_frac": 4.2438507080078125e-05
+      },
+      "train/3277": {
+        "clip_frac": 0.0
+      },
+      "train/1614": {
+        "clip_frac": 8.344650268554688e-05
+      },
+      "train/6658": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/1103": {
+        "clip_frac": 2.002716064453125e-05
+      },
+      "train/3018": {
+        "clip_frac": 2.09808349609375e-05
+      },
+      "train/2732": {
+        "clip_frac": 0.0
+      },
+      "train/3349": {
+        "clip_frac": 2.2411346435546875e-05
+      },
+      "train/102": {
+        "clip_frac": 6.389617919921875e-05
+      },
+      "train/7394": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/7407": {
+        "clip_frac": 0.0
+      },
+      "train/1201": {
+        "clip_frac": 0.0
+      },
+      "train/5553": {
+        "clip_frac": 0.0
+      },
+      "train/4935": {
+        "clip_frac": 0.0
+      },
+      "train/2488": {
+        "clip_frac": 0.0
+      },
+      "train/1099": {
+        "clip_frac": 0.0
+      },
+      "train/4019": {
+        "clip_frac": 0.018880367279052734
+      },
+      "train/3542": {
+        "clip_frac": 7.82012939453125e-05
+      },
+      "train/1630": {
+        "clip_frac": 0.0040264129638671875
+      },
+      "train/4002": {
+        "clip_frac": 0.0009331703186035156
+      },
+      "train/3351": {
+        "clip_frac": 0.000469207763671875
+      },
+      "train/3375": {
+        "clip_frac": 0.0009412765502929688
+      },
+      "train/1965": {
+        "clip_frac": 0.00023174285888671875
+      },
+      "train/6801": {
+        "clip_frac": 0.0
+      },
+      "train/2770": {
+        "clip_frac": 0.00016117095947265625
+      },
+      "train/3953": {
+        "clip_frac": 0.00038242340087890625
+      },
+      "train/1031": {
+        "clip_frac": 0.0005664825439453125
+      },
+      "train/4476": {
+        "clip_frac": 5.435943603515625e-05
+      },
+      "train/6915": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/2130": {
+        "clip_frac": 6.389617919921875e-05
+      },
+      "train/5056": {
+        "clip_frac": 0.0001239776611328125
+      },
+      "train/1439": {
+        "clip_frac": 0.0
+      },
+      "train/2599": {
+        "clip_frac": 0.0
+      },
+      "train/2216": {
+        "clip_frac": 1.3828277587890625e-05
+      },
+      "train/7179": {
+        "clip_frac": 0.00022220611572265625
+      },
+      "train/5414": {
+        "clip_frac": 0.0
+      },
+      "train/2847": {
+        "clip_frac": 1.0967254638671875e-05
+      },
+      "train/7083": {
+        "clip_frac": 0.0
+      },
+      "train/1469": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/2634": {
+        "clip_frac": 0.0
+      },
+      "train/669": {
+        "clip_frac": 2.8133392333984375e-05
+      },
+      "train/1817": {
+        "clip_frac": 0.0
+      },
+      "train/2762": {
+        "clip_frac": 0.0
+      },
+      "train/5345": {
+        "clip_frac": 0.0
+      },
+      "train/3137": {
+        "clip_frac": 0.0
+      },
+      "train/4078": {
+        "clip_frac": 0.0
+      },
+      "train/1121": {
+        "clip_frac": 0.0
+      },
+      "train/51": {
+        "clip_frac": 0.0
+      },
+      "train/6595": {
+        "clip_frac": 0.0020427703857421875
+      },
+      "train/4274": {
+        "clip_frac": 0.0004878044128417969
+      },
+      "train/609": {
+        "clip_frac": 0.0013494491577148438
+      },
+      "train/1774": {
+        "clip_frac": 0.0021271705627441406
+      },
+      "train/3993": {
+        "clip_frac": 0.0010972023010253906
+      },
+      "train/6045": {
+        "clip_frac": 0.0017366409301757812
+      },
+      "train/6450": {
+        "clip_frac": 0.0
+      },
+      "train/6839": {
+        "clip_frac": 3.62396240234375e-05
+      },
+      "train/1593": {
+        "clip_frac": 0.0003075599670410156
+      },
+      "train/5563": {
+        "clip_frac": 0.0005006790161132812
+      },
+      "train/4409": {
+        "clip_frac": 6.341934204101562e-05
+      },
+      "train/4803": {
+        "clip_frac": 0.00015211105346679688
+      },
+      "train/1862": {
+        "clip_frac": 0.0
+      },
+      "train/1785": {
+        "clip_frac": 0.00018596649169921875
+      },
+      "train/1311": {
+        "clip_frac": 4.5299530029296875e-05
+      },
+      "train/3034": {
+        "clip_frac": 0.0
+      },
+      "train/4073": {
+        "clip_frac": 0.0
+      },
+      "train/5167": {
+        "clip_frac": 4.291534423828125e-05
+      },
+      "train/4361": {
+        "clip_frac": 0.0
+      },
+      "train/3921": {
+        "clip_frac": 2.4318695068359375e-05
+      },
+      "train/5445": {
+        "clip_frac": 8.106231689453125e-06
+      },
+      "train/1275": {
+        "clip_frac": 2.574920654296875e-05
+      },
+      "train/3991": {
+        "clip_frac": 0.0
+      },
+      "train/3536": {
+        "clip_frac": 0.0
+      },
+      "train/1851": {
+        "clip_frac": 0.0
+      },
+      "train/2780": {
+        "clip_frac": 0.0
+      },
+      "train/7013": {
+        "clip_frac": 0.0
+      },
+      "train/1894": {
+        "clip_frac": 0.0
+      },
+      "train/964": {
+        "clip_frac": 0.0
+      },
+      "train/6478": {
+        "clip_frac": 0.0
+      },
+      "train/4742": {
+        "clip_frac": 0.005087375640869141
+      },
+      "train/727": {
+        "clip_frac": 0.0016999244689941406
+      },
+      "train/2227": {
+        "clip_frac": 0.0006532669067382812
+      },
+      "train/5664": {
+        "clip_frac": 0.00023889541625976562
+      },
+      "train/3327": {
+        "clip_frac": 0.0013666152954101562
+      },
+      "train/4499": {
+        "clip_frac": 0.00045871734619140625
+      },
+      "train/3222": {
+        "clip_frac": 0.0001125335693359375
+      },
+      "train/7310": {
+        "clip_frac": 0.0
+      },
+      "train/3924": {
+        "clip_frac": 0.0003452301025390625
+      },
+      "train/2920": {
+        "clip_frac": 0.00018453598022460938
+      },
+      "train/2466": {
+        "clip_frac": 0.00033664703369140625
+      },
+      "train/3482": {
+        "clip_frac": 0.00015735626220703125
+      },
+      "train/6440": {
+        "clip_frac": 0.00013685226440429688
+      },
+      "train/6239": {
+        "clip_frac": 0.00015115737915039062
+      },
+      "train/5844": {
+        "clip_frac": 3.8623809814453125e-05
+      },
+      "train/1765": {
+        "clip_frac": 1.3828277587890625e-05
+      },
+      "train/4350": {
+        "clip_frac": 9.107589721679688e-05
+      },
+      "train/3239": {
+        "clip_frac": 3.910064697265625e-05
+      },
+      "train/6243": {
+        "clip_frac": 2.193450927734375e-05
+      },
+      "train/4468": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/5847": {
+        "clip_frac": 5.245208740234375e-06
+      },
+      "train/1022": {
+        "clip_frac": 0.0
+      },
+      "train/5082": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/5662": {
+        "clip_frac": 1.7642974853515625e-05
+      },
+      "train/7077": {
+        "clip_frac": 0.0
+      },
+      "train/764": {
+        "clip_frac": 0.0
+      },
+      "train/5753": {
+        "clip_frac": 0.0
+      },
+      "train/5110": {
+        "clip_frac": 0.0
+      },
+      "train/1957": {
+        "clip_frac": 0.0
+      },
+      "train/3983": {
+        "clip_frac": 0.0
+      },
+      "train/7117": {
+        "clip_frac": 0.0
+      },
+      "train/3709": {
+        "clip_frac": 0.19216346740722656
+      },
+      "train/4385": {
+        "clip_frac": 0.0
+      },
+      "train/3091": {
+        "clip_frac": 0.00010919570922851562
+      },
+      "train/4791": {
+        "clip_frac": 0.0012164115905761719
+      },
+      "train/6141": {
+        "clip_frac": 0.001960277557373047
+      },
+      "train/5605": {
+        "clip_frac": 0.001003265380859375
+      },
+      "train/2774": {
+        "clip_frac": 0.0007925033569335938
+      },
+      "train/810": {
+        "clip_frac": 0.0003485679626464844
+      },
+      "train/4681": {
+        "clip_frac": 0.0011563301086425781
+      },
+      "train/5494": {
+        "clip_frac": 0.0
+      },
+      "train/5888": {
+        "clip_frac": 0.00038909912109375
+      },
+      "train/458": {
+        "clip_frac": 0.00030803680419921875
+      },
+      "train/21": {
+        "clip_frac": 0.0004382133483886719
+      },
+      "train/84": {
+        "clip_frac": 7.152557373046875e-06
+      },
+      "train/4959": {
+        "clip_frac": 0.0
+      },
+      "train/1733": {
+        "clip_frac": 0.00014638900756835938
+      },
+      "train/3148": {
+        "clip_frac": 0.0
+      },
+      "train/302": {
+        "clip_frac": 0.0
+      },
+      "train/554": {
+        "clip_frac": 0.0
+      },
+      "train/3512": {
+        "clip_frac": 7.152557373046875e-05
+      },
+      "train/4604": {
+        "clip_frac": 0.0
+      },
+      "train/2825": {
+        "clip_frac": 0.0
+      },
+      "train/2015": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/4994": {
+        "clip_frac": 0.0
+      },
+      "train/2032": {
+        "clip_frac": 0.0
+      },
+      "train/4483": {
+        "clip_frac": 0.0
+      },
+      "train/5921": {
+        "clip_frac": 0.0
+      },
+      "train/5061": {
+        "clip_frac": 0.0
+      },
+      "train/3392": {
+        "clip_frac": 0.0
+      },
+      "train/5769": {
+        "clip_frac": 0.0
+      },
+      "train/1687": {
+        "clip_frac": 0.0
+      },
+      "train/2986": {
+        "clip_frac": 0.032283782958984375
+      },
+      "train/2057": {
+        "clip_frac": 5.7220458984375e-06
+      },
+      "train/7309": {
+        "clip_frac": 0.003117084503173828
+      },
+      "train/2442": {
+        "clip_frac": 0.0004067420959472656
+      },
+      "train/4526": {
+        "clip_frac": 0.002491474151611328
+      },
+      "train/5417": {
+        "clip_frac": 0.0006346702575683594
+      },
+      "train/1876": {
+        "clip_frac": 0.0002598762512207031
+      },
+      "train/3710": {
+        "clip_frac": 0.0
+      },
+      "train/1392": {
+        "clip_frac": 7.152557373046875e-05
+      },
+      "train/610": {
+        "clip_frac": 6.914138793945312e-05
+      },
+      "train/7402": {
+        "clip_frac": 3.528594970703125e-05
+      },
+      "train/3960": {
+        "clip_frac": 0.0
+      },
+      "train/5984": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/1790": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/6822": {
+        "clip_frac": 8.344650268554688e-05
+      },
+      "train/3676": {
+        "clip_frac": 0.00011157989501953125
+      },
+      "train/5623": {
+        "clip_frac": 5.1975250244140625e-05
+      },
+      "train/2522": {
+        "clip_frac": 5.7220458984375e-05
+      },
+      "train/1272": {
+        "clip_frac": 1.239776611328125e-05
+      },
+      "train/2368": {
+        "clip_frac": 2.6226043701171875e-05
+      },
+      "train/483": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/998": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/4951": {
+        "clip_frac": 2.765655517578125e-05
+      },
+      "train/6899": {
+        "clip_frac": 0.00012302398681640625
+      },
+      "train/4246": {
+        "clip_frac": 4.9591064453125e-05
+      },
+      "train/1850": {
+        "clip_frac": 0.0
+      },
+      "train/5151": {
+        "clip_frac": 0.0
+      },
+      "train/4413": {
+        "clip_frac": 0.0
+      },
+      "train/5712": {
+        "clip_frac": 0.0
+      },
+      "train/6931": {
+        "clip_frac": 0.0
+      },
+      "train/6619": {
+        "clip_frac": 0.0
+      },
+      "train/3175": {
+        "clip_frac": 0.19806718826293945
+      },
+      "train/2890": {
+        "clip_frac": 7.963180541992188e-05
+      },
+      "train/2191": {
+        "clip_frac": 0.0010514259338378906
+      },
+      "train/2474": {
+        "clip_frac": 0.00014972686767578125
+      },
+      "train/341": {
+        "clip_frac": 0.0010352134704589844
+      },
+      "train/5985": {
+        "clip_frac": 0.0019221305847167969
+      },
+      "train/3001": {
+        "clip_frac": 0.001007080078125
+      },
+      "train/4872": {
+        "clip_frac": 0.0
+      },
+      "train/1933": {
+        "clip_frac": 0.000118255615234375
+      },
+      "train/452": {
+        "clip_frac": 0.00036907196044921875
+      },
+      "train/4192": {
+        "clip_frac": 5.14984130859375e-05
+      },
+      "train/6108": {
+        "clip_frac": 0.00012111663818359375
+      },
+      "train/3558": {
+        "clip_frac": 0.0
+      },
+      "train/2464": {
+        "clip_frac": 0.0
+      },
+      "train/5528": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/38": {
+        "clip_frac": 9.72747802734375e-05
+      },
+      "train/976": {
+        "clip_frac": 0.00012063980102539062
+      },
+      "train/5931": {
+        "clip_frac": 0.0
+      },
+      "train/4072": {
+        "clip_frac": 7.772445678710938e-05
+      },
+      "train/6937": {
+        "clip_frac": 1.9550323486328125e-05
+      },
+      "train/960": {
+        "clip_frac": 0.0
+      },
+      "train/3722": {
+        "clip_frac": 0.0
+      },
+      "train/581": {
+        "clip_frac": 0.0
+      },
+      "train/4054": {
+        "clip_frac": 0.0
+      },
+      "train/2471": {
+        "clip_frac": 7.200241088867188e-05
+      },
+      "train/4408": {
+        "clip_frac": 0.0
+      },
+      "train/2180": {
+        "clip_frac": 0.0
+      },
+      "train/2231": {
+        "clip_frac": 0.0
+      },
+      "train/1734": {
+        "clip_frac": 0.0
+      },
+      "train/3619": {
+        "clip_frac": 0.0
+      },
+      "train/5019": {
+        "clip_frac": 0.0
+      },
+      "train/2755": {
+        "clip_frac": 0.07952260971069336
+      },
+      "train/2578": {
+        "clip_frac": 0.00022172927856445312
+      },
+      "train/3841": {
+        "clip_frac": 0.0014414787292480469
+      },
+      "train/713": {
+        "clip_frac": 0.00021791458129882812
+      },
+      "train/911": {
+        "clip_frac": 0.00122833251953125
+      },
+      "train/5835": {
+        "clip_frac": 0.0005650520324707031
+      },
+      "train/5246": {
+        "clip_frac": 0.0003294944763183594
+      },
+      "train/6561": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/1010": {
+        "clip_frac": 0.0003046989440917969
+      },
+      "train/6486": {
+        "clip_frac": 0.0003714561462402344
+      },
+      "train/5992": {
+        "clip_frac": 0.0006604194641113281
+      },
+      "train/1263": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/2062": {
+        "clip_frac": 0.00015354156494140625
+      },
+      "train/416": {
+        "clip_frac": 0.0
+      },
+      "train/1332": {
+        "clip_frac": 4.3392181396484375e-05
+      },
+      "train/5853": {
+        "clip_frac": 0.000244140625
+      },
+      "train/4443": {
+        "clip_frac": 0.0
+      },
+      "train/4780": {
+        "clip_frac": 3.719329833984375e-05
+      },
+      "train/297": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/2905": {
+        "clip_frac": 0.0
+      },
+      "train/5573": {
+        "clip_frac": 0.0002570152282714844
+      },
+      "train/5318": {
+        "clip_frac": 0.0
+      },
+      "train/5562": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/2901": {
+        "clip_frac": 3.3855438232421875e-05
+      },
+      "train/7401": {
+        "clip_frac": 0.0
+      },
+      "train/3928": {
+        "clip_frac": 0.0
+      },
+      "train/5594": {
+        "clip_frac": 0.0
+      },
+      "train/5580": {
+        "clip_frac": 0.0
+      },
+      "train/2656": {
+        "clip_frac": 0.0
+      },
+      "train/4728": {
+        "clip_frac": 0.0
+      },
+      "train/5093": {
+        "clip_frac": 0.0
+      },
+      "train/5561": {
+        "clip_frac": 0.1948380470275879
+      },
+      "train/6773": {
+        "clip_frac": 6.818771362304688e-05
+      },
+      "train/3063": {
+        "clip_frac": 0.0014543533325195312
+      },
+      "train/4867": {
+        "clip_frac": 0.0004582405090332031
+      },
+      "train/3571": {
+        "clip_frac": 0.0012984275817871094
+      },
+      "train/7392": {
+        "clip_frac": 0.002312183380126953
+      },
+      "train/2946": {
+        "clip_frac": 0.0004229545593261719
+      },
+      "train/7446": {
+        "clip_frac": 0.0
+      },
+      "train/163": {
+        "clip_frac": 0.0003046989440917969
+      },
+      "train/5514": {
+        "clip_frac": 0.00037288665771484375
+      },
+      "train/307": {
+        "clip_frac": 0.00019979476928710938
+      },
+      "train/2457": {
+        "clip_frac": 3.6716461181640625e-05
+      },
+      "train/5267": {
+        "clip_frac": 0.00011587142944335938
+      },
+      "train/3663": {
+        "clip_frac": 3.9577484130859375e-05
+      },
+      "train/160": {
+        "clip_frac": 0.0001678466796875
+      },
+      "train/7379": {
+        "clip_frac": 1.049041748046875e-05
+      },
+      "train/968": {
+        "clip_frac": 5.7220458984375e-06
+      },
+      "train/3381": {
+        "clip_frac": 0.0
+      },
+      "train/5170": {
+        "clip_frac": 2.86102294921875e-06
+      },
+      "train/4963": {
+        "clip_frac": 0.0
+      },
+      "train/1192": {
+        "clip_frac": 2.86102294921875e-06
+      },
+      "train/7272": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/541": {
+        "clip_frac": 0.0
+      },
+      "train/5192": {
+        "clip_frac": 4.1961669921875e-05
+      },
+      "train/4958": {
+        "clip_frac": 0.0
+      },
+      "train/2639": {
+        "clip_frac": 0.0
+      },
+      "train/13": {
+        "clip_frac": 0.0
+      },
+      "train/2167": {
+        "clip_frac": 0.0
+      },
+      "train/1335": {
+        "clip_frac": 0.0
+      },
+      "train/1679": {
+        "clip_frac": 0.0
+      },
+      "train/6179": {
+        "clip_frac": 0.0
+      },
+      "train/5187": {
+        "clip_frac": 0.10789728164672852
+      },
+      "train/1185": {
+        "clip_frac": 0.0005159378051757812
+      },
+      "train/6419": {
+        "clip_frac": 0.0013856887817382812
+      },
+      "train/607": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/1264": {
+        "clip_frac": 0.0009613037109375
+      },
+      "train/756": {
+        "clip_frac": 0.00017595291137695312
+      },
+      "train/6911": {
+        "clip_frac": 0.0008139610290527344
+      },
+      "train/116": {
+        "clip_frac": 0.0002269744873046875
+      },
+      "train/5289": {
+        "clip_frac": 0.0004520416259765625
+      },
+      "train/3011": {
+        "clip_frac": 7.62939453125e-05
+      },
+      "train/967": {
+        "clip_frac": 0.00034236907958984375
+      },
+      "train/6273": {
+        "clip_frac": 7.200241088867188e-05
+      },
+      "train/1326": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/1388": {
+        "clip_frac": 0.00026035308837890625
+      },
+      "train/6789": {
+        "clip_frac": 0.0001049041748046875
+      },
+      "train/3767": {
+        "clip_frac": 7.82012939453125e-05
+      },
+      "train/598": {
+        "clip_frac": 8.440017700195312e-05
+      },
+      "train/7068": {
+        "clip_frac": 3.0517578125e-05
+      },
+      "train/4377": {
+        "clip_frac": 8.344650268554688e-05
+      },
+      "train/7393": {
+        "clip_frac": 0.0
+      },
+      "train/4324": {
+        "clip_frac": 0.0
+      },
+      "train/2299": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/7004": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/6496": {
+        "clip_frac": 3.814697265625e-06
+      },
+      "train/435": {
+        "clip_frac": 1.239776611328125e-05
+      },
+      "train/2927": {
+        "clip_frac": 0.0
+      },
+      "train/5387": {
+        "clip_frac": 0.0
+      },
+      "train/660": {
+        "clip_frac": 0.0
+      },
+      "train/755": {
+        "clip_frac": 0.0
+      },
+      "train/1560": {
+        "clip_frac": 0.0
+      },
+      "train/711": {
+        "clip_frac": 0.0
+      },
+      "train/5418": {
+        "clip_frac": 0.1311931610107422
+      },
+      "train/4548": {
+        "clip_frac": 0.00115203857421875
+      },
+      "train/7276": {
+        "clip_frac": 0.0005612373352050781
+      },
+      "train/5239": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/1321": {
+        "clip_frac": 0.0006489753723144531
+      },
+      "train/7322": {
+        "clip_frac": 0.0007147789001464844
+      },
+      "train/5036": {
+        "clip_frac": 0.00014972686767578125
+      },
+      "train/6522": {
+        "clip_frac": 6.580352783203125e-05
+      },
+      "train/5128": {
+        "clip_frac": 4.6253204345703125e-05
+      },
+      "train/3643": {
+        "clip_frac": 0.00013780593872070312
+      },
+      "train/6974": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/5406": {
+        "clip_frac": 0.00048732757568359375
+      },
+      "train/5224": {
+        "clip_frac": 7.963180541992188e-05
+      },
+      "train/2836": {
+        "clip_frac": 0.0
+      },
+      "train/2542": {
+        "clip_frac": 5.4836273193359375e-05
+      },
+      "train/704": {
+        "clip_frac": 0.0001068115234375
+      },
+      "train/5854": {
+        "clip_frac": 6.103515625e-05
+      },
+      "train/5719": {
+        "clip_frac": 0.0
+      },
+      "train/20": {
+        "clip_frac": 3.814697265625e-06
+      },
+      "train/7381": {
+        "clip_frac": 0.0
+      },
+      "train/2182": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/3965": {
+        "clip_frac": 0.0
+      },
+      "train/7012": {
+        "clip_frac": 0.0
+      },
+      "train/7299": {
+        "clip_frac": 3.7670135498046875e-05
+      },
+      "train/7427": {
+        "clip_frac": 0.0
+      },
+      "train/4982": {
+        "clip_frac": 0.0
+      },
+      "train/6315": {
+        "clip_frac": 0.0
+      },
+      "train/2993": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/5774": {
+        "clip_frac": 0.0
+      },
+      "train/990": {
+        "clip_frac": 0.0
+      },
+      "train/1688": {
+        "clip_frac": 0.0
+      },
+      "train/5721": {
+        "clip_frac": 0.10865020751953125
+      },
+      "train/5240": {
+        "clip_frac": 0.0006175041198730469
+      },
+      "train/1364": {
+        "clip_frac": 0.0007643699645996094
+      },
+      "train/7084": {
+        "clip_frac": 0.002079010009765625
+      },
+      "train/6305": {
+        "clip_frac": 0.0008292198181152344
+      },
+      "train/1246": {
+        "clip_frac": 0.0003490447998046875
+      },
+      "train/818": {
+        "clip_frac": 0.0002288818359375
+      },
+      "train/6235": {
+        "clip_frac": 0.0
+      },
+      "train/4432": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/7352": {
+        "clip_frac": 0.0002593994140625
+      },
+      "train/2788": {
+        "clip_frac": 0.00025653839111328125
+      },
+      "train/2802": {
+        "clip_frac": 0.00018262863159179688
+      },
+      "train/5411": {
+        "clip_frac": 0.00018405914306640625
+      },
+      "train/5359": {
+        "clip_frac": 8.344650268554688e-05
+      },
+      "train/266": {
+        "clip_frac": 0.0004181861877441406
+      },
+      "train/5266": {
+        "clip_frac": 0.0
+      },
+      "train/7416": {
+        "clip_frac": 4.5299530029296875e-05
+      },
+      "train/6781": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/5845": {
+        "clip_frac": 8.58306884765625e-05
+      },
+      "train/1784": {
+        "clip_frac": 4.673004150390625e-05
+      },
+      "train/2384": {
+        "clip_frac": 6.008148193359375e-05
+      },
+      "train/3291": {
+        "clip_frac": 2.86102294921875e-05
+      },
+      "train/6184": {
+        "clip_frac": 8.106231689453125e-06
+      },
+      "train/947": {
+        "clip_frac": 0.0
+      },
+      "train/2382": {
+        "clip_frac": 1.6689300537109375e-05
+      },
+      "train/5402": {
+        "clip_frac": 0.0
+      },
+      "train/6157": {
+        "clip_frac": 0.0
+      },
+      "train/7434": {
+        "clip_frac": 0.0
+      },
+      "train/1395": {
+        "clip_frac": 0.0
+      },
+      "train/4571": {
+        "clip_frac": 0.0
+      },
+      "train/4869": {
+        "clip_frac": 0.0
+      },
+      "train/3342": {
+        "clip_frac": 0.1954364776611328
+      },
+      "train/6036": {
+        "clip_frac": 0.0037136077880859375
+      },
+      "train/3419": {
+        "clip_frac": 0.0008745193481445312
+      },
+      "train/4207": {
+        "clip_frac": 0.003505706787109375
+      },
+      "train/5228": {
+        "clip_frac": 0.0010209083557128906
+      },
+      "train/6532": {
+        "clip_frac": 0.0025205612182617188
+      },
+      "train/7389": {
+        "clip_frac": 0.0019578933715820312
+      },
+      "train/7055": {
+        "clip_frac": 0.0
+      },
+      "train/117": {
+        "clip_frac": 0.0002751350402832031
+      },
+      "train/3738": {
+        "clip_frac": 0.00010395050048828125
+      },
+      "train/2994": {
+        "clip_frac": 6.29425048828125e-05
+      },
+      "train/3998": {
+        "clip_frac": 0.0003752708435058594
+      },
+      "train/2950": {
+        "clip_frac": 0.0005345344543457031
+      },
+      "train/1639": {
+        "clip_frac": 0.0
+      },
+      "train/255": {
+        "clip_frac": 9.298324584960938e-05
+      },
+      "train/6": {
+        "clip_frac": 7.009506225585938e-05
+      },
+      "train/3669": {
+        "clip_frac": 0.0
+      },
+      "train/843": {
+        "clip_frac": 9.012222290039062e-05
+      },
+      "train/4480": {
+        "clip_frac": 0.00014352798461914062
+      },
+      "train/3276": {
+        "clip_frac": 0.0
+      },
+      "train/7459": {
+        "clip_frac": 4.57763671875e-05
+      },
+      "train/4848": {
+        "clip_frac": 0.0
+      },
+      "train/212": {
+        "clip_frac": 0.0
+      },
+      "train/4608": {
+        "clip_frac": 0.0
+      },
+      "train/3909": {
+        "clip_frac": 1.1920928955078125e-05
+      },
+      "train/5653": {
+        "clip_frac": 0.0
+      },
+      "train/6063": {
+        "clip_frac": 0.0
+      },
+      "train/7180": {
+        "clip_frac": 0.0
+      },
+      "train/5967": {
+        "clip_frac": 0.0
+      },
+      "train/2734": {
+        "clip_frac": 0.0
+      },
+      "train/6647": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/4796": {
+        "clip_frac": 0.14809846878051758
+      },
+      "train/4244": {
+        "clip_frac": 7.581710815429688e-05
+      },
+      "train/1176": {
+        "clip_frac": 0.0006327629089355469
+      },
+      "train/5002": {
+        "clip_frac": 0.0004458427429199219
+      },
+      "train/7288": {
+        "clip_frac": 0.0019292831420898438
+      },
+      "train/1051": {
+        "clip_frac": 0.00031757354736328125
+      },
+      "train/1929": {
+        "clip_frac": 0.0009603500366210938
+      },
+      "train/4289": {
+        "clip_frac": 3.814697265625e-06
+      },
+      "train/1512": {
+        "clip_frac": 0.00020074844360351562
+      },
+      "train/1215": {
+        "clip_frac": 0.0005254745483398438
+      },
+      "train/1715": {
+        "clip_frac": 0.0006127357482910156
+      },
+      "train/7455": {
+        "clip_frac": 0.0004792213439941406
+      },
+      "train/5503": {
+        "clip_frac": 0.00014591217041015625
+      },
+      "train/762": {
+        "clip_frac": 1.3828277587890625e-05
+      },
+      "train/3883": {
+        "clip_frac": 5.1975250244140625e-05
+      },
+      "train/2957": {
+        "clip_frac": 0.0002918243408203125
+      },
+      "train/4754": {
+        "clip_frac": 0.00011491775512695312
+      },
+      "train/4241": {
+        "clip_frac": 0.0
+      },
+      "train/1286": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/6998": {
+        "clip_frac": 6.198883056640625e-05
+      },
+      "train/3882": {
+        "clip_frac": 0.0
+      },
+      "train/5833": {
+        "clip_frac": 0.0
+      },
+      "train/6744": {
+        "clip_frac": 2.86102294921875e-06
+      },
+      "train/4491": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/4854": {
+        "clip_frac": 0.0
+      },
+      "train/2389": {
+        "clip_frac": 0.0
+      },
+      "train/909": {
+        "clip_frac": 0.0
+      },
+      "train/1959": {
+        "clip_frac": 0.0
+      },
+      "train/1978": {
+        "clip_frac": 0.0
+      },
+      "train/5556": {
+        "clip_frac": 0.0
+      },
+      "train/6707": {
+        "clip_frac": 0.0
+      },
+      "train/2736": {
+        "clip_frac": 0.0027260780334472656
+      },
+      "train/4123": {
+        "clip_frac": 0.0002951622009277344
+      },
+      "train/7212": {
+        "clip_frac": 0.0004162788391113281
+      },
+      "train/750": {
+        "clip_frac": 0.0015192031860351562
+      },
+      "train/4855": {
+        "clip_frac": 0.0017418861389160156
+      },
+      "train/6555": {
+        "clip_frac": 0.0006284713745117188
+      },
+      "train/2129": {
+        "clip_frac": 0.0013093948364257812
+      },
+      "train/608": {
+        "clip_frac": 0.0006365776062011719
+      },
+      "train/3504": {
+        "clip_frac": 0.0003514289855957031
+      },
+      "train/761": {
+        "clip_frac": 0.00013780593872070312
+      },
+      "train/5782": {
+        "clip_frac": 0.0
+      },
+      "train/1330": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/6325": {
+        "clip_frac": 7.62939453125e-06
+      },
+      "train/7449": {
+        "clip_frac": 0.00024890899658203125
+      },
+      "train/4586": {
+        "clip_frac": 1.2874603271484375e-05
+      },
+      "train/211": {
+        "clip_frac": 1.4781951904296875e-05
+      },
+      "train/4197": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/6040": {
+        "clip_frac": 0.00011205673217773438
+      },
+      "train/5486": {
+        "clip_frac": 0.0
+      },
+      "train/5407": {
+        "clip_frac": 0.0
+      },
+      "train/3398": {
+        "clip_frac": 2.193450927734375e-05
+      },
+      "train/2178": {
+        "clip_frac": 0.0
+      },
+      "train/7489": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/7089": {
+        "clip_frac": 6.103515625e-05
+      },
+      "train/2416": {
+        "clip_frac": 5.245208740234375e-06
+      },
+      "train/2320": {
+        "clip_frac": 0.0
+      },
+      "train/2810": {
+        "clip_frac": 0.0
+      },
+      "train/4325": {
+        "clip_frac": 0.0
+      },
+      "train/1375": {
+        "clip_frac": 0.0
+      },
+      "train/1494": {
+        "clip_frac": 0.0
+      },
+      "train/4765": {
+        "clip_frac": 0.0
+      },
+      "train/7357": {
+        "clip_frac": 0.10234832763671875
+      },
+      "train/2153": {
+        "clip_frac": 0.00041103363037109375
+      },
+      "train/6636": {
+        "clip_frac": 0.0017552375793457031
+      },
+      "train/1927": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/6963": {
+        "clip_frac": 0.0015501976013183594
+      },
+      "train/1637": {
+        "clip_frac": 0.0007200241088867188
+      },
+      "train/7417": {
+        "clip_frac": 0.0008783340454101562
+      },
+      "train/2795": {
+        "clip_frac": 0.0004048347473144531
+      },
+      "train/5338": {
+        "clip_frac": 4.863739013671875e-05
+      },
+      "train/2235": {
+        "clip_frac": 0.0009646415710449219
+      },
+      "train/6234": {
+        "clip_frac": 0.00018453598022460938
+      },
+      "train/736": {
+        "clip_frac": 6.198883056640625e-05
+      },
+      "train/6700": {
+        "clip_frac": 2.0503997802734375e-05
+      },
+      "train/2900": {
+        "clip_frac": 0.0
+      },
+      "train/6175": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/3770": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/4998": {
+        "clip_frac": 0.0002903938293457031
+      },
+      "train/7490": {
+        "clip_frac": 0.0
+      },
+      "train/2312": {
+        "clip_frac": 0.0
+      },
+      "train/3640": {
+        "clip_frac": 2.765655517578125e-05
+      },
+      "train/2959": {
+        "clip_frac": 9.679794311523438e-05
+      },
+      "train/4790": {
+        "clip_frac": 7.62939453125e-06
+      },
+      "train/993": {
+        "clip_frac": 4.5299530029296875e-05
+      },
+      "train/3784": {
+        "clip_frac": 0.0
+      },
+      "train/2969": {
+        "clip_frac": 6.67572021484375e-06
+      },
+      "train/1736": {
+        "clip_frac": 0.0
+      },
+      "train/2998": {
+        "clip_frac": 0.0
+      },
+      "train/274": {
+        "clip_frac": 0.0
+      },
+      "train/3795": {
+        "clip_frac": 0.0
+      },
+      "train/326": {
+        "clip_frac": 0.0
+      },
+      "train/3822": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/1813": {
+        "clip_frac": 0.1874523162841797
+      },
+      "train/6475": {
+        "clip_frac": 0.0003914833068847656
+      },
+      "train/1982": {
+        "clip_frac": 0.0004944801330566406
+      },
+      "train/3610": {
+        "clip_frac": 0.0005655288696289062
+      },
+      "train/5804": {
+        "clip_frac": 0.0019469261169433594
+      },
+      "train/2206": {
+        "clip_frac": 0.0012187957763671875
+      },
+      "train/3668": {
+        "clip_frac": 0.0008330345153808594
+      },
+      "train/7238": {
+        "clip_frac": 0.0
+      },
+      "train/2713": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/4611": {
+        "clip_frac": 0.00036716461181640625
+      },
+      "train/4132": {
+        "clip_frac": 0.0002918243408203125
+      },
+      "train/4086": {
+        "clip_frac": 0.0003705024719238281
+      },
+      "train/6971": {
+        "clip_frac": 0.00023698806762695312
+      },
+      "train/6538": {
+        "clip_frac": 4.291534423828125e-06
+      },
+      "train/5874": {
+        "clip_frac": 0.00020456314086914062
+      },
+      "train/5812": {
+        "clip_frac": 0.00017642974853515625
+      },
+      "train/5827": {
+        "clip_frac": 0.000133514404296875
+      },
+      "train/2534": {
+        "clip_frac": 5.14984130859375e-05
+      },
+      "train/3224": {
+        "clip_frac": 0.00014925003051757812
+      },
+      "train/550": {
+        "clip_frac": 0.0
+      },
+      "train/5743": {
+        "clip_frac": 0.0
+      },
+      "train/4579": {
+        "clip_frac": 0.0
+      },
+      "train/5619": {
+        "clip_frac": 7.581710815429688e-05
+      },
+      "train/1770": {
+        "clip_frac": 0.0
+      },
+      "train/7029": {
+        "clip_frac": 0.0
+      },
+      "train/5772": {
+        "clip_frac": 0.0
+      },
+      "train/6640": {
+        "clip_frac": 0.0
+      },
+      "train/43": {
+        "clip_frac": 0.0
+      },
+      "train/3683": {
+        "clip_frac": 0.0
+      },
+      "train/1284": {
+        "clip_frac": 0.0
+      },
+      "train/6320": {
+        "clip_frac": 0.0
+      },
+      "train/3237": {
+        "clip_frac": 0.0877223014831543
+      },
+      "train/66": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/6008": {
+        "clip_frac": 0.00446319580078125
+      },
+      "train/5862": {
+        "clip_frac": 0.0014657974243164062
+      },
+      "train/3234": {
+        "clip_frac": 0.003020763397216797
+      },
+      "train/2833": {
+        "clip_frac": 0.00115203857421875
+      },
+      "train/2644": {
+        "clip_frac": 0.0009393692016601562
+      },
+      "train/569": {
+        "clip_frac": 0.00026416778564453125
+      },
+      "train/6005": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/2798": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/2469": {
+        "clip_frac": 8.106231689453125e-05
+      },
+      "train/2843": {
+        "clip_frac": 0.0002765655517578125
+      },
+      "train/5379": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/2612": {
+        "clip_frac": 0.00030517578125
+      },
+      "train/6887": {
+        "clip_frac": 0.0001926422119140625
+      },
+      "train/2192": {
+        "clip_frac": 7.295608520507812e-05
+      },
+      "train/3186": {
+        "clip_frac": 0.00015497207641601562
+      },
+      "train/2649": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/4089": {
+        "clip_frac": 0.0001678466796875
+      },
+      "train/5285": {
+        "clip_frac": 0.0
+      },
+      "train/6551": {
+        "clip_frac": 0.0
+      },
+      "train/4678": {
+        "clip_frac": 0.0
+      },
+      "train/7369": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/3628": {
+        "clip_frac": 0.0
+      },
+      "train/2906": {
+        "clip_frac": 0.0
+      },
+      "train/5713": {
+        "clip_frac": 0.0
+      },
+      "train/10": {
+        "clip_frac": 0.0
+      },
+      "train/2500": {
+        "clip_frac": 0.0
+      },
+      "train/4167": {
+        "clip_frac": 0.0
+      },
+      "train/4239": {
+        "clip_frac": 0.0
+      },
+      "train/4753": {
+        "clip_frac": 0.0
+      },
+      "train/6121": {
+        "clip_frac": 0.1202702522277832
+      },
+      "train/3826": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/1214": {
+        "clip_frac": 0.0007390975952148438
+      },
+      "train/2338": {
+        "clip_frac": 0.001140594482421875
+      },
+      "train/5073": {
+        "clip_frac": 0.0011000633239746094
+      },
+      "train/5790": {
+        "clip_frac": 0.0002627372741699219
+      },
+      "train/1527": {
+        "clip_frac": 0.0003209114074707031
+      },
+      "train/5926": {
+        "clip_frac": 0.0
+      },
+      "train/5206": {
+        "clip_frac": 0.00016498565673828125
+      },
+      "train/7300": {
+        "clip_frac": 1.621246337890625e-05
+      },
+      "train/3039": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/5998": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/89": {
+        "clip_frac": 0.000469207763671875
+      },
+      "train/2653": {
+        "clip_frac": 1.811981201171875e-05
+      },
+      "train/5001": {
+        "clip_frac": 0.00010251998901367188
+      },
+      "train/5096": {
+        "clip_frac": 5.7220458984375e-05
+      },
+      "train/420": {
+        "clip_frac": 0.0002231597900390625
+      },
+      "train/7430": {
+        "clip_frac": 7.152557373046875e-05
+      },
+      "train/1461": {
+        "clip_frac": 0.00011682510375976562
+      },
+      "train/3712": {
+        "clip_frac": 0.0
+      },
+      "train/840": {
+        "clip_frac": 3.6716461181640625e-05
+      },
+      "train/5588": {
+        "clip_frac": 3.24249267578125e-05
+      },
+      "train/4715": {
+        "clip_frac": 0.0
+      },
+      "train/4857": {
+        "clip_frac": 1.33514404296875e-05
+      },
+      "train/7185": {
+        "clip_frac": 0.0
+      },
+      "train/86": {
+        "clip_frac": 0.0
+      },
+      "train/4877": {
+        "clip_frac": 0.0
+      },
+      "train/5422": {
+        "clip_frac": 6.67572021484375e-06
+      },
+      "train/2880": {
+        "clip_frac": 0.0
+      },
+      "train/1835": {
+        "clip_frac": 0.0
+      },
+      "train/4723": {
+        "clip_frac": 0.0
+      },
+      "train/412": {
+        "clip_frac": 0.04037761688232422
+      },
+      "train/602": {
+        "clip_frac": 0.0
+      },
+      "train/145": {
+        "clip_frac": 0.0018739700317382812
+      },
+      "train/7160": {
+        "clip_frac": 0.002444744110107422
+      },
+      "train/2882": {
+        "clip_frac": 0.00015878677368164062
+      },
+      "train/7136": {
+        "clip_frac": 0.0009436607360839844
+      },
+      "train/1981": {
+        "clip_frac": 0.0008497238159179688
+      },
+      "train/1136": {
+        "clip_frac": 0.0004029273986816406
+      },
+      "train/3413": {
+        "clip_frac": 4.7206878662109375e-05
+      },
+      "train/6800": {
+        "clip_frac": 0.0003876686096191406
+      },
+      "train/5668": {
+        "clip_frac": 0.0002608299255371094
+      },
+      "train/2288": {
+        "clip_frac": 0.00035858154296875
+      },
+      "train/7465": {
+        "clip_frac": 1.33514404296875e-05
+      },
+      "train/725": {
+        "clip_frac": 0.00014066696166992188
+      },
+      "train/5651": {
+        "clip_frac": 0.0
+      },
+      "train/2922": {
+        "clip_frac": 0.0002117156982421875
+      },
+      "train/4396": {
+        "clip_frac": 0.0
+      },
+      "train/6418": {
+        "clip_frac": 7.772445678710938e-05
+      },
+      "train/4654": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/3907": {
+        "clip_frac": 0.0
+      },
+      "train/5679": {
+        "clip_frac": 4.8160552978515625e-05
+      },
+      "train/4366": {
+        "clip_frac": 0.0
+      },
+      "train/1465": {
+        "clip_frac": 0.0
+      },
+      "train/2343": {
+        "clip_frac": 9.584426879882812e-05
+      },
+      "train/3178": {
+        "clip_frac": 0.0
+      },
+      "train/409": {
+        "clip_frac": 0.0
+      },
+      "train/451": {
+        "clip_frac": 0.0
+      },
+      "train/5390": {
+        "clip_frac": 0.0
+      },
+      "train/7130": {
+        "clip_frac": 0.0
+      },
+      "train/580": {
+        "clip_frac": 0.0
+      },
+      "train/3158": {
+        "clip_frac": 0.0
+      },
+      "train/4503": {
+        "clip_frac": 0.20679378509521484
+      },
+      "train/5475": {
+        "clip_frac": 0.0
+      },
+      "train/5403": {
+        "clip_frac": 0.0007185935974121094
+      },
+      "train/6412": {
+        "clip_frac": 0.0010671615600585938
+      },
+      "train/4534": {
+        "clip_frac": 0.0018548965454101562
+      },
+      "train/5970": {
+        "clip_frac": 0.0029001235961914062
+      },
+      "train/1699": {
+        "clip_frac": 0.00010204315185546875
+      },
+      "train/5564": {
+        "clip_frac": 0.000225067138671875
+      },
+      "train/3358": {
+        "clip_frac": 0.0006771087646484375
+      },
+      "train/6146": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/7247": {
+        "clip_frac": 1.1444091796875e-05
+      },
+      "train/7139": {
+        "clip_frac": 2.5272369384765625e-05
+      },
+      "train/5592": {
+        "clip_frac": 0.00027179718017578125
+      },
+      "train/1549": {
+        "clip_frac": 5.6743621826171875e-05
+      },
+      "train/4198": {
+        "clip_frac": 0.0
+      },
+      "train/5692": {
+        "clip_frac": 6.008148193359375e-05
+      },
+      "train/7431": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/4393": {
+        "clip_frac": 8.249282836914062e-05
+      },
+      "train/4977": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/1037": {
+        "clip_frac": 1.0967254638671875e-05
+      },
+      "train/2030": {
+        "clip_frac": 0.0
+      },
+      "train/4789": {
+        "clip_frac": 8.630752563476562e-05
+      },
+      "train/1916": {
+        "clip_frac": 6.67572021484375e-06
+      },
+      "train/3219": {
+        "clip_frac": 0.0
+      },
+      "train/6599": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/1980": {
+        "clip_frac": 0.0
+      },
+      "train/5649": {
+        "clip_frac": 0.0
+      },
+      "train/209": {
+        "clip_frac": 0.0
+      },
+      "train/4182": {
+        "clip_frac": 0.0
+      },
+      "train/4449": {
+        "clip_frac": 0.0
+      },
+      "train/2453": {
+        "clip_frac": 0.0
+      },
+      "train/396": {
+        "clip_frac": 0.029469966888427734
+      },
+      "train/2140": {
+        "clip_frac": 0.0
+      },
+      "train/584": {
+        "clip_frac": 0.0015630722045898438
+      },
+      "train/501": {
+        "clip_frac": 0.005640983581542969
+      },
+      "train/5534": {
+        "clip_frac": 0.0009837150573730469
+      },
+      "train/6206": {
+        "clip_frac": 0.0034093856811523438
+      },
+      "train/7173": {
+        "clip_frac": 0.00106048583984375
+      },
+      "train/5419": {
+        "clip_frac": 0.0
+      },
+      "train/6797": {
+        "clip_frac": 0.00011730194091796875
+      },
+      "train/4896": {
+        "clip_frac": 0.00036525726318359375
+      },
+      "train/2741": {
+        "clip_frac": 0.0002865791320800781
+      },
+      "train/414": {
+        "clip_frac": 9.679794311523438e-05
+      },
+      "train/5554": {
+        "clip_frac": 0.0
+      },
+      "train/5215": {
+        "clip_frac": 0.00014734268188476562
+      },
+      "train/361": {
+        "clip_frac": 0.00016164779663085938
+      },
+      "train/5161": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/4557": {
+        "clip_frac": 5.245208740234375e-06
+      },
+      "train/7479": {
+        "clip_frac": 1.239776611328125e-05
+      },
+      "train/6123": {
+        "clip_frac": 7.43865966796875e-05
+      },
+      "train/5076": {
+        "clip_frac": 0.0
+      },
+      "train/6044": {
+        "clip_frac": 1.6689300537109375e-05
+      },
+      "train/6678": {
+        "clip_frac": 0.0
+      },
+      "train/4718": {
+        "clip_frac": 0.0
+      },
+      "train/1615": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/2687": {
+        "clip_frac": 0.0
+      },
+      "train/6385": {
+        "clip_frac": 0.0
+      },
+      "train/2234": {
+        "clip_frac": 0.0
+      },
+      "train/4882": {
+        "clip_frac": 0.0
+      },
+      "train/804": {
+        "clip_frac": 0.0
+      },
+      "train/5250": {
+        "clip_frac": 0.0
+      },
+      "train/5276": {
+        "clip_frac": 0.0
+      },
+      "train/6237": {
+        "clip_frac": 0.12276601791381836
+      },
+      "train/4807": {
+        "clip_frac": 0.0011115074157714844
+      },
+      "train/3320": {
+        "clip_frac": 0.0025768280029296875
+      },
+      "train/3875": {
+        "clip_frac": 0.0019288063049316406
+      },
+      "train/1343": {
+        "clip_frac": 0.0014910697937011719
+      },
+      "train/49": {
+        "clip_frac": 0.0011563301086425781
+      },
+      "train/5880": {
+        "clip_frac": 0.0009865760803222656
+      },
+      "train/6055": {
+        "clip_frac": 0.0
+      },
+      "train/2351": {
+        "clip_frac": 4.2438507080078125e-05
+      },
+      "train/3550": {
+        "clip_frac": 0.0003514289855957031
+      },
+      "train/5202": {
+        "clip_frac": 0.00041294097900390625
+      },
+      "train/2394": {
+        "clip_frac": 0.00013256072998046875
+      },
+      "train/1295": {
+        "clip_frac": 0.000217437744140625
+      },
+      "train/486": {
+        "clip_frac": 0.0
+      },
+      "train/4547": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/3209": {
+        "clip_frac": 0.0
+      },
+      "train/2820": {
+        "clip_frac": 0.0
+      },
+      "train/5186": {
+        "clip_frac": 3.3855438232421875e-05
+      },
+      "train/3856": {
+        "clip_frac": 0.0
+      },
+      "train/5489": {
+        "clip_frac": 1.6689300537109375e-05
+      },
+      "train/5822": {
+        "clip_frac": 0.0
+      },
+      "train/1868": {
+        "clip_frac": 2.956390380859375e-05
+      },
+      "train/323": {
+        "clip_frac": 5.6743621826171875e-05
+      },
+      "train/4873": {
+        "clip_frac": 8.7738037109375e-05
+      },
+      "train/2328": {
+        "clip_frac": 2.4318695068359375e-05
+      },
+      "train/4079": {
+        "clip_frac": 0.0
+      },
+      "train/303": {
+        "clip_frac": 0.0
+      },
+      "train/2304": {
+        "clip_frac": 0.0
+      },
+      "train/5378": {
+        "clip_frac": 0.0
+      },
+      "train/5101": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/6633": {
+        "clip_frac": 0.0
+      },
+      "train/6675": {
+        "clip_frac": 0.050220489501953125
+      },
+      "train/6159": {
+        "clip_frac": 0.0006422996520996094
+      },
+      "train/4208": {
+        "clip_frac": 0.001583099365234375
+      },
+      "train/3068": {
+        "clip_frac": 0.0001678466796875
+      },
+      "train/5936": {
+        "clip_frac": 0.001399993896484375
+      },
+      "train/2794": {
+        "clip_frac": 0.0016188621520996094
+      },
+      "train/4101": {
+        "clip_frac": 0.0013327598571777344
+      },
+      "train/7340": {
+        "clip_frac": 0.0
+      },
+      "train/4781": {
+        "clip_frac": 0.0002627372741699219
+      },
+      "train/3675": {
+        "clip_frac": 0.00024700164794921875
+      },
+      "train/408": {
+        "clip_frac": 7.2479248046875e-05
+      },
+      "train/7007": {
+        "clip_frac": 0.0006933212280273438
+      },
+      "train/3930": {
+        "clip_frac": 0.0
+      },
+      "train/4276": {
+        "clip_frac": 4.7206878662109375e-05
+      },
+      "train/4368": {
+        "clip_frac": 1.7642974853515625e-05
+      },
+      "train/4594": {
+        "clip_frac": 0.00017499923706054688
+      },
+      "train/6593": {
+        "clip_frac": 0.0
+      },
+      "train/4381": {
+        "clip_frac": 0.00020456314086914062
+      },
+      "train/3964": {
+        "clip_frac": 0.0
+      },
+      "train/46": {
+        "clip_frac": 0.0
+      },
+      "train/1746": {
+        "clip_frac": 0.0
+      },
+      "train/6335": {
+        "clip_frac": 1.5735626220703125e-05
+      },
+      "train/2486": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/3551": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/7275": {
+        "clip_frac": 0.0
+      },
+      "train/214": {
+        "clip_frac": 0.0
+      },
+      "train/3108": {
+        "clip_frac": 0.0
+      },
+      "train/6940": {
+        "clip_frac": 0.0
+      },
+      "train/5540": {
+        "clip_frac": 0.0
+      },
+      "train/1840": {
+        "clip_frac": 0.0
+      },
+      "train/349": {
+        "clip_frac": 0.0
+      },
+      "train/5311": {
+        "clip_frac": 0.01531076431274414
+      },
+      "train/5330": {
+        "clip_frac": 0.0009675025939941406
+      },
+      "train/1224": {
+        "clip_frac": 0.0013599395751953125
+      },
+      "train/5963": {
+        "clip_frac": 8.058547973632812e-05
+      },
+      "train/3517": {
+        "clip_frac": 0.0004057884216308594
+      },
+      "train/2876": {
+        "clip_frac": 0.0014891624450683594
+      },
+      "train/5697": {
+        "clip_frac": 0.0014400482177734375
+      },
+      "train/4114": {
+        "clip_frac": 5.7220458984375e-06
+      },
+      "train/2664": {
+        "clip_frac": 0.00017642974853515625
+      },
+      "train/5097": {
+        "clip_frac": 7.43865966796875e-05
+      },
+      "train/2318": {
+        "clip_frac": 0.00047588348388671875
+      },
+      "train/4372": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/353": {
+        "clip_frac": 0.00011396408081054688
+      },
+      "train/6722": {
+        "clip_frac": 0.00021886825561523438
+      },
+      "train/7225": {
+        "clip_frac": 0.0
+      },
+      "train/4911": {
+        "clip_frac": 0.0
+      },
+      "train/3278": {
+        "clip_frac": 0.0
+      },
+      "train/716": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/3441": {
+        "clip_frac": 0.0
+      },
+      "train/4062": {
+        "clip_frac": 0.0
+      },
+      "train/2042": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/2432": {
+        "clip_frac": 3.4809112548828125e-05
+      },
+      "train/7386": {
+        "clip_frac": 5.53131103515625e-05
+      },
+      "train/7423": {
+        "clip_frac": 6.628036499023438e-05
+      },
+      "train/950": {
+        "clip_frac": 0.0
+      },
+      "train/3833": {
+        "clip_frac": 0.0
+      },
+      "train/4478": {
+        "clip_frac": 0.0
+      },
+      "train/3885": {
+        "clip_frac": 0.0
+      },
+      "train/6833": {
+        "clip_frac": 0.0
+      },
+      "train/5785": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/5690": {
+        "clip_frac": 0.0
+      },
+      "train/4703": {
+        "clip_frac": 0.23072004318237305
+      },
+      "train/6376": {
+        "clip_frac": 0.0026693344116210938
+      },
+      "train/3579": {
+        "clip_frac": 0.0003757476806640625
+      },
+      "train/6289": {
+        "clip_frac": 0.0014867782592773438
+      },
+      "train/7290": {
+        "clip_frac": 0.004359722137451172
+      },
+      "train/1843": {
+        "clip_frac": 0.002766132354736328
+      },
+      "train/2024": {
+        "clip_frac": 0.0011615753173828125
+      },
+      "train/4620": {
+        "clip_frac": 0.0
+      },
+      "train/4191": {
+        "clip_frac": 0.00018358230590820312
+      },
+      "train/5949": {
+        "clip_frac": 0.0010628700256347656
+      },
+      "train/3321": {
+        "clip_frac": 0.00029277801513671875
+      },
+      "train/557": {
+        "clip_frac": 0.0002751350402832031
+      },
+      "train/4986": {
+        "clip_frac": 0.0004506111145019531
+      },
+      "train/3471": {
+        "clip_frac": 0.0
+      },
+      "train/6172": {
+        "clip_frac": 4.5299530029296875e-05
+      },
+      "train/6343": {
+        "clip_frac": 0.0
+      },
+      "train/977": {
+        "clip_frac": 1.0013580322265625e-05
+      },
+      "train/6928": {
+        "clip_frac": 0.0
+      },
+      "train/164": {
+        "clip_frac": 0.0
+      },
+      "train/4917": {
+        "clip_frac": 0.0
+      },
+      "train/2006": {
+        "clip_frac": 0.0
+      },
+      "train/3120": {
+        "clip_frac": 1.7642974853515625e-05
+      },
+      "train/2274": {
+        "clip_frac": 1.3828277587890625e-05
+      },
+      "train/5472": {
+        "clip_frac": 0.00010156631469726562
+      },
+      "train/2482": {
+        "clip_frac": 0.0
+      },
+      "train/4461": {
+        "clip_frac": 0.0
+      },
+      "train/5428": {
+        "clip_frac": 0.0
+      },
+      "train/1316": {
+        "clip_frac": 0.0
+      },
+      "train/6060": {
+        "clip_frac": 0.0
+      },
+      "train/6453": {
+        "clip_frac": 0.0
+      },
+      "train/363": {
+        "clip_frac": 0.0
+      },
+      "train/780": {
+        "clip_frac": 0.04948902130126953
+      },
+      "train/5343": {
+        "clip_frac": 0.0005016326904296875
+      },
+      "train/2894": {
+        "clip_frac": 0.0031599998474121094
+      },
+      "train/3641": {
+        "clip_frac": 0.0027747154235839844
+      },
+      "train/4346": {
+        "clip_frac": 0.0020766258239746094
+      },
+      "train/3348": {
+        "clip_frac": 0.0012068748474121094
+      },
+      "train/6416": {
+        "clip_frac": 0.0031723976135253906
+      },
+      "train/1893": {
+        "clip_frac": 0.00020742416381835938
+      },
+      "train/391": {
+        "clip_frac": 0.000904083251953125
+      },
+      "train/4202": {
+        "clip_frac": 0.0004215240478515625
+      },
+      "train/1591": {
+        "clip_frac": 0.0003342628479003906
+      },
+      "train/2582": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/1475": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/5395": {
+        "clip_frac": 6.389617919921875e-05
+      },
+      "train/1172": {
+        "clip_frac": 0.0
+      },
+      "train/334": {
+        "clip_frac": 0.0
+      },
+      "train/4456": {
+        "clip_frac": 2.6702880859375e-05
+      },
+      "train/6613": {
+        "clip_frac": 0.0
+      },
+      "train/45": {
+        "clip_frac": 0.0
+      },
+      "train/6165": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/4022": {
+        "clip_frac": 1.811981201171875e-05
+      },
+      "train/4493": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/7312": {
+        "clip_frac": 0.0
+      },
+      "train/2250": {
+        "clip_frac": 0.0
+      },
+      "train/3134": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/3154": {
+        "clip_frac": 0.0
+      },
+      "train/3395": {
+        "clip_frac": 0.0
+      },
+      "train/5584": {
+        "clip_frac": 0.0
+      },
+      "train/562": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/6263": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/2194": {
+        "clip_frac": 0.0
+      },
+      "train/7057": {
+        "clip_frac": 0.32933998107910156
+      },
+      "train/3408": {
+        "clip_frac": 0.0
+      },
+      "train/2912": {
+        "clip_frac": 0.001434326171875
+      },
+      "train/6959": {
+        "clip_frac": 0.0005354881286621094
+      },
+      "train/3786": {
+        "clip_frac": 0.0023784637451171875
+      },
+      "train/223": {
+        "clip_frac": 0.001140594482421875
+      },
+      "train/718": {
+        "clip_frac": 0.0005030632019042969
+      },
+      "train/3736": {
+        "clip_frac": 0.00057220458984375
+      },
+      "train/6499": {
+        "clip_frac": 0.00019788742065429688
+      },
+      "train/4437": {
+        "clip_frac": 0.0002770423889160156
+      },
+      "train/327": {
+        "clip_frac": 6.580352783203125e-05
+      },
+      "train/4438": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/3658": {
+        "clip_frac": 0.0002803802490234375
+      },
+      "train/2203": {
+        "clip_frac": 0.0
+      },
+      "train/6481": {
+        "clip_frac": 7.867813110351562e-05
+      },
+      "train/6548": {
+        "clip_frac": 0.0003075599670410156
+      },
+      "train/6912": {
+        "clip_frac": 9.489059448242188e-05
+      },
+      "train/7037": {
+        "clip_frac": 0.0001049041748046875
+      },
+      "train/4919": {
+        "clip_frac": 0.0
+      },
+      "train/6843": {
+        "clip_frac": 3.528594970703125e-05
+      },
+      "train/800": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/4735": {
+        "clip_frac": 0.0
+      },
+      "train/6668": {
+        "clip_frac": 8.487701416015625e-05
+      },
+      "train/4139": {
+        "clip_frac": 0.0
+      },
+      "train/3081": {
+        "clip_frac": 0.0
+      },
+      "train/4560": {
+        "clip_frac": 0.0
+      },
+      "train/5750": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/6845": {
+        "clip_frac": 0.0
+      },
+      "train/7441": {
+        "clip_frac": 0.0
+      },
+      "train/6871": {
+        "clip_frac": 0.0
+      },
+      "train/2562": {
+        "clip_frac": 0.0
+      },
+      "train/4319": {
+        "clip_frac": 0.02176046371459961
+      },
+      "train/7204": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/3735": {
+        "clip_frac": 0.0015311241149902344
+      },
+      "train/206": {
+        "clip_frac": 0.001392364501953125
+      },
+      "train/4083": {
+        "clip_frac": 0.0002655982971191406
+      },
+      "train/4039": {
+        "clip_frac": 0.000736236572265625
+      },
+      "train/1564": {
+        "clip_frac": 0.00024509429931640625
+      },
+      "train/3435": {
+        "clip_frac": 1.33514404296875e-05
+      },
+      "train/599": {
+        "clip_frac": 0.0007834434509277344
+      },
+      "train/903": {
+        "clip_frac": 0.0005383491516113281
+      },
+      "train/5008": {
+        "clip_frac": 0.00012922286987304688
+      },
+      "train/2704": {
+        "clip_frac": 0.0003209114074707031
+      },
+      "train/5405": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/3853": {
+        "clip_frac": 0.0
+      },
+      "train/714": {
+        "clip_frac": 0.0
+      },
+      "train/5143": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/6043": {
+        "clip_frac": 4.9591064453125e-05
+      }
+    },
+    "val": {
+      "train/2618": {
+        "clip_frac": 0.13425111770629883
+      },
+      "train/56": {
+        "clip_frac": 0.0
+      },
+      "train/1503": {
+        "clip_frac": 0.0005359649658203125
+      },
+      "train/1053": {
+        "clip_frac": 0.0034842491149902344
+      },
+      "train/5415": {
+        "clip_frac": 0.0011897087097167969
+      },
+      "train/2233": {
+        "clip_frac": 0.00010585784912109375
+      },
+      "train/2949": {
+        "clip_frac": 0.00023746490478515625
+      },
+      "train/4893": {
+        "clip_frac": 0.0
+      },
+      "train/314": {
+        "clip_frac": 0.0004048347473144531
+      },
+      "train/6631": {
+        "clip_frac": 0.0005602836608886719
+      },
+      "train/4206": {
+        "clip_frac": 0.0005097389221191406
+      },
+      "train/4015": {
+        "clip_frac": 0.00014066696166992188
+      },
+      "train/3902": {
+        "clip_frac": 0.0
+      },
+      "train/5434": {
+        "clip_frac": 0.0
+      },
+      "train/4726": {
+        "clip_frac": 0.0
+      },
+      "train/975": {
+        "clip_frac": 5.3882598876953125e-05
+      },
+      "train/5524": {
+        "clip_frac": 0.0
+      },
+      "train/4000": {
+        "clip_frac": 2.7179718017578125e-05
+      },
+      "train/1148": {
+        "clip_frac": 7.295608520507812e-05
+      },
+      "train/651": {
+        "clip_frac": 0.0
+      },
+      "train/3546": {
+        "clip_frac": 0.0
+      },
+      "train/3618": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/2208": {
+        "clip_frac": 0.0
+      },
+      "train/1903": {
+        "clip_frac": 0.0
+      },
+      "train/4825": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/5271": {
+        "clip_frac": 0.0
+      },
+      "train/3286": {
+        "clip_frac": 0.0
+      },
+      "train/2878": {
+        "clip_frac": 0.0
+      },
+      "train/7253": {
+        "clip_frac": 0.0
+      },
+      "train/365": {
+        "clip_frac": 0.0
+      },
+      "train/814": {
+        "clip_frac": 0.0
+      },
+      "train/4509": {
+        "clip_frac": 0.11773538589477539
+      },
+      "train/2819": {
+        "clip_frac": 0.0
+      },
+      "train/520": {
+        "clip_frac": 0.0003170967102050781
+      },
+      "train/1110": {
+        "clip_frac": 0.0020470619201660156
+      },
+      "train/7041": {
+        "clip_frac": 0.002121448516845703
+      },
+      "train/2886": {
+        "clip_frac": 0.0016231536865234375
+      },
+      "train/5067": {
+        "clip_frac": 0.0014438629150390625
+      },
+      "train/207": {
+        "clip_frac": 0.0
+      },
+      "train/5549": {
+        "clip_frac": 0.0005040168762207031
+      },
+      "train/7467": {
+        "clip_frac": 2.384185791015625e-05
+      },
+      "train/6888": {
+        "clip_frac": 7.963180541992188e-05
+      },
+      "train/1056": {
+        "clip_frac": 2.193450927734375e-05
+      },
+      "train/2530": {
+        "clip_frac": 1.0967254638671875e-05
+      },
+      "train/4256": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/390": {
+        "clip_frac": 0.00013065338134765625
+      },
+      "train/1458": {
+        "clip_frac": 2.1457672119140625e-05
+      },
+      "train/5138": {
+        "clip_frac": 0.0
+      },
+      "train/384": {
+        "clip_frac": 2.384185791015625e-05
+      },
+      "train/5765": {
+        "clip_frac": 6.29425048828125e-05
+      },
+      "train/1613": {
+        "clip_frac": 0.0
+      },
+      "train/5768": {
+        "clip_frac": 8.106231689453125e-05
+      },
+      "train/5510": {
+        "clip_frac": 7.152557373046875e-06
+      },
+      "train/3982": {
+        "clip_frac": 1.8596649169921875e-05
+      },
+      "train/6920": {
+        "clip_frac": 0.0
+      },
+      "train/5277": {
+        "clip_frac": 2.7179718017578125e-05
+      },
+      "train/3973": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/6144": {
+        "clip_frac": 0.0
+      },
+      "train/792": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/6268": {
+        "clip_frac": 0.0
+      },
+      "train/4574": {
+        "clip_frac": 0.0
+      },
+      "train/5999": {
+        "clip_frac": 0.0
+      },
+      "train/2581": {
+        "clip_frac": 0.1901230812072754
+      },
+      "train/2209": {
+        "clip_frac": 0.0001239776611328125
+      },
+      "train/5919": {
+        "clip_frac": 0.0022139549255371094
+      },
+      "train/2561": {
+        "clip_frac": 0.00018072128295898438
+      },
+      "train/6938": {
+        "clip_frac": 0.0004143714904785156
+      },
+      "train/4355": {
+        "clip_frac": 0.0031309127807617188
+      },
+      "train/2458": {
+        "clip_frac": 0.0009675025939941406
+      },
+      "train/3295": {
+        "clip_frac": 0.0
+      },
+      "train/5545": {
+        "clip_frac": 5.340576171875e-05
+      },
+      "train/6413": {
+        "clip_frac": 0.0006113052368164062
+      },
+      "train/1907": {
+        "clip_frac": 5.53131103515625e-05
+      },
+      "train/1580": {
+        "clip_frac": 0.0007071495056152344
+      },
+      "train/268": {
+        "clip_frac": 2.86102294921875e-06
+      },
+      "train/7424": {
+        "clip_frac": 0.0
+      },
+      "train/675": {
+        "clip_frac": 0.0
+      },
+      "train/5429": {
+        "clip_frac": 0.00013065338134765625
+      },
+      "train/2569": {
+        "clip_frac": 2.1457672119140625e-05
+      },
+      "train/1230": {
+        "clip_frac": 9.489059448242188e-05
+      },
+      "train/5613": {
+        "clip_frac": 0.0
+      },
+      "train/1537": {
+        "clip_frac": 0.0
+      },
+      "train/1658": {
+        "clip_frac": 0.0
+      },
+      "train/7008": {
+        "clip_frac": 0.0
+      },
+      "train/6382": {
+        "clip_frac": 6.198883056640625e-05
+      },
+      "train/2138": {
+        "clip_frac": 1.2874603271484375e-05
+      },
+      "train/4249": {
+        "clip_frac": 1.71661376953125e-05
+      },
+      "train/6248": {
+        "clip_frac": 0.0
+      },
+      "train/6132": {
+        "clip_frac": 0.0
+      },
+      "train/6692": {
+        "clip_frac": 0.0
+      },
+      "train/1777": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/4932": {
+        "clip_frac": 0.0
+      },
+      "train/3362": {
+        "clip_frac": 0.0
+      },
+      "train/5977": {
+        "clip_frac": 0.07825040817260742
+      },
+      "train/6066": {
+        "clip_frac": 6.67572021484375e-06
+      },
+      "train/5181": {
+        "clip_frac": 0.0018458366394042969
+      },
+      "train/1584": {
+        "clip_frac": 0.0028319358825683594
+      },
+      "train/1909": {
+        "clip_frac": 1.239776611328125e-05
+      },
+      "train/6446": {
+        "clip_frac": 0.002223968505859375
+      },
+      "train/3661": {
+        "clip_frac": 3.814697265625e-06
+      },
+      "train/5831": {
+        "clip_frac": 1.5735626220703125e-05
+      },
+      "train/2428": {
+        "clip_frac": 0.00025081634521484375
+      },
+      "train/551": {
+        "clip_frac": 1.811981201171875e-05
+      },
+      "train/2331": {
+        "clip_frac": 9.822845458984375e-05
+      },
+      "train/5310": {
+        "clip_frac": 8.106231689453125e-06
+      },
+      "train/3232": {
+        "clip_frac": 7.62939453125e-06
+      },
+      "train/6171": {
+        "clip_frac": 2.3365020751953125e-05
+      },
+      "train/6900": {
+        "clip_frac": 2.9087066650390625e-05
+      },
+      "train/7095": {
+        "clip_frac": 0.0
+      },
+      "train/1433": {
+        "clip_frac": 8.96453857421875e-05
+      },
+      "train/786": {
+        "clip_frac": 0.0
+      },
+      "train/1068": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/1444": {
+        "clip_frac": 0.0
+      },
+      "train/4794": {
+        "clip_frac": 9.059906005859375e-06
+      },
+      "train/4698": {
+        "clip_frac": 1.621246337890625e-05
+      },
+      "train/6645": {
+        "clip_frac": 7.43865966796875e-05
+      },
+      "train/3476": {
+        "clip_frac": 4.2438507080078125e-05
+      },
+      "train/3305": {
+        "clip_frac": 0.0
+      },
+      "train/7481": {
+        "clip_frac": 0.0
+      },
+      "train/1477": {
+        "clip_frac": 0.0
+      },
+      "train/6742": {
+        "clip_frac": 0.0
+      },
+      "train/2681": {
+        "clip_frac": 0.0
+      },
+      "train/4014": {
+        "clip_frac": 0.0
+      },
+      "train/1181": {
+        "clip_frac": 0.0
+      },
+      "train/1638": {
+        "clip_frac": 0.0011796951293945312
+      },
+      "train/4214": {
+        "clip_frac": 0.0006837844848632812
+      },
+      "train/417": {
+        "clip_frac": 0.006968498229980469
+      },
+      "train/4179": {
+        "clip_frac": 0.002155780792236328
+      },
+      "train/4536": {
+        "clip_frac": 0.0019845962524414062
+      },
+      "train/156": {
+        "clip_frac": 0.0007405281066894531
+      },
+      "train/5789": {
+        "clip_frac": 0.0011439323425292969
+      },
+      "train/4804": {
+        "clip_frac": 0.00014543533325195312
+      },
+      "train/4985": {
+        "clip_frac": 0.0009369850158691406
+      },
+      "train/3457": {
+        "clip_frac": 0.0002765655517578125
+      },
+      "train/2107": {
+        "clip_frac": 0.0
+      },
+      "train/2536": {
+        "clip_frac": 0.0001010894775390625
+      },
+      "train/519": {
+        "clip_frac": 0.0003619194030761719
+      },
+      "train/4321": {
+        "clip_frac": 5.14984130859375e-05
+      },
+      "train/1243": {
+        "clip_frac": 2.002716064453125e-05
+      },
+      "train/5877": {
+        "clip_frac": 0.00013065338134765625
+      },
+      "train/6375": {
+        "clip_frac": 0.0004973411560058594
+      },
+      "train/6031": {
+        "clip_frac": 4.9114227294921875e-05
+      },
+      "train/4711": {
+        "clip_frac": 2.574920654296875e-05
+      },
+      "train/3256": {
+        "clip_frac": 0.0
+      },
+      "train/2281": {
+        "clip_frac": 4.291534423828125e-06
+      },
+      "train/2633": {
+        "clip_frac": 0.0
+      },
+      "train/37": {
+        "clip_frac": 0.0
+      },
+      "train/3330": {
+        "clip_frac": 0.0
+      },
+      "train/1649": {
+        "clip_frac": 9.5367431640625e-07
+      },
+      "train/5610": {
+        "clip_frac": 0.0
+      },
+      "train/3204": {
+        "clip_frac": 0.0
+      },
+      "train/2698": {
+        "clip_frac": 0.0
+      },
+      "train/3645": {
+        "clip_frac": 0.0
+      },
+      "train/6207": {
+        "clip_frac": 0.0
+      },
+      "train/3887": {
+        "clip_frac": 0.0
+      },
+      "train/1054": {
+        "clip_frac": 0.0008215904235839844
+      },
+      "train/3254": {
+        "clip_frac": 0.003506183624267578
+      },
+      "train/5759": {
+        "clip_frac": 0.0021834373474121094
+      },
+      "train/4153": {
+        "clip_frac": 0.0021228790283203125
+      },
+      "train/6340": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/2306": {
+        "clip_frac": 0.0005702972412109375
+      },
+      "train/4440": {
+        "clip_frac": 0.002628326416015625
+      },
+      "train/2967": {
+        "clip_frac": 0.000209808349609375
+      },
+      "train/1334": {
+        "clip_frac": 0.0007152557373046875
+      },
+      "train/1366": {
+        "clip_frac": 0.0005178451538085938
+      },
+      "train/6000": {
+        "clip_frac": 0.00014257431030273438
+      },
+      "train/1115": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/2151": {
+        "clip_frac": 0.00015497207641601562
+      },
+      "train/2898": {
+        "clip_frac": 0.0001392364501953125
+      },
+      "train/5070": {
+        "clip_frac": 0.00023412704467773438
+      },
+      "train/2278": {
+        "clip_frac": 1.430511474609375e-05
+      },
+      "train/1307": {
+        "clip_frac": 0.00011730194091796875
+      },
+      "train/2985": {
+        "clip_frac": 0.0
+      },
+      "train/7260": {
+        "clip_frac": 0.00022649765014648438
+      },
+      "train/2893": {
+        "clip_frac": 0.0
+      },
+      "train/5968": {
+        "clip_frac": 1.9073486328125e-06
+      },
+      "train/6390": {
+        "clip_frac": 0.0
+      },
+      "train/4257": {
+        "clip_frac": 1.33514404296875e-05
+      },
+      "train/6470": {
+        "clip_frac": 6.628036499023438e-05
+      },
+      "train/4012": {
+        "clip_frac": 0.0
+      },
+      "train/778": {
+        "clip_frac": 0.0
+      },
+      "train/2852": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/5364": {
+        "clip_frac": 0.0
+      },
+      "train/3132": {
+        "clip_frac": 0.0
+      },
+      "train/1821": {
+        "clip_frac": 0.0
+      },
+      "train/4082": {
+        "clip_frac": 0.0
+      },
+      "train/5299": {
+        "clip_frac": 0.015639781951904297
+      },
+      "train/4704": {
+        "clip_frac": 0.0
+      },
+      "train/6745": {
+        "clip_frac": 0.005735874176025391
+      },
+      "train/2510": {
+        "clip_frac": 0.0005054473876953125
+      },
+      "train/5701": {
+        "clip_frac": 0.0014810562133789062
+      },
+      "train/1807": {
+        "clip_frac": 0.0003657341003417969
+      },
+      "train/48": {
+        "clip_frac": 0.0004792213439941406
+      },
+      "train/3843": {
+        "clip_frac": 0.0003337860107421875
+      },
+      "train/3750": {
+        "clip_frac": 0.00021600723266601562
+      },
+      "train/4113": {
+        "clip_frac": 0.0003681182861328125
+      },
+      "train/2443": {
+        "clip_frac": 0.00013971328735351562
+      },
+      "train/6439": {
+        "clip_frac": 0.0002512931823730469
+      },
+      "train/4843": {
+        "clip_frac": 0.00020599365234375
+      },
+      "train/2626": {
+        "clip_frac": 3.3855438232421875e-05
+      },
+      "train/284": {
+        "clip_frac": 0.00019741058349609375
+      },
+      "train/2119": {
+        "clip_frac": 9.202957153320312e-05
+      },
+      "train/4310": {
+        "clip_frac": 0.0
+      },
+      "train/5909": {
+        "clip_frac": 9.393692016601562e-05
+      },
+      "train/6615": {
+        "clip_frac": 1.2874603271484375e-05
+      },
+      "train/6492": {
+        "clip_frac": 0.0
+      },
+      "train/6734": {
+        "clip_frac": 0.0
+      },
+      "train/2702": {
+        "clip_frac": 0.0001068115234375
+      },
+      "train/7298": {
+        "clip_frac": 0.0
+      },
+      "train/1237": {
+        "clip_frac": 4.8160552978515625e-05
+      },
+      "train/1402": {
+        "clip_frac": 9.5367431640625e-06
+      },
+      "train/5102": {
+        "clip_frac": 0.0
+      },
+      "train/3797": {
+        "clip_frac": 0.0
+      },
+      "train/3166": {
+        "clip_frac": 0.0
+      },
+      "train/1032": {
+        "clip_frac": 0.0
+      },
+      "train/2019": {
+        "clip_frac": 0.0
+      },
+      "train/957": {
+        "clip_frac": 0.0
+      },
+      "train/3760": {
+        "clip_frac": 0.13064002990722656
+      },
+      "train/2468": {
+        "clip_frac": 0.0
+      },
+      "train/6732": {
+        "clip_frac": 2.8133392333984375e-05
+      },
+      "train/6299": {
+        "clip_frac": 0.0015301704406738281
+      },
+      "train/4815": {
+        "clip_frac": 0.0012845993041992188
+      },
+      "train/5214": {
+        "clip_frac": 0.002628803253173828
+      },
+      "train/4031": {
+        "clip_frac": 0.0013709068298339844
+      },
+      "train/6639": {
+        "clip_frac": 0.0
+      },
+      "train/65": {
+        "clip_frac": 0.0
+      },
+      "train/6371": {
+        "clip_frac": 5.3882598876953125e-05
+      },
+      "train/3705": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/6039": {
+        "clip_frac": 0.00014162063598632812
+      },
+      "train/6293": {
+        "clip_frac": 6.961822509765625e-05
+      },
+      "train/2511": {
+        "clip_frac": 0.0001087188720703125
+      },
+      "train/3651": {
+        "clip_frac": 8.106231689453125e-05
+      },
+      "train/4788": {
+        "clip_frac": 6.67572021484375e-06
+      },
+      "train/1338": {
+        "clip_frac": 3.528594970703125e-05
+      },
+      "train/7326": {
+        "clip_frac": 0.00028896331787109375
+      },
+      "train/6354": {
+        "clip_frac": 2.86102294921875e-06
+      },
+      "train/5628": {
+        "clip_frac": 0.0
+      },
+      "train/2524": {
+        "clip_frac": 0.0
+      },
+      "train/1005": {
+        "clip_frac": 4.291534423828125e-06
+      },
+      "train/4724": {
+        "clip_frac": 0.0
+      },
+      "train/4146": {
+        "clip_frac": 6.914138793945312e-05
+      },
+      "train/6893": {
+        "clip_frac": 0.0
+      },
+      "train/4245": {
+        "clip_frac": 0.0
+      },
+      "train/798": {
+        "clip_frac": 0.0
+      },
+      "train/2075": {
+        "clip_frac": 0.0
+      },
+      "train/6514": {
+        "clip_frac": 0.0
+      },
+      "train/6377": {
+        "clip_frac": 0.0
+      },
+      "train/4921": {
+        "clip_frac": 0.0
+      },
+      "train/1177": {
+        "clip_frac": 0.04892730712890625
+      },
+      "train/3707": {
+        "clip_frac": 0.00061798095703125
+      },
+      "train/110": {
+        "clip_frac": 0.0004763603210449219
+      },
+      "train/6252": {
+        "clip_frac": 0.0013222694396972656
+      },
+      "train/1394": {
+        "clip_frac": 0.005306720733642578
+      },
+      "train/3023": {
+        "clip_frac": 0.0009307861328125
+      },
+      "train/4184": {
+        "clip_frac": 0.0012063980102539062
+      },
+      "train/4008": {
+        "clip_frac": 0.0007920265197753906
+      },
+      "train/605": {
+        "clip_frac": 1.7642974853515625e-05
+      },
+      "train/5730": {
+        "clip_frac": 4.863739013671875e-05
+      },
+      "train/2714": {
+        "clip_frac": 0.0003867149353027344
+      },
+      "train/6166": {
+        "clip_frac": 4.1961669921875e-05
+      },
+      "train/1664": {
+        "clip_frac": 5.435943603515625e-05
+      },
+      "train/5286": {
+        "clip_frac": 6.198883056640625e-06
+      },
+      "train/2533": {
+        "clip_frac": 1.2874603271484375e-05
+      },
+      "train/6858": {
+        "clip_frac": 0.00022459030151367188
+      },
+      "train/2948": {
+        "clip_frac": 0.0003151893615722656
+      },
+      "train/5438": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/4369": {
+        "clip_frac": 0.0
+      },
+      "train/1684": {
+        "clip_frac": 0.0
+      },
+      "train/730": {
+        "clip_frac": 2.193450927734375e-05
+      },
+      "train/487": {
+        "clip_frac": 0.0
+      },
+      "train/2424": {
+        "clip_frac": 2.384185791015625e-06
+      },
+      "train/227": {
+        "clip_frac": 0.0
+      },
+      "train/3142": {
+        "clip_frac": 0.0
+      },
+      "train/6383": {
+        "clip_frac": 0.0
+      },
+      "train/7281": {
+        "clip_frac": 0.0
+      },
+      "train/6875": {
+        "clip_frac": 0.0
+      },
+      "train/3078": {
+        "clip_frac": 0.0
+      },
+      "train/6919": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/1114": {
+        "clip_frac": 0.0
+      },
+      "train/7219": {
+        "clip_frac": 0.07457113265991211
+      },
+      "train/5375": {
+        "clip_frac": 0.0
+      },
+      "train/3356": {
+        "clip_frac": 0.0009169578552246094
+      },
+      "train/4674": {
+        "clip_frac": 0.0047321319580078125
+      },
+      "train/3803": {
+        "clip_frac": 0.0012450218200683594
+      },
+      "train/1958": {
+        "clip_frac": 0.0021009445190429688
+      },
+      "train/4792": {
+        "clip_frac": 0.0005407333374023438
+      },
+      "train/1794": {
+        "clip_frac": 0.0007333755493164062
+      },
+      "train/2446": {
+        "clip_frac": 0.0
+      },
+      "train/6459": {
+        "clip_frac": 0.0002779960632324219
+      },
+      "train/2413": {
+        "clip_frac": 0.0005106925964355469
+      },
+      "train/5866": {
+        "clip_frac": 0.0
+      },
+      "train/3439": {
+        "clip_frac": 1.8596649169921875e-05
+      },
+      "train/1300": {
+        "clip_frac": 0.0
+      },
+      "train/144": {
+        "clip_frac": 0.00023365020751953125
+      },
+      "train/5284": {
+        "clip_frac": 7.486343383789062e-05
+      },
+      "train/3625": {
+        "clip_frac": 3.528594970703125e-05
+      },
+      "train/6565": {
+        "clip_frac": 0.0
+      },
+      "train/4954": {
+        "clip_frac": 2.9087066650390625e-05
+      },
+      "train/5016": {
+        "clip_frac": 0.0
+      },
+      "train/969": {
+        "clip_frac": 6.67572021484375e-06
+      },
+      "train/6721": {
+        "clip_frac": 0.0
+      },
+      "train/1308": {
+        "clip_frac": 4.76837158203125e-06
+      },
+      "train/4607": {
+        "clip_frac": 0.0
+      },
+      "train/1838": {
+        "clip_frac": 0.0
+      },
+      "train/5079": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/3236": {
+        "clip_frac": 0.0
+      },
+      "train/5667": {
+        "clip_frac": 0.0
+      },
+      "train/3825": {
+        "clip_frac": 0.0
+      },
+      "train/5601": {
+        "clip_frac": 0.0
+      },
+      "train/5069": {
+        "clip_frac": 0.0
+      },
+      "train/7228": {
+        "clip_frac": 0.21820497512817383
+      },
+      "train/2219": {
+        "clip_frac": 0.0016474723815917969
+      },
+      "train/3742": {
+        "clip_frac": 0.0027260780334472656
+      },
+      "train/5729": {
+        "clip_frac": 0.0015063285827636719
+      },
+      "train/2173": {
+        "clip_frac": 0.0010557174682617188
+      },
+      "train/6096": {
+        "clip_frac": 9.393692016601562e-05
+      },
+      "train/4811": {
+        "clip_frac": 0.0014739036560058594
+      },
+      "train/1236": {
+        "clip_frac": 0.0
+      },
+      "train/264": {
+        "clip_frac": 0.0004596710205078125
+      },
+      "train/2723": {
+        "clip_frac": 3.3855438232421875e-05
+      },
+      "train/3564": {
+        "clip_frac": 0.00025844573974609375
+      },
+      "train/1636": {
+        "clip_frac": 8.296966552734375e-05
+      },
+      "train/1212": {
+        "clip_frac": 0.0003452301025390625
+      },
+      "train/6918": {
+        "clip_frac": 0.0002727508544921875
+      },
+      "train/4175": {
+        "clip_frac": 0.0001220703125
+      },
+      "train/6281": {
+        "clip_frac": 0.0001697540283203125
+      },
+      "train/6077": {
+        "clip_frac": 2.193450927734375e-05
+      },
+      "train/4752": {
+        "clip_frac": 1.52587890625e-05
+      },
+      "train/922": {
+        "clip_frac": 0.0
+      },
+      "train/2169": {
+        "clip_frac": 0.0
+      },
+      "train/5344": {
+        "clip_frac": 0.0
+      },
+      "train/5749": {
+        "clip_frac": 3.337860107421875e-06
+      },
+      "train/661": {
+        "clip_frac": 0.0
+      },
+      "train/2071": {
+        "clip_frac": 0.0
+      },
+      "train/1704": {
+        "clip_frac": 0.0
+      },
+      "train/7147": {
+        "clip_frac": 0.0
+      },
+      "train/6564": {
+        "clip_frac": 0.0
+      },
+      "train/5799": {
+        "clip_frac": 0.0
+      },
+      "train/2638": {
+        "clip_frac": 0.0
+      },
+      "train/2647": {
+        "clip_frac": 0.0
+      },
+      "train/1703": {
+        "clip_frac": 0.0
+      },
+      "train/2369": {
+        "clip_frac": 0.04228925704956055
+      },
+      "train/6253": {
+        "clip_frac": 1.430511474609375e-06
+      },
+      "train/1175": {
+        "clip_frac": 0.0038423538208007812
+      },
+      "train/4749": {
+        "clip_frac": 0.002185821533203125
+      },
+      "train/3401": {
+        "clip_frac": 0.0005168914794921875
+      },
+      "train/6164": {
+        "clip_frac": 0.002849578857421875
+      },
+      "train/7193": {
+        "clip_frac": 0.000438690185546875
+      },
+      "train/7338": {
+        "clip_frac": 0.0
+      },
+      "train/6999": {
+        "clip_frac": 2.5272369384765625e-05
+      },
+      "train/4067": {
+        "clip_frac": 0.0003070831298828125
+      },
+      "train/4980": {
+        "clip_frac": 0.0004324913024902344
+      },
+      "train/1563": {
+        "clip_frac": 1.3828277587890625e-05
+      },
+      "train/1899": {
+        "clip_frac": 2.6702880859375e-05
+      },
+      "train/5035": {
+        "clip_frac": 0.0
+      },
+      "train/399": {
+        "clip_frac": 1.7642974853515625e-05
+      },
+      "train/1852": {
+        "clip_frac": 5.7697296142578125e-05
+      },
+      "train/3197": {
+        "clip_frac": 8.0108642578125e-05
+      },
+      "train/2463": {
+        "clip_frac": 0.0
+      },
+      "train/595": {
+        "clip_frac": 0.0
+      },
+      "train/7308": {
+        "clip_frac": 0.0
+      },
+      "train/3319": {
+        "clip_frac": 8.344650268554688e-05
+      },
+      "train/6250": {
+        "clip_frac": 0.0
+      },
+      "train/6345": {
+        "clip_frac": 6.818771362304688e-05
+      },
+      "train/5972": {
+        "clip_frac": 1.239776611328125e-05
+      },
+      "train/3265": {
+        "clip_frac": 4.76837158203125e-07
+      },
+      "train/1562": {
+        "clip_frac": 0.0
+      },
+      "train/1766": {
+        "clip_frac": 0.0
+      },
+      "train/3077": {
+        "clip_frac": 0.0
+      },
+      "train/6033": {
+        "clip_frac": 0.0
+      },
+      "train/2838": {
+        "clip_frac": 0.0
+      },
+      "train/3009": {
+        "clip_frac": 0.0
+      },
+      "train/5652": {
+        "clip_frac": 0.014768600463867188
+      },
+      "train/6796": {
+        "clip_frac": 0.0007128715515136719
+      },
+      "train/7373": {
+        "clip_frac": 0.0018157958984375
+      },
+      "train/867": {
+        "clip_frac": 0.00037860870361328125
+      },
+      "train/5751": {
+        "clip_frac": 0.0002193450927734375
+      },
+      "train/5412": {
+        "clip_frac": 0.000377655029296875
+      },
+      "train/2689": {
+        "clip_frac": 0.001186370849609375
+      },
+      "train/118": {
+        "clip_frac": 0.00026607513427734375
+      },
+      "train/6042": {
+        "clip_frac": 2.4318695068359375e-05
+      },
+      "train/1737": {
+        "clip_frac": 0.0001773834228515625
+      },
+      "train/453": {
+        "clip_frac": 7.343292236328125e-05
+      },
+      "train/3205": {
+        "clip_frac": 8.58306884765625e-05
+      }
+    }
+  },
+  "build_seconds": {
+    "fit": 1204.5676028877497,
+    "val": 265.60708744078875
+  },
+  "verification": {
+    "fit": [
+      {
+        "index": 0,
+        "sample_id": "train/740",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.024833202362060547
+        }
+      },
+      {
+        "index": 92,
+        "sample_id": "train/2017",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.0
+        }
+      },
+      {
+        "index": 841,
+        "sample_id": "train/341",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.0010352134704589844
+        }
+      },
+      {
+        "index": 1026,
+        "sample_id": "train/4207",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.003505706787109375
+        }
+      },
+      {
+        "index": 1338,
+        "sample_id": "train/49",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.0011563301086425781
+        }
+      },
+      {
+        "index": 1535,
+        "sample_id": "train/6043",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 4.9591064453125e-05
+        }
+      }
+    ],
+    "val": [
+      {
+        "index": 0,
+        "sample_id": "train/2618",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.13425111770629883
+        }
+      },
+      {
+        "index": 23,
+        "sample_id": "train/1903",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.0
+        }
+      },
+      {
+        "index": 210,
+        "sample_id": "train/1402",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 9.5367431640625e-06
+        }
+      },
+      {
+        "index": 256,
+        "sample_id": "train/605",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 1.7642974853515625e-05
+        }
+      },
+      {
+        "index": 334,
+        "sample_id": "train/1704",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 0.0
+        }
+      },
+      {
+        "index": 383,
+        "sample_id": "train/3205",
+        "max_abs_diff_f16": 0.0,
+        "diag": {
+          "clip_frac": 8.58306884765625e-05
+        }
+      }
+    ]
+  }
+}

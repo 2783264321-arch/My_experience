@@ -171,3 +171,15 @@ Worktree `/root/autodl-tmp/worktrees/baseline-0-group-a`, run
   and select best EMA. Artifacts:
   `reports/group_a_results.md`, `reports/group_a_training.md`,
   `docs/collaboration/opencode-group-a-fullband-baseline.md`.
+
+## C3 coarse front-end pilot: COMPLETED (subset screening)
+
+1536 fit / 384 val, 20,000 steps, best EMA; C1/overlap/sparse 2 seeds, dense 1.
+C1 mean 0.4999; overlap mean 0.5078 (+0.79 pp); sparse mean 0.4998 (-0.01 pp);
+dense 0.5072 (+0.73 pp). No stable 0/1/2 gain: overlap 0.3019->0.2473, sparse
+0.2819->0.2336. 3/4/5 is the only replicated gain: overlap 0.4012/0.3940
+(mean +4.01 pp); dense 0.4646 (+10.70 pp, wrong 79->69, single seed); sparse
+unstable. Dense is a 3/4/5 specialist, not a global replacement. Capacity is
+still confounded (C1 1-channel vs C3 3-channel); a C3-zero-complex control is
+needed. Details: `docs/collaboration/opencode-c3-frontends.md`,
+`reports/c3_pilot_results.md`.
