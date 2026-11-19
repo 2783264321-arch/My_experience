@@ -1,0 +1,627 @@
+{
+  "rows": [
+    {
+      "sample_id": "train/29",
+      "B_mhz": 80.0,
+      "T_ms": 150.0,
+      "current": {
+        "noise_mean_mag": 0.31563594937324524,
+        "gt": [
+          {
+            "class": 4,
+            "rows": [
+              512,
+              1536
+            ],
+            "cols": [
+              58,
+              307
+            ],
+            "power": 0.43034273386001587,
+            "mean_mag": 0.31441348791122437,
+            "coherence": 0.8737343549728394,
+            "mean_re": 0.2747138738632202,
+            "mean_im": -4.150212771492079e-05
+          }
+        ]
+      },
+      "aggregate": {
+        "noise_mean_mag": 0.45570313930511475,
+        "gt": [
+          {
+            "class": 4,
+            "rows": [
+              512,
+              1536
+            ],
+            "cols": [
+              58,
+              307
+            ],
+            "power": 0.43034273386001587,
+            "mean_mag": 0.453018456697464,
+            "coherence": 0.9137704372406006,
+            "mean_re": 0.41395488381385803,
+            "mean_im": 1.109747472582967e-06
+          }
+        ]
+      },
+      "diag_current": {
+        "dense_hop_samples": 800,
+        "dense_hop_us": 10.0,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 14,
+        "first_column_pairs": 15,
+        "min_column_pairs": 14,
+        "max_column_pairs": 30,
+        "last_column_pair_indices": [
+          14996,
+          14997,
+          14998,
+          14999
+        ],
+        "last_column_pair_midpoints_us": [
+          149965.0,
+          149975.0,
+          149985.0,
+          149995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "diag_aggregate": {
+        "dense_hop_samples": 800,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "last_column_pairs": 14,
+        "min_column_pairs": 14,
+        "empty_columns": [],
+        "normalization": "aggregate numerator / sum pair sqrt(P_j P_j+1)"
+      }
+    },
+    {
+      "sample_id": "train/14",
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "current": {
+        "noise_mean_mag": 0.6885781288146973,
+        "gt": [
+          {
+            "class": 5,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              239,
+              270
+            ],
+            "power": 0.5561748743057251,
+            "mean_mag": 0.6866328716278076,
+            "coherence": 0.9729841351509094,
+            "mean_re": 0.6680828332901001,
+            "mean_im": 0.00020637997658923268
+          }
+        ]
+      },
+      "aggregate": {
+        "noise_mean_mag": 0.8595218062400818,
+        "gt": [
+          {
+            "class": 5,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              239,
+              270
+            ],
+            "power": 0.5561748743057251,
+            "mean_mag": 0.863628625869751,
+            "coherence": 0.9824877977371216,
+            "mean_re": 0.8485046029090881,
+            "mean_im": -2.1086646029289113e-06
+          }
+        ]
+      },
+      "diag_current": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 14,
+        "first_column_pairs": 15,
+        "min_column_pairs": 14,
+        "max_column_pairs": 30,
+        "last_column_pair_indices": [
+          14996,
+          14997,
+          14998,
+          14999
+        ],
+        "last_column_pair_midpoints_us": [
+          149965.0,
+          149975.0,
+          149985.0,
+          149995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "diag_aggregate": {
+        "dense_hop_samples": 400,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "last_column_pairs": 14,
+        "min_column_pairs": 14,
+        "empty_columns": [],
+        "normalization": "aggregate numerator / sum pair sqrt(P_j P_j+1)"
+      }
+    },
+    {
+      "sample_id": "train/1697",
+      "B_mhz": 40.0,
+      "T_ms": 20.0,
+      "current": {
+        "noise_mean_mag": 0.7830032706260681,
+        "gt": [
+          {
+            "class": 4,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              26
+            ],
+            "power": 0.6280341744422913,
+            "mean_mag": 0.7877067923545837,
+            "coherence": 0.8566349148750305,
+            "mean_re": 0.6747771501541138,
+            "mean_im": -0.0001226320309797302
+          }
+        ]
+      },
+      "aggregate": {
+        "noise_mean_mag": 0.8799114227294922,
+        "gt": [
+          {
+            "class": 4,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              26
+            ],
+            "power": 0.6280341744422913,
+            "mean_mag": 0.8818549513816833,
+            "coherence": 0.9072523713111877,
+            "mean_re": 0.8000649809837341,
+            "mean_im": 1.0682413631002419e-05
+          }
+        ]
+      },
+      "diag_current": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 1,
+        "first_column_pairs": 2,
+        "min_column_pairs": 1,
+        "max_column_pairs": 4,
+        "last_column_pair_indices": [
+          1999
+        ],
+        "last_column_pair_midpoints_us": [
+          19995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "diag_aggregate": {
+        "dense_hop_samples": 400,
+        "dense_frames": 2001,
+        "pairs": 2000,
+        "last_column_pairs": 1,
+        "min_column_pairs": 1,
+        "empty_columns": [],
+        "normalization": "aggregate numerator / sum pair sqrt(P_j P_j+1)"
+      }
+    },
+    {
+      "sample_id": "train/1205",
+      "B_mhz": 40.0,
+      "T_ms": 40.0,
+      "current": {
+        "noise_mean_mag": 0.7340875864028931,
+        "gt": [
+          {
+            "class": 5,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              13
+            ],
+            "power": 0.635903000831604,
+            "mean_mag": 0.7354905605316162,
+            "coherence": 0.9122335910797119,
+            "mean_re": 0.670939028263092,
+            "mean_im": -0.0004722570884041488
+          },
+          {
+            "class": 4,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              486
+            ],
+            "power": 0.5590823888778687,
+            "mean_mag": 0.7304989099502563,
+            "coherence": 0.9153136014938354,
+            "mean_re": 0.6686356067657471,
+            "mean_im": -1.5939724107738584e-05
+          }
+        ]
+      },
+      "aggregate": {
+        "noise_mean_mag": 0.8715026378631592,
+        "gt": [
+          {
+            "class": 5,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              13
+            ],
+            "power": 0.635903000831604,
+            "mean_mag": 0.8717600703239441,
+            "coherence": 0.9467447996139526,
+            "mean_re": 0.8253342509269714,
+            "mean_im": -0.0002551492943894118
+          },
+          {
+            "class": 4,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              486
+            ],
+            "power": 0.5590823888778687,
+            "mean_mag": 0.8698074817657471,
+            "coherence": 0.9486528038978577,
+            "mean_re": 0.8251453042030334,
+            "mean_im": 7.659626135136932e-06
+          }
+        ]
+      },
+      "diag_current": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 4002,
+        "pairs": 4001,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 4,
+        "first_column_pairs": 4,
+        "min_column_pairs": 4,
+        "max_column_pairs": 8,
+        "last_column_pair_indices": [
+          3997,
+          3998,
+          3999,
+          4000
+        ],
+        "last_column_pair_midpoints_us": [
+          39975.0,
+          39985.0,
+          39995.0,
+          40005.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "diag_aggregate": {
+        "dense_hop_samples": 400,
+        "dense_frames": 4002,
+        "pairs": 4001,
+        "last_column_pairs": 4,
+        "min_column_pairs": 4,
+        "empty_columns": [],
+        "normalization": "aggregate numerator / sum pair sqrt(P_j P_j+1)"
+      }
+    },
+    {
+      "sample_id": "train/7401",
+      "B_mhz": 50.0,
+      "T_ms": 150.0,
+      "current": {
+        "noise_mean_mag": 0.584506094455719,
+        "gt": [
+          {
+            "class": 4,
+            "rows": [
+              0,
+              1638
+            ],
+            "cols": [
+              127,
+              511
+            ],
+            "power": 0.4973432123661041,
+            "mean_mag": 0.5836664438247681,
+            "coherence": 0.9642055630683899,
+            "mean_re": 0.5627744197845459,
+            "mean_im": 2.7702938041329617e-06
+          }
+        ]
+      },
+      "aggregate": {
+        "noise_mean_mag": 0.7737341523170471,
+        "gt": [
+          {
+            "class": 4,
+            "rows": [
+              0,
+              1638
+            ],
+            "cols": [
+              127,
+              511
+            ],
+            "power": 0.4973432123661041,
+            "mean_mag": 0.7737228870391846,
+            "coherence": 0.9770636558532715,
+            "mean_re": 0.7559764981269836,
+            "mean_im": -3.5278964787721634e-05
+          }
+        ]
+      },
+      "diag_current": {
+        "dense_hop_samples": 500,
+        "dense_hop_us": 10.0,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 14,
+        "first_column_pairs": 15,
+        "min_column_pairs": 14,
+        "max_column_pairs": 30,
+        "last_column_pair_indices": [
+          14996,
+          14997,
+          14998,
+          14999
+        ],
+        "last_column_pair_midpoints_us": [
+          149965.0,
+          149975.0,
+          149985.0,
+          149995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "diag_aggregate": {
+        "dense_hop_samples": 500,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "last_column_pairs": 14,
+        "min_column_pairs": 14,
+        "empty_columns": [],
+        "normalization": "aggregate numerator / sum pair sqrt(P_j P_j+1)"
+      }
+    },
+    {
+      "sample_id": "train/3441",
+      "B_mhz": 40.0,
+      "T_ms": 150.0,
+      "current": {
+        "noise_mean_mag": 0.6887751817703247,
+        "gt": [
+          {
+            "class": 3,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              14,
+              437
+            ],
+            "power": 0.5518795251846313,
+            "mean_mag": 0.688033938407898,
+            "coherence": 0.9748378396034241,
+            "mean_re": 0.6707215309143066,
+            "mean_im": 2.299943116668146e-05
+          },
+          {
+            "class": 4,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              69
+            ],
+            "power": 0.5508750081062317,
+            "mean_mag": 0.6883654594421387,
+            "coherence": 0.9745966196060181,
+            "mean_re": 0.6708786487579346,
+            "mean_im": -7.475907477783039e-05
+          }
+        ]
+      },
+      "aggregate": {
+        "noise_mean_mag": 0.8596948385238647,
+        "gt": [
+          {
+            "class": 3,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              14,
+              437
+            ],
+            "power": 0.5518795251846313,
+            "mean_mag": 0.8581099510192871,
+            "coherence": 0.9849910140037537,
+            "mean_re": 0.8452305793762207,
+            "mean_im": 3.414839011384174e-05
+          },
+          {
+            "class": 4,
+            "rows": [
+              0,
+              2048
+            ],
+            "cols": [
+              0,
+              69
+            ],
+            "power": 0.5508750081062317,
+            "mean_mag": 0.8588002920150757,
+            "coherence": 0.9847473502159119,
+            "mean_re": 0.8457013368606567,
+            "mean_im": 1.707122464722488e-05
+          }
+        ]
+      },
+      "diag_current": {
+        "dense_hop_samples": 400,
+        "dense_hop_us": 10.0,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "columns_with_pairs": 512,
+        "empty_columns": [],
+        "last_column_pairs": 14,
+        "first_column_pairs": 15,
+        "min_column_pairs": 14,
+        "max_column_pairs": 30,
+        "last_column_pair_indices": [
+          14996,
+          14997,
+          14998,
+          14999
+        ],
+        "last_column_pair_midpoints_us": [
+          149965.0,
+          149975.0,
+          149985.0,
+          149995.0
+        ],
+        "last_column_frames_within_n_ext": true,
+        "pair_phase_sign": "-"
+      },
+      "diag_aggregate": {
+        "dense_hop_samples": 400,
+        "dense_frames": 15001,
+        "pairs": 15000,
+        "last_column_pairs": 14,
+        "min_column_pairs": 14,
+        "empty_columns": [],
+        "normalization": "aggregate numerator / sum pair sqrt(P_j P_j+1)"
+      }
+    }
+  ],
+  "synthetic": [
+    {
+      "current": {
+        "target_mean_mag": 0.9988939762115479,
+        "target_phase": -0.0002907096059061587,
+        "noise_rows_mean_mag": 0.5281525254249573,
+        "last_column_pairs": 1
+      },
+      "aggregate": {
+        "target_mean_mag": 0.9988991618156433,
+        "target_phase": -0.0002485298318788409,
+        "noise_rows_mean_mag": 0.6191786527633667,
+        "last_column_pairs": 1
+      },
+      "snr_db": -10.0
+    },
+    {
+      "current": {
+        "target_mean_mag": 0.9996508359909058,
+        "target_phase": -0.00016291675274260342,
+        "noise_rows_mean_mag": 0.5281490087509155,
+        "last_column_pairs": 1
+      },
+      "aggregate": {
+        "target_mean_mag": 0.9996515512466431,
+        "target_phase": -0.00015009823255240917,
+        "noise_rows_mean_mag": 0.619176983833313,
+        "last_column_pairs": 1
+      },
+      "snr_db": -5.0
+    },
+    {
+      "current": {
+        "target_mean_mag": 0.999889612197876,
+        "target_phase": -9.149501420324668e-05,
+        "noise_rows_mean_mag": 0.5281428098678589,
+        "last_column_pairs": 1
+      },
+      "aggregate": {
+        "target_mean_mag": 0.9998897314071655,
+        "target_phase": -8.73458047863096e-05,
+        "noise_rows_mean_mag": 0.6191742420196533,
+        "last_column_pairs": 1
+      },
+      "snr_db": 0.0
+    }
+  ],
+  "power_median_3_4_5": 0.5540271997451782,
+  "weak": {
+    "current": {
+      "n": 4,
+      "mean_mag": 0.5686198323965073,
+      "mean_coherence": 0.9468435943126678
+    },
+    "aggregate": {
+      "n": 4,
+      "mean_mag": 0.7359128966927528,
+      "mean_coherence": 0.9651431143283844
+    }
+  },
+  "strong": {
+    "current": {
+      "n": 4,
+      "mean_mag": 0.735082283616066,
+      "mean_coherence": 0.9142915606498718
+    },
+    "aggregate": {
+      "n": 4,
+      "mean_mag": 0.8717627823352814,
+      "mean_coherence": 0.9462844431400299
+    }
+  },
+  "note": "current is production per-pair normalize then average; aggregate is sum numerator / sum pair energy"
+}

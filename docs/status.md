@@ -183,3 +183,17 @@ unstable. Dense is a 3/4/5 specialist, not a global replacement. Capacity is
 still confounded (C1 1-channel vs C3 3-channel); a C3-zero-complex control is
 needed. Details: `docs/collaboration/opencode-c3-frontends.md`,
 `reports/c3_pilot_results.md`.
+
+## C3 replication/control: COMPLETED (screening)
+
+dense seed1730 and zero-complex (power+0+0) seeds1729/1730, same 1536/384 subset,
+20k steps. Best-mean: zero3 0.5156 > dense 0.5123 > overlap 0.5078 > sparse 0.4998.
+No complex front-end beats the no-information 3ch control overall. 0/1/2:
+zero3 0.2834 best; dense 0.2619. 3/4/5: dense 0.4543 vs zero3 0.4198
+(+3.45 pp, both seeds positive); common-box 3/4/5 classification +2.95..+5.95 pp
+(4/4 direction) but McNemar p>0.2 and recall not higher. Not enough for full
+training; next: 3-5 seeds, 768+ val, live uninformative capacity control
+(power+power+power/random), then full only if 3/4/5 residual survives.
+Dense estimator: aggregate-first raises both GT and noise; keep current
+per-pair normalized operator. Details: `reports/c3_replication_results.md`,
+`docs/collaboration/opencode-c3-frontends.md`.

@@ -181,3 +181,53 @@ def normalize_re_im(z: torch.Tensor, scale: float) -> torch.Tensor:
 def complex_scale(zs: Iterable[torch.Tensor], max_values: int = 20000) -> float:
     vals = [z.abs().flatten()[::max(1, z.numel() // max_values)].numpy() for z in zs]
     return float(np.percentile(np.concatenate(vals), 99.5)) if vals else 1.0
+
+
+def dense_correlation_aggregate(
+    record,
+    iq: torch.Tensor,
+    hop_us: float = DENSE_HOP_US,
+) -> tuple[torch.Tensor, dict]:
+    """Dense correlation with numerator/energy aggregated before normalization.
+
+    This is the alternative discussed for weak signals: sum the phase-corrected
+    conjugate products and the pair energies per original column, then divide
+    once. It is intentionally separate from dense_correlation(); the production
+    cache keeps the per-pair-normalized-then-average operator.
+    """
+    fs = record.B_mhz * 1e6
+    h = math.ceil(record.N / (N_TIME - 1))
+    n_ext = (N_TIME - 1) * h
+    hop = dense_hop_samples(fs, hop_us)
+    z, f_hz = halfbin_short_stft(iq, fs, hop, n_ext, COARSE_NFFT, half_bin=True)
+    nfreq, nframes = z.shape
+    if nframes < 2:
+        raise RuntimeError(f"dense STFT has {nframes} frames; need at least 2")
+    num = z[:, 1:] * torch.conj(z[:, :-1])
+    num = (num * torch.exp(-1j * 2.0 * math.pi * f_hz[:, None] * hop / fs)).to(torch.complex64)
+    p0 = z[:, :-1].abs().square()
+    p1 = z[:, 1:].abs().square()
+    energy_pair = torch.sqrt((p0 * p1).clamp_min(1e-30))
+    j = torch.arange(nframes - 1, dtype=torch.float64)
+    t_mid = (j + 0.5) * hop
+    cols = torch.round(t_mid / h).to(torch.long).clamp(0, N_TIME - 1)
+    sums = torch.zeros((nfreq, N_TIME), dtype=torch.complex64)
+    energy = torch.zeros((nfreq, N_TIME), dtype=torch.float32)
+    counts = torch.zeros((N_TIME,), dtype=torch.float32)
+    sums.index_add_(1, cols, num)
+    energy.index_add_(1, cols, energy_pair)
+    counts.index_add_(0, cols, torch.ones(len(cols), dtype=torch.float32))
+    avg = sums / energy.clamp_min(1e-12)
+    out = torch.view_as_real(avg).permute(2, 0, 1).to(torch.float32).clamp(-1.0, 1.0)
+    diag = {
+        "dense_hop_samples": int(hop),
+        "dense_frames": int(nframes),
+        "pairs": int(nframes - 1),
+        "last_column_pairs": int(counts[-1]),
+        "min_column_pairs": int(counts.min()),
+        "empty_columns": (counts == 0).nonzero(as_tuple=False).flatten().tolist(),
+        "normalization": "aggregate numerator / sum pair sqrt(P_j P_j+1)",
+    }
+    if counts[-1] <= 0 or diag["empty_columns"]:
+        raise RuntimeError("dense aggregate correlation has empty columns")
+    return out, diag

@@ -90,8 +90,16 @@ C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
 - **3/4/5 是唯一复现的收益**：overlap 两 seed 0.4012/0.3940（mean +4.01 pp）；
   dense 单 seed 0.4646（+10.70 pp，错类 79→69）；sparse 不稳。
 - dense 是 3/4/5 专用，不是全局替换；sparse 总体 +2.51 pp 是 seed 波动。
-- 仍有 1 通道 C1 vs 3 通道 C3 的容量混杂，需 C3-zero-complex 才能因果归因。
-- [完整结果](opencode-c3-frontends.md) · [对照表](../../reports/c3_pilot_results.md) ·
+- 复核（dense seed1730 + zero3 无复数 3 通道对照）：zero3 mean **0.5156** >
+  dense 0.5123 > overlap 0.5078 > sparse 0.4998；没有复数前端在总体上超过
+  无信息对照。0/1/2 也是 zero3 最好（0.2834），复数前端更差。
+- 3/4/5 有一个方向一致但统计不强的 dense 残差：+3.45 pp vs zero3（best
+  mean，两 seed 同向）；common-box 分类 +2.95~+5.95 pp，但 McNemar p>0.2，
+  且定位召回不升。暂不扩全量；建议 3–5 seed、768+ val，并加入
+  power+power+power/随机活通道的活容量对照。
+- zero3 是“同架构无复数信息”对照，额外通道恒零，不等于活容量对照。
+- [完整复核](opencode-c3-frontends.md#复核dense-seed1730--zero-complex-3-通道对照2026-11-19) ·
+  [对照表](../../reports/c3_pilot_results.md) · [复核报告](../../reports/c3_replication_results.md) ·
   [前端验证](../../reports/c3_frontend_validation.md)
 
 ## 协作方式

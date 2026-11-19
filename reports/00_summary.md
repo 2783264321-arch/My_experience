@@ -118,3 +118,17 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
 - dense 是 3/4/5 专用，不是全局替换；sparse 总体 +2.51 pp 是 seed 波动。
 - 仍有 1 通道 C1 vs 3 通道 C3 的容量混杂，需 C3-zero-complex 才能因果归因。
 - 详见 `docs/collaboration/opencode-c3-frontends.md`、`reports/c3_pilot_results.md`。
+
+### C3 复核：dense seed1730 + zero3 对照
+
+- zero3 = 3 通道 `power+0+0`，同架构/head，无复数信息；不是活容量对照。
+- best mean：zero3 **0.5156** > dense 0.5123 > overlap 0.5078 >
+  sparse 0.4998。没有复数前端在总体上超过无信息对照。
+- 0/1/2：zero3 0.2834 最好；dense 0.2619，复数信息未帮助 20 MHz。
+- 3/4/5：dense **0.4543** vs zero3 0.4198，+3.45 pp（两 seed 同向）；
+  common-box 3/4/5 分类 dense +2.95~+5.95 pp（4/4 同向），但 McNemar
+  p 0.22–0.77，定位召回不升。属于需复核的调制判别信号，不足以全量扩大。
+- 建议：3–5 seed、768+ val、power+power+power/随机活通道的活容量对照；
+  只有 3/4/5 残差稳定后再扩全量。0/1/2/overall 不扩。
+- 估计量：aggregate-first 同时抬高 GT/噪声，无弱信号分离优势，保留现版。
+- 详见 `reports/c3_replication_results.md`、`docs/collaboration/opencode-c3-frontends.md`。

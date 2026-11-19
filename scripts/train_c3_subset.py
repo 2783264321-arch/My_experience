@@ -55,19 +55,21 @@ def lr_at_step(step: int, total: int, lr0: float, warmup: int, final_frac: float
 
 class C3Dataset(Dataset):
     def __init__(self, split, ids, records_by_id, power_path, complex_path,
-                 channels: int, power_indices=None):
+                 channels: int, power_indices=None, zero_complex: bool = False):
         self.split = split
         self.ids = list(ids)
         self.records = [records_by_id[s] for s in self.ids]
         self.channels = int(channels)
+        self.zero_complex = bool(zero_complex)
         self.power_indices = list(power_indices) if power_indices is not None else None
         self.power = np.load(power_path, mmap_mode="r")
-        self.complex = np.load(complex_path, mmap_mode="r") if channels == 3 else None
+        self.complex = (np.load(complex_path, mmap_mode="r")
+                        if channels == 3 and not self.zero_complex else None)
         if self.power_indices is not None and len(self.power_indices) != len(self.ids):
             raise ValueError("power index count does not match ids")
         if self.power_indices is None and len(self.power) != len(self.ids):
             raise ValueError(f"power rows {len(self.power)} != ids {len(self.ids)}")
-        if channels == 3 and len(self.complex) != len(self.ids):
+        if channels == 3 and not self.zero_complex and len(self.complex) != len(self.ids):
             raise ValueError(f"complex rows {len(self.complex)} != ids {len(self.ids)}")
 
     def __len__(self):
@@ -78,7 +80,10 @@ class C3Dataset(Dataset):
         bits = np.asarray(self.power[pi]).copy()
         p = torch.from_numpy(bits).view(torch.bfloat16).float()
         if self.channels == 3:
-            c = torch.from_numpy(np.asarray(self.complex[i]).copy()).float()
+            if self.zero_complex:
+                c = torch.zeros((2, COARSE_H, N_TIME), dtype=torch.float32)
+            else:
+                c = torch.from_numpy(np.asarray(self.complex[i]).copy()).float()
             img = torch.cat([p, c], dim=0)
         else:
             img = p
@@ -106,7 +111,7 @@ def class_group_eval(gts, preds, classes):
     }
 
 
-def run_validation(model, dataset, records, channels, batch_sources=8):
+def run_validation(model, dataset, records, channels, batch_sources=8, return_preds=False):
     was_training = model.training
     model.eval()
     dl = DataLoader(dataset, batch_size=batch_sources, shuffle=False,
@@ -158,13 +163,15 @@ def run_validation(model, dataset, records, channels, batch_sources=8):
     }
     if was_training:
         model.train()
+    if return_preds:
+        return out, gts, final
     return out
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", required=True)
-    ap.add_argument("--frontend", choices=["power", "overlap", "sparse", "dense"],
+    ap.add_argument("--frontend", choices=["power", "zero3", "overlap", "sparse", "dense"],
                     required=True)
     ap.add_argument("--channels", type=int, choices=[1, 3], default=0)
     ap.add_argument("--subset", default="cache/c3_subset.json")
@@ -189,6 +196,7 @@ def main():
     ap.add_argument("--overwrite", action="store_true")
     args = ap.parse_args()
 
+    zero_complex = args.frontend == "zero3"
     channels = args.channels or (1 if args.frontend == "power" else 3)
     if channels == 1 and args.frontend != "power":
         raise SystemExit("3-channel front-end cannot run with --channels 1")
@@ -211,7 +219,7 @@ def main():
 
     power_fit = ROOT / args.power_cache
     power_val = ROOT / args.val_power_cache
-    if args.frontend == "power":
+    if args.frontend in ("power", "zero3"):
         complex_dir = None
         fit_complex = val_complex = None
     else:
@@ -225,8 +233,10 @@ def main():
                 raise SystemExit(f"missing complex cache: {p}")
 
     fit_ds = C3Dataset("fit", fit_ids, by_fit, power_fit, fit_complex, channels,
-                       power_indices=subset["fit_power_index"])
-    val_ds = C3Dataset("val", val_ids, by_val, power_val, val_complex, channels)
+                       power_indices=subset["fit_power_index"],
+                       zero_complex=zero_complex)
+    val_ds = C3Dataset("val", val_ids, by_val, power_val, val_complex, channels,
+                       zero_complex=zero_complex)
     steps_per_epoch = math.ceil(len(fit_ds) / args.batch_sources) // args.accum
     total_steps = args.total_steps
     epochs = math.ceil(total_steps / steps_per_epoch)
@@ -236,7 +246,7 @@ def main():
         raise SystemExit(f"{run_dir} exists; pass --overwrite")
     run_dir.mkdir(parents=True, exist_ok=True)
     config = {
-        "run": args.run, "frontend": args.frontend, "channels": channels,
+        "run": args.run, "frontend": args.frontend, "channels": channels, "zero_complex": zero_complex,
         "subset": args.subset, "fit_samples": len(fit_ds),
         "val_samples": len(val_ds), "batch_sources": args.batch_sources,
         "accum": args.accum, "effective_views": args.batch_sources * args.accum,
