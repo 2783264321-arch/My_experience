@@ -243,3 +243,23 @@ train/29 GT 0.314→0.453，噪声 0.316→0.456），GT/噪声比仍约 1，没
 完整表格：`reports/c3_replication_results.md`；
 匹配明细：`reports/c3_matched_{s1729,s1730}_{best,last}.json`；
 评估：`runs/c3_pilot_{dense,dense_s1730,zero3_s1729,zero3_s1730}/eval_*.json`。
+
+## 1,159 样本留出复核（2026-11-19 17:50）
+
+用 949873a 的冻结 dense/zero3 best+last，在完整 val 剔除 384 子集后的
+**1,159 样本 / 290 个 3/4/5 GT** 上评测；不重选权重、不调阈值。
+
+- best 均值：dense mAP 0.4983 vs zero3 0.4990；3/4/5 AP dense 0.3874 vs
+  zero3 0.3489；common 3/4/5 分类 dense 0.4804 vs zero3 0.4454。
+- last 均值：dense mAP 0.4583 vs zero3 0.4520；3/4/5 AP dense 0.3163 vs
+  zero3 0.3465；common 分类 dense 0.4697 vs zero3 0.5032。
+- 逐 seed/ckpt common 分类：s1729 best 0.4308/0.4654（dense 更差），
+  s1729 last 0.4875/0.5000，s1730 best **0.5299/0.4254（dense +10.45 pp，
+  p=0.007）**，s1730 last 0.4519/0.5063。
+- **1,159 留出集没有复现 384 子集 dense 4/4 的方向**；只有 s1730 best 一个
+  显著点，best/last 排序还会翻转。定位召回 dense 不高于 zero3。
+- 判断：**不扩全量训练。** 若继续，先做预注册 checkpoint 规则（如 last）
+  的小规模多 seed 复核 + 活容量对照；否则停止 C3-for-3/4/5。
+
+详见 [1,159 留出复核](opencode-c3-holdout.md)、
+`reports/c3_holdout_replication.md`。

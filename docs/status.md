@@ -197,3 +197,16 @@ training; next: 3-5 seeds, 768+ val, live uninformative capacity control
 Dense estimator: aggregate-first raises both GT and noise; keep current
 per-pair normalized operator. Details: `reports/c3_replication_results.md`,
 `docs/collaboration/opencode-c3-frontends.md`.
+
+## C3 1,159 holdout replication: COMPLETED
+
+Frozen dense/zero3 best+last on full val minus 384 subset (1,159 samples, 290
+3/4/5 GT); no re-selection/threshold tuning. Best-mean: dense mAP 0.4983 vs
+zero3 0.4990; 3/4/5 0.3874 vs 0.3489; common 3/4/5 acc 0.4804 vs 0.4454.
+Last-mean: 0.4583 vs 0.4520; 3/4/5 0.3163 vs 0.3465; common acc 0.4697 vs
+0.5032. Only s1730 best significantly favors dense (+10.45 pp, p=0.007);
+s1729 best/last and s1730 last favor zero3. The 384-subset 4/4 dense direction
+did not replicate; localization recall not higher. Do not expand full training.
+Next, only a pre-registered checkpoint-rule multi-seed study + live capacity
+control is defensible. Details: `reports/c3_holdout_replication.md`,
+`docs/collaboration/opencode-c3-holdout.md`.

@@ -25,7 +25,10 @@ def main():
     ap.add_argument("--frontend", required=True,
                     choices=["power", "zero3", "overlap", "sparse", "dense"])
     ap.add_argument("--complex-dir", default="")
+    ap.add_argument("--val-ids-file", default="cache/c3_subset.json")
+    ap.add_argument("--power-cache", default="cache/c3_subset_val_power_bf16.npy")
     ap.add_argument("--out", default="")
+    ap.add_argument("--out-prefix", default="eval")
     args = ap.parse_args()
 
     run_dir = ROOT / "runs" / args.run
@@ -40,7 +43,7 @@ def main():
     model.load_state_dict(sd)
     model.eval()
 
-    subset = json.loads((ROOT / "cache/c3_subset.json").read_text())
+    subset = json.loads((ROOT / args.val_ids_file).read_text())
     val_all = load_manifest(SPLIT_MANIFEST, "val")
     by_val = {r.sample_id: r for r in val_all}
     val_ids = subset["val_ids"]
@@ -49,9 +52,10 @@ def main():
     if complex_dir and not complex_dir.is_absolute():
         complex_dir = ROOT / complex_dir
     val_complex = complex_dir / "val_complex.npy" if complex_dir else None
-    ds = C3Dataset("val", val_ids, by_val,
-                   ROOT / "cache/c3_subset_val_power_bf16.npy",
-                   val_complex, channels,
+    power_cache = Path(args.power_cache)
+    if not power_cache.is_absolute():
+        power_cache = ROOT / power_cache
+    ds = C3Dataset("val", val_ids, by_val, power_cache, val_complex, channels,
                    zero_complex=(args.frontend == "zero3"))
     out, gts, preds = run_validation(model, ds, val_recs, channels,
                                      batch_sources=8, return_preds=True)
@@ -67,7 +71,7 @@ def main():
         if not stem.is_absolute():
             stem = ROOT / stem
     else:
-        stem = run_dir / f"eval_{Path(args.checkpoint).stem}"
+        stem = run_dir / f"{args.out_prefix}_{Path(args.checkpoint).stem}"
     stem.parent.mkdir(parents=True, exist_ok=True)
     npz = {}
     for name, arrs in [("pred", preds), ("gt", gts)]:

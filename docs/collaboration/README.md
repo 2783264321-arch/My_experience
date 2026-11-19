@@ -98,6 +98,12 @@ C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
   且定位召回不升。暂不扩全量；建议 3–5 seed、768+ val，并加入
   power+power+power/随机活通道的活容量对照。
 - zero3 是“同架构无复数信息”对照，额外通道恒零，不等于活容量对照。
+- **1,159 留出复核没有复现 dense 的 384 子集优势**：best 均值 dense/zero3
+  mAP 0.4983/0.4990，3/4/5 AP 0.3874/0.3489，common 分类 0.4804/0.4454；
+  last 均值 common 分类 0.4697/0.5032。逐 seed/ckpt 只有 s1730 best 显著
+  （dense +10.45 pp，p=0.007），其余偏向 zero3。**不扩全量训练**；若继续，
+  需预注册 checkpoint 规则 + 多 seed + 活容量对照。
+  [留出复核](opencode-c3-holdout.md) · [对照表](../../reports/c3_holdout_replication.md)
 - [完整复核](opencode-c3-frontends.md#复核dense-seed1730--zero-complex-3-通道对照2026-11-19) ·
   [对照表](../../reports/c3_pilot_results.md) · [复核报告](../../reports/c3_replication_results.md) ·
   [前端验证](../../reports/c3_frontend_validation.md)

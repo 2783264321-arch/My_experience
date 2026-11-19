@@ -132,3 +132,19 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
   只有 3/4/5 残差稳定后再扩全量。0/1/2/overall 不扩。
 - 估计量：aggregate-first 同时抬高 GT/噪声，无弱信号分离优势，保留现版。
 - 详见 `reports/c3_replication_results.md`、`docs/collaboration/opencode-c3-frontends.md`。
+
+### C3 1,159 留出复核
+
+- 冻结 dense/zero3 best+last，不重选、不调阈值；1,159 样本、290 个 3/4/5 GT。
+- best 均值：dense mAP 0.4983 vs zero3 0.4990；3/4/5 AP 0.3874 vs 0.3489；
+  common 3/4/5 分类 0.4804 vs 0.4454。
+- last 均值：dense mAP 0.4583 vs zero3 0.4520；3/4/5 AP 0.3163 vs 0.3465；
+  common 分类 0.4697 vs 0.5032。
+- 逐 seed/ckpt 只有 s1730 best 显著偏向 dense（+10.45 pp，p=0.007）；
+  s1729 best/last、s1730 last 都偏向 zero3。384 子集的 dense 4/4 优势未复现。
+- 定位召回 dense 不高于 zero3；唯一显著点是分类，不是找到更多框；best/last
+  排序翻转说明 checkpoint 选择不稳。
+- **不扩全量训练。** 若继续，先做预注册 checkpoint 规则的多 seed 复核 +
+  power+power+power/随机活通道的活容量对照。
+- 详见 `reports/c3_holdout_replication.md`、
+  `docs/collaboration/opencode-c3-holdout.md`。
