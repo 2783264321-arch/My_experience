@@ -115,6 +115,8 @@ def main():
     ap.add_argument("--holdout", type=float, default=0.2)
     ap.add_argument("--split-seed", type=int, default=1729)
     ap.add_argument("--skip-cnn", action="store_true")
+    ap.add_argument("--power-arms", default="",
+                    help="merge pre-trained power arms from baseline3_power_arms.py JSON")
     args = ap.parse_args()
 
     seeds = [int(s) for s in args.seeds.split(",")]
@@ -147,6 +149,9 @@ def main():
 
     result = {"frames": int(n), "census_missing": missing,
               "nan_rows": int((~ok).sum()), "groups": {}}
+    power_arms = None
+    if args.power_arms:
+        power_arms = json.loads((ROOT / args.power_arms).read_text())
 
     for gname, classes in GROUPS.items():
         fam = FAMILY[gname]
@@ -170,7 +175,10 @@ def main():
 
         # ---- power baselines (SmallCNN, same recipe) ----
         for rep in ("coarse", "local_power"):
-            if args.skip_cnn:
+            if args.skip_cnn and not power_arms:
+                continue
+            if power_arms is not None and gname in power_arms.get("groups", {}):
+                g["arms"][rep] = power_arms["groups"][gname]["arms"][rep]
                 continue
             x = z[rep].astype(np.float32)
             x = np.clip(standardize_coarse(x)[:, None], -10.0, 10.0)
@@ -234,7 +242,12 @@ def main():
 
         # ---- paired McNemar: iq_full vs best power arm, per instance ----
         best_power = None
-        if not args.skip_cnn:
+        if power_arms is not None and gname in power_arms.get("groups", {}):
+            reps_avail = [r for r in ("coarse", "local_power")
+                          if r in g["arms"]]
+            best_power = max(reps_avail,
+                             key=lambda r: g["arms"][r]["holdout_acc_mean"])
+        elif not args.skip_cnn:
             reps_avail = [r for r in ("coarse", "local_power") if r in g["arms"]]
             best_power = max(reps_avail,
                              key=lambda r: g["arms"][r]["holdout_acc_mean"])
@@ -247,12 +260,16 @@ def main():
             w = logistic_fit(x_tr, y[tr_m], len(classes), seed=seeds[0])
             iq_pred = logistic_predict(w, x_va_f)
             iq_correct = (iq_pred == y_va_arr)
-            xrep = z[best_power].astype(np.float32)
-            xrep = np.clip(standardize_coarse(xrep)[:, None], -10.0, 10.0)
-            _, pred_pw, _ = train_one(
-                xrep[tr], y[tr_m], xrep[va], y_va_arr, len(classes), seeds[0],
-                args.epochs, 64, device,
-            )
+            arm0 = g["arms"][best_power]["seeds"][0]
+            if "pred_holdout" in arm0:
+                pred_pw = np.asarray(arm0["pred_holdout"], dtype=np.int64)
+            else:
+                xrep = z[best_power].astype(np.float32)
+                xrep = np.clip(standardize_coarse(xrep)[:, None], -10.0, 10.0)
+                _, pred_pw, _ = train_one(
+                    xrep[tr], y[tr_m], xrep[va], y_va_arr, len(classes), seeds[0],
+                    args.epochs, 64, device,
+                )
             pw_correct = (pred_pw == y_va_arr)
             n01 = int((iq_correct & ~pw_correct).sum())
             n10 = int((~iq_correct & pw_correct).sum())
