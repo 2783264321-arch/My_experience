@@ -92,12 +92,11 @@ def load_samples(splits: list[str]) -> list[dict]:
 
 def render_static(sample: dict, path: Path, dpi: int = 120) -> None:
     fig = plt.figure(figsize=(5, 5 * ASPECT))
-    ax = fig.add_axes([0.06, 0.045, 0.92, 0.905])
+    ax = fig.add_axes([0.015, 0.02, 0.97, 0.93])
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.set_xticks([0, 0.5, 1])
-    ax.set_yticks([0, 0.5, 1])
-    ax.tick_params(labelsize=7, length=2)
+    ax.set_xticks([])
+    ax.set_yticks([])
     for sp in ax.spines.values():
         sp.set_linewidth(0.6)
     ax.set_title(
@@ -152,11 +151,11 @@ button { padding:4px 10px; font-size:12px; margin:2px 4px 2px 0; cursor:pointer;
 #legend div { margin:3px 0; white-space:nowrap; }
 #legend i { display:inline-block; width:12px; height:12px; border:1.5px solid; margin-right:6px; vertical-align:-2px; }
 #stats { margin-top:16px; font-size:11px; color:#888; }
-#head { font-size:14px; margin-bottom:8px; }
-#head .sub { color:#666; font-size:12px; }
-#ovl { font-size:12px; margin-bottom:8px; color:#444; max-height:110px; overflow-y:auto; }
-#ovl b { color:#c0392b; }
-svg { background:#fff; border:1px solid var(--line); max-height:calc(100vh - 120px); }
+#head .id { font-size:15px; font-weight:600; }
+#head .meta { color:#666; font-size:12px; margin:2px 0 8px; }
+#ovl { font-size:12px; margin-bottom:8px; color:#444; max-height:132px; overflow-y:auto; line-height:1.65; }
+#ovl .t { font-weight:600; color:#c0392b; margin-bottom:1px; }
+svg { background:#fff; max-height:calc(100vh - 120px); }
 #tip { position:fixed; display:none; background:#fff; border:1px solid #bbb; box-shadow:0 2px 8px rgba(0,0,0,.15);
        padding:7px 10px; font-size:12px; pointer-events:none; z-index:10; white-space:nowrap; }
 #tip .t1 { font-weight:600; } #tip .t2 { color:#555; }
@@ -195,7 +194,7 @@ const DATA = __DATA__;
 const NAMES = __NAMES__;
 const FAMC = __FAMC__, FAMN = __FAMN__, REPR = [0,3,6,9,10,12];
 const famOf = c => c<3?0 : c<6?1 : c<9?2 : c===9?3 : c<12?4 : 5;
-const W=520,H=1040,PL=48,PR=12,PT=18,PB=36,PW=W-PL-PR,PH=H-PT-PB;
+const W=520,H=1040,PL=6,PR=6,PT=12,PB=12,PW=W-PL-PR,PH=H-PT-PB;
 const X = t => PL + t*PW, Y = f => PT + (1-f)*PH;
 
 let list = DATA.slice(), idx = 0;
@@ -234,13 +233,11 @@ function render(){
   svg.innerHTML = '';
   const mk = (tag,attrs)=>{const el=document.createElementNS('http://www.w3.org/2000/svg',tag);
     for(const k in attrs) el.setAttribute(k,attrs[k]); svg.append(el); return el;};
-  // frame + ticks
+  // frame (the 0-1 observation window) + midpoint guides
   mk('rect',{x:PL,y:PT,width:PW,height:PH,fill:'#fff',stroke:'#999','stroke-width':1});
-  [0,0.5,1].forEach(v=>{
+  [0.5].forEach(v=>{
     mk('line',{x1:X(v),y1:PT,x2:X(v),y2:PT+PH,stroke:'#eee'});
     mk('line',{x1:PL,y1:Y(v),x2:PL+PW,y2:Y(v),stroke:'#eee'});
-    mk('text',{x:X(v),y:H-14,'font-size':10,'text-anchor':'middle',fill:'#888'}).textContent=v;
-    mk('text',{x:PL-10,y:Y(v)+3,'font-size':10,'text-anchor':'end',fill:'#888'}).textContent=v;
   });
 
   // overlap pairs
@@ -253,11 +250,12 @@ function render(){
       pairs.push([i+1,j+1,inter/aa,inter/bb]);
     }
   }
-  $('head').innerHTML = `${id} <span class="sub">· ${B} MHz × ${T} ms · ${sigs.length} signal${sigs.length>1?'s':''} · split ${split}</span>`;
+  $('head').innerHTML = `<div class="id">${id}</div>`
+    + `<div class="meta">${B} MHz × ${T} ms · ${sigs.length} signal${sigs.length>1?'s':''} · split ${split}</div>`;
   $('ovl').innerHTML = pairs.length
-    ? '<b>'+pairs.length+' overlapping pair'+(pairs.length>1?'s':'')+':</b> '
-      + pairs.map(p=>`#${p[0]}&#8745;#${p[1]} (${(p[2]*100).toFixed(1)}% of #${p[0]}, ${(p[3]*100).toFixed(1)}% of #${p[1]})`).join(' &nbsp; ')
-    : 'no overlapping instances';
+    ? `<div class="t">${pairs.length} overlapping pair${pairs.length>1?'s':''}</div>`
+      + pairs.map(p=>`<div>#${p[0]} ∩ #${p[1]} · ${(p[2]*100).toFixed(1)}% of #${p[0]} · ${(p[3]*100).toFixed(1)}% of #${p[1]}</div>`).join('')
+    : '<div>no overlapping instances</div>';
 
   // boxes
   sigs.forEach((g,k)=>{
