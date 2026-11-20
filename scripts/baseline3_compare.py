@@ -141,9 +141,9 @@ def main():
         if j is None:
             missing += 1
             continue
-        for k, col in cz.files:
+        for k in cz.files:
             if k in fidx:
-                feats[i, fidx[k]] = float(cz[col][j])
+                feats[i, fidx[k]] = float(cz[k][j])
     ok = np.all(np.isfinite(feats), axis=1)
     print(f"frames={n} census_missing={missing} nan_rows={int((~ok).sum())}", flush=True)
 

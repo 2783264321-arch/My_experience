@@ -84,15 +84,79 @@ QPSK/16QAM）。不用带宽猜类别：两组的带宽在组内均无判别力�
 
 - [x] Phase 0 交接记录（本文件）与 README 路线更新。
 - [x] Phase A 物理核查（2026-11-20）：**标注调制在 IQ 中不存在**。
-      WiFi 无 CP/12.8 µs 签名（同步失败≈100%），SRRC 无符号率线（≈100%）；
-      0–5/10–11 框内是窄带音样成分+底噪（fill10 比对照类小 30–100×，
-      无突发、无掩埋台基、无镜像）；对照类 BLE/Zigbee/LoRa/AM/FM 用
-      同一管线提取完全正常，排除几何/解调错误。
-      [详细报告](../../reports/local_iq_round1/phase_a_physics.md) ·
-      [帧表](../../reports/local_iq_round1/frame_counts.json) ·
-      [普查汇总](../../reports/local_iq_round1/census_summary.json) ·
-      [对照普查](../../reports/local_iq_round1/census_controls_summary.json)
-- [ ] Phase B 配对对照（IQ 物理指纹 vs 同框功率基线，全量 5,578 帧）。
-- [ ] Phase C 判定写回。
+      WiFi 无 CP/12.8 µs 签名（HE 候选失败率 71.2%，剩余帧 r32 为窄带
+      相干；子载波 m4 不落理论值），SRRC 无符号率线（三候选失败
+      82.5–95.6%）；0–5/10–11 框内是窄带音样成分+底噪（fill10 比对照
+      小 30–100×，20–37% 框基本全空，无突发、无掩埋台基、无镜像）；
+      对照类 BLE/Zigbee/LoRa/AM/FM 用同一管线提取完全正常。
+      [详细报告](../../reports/local_iq_round1/phase_a_physics.md)
+- [x] Phase B 配对对照（2026-11-20）：IQ 物理特征三组全在机会水平
+      （012 0.334 / 345 0.365 / 1011 0.526 vs 机会 0.333/0.333/0.500；
+      单变量 AUC ≤0.11），同帧功率裁块 0.482/0.535/0.559。
+      margin=0 事后诊断否定边距假说：功率基线读的是框内非调制细纹理
+      （去边距 WiFi coarse 反升 +11 pp）。
+      [配对报告](../../reports/local_iq_round1/comparison.md)
+- [x] Phase C 判定写回（本节）。
 
-结果与判定见文末（Phase C 后回填）。
+## 结果与判定（Phase C，2026-11-20）
+
+**判定：停止"从局部原始 IQ 恢复调制结构"路线。**预注册增益门三组
+全部未过：IQ 特征对同帧最强功率基线的配对增益 012 **−13.6 pp**
+（McNemar p=4.2e-05）、345 **−16.4 pp**（p=9.5e-06）、1011 **−5.0 pp**
+（p=0.22，不显著）。不提出预测框上的第二轮验证——增益为负。
+
+按预注册卡点清单归因：**卡点①命中，且从"参数不匹配"加深为
+"结构缺失"**。WiFi 无 CP-OFDM 结构、SRRC 无脉冲成形单载波结构；
+失败不是 CP/SCS/滚降参数取错，而是调制本身不在数据里，原计划的
+合成门限标定因此失去意义。判定依据的证据链：
+
+1. 管线自证：对照类（BLE/Zigbee/LoRa/AM/FM，各 25 帧）在同一解调/
+   带限/普查下满带且带宽与标签一致；0–5/10–11 框 fill10 仅 0.002–0.034，
+   无突发（占空比>med+6 dB≈0）、无掩埋宽带台基（框内下 40% 分位功率
+   ≤捕获底噪）、无实值镜像（rms(Q)=rms(I)）。
+2. 剩余类别信息不是调制：功率裁块在**紧框**（margin=0）下反而更高
+   （WiFi coarse +9.6~+11.1 pp），说明其读的是框内时频细纹理；结合
+   Phase A，该纹理只能是与类别相关的**生成伪迹**（逐类随机实现的
+   tone 模式/底纹），SmallCNN 能提取、37 维 label-blind 汇总特征不能
+   （逐特征 AUC ≤0.11）。
+3. 方法学副产品：裁块几何配方（proposal 框±10% 发表口径 0.4085 →
+   GT 框±10% 0.482 → GT 紧框 0.581）对 WiFi coarse 的影响（~17 pp）
+   远大于可分性研究的表示间差异（+2.3 pp）。既往裁块分类结论应按
+   几何配方口径比较。
+
+对 [`97ed926`](https://github.com/2783264321-arch/My_experience/commit/97ed9266bcb2928b1c120094afeb0a77c5557f43)
+归因的含义：oracle 的 22.1 pp 分类瓶颈（WiFi 每类 33–49 pp、SRRC
+19/31 pp）获得**数据侧物理解释——瓶颈在生成层（类别标签与物理调制
+脱钩），不在表示层**。任何表示工作（功率图、复数、符号域、循环谱）
+都无法恢复数据中不存在的调制阶数；已关闭的 C3 复数前端与窄带
+峰值/质心路线的失败与此一致。
+
+探索性观察（事后子集，不作判定依据，留痕供未来参考）：SRRC 组
+any-clean 的 64 个 holdout 帧上 IQ 特征 0.703 vs 功率 0.578，与
+10/11 类音宽中位差（1.13/1.57 MHz）方向一致；但 82% 的 SRRC 帧有
+某种重叠，重叠下 IQ 回机会水平（0.488）。若重开须预注册条件路线。
+
+**继续/停止建议**：
+
+- 停止本路线（按预注册门）。红线全部遵守：未重训 YOLO、未改线上
+  推理、test 全程封存、原始 IQ/JSON 未修改。
+- 若能获取 advanced 包的生成规则、或推动重新生成含真实调制的包
+  （真实 OFDM/SRRC 波形），本路线可在新数据上重启；Phase A 的
+  物理核查协议（`scripts/baseline3_frames.py` / `baseline3_census.py`
+  及对照类校验）可直接复用，先于任何训练对照执行。
+- 现有数据上，分类上限的可行动作只剩与表示无关的工程杠杆（位置级
+  去重 ~4 pp 上界，A/C 汇总已记录）；"更好的调制分类特征"在调制域
+  不可行，除非接受追逐生成伪迹（对真实数据无泛化意义，不建议）。
+
+产物索引：`reports/local_iq_round1/` 下
+[phase_a_physics.md](../../reports/local_iq_round1/phase_a_physics.md)、
+[comparison.md](../../reports/local_iq_round1/comparison.md)、
+[frame_counts.json](../../reports/local_iq_round1/frame_counts.json)、
+[census_summary.json](../../reports/local_iq_round1/census_summary.json)、
+[census_controls_summary.json](../../reports/local_iq_round1/census_controls_summary.json)、
+[census_all_summary.json](../../reports/local_iq_round1/census_all_summary.json)、
+[comparison.json](../../reports/local_iq_round1/comparison.json)、
+[power_arms.json](../../reports/local_iq_round1/power_arms.json)、
+[power_arms_m0.json](../../reports/local_iq_round1/power_arms_m0.json)；
+大体积 npz 已 gitignore。运行脚本：`scripts/baseline3_{frames,census,
+power_reps,power_arms,compare,dsp}.py`。

@@ -6,7 +6,7 @@
 
 - **Baseline-0 · 全频单图已收尾。** 每个样本用一张 `2048×512` 全频功率图独立训练和推理。100 轮训练、固定验证集评测和延迟测量均已完成。 [末轮与最佳权重的论文口径](Baseline-0.md#收尾与论文比较口径)
 - **Baseline-1 · 全频粗图与沿频率轴的细片。** 原生时频图为 `F×512`，F 随观测带宽变化，每个粗细视图都是 `2048×512`。固定 1,543 个验证样本，原联合 mAP@0.5 为 0.6427，AP75 为 0.5945，忽略类别的 AP@0.5 为 0.9046。联合权重只跑粗图为 0.5794。加细片类别过滤的工程对照为 0.6497。旧训练曲线使用裁框修正前的口径。 [执行状态](../status.md) · [修正后验证](../../reports/stage5_results.md) · [视图归因](opencode-view-attribution.md) · [过滤对照](opencode-filter-and-classifier-proposal.md)
-- **当前研究重点 · Baseline-3 局部原始 IQ 调制结构。** 给定目标区域，能否从局部原始 IQ 恢复比功率图更有判别力的调制结构。第一轮只做物理核查与小规模配对对照：SRRC 10/11 取 10 MHz 共有档，WiFi 0/1/2 与 3/4/5 合成先行、再查真实 CP/符号周期/对齐子载波统计；同框对照 coarse 功率与 0.1 ms 局部功率基线，预注册继续/停止门限。 [交接与预注册规则](opencode-baseline3-local-iq-round1.md)
+- **当前研究重点 · Baseline-3 已收尾（判定停止）。** 局部原始 IQ 的调制结构核查证明标签调制在数据中不存在，分类瓶颈在生成层而非表示层；路线停止，等待数据方澄清生成规则或提供含真实调制的数据后可重启。 [判定与证据](opencode-baseline3-local-iq-round1.md)
 
 ## 复数 STFT 粗图前端验证
 
@@ -138,16 +138,21 @@ C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
   [对照表](../../reports/c3_pilot_results.md) · [复核报告](../../reports/c3_replication_results.md) ·
   [前端验证](../../reports/c3_frontend_validation.md)
 
-## Baseline-3 · 局部原始 IQ 调制结构（进行中）
+## Baseline-3 · 局部原始 IQ 调制结构（第一轮已收尾，判定停止）
 
- [`97ed926`](https://github.com/2783264321-arch/My_experience/commit/97ed9266bcb2928b1c120094afeb0a77c5557f43) 的 A/C 归因把 22.1 pp 分类损失集中到
-WiFi 家族内部与 SRRC 10/11；可分性报告的局部细功率只有 +2.3/+2.7 pp，
-real/imag 已失败。本轮回到原始 IQ：给定目标区域（第一轮用真值框），
-先物理核查（SRRC 通带/符号率盲估；WiFi 合成验证后查真实 CP、符号
-周期与对齐子载波统计），再做同帧三档配对对照（coarse 功率、
-0.1 ms 局部功率、同步后符号/子载波统计），预注册同步防泄漏规则、
-弃权协议与继续/停止门限。不重训 YOLO、不改线上推理、test 封存。
- [交接与预注册规则](opencode-baseline3-local-iq-round1.md)
+ 第一轮按预注册协议完成物理核查与同帧配对对照，判定**停止**：WiFi
+ 无 CP-OFDM 结构（HE 候选失败率 71.2%，剩余帧 r32 为窄带相干）、SRRC
+ 无符号率线（三 α 候选失败 82.5–95.6%）——**标签所称调制在框内 IQ
+ 中不存在**（对照类 BLE/Zigbee/LoRa/AM/FM 用同一管线提取完全正常，
+ 20–37% 的 advanced 框基本全空）。IQ 物理特征三组全在机会水平（配对
+ 增益 −13.6 / −16.4 / −5.0 pp），同帧功率裁块 0.48–0.58；margin=0
+ 诊断证明功率基线读的是框内**非调制**细纹理（生成伪迹）。
+ 97ed926 的 22.1 pp 分类瓶颈由此获得数据侧物理解释：瓶颈在生成层，
+ 不在表示层。裁块几何配方本身影响 ~17 pp，大于既往研究的表示间差异。
+ 若数据方重新生成含真实调制的包，物理核查协议可直接复用重启。
+ [交接与预注册规则](opencode-baseline3-local-iq-round1.md) ·
+ [物理核查](../../reports/local_iq_round1/phase_a_physics.md) ·
+ [配对比较](../../reports/local_iq_round1/comparison.md)
 
 ## 协作方式
 
