@@ -149,6 +149,7 @@ select, input[type=text] { width:100%; padding:4px 6px; font-size:12px; }
 button { padding:4px 10px; font-size:12px; margin:2px 4px 2px 0; cursor:pointer; }
 #legend { margin-top:14px; font-size:11px; }
 #legend div, #ilist div { margin:3px 0; white-space:nowrap; }
+#ilist div:hover { background:#f2f2f2; border-radius:3px; }
 #legend i, #ilist i { display:inline-block; width:12px; height:12px; border:1.5px solid; margin-right:6px; vertical-align:-2px; }
 #ilist { margin-top:14px; font-size:12px; }
 #ilist label { margin:0 0 4px; }
@@ -200,7 +201,7 @@ const famOf = c => c<3?0 : c<6?1 : c<9?2 : c===9?3 : c<12?4 : 5;
 const W=520,H=1040,PL=6,PR=6,PT=12,PB=12,PW=W-PL-PR,PH=H-PT-PB;
 const X = t => PL + t*PW, Y = f => PT + (1-f)*PH;
 
-let list = DATA.slice(), idx = 0;
+let list = DATA.slice(), idx = 0, boxEls = [];
 const $ = id => document.getElementById(id);
 const svg = $('plot'), tip = $('tip');
 
@@ -234,6 +235,7 @@ function render(){
   $('pos').textContent = `${idx+1} / ${list.length}`;
   const [id, split, B, T, flo, sigs] = s;
   svg.innerHTML = '';
+  boxEls = [];
   const mk = (tag,attrs)=>{const el=document.createElementNS('http://www.w3.org/2000/svg',tag);
     for(const k in attrs) el.setAttribute(k,attrs[k]); svg.append(el); return el;};
   // frame = the 0-1 observation window
@@ -258,6 +260,21 @@ function render(){
   // per-sample instance list (box id + class) in the sidebar
   $('ilist').innerHTML = '<label>instances in this sample</label>'
     + sigs.map((g,k)=>`<div><i style="border-color:${FAMC[g[0]]};background:${FAMC[g[0]]}33"></i>#${k+1} &nbsp;${NAMES[g[0]]}</div>`).join('');
+  [...$('ilist').querySelectorAll('div')].forEach((row,k)=>{
+    row.addEventListener('mouseenter',ev=>{
+      show(ev,s,k+1,sigs[k]);
+      const [r,t]=boxEls[k]||[];
+      if(r){ r.setAttribute('stroke-width',3); svg.append(r); }
+      if(t){ svg.append(t); t.style.fontSize='12px'; }
+    });
+    row.addEventListener('mousemove',moveTip);
+    row.addEventListener('mouseleave',()=>{
+      hide();
+      const [r,t]=boxEls[k]||[];
+      if(r) r.setAttribute('stroke-width',1.5);
+      if(t) t.style.fontSize='';
+    });
+  });
 
   // boxes
   sigs.forEach((g,k)=>{
@@ -272,6 +289,7 @@ function render(){
     r.addEventListener('mousemove',ev=>moveTip(ev));
     r.addEventListener('mouseleave',hide);
     t.style.pointerEvents='none';
+    boxEls.push([r,t]);
   });
 }
 
