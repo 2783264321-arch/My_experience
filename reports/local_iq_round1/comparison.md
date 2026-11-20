@@ -1,5 +1,15 @@
 # Baseline-3 Phase B · 同框配对比较：IQ 物理特征 vs 功率裁块
 
+> **勘误（2026-11-21，Phase A′）**：本文的 IQ 特征臂（37 维普查统计）
+> 建立在错误的下变频参考上（见 phase_a_physics.md 勘误），描述的是
+> 偏移 B/2 的错误频带，"IQ 特征≈机会水平"的对比结论**无效**。
+> **功率基线臂不受影响**：coarse/local_power 裁块走生产管线
+> （`build_sample_views`），几何与坐标从头正确，其数字
+> （0.482/0.503/0.552 coarse、0.459/0.535/0.559 local_power、
+> margin=0 0.581）继续有效，可作为 Phase B′ 的对照基线沿用。
+> 正确坐标下的结构复核见 [phase_ap_report.md](phase_ap_report.md)。
+> 本文保留作为方法论记录。
+
 2026-11-20，OpenCode。协议与预注册规则见
 `docs/collaboration/opencode-baseline3-local-iq-round1.md`；Phase A 物理核查见
 `phase_a_physics.md`（标注调制在框内 IQ 中不存在，预注册同步臂按结构级

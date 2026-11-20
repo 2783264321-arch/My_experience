@@ -160,3 +160,49 @@ any-clean 的 64 个 holdout 帧上 IQ 特征 0.703 vs 功率 0.578，与
 [power_arms_m0.json](../../reports/local_iq_round1/power_arms_m0.json)；
 大体积 npz 已 gitignore。运行脚本：`scripts/baseline3_{frames,census,
 power_reps,power_arms,compare,dsp}.py`。
+
+---
+
+## 勘误与新状态（2026-11-21，频率坐标审计 + Phase A′）
+
+**以上"结果与判定"一节中的停止判定已被推翻，保留原文仅作方法论
+记录。**推翻链条：
+
+1. **频率坐标错误（项目负责人质疑、独立审计证实）**：原始 IQ 的
+   FFT 零频对应观测中心 `(f_lo+B/2)`，旧 `demod_to_center` 用
+   `f_c−f_lo`，系统性偏移半个观测带宽。四层证据：原始 FFT 地标与
+   JSON 标注仅在"零频=中心"下吻合（LoRa/BLE 窄带音逐一命中）；
+   生产 STFT 标签映射代数上只与该约定自洽；正确/错误公式同帧对比
+   （真实内容只在正确公式下出现）；生产粗图行号实测对齐。
+2. **Phase A"标注调制不存在"撤销**：约 85% WiFi-20 / 67% WiFi-40 /
+   100% SRRC 帧的普查测在错误频带；"控制类验证"是噪声混淆的循环
+   论证（fill10 0.27–0.45、r32 0.43–0.83 均可由带限噪声复现）；
+   旧 CP 检测器（幅度梳状）灵敏度比标准复数累加低约三个数量级。
+   详见 `phase_a_physics.md` 顶部勘误。
+3. **Phase B 的 IQ 特征臂无效**（同样建在错误频带上）；**功率基线臂
+   继续有效**（走生产管线，几何正确）：coarse 0.482/0.503/0.552、
+   local_power 0.459/0.535/0.559、margin=0 0.581，留作 Phase B′ 对照。
+   详见 `comparison.md` 顶部勘误。
+4. **Phase A′（正确坐标下的小规模复核）已完成，证据方向反转**：
+   - 提取链路经 26 项合成单元测试验证（`.bin` 往返、5 种 B、
+     负/偏心/边缘频率、能量保持 1.000、带外抑制 158 dB）。
+   - **WiFi 17/30 帧检出强 CP-OFDM，全部 (T_u,CP)=(3.2,0.8) µs**
+     （SCS 312.5 kHz，legacy 风格；HE 候选 12.8 µs 从未胜出），
+     子载波 m4 与标签阶数 10/17 一致、QPSK vs 16/64 部分分离。
+   - **SRRC 5/10 帧通过结构门限，6 帧带精确 8.333 MHz=10/1.2
+     符号率线（α=0.2）**；class-10 恢复符号 m4≈1.01–1.14（QPSK 样），
+     class-11 1.39–1.79（方向与 16QAM 一致、值偏高）。
+   - 负对照（合成噪声、真实诱饵带）全部 0 过，判定门限全部由
+     合成标定预注册。
+   - 主报告：[phase_ap_report.md](../../reports/local_iq_round1/phase_ap_report.md)；
+     三轨明细：[extract](../../reports/local_iq_round1/phase_ap_extract.md) ·
+     [wifi](../../reports/local_iq_round1/phase_ap_wifi.md) ·
+     [srrc](../../reports/local_iq_round1/phase_ap_srrc.md)。
+5. **Phase B′（配对分类对照）尚未开始**，是否进入由独立审阅决定。
+   若继续，预注册顺序：全量 5,578 帧结构普查（脚本已就绪）→ 以
+   真实 numerology 为同步锚的 WiFi/SRRC 特征 + 轻分类器，对照沿用
+   上述有效功率基线；重叠帧与失配帧单独分层；SRRC 专家需带定时
+   弃权门（±0.25 符号定时错足以抹平阶数差异）。
+
+红线不变：test 封存、原始 IQ/JSON 未修改、未训练新模型、
+线上推理未动。

@@ -6,7 +6,7 @@
 
 - **Baseline-0 · 全频单图已收尾。** 每个样本用一张 `2048×512` 全频功率图独立训练和推理。100 轮训练、固定验证集评测和延迟测量均已完成。 [末轮与最佳权重的论文口径](Baseline-0.md#收尾与论文比较口径)
 - **Baseline-1 · 全频粗图与沿频率轴的细片。** 原生时频图为 `F×512`，F 随观测带宽变化，每个粗细视图都是 `2048×512`。固定 1,543 个验证样本，原联合 mAP@0.5 为 0.6427，AP75 为 0.5945，忽略类别的 AP@0.5 为 0.9046。联合权重只跑粗图为 0.5794。加细片类别过滤的工程对照为 0.6497。旧训练曲线使用裁框修正前的口径。 [执行状态](../status.md) · [修正后验证](../../reports/stage5_results.md) · [视图归因](opencode-view-attribution.md) · [过滤对照](opencode-filter-and-classifier-proposal.md)
-- **当前研究重点 · Baseline-3 已收尾（判定停止）。** 局部原始 IQ 的调制结构核查证明标签调制在数据中不存在，分类瓶颈在生成层而非表示层；路线停止，等待数据方澄清生成规则或提供含真实调制的数据后可重启。 [判定与证据](opencode-baseline3-local-iq-round1.md)
+- **当前研究重点 · Baseline-3 Phase A′ 已完成，等待独立审阅决定是否进入 Phase B′。** 频率坐标审计推翻了第一轮"调制不存在"的停止判定（旧解调偏移 B/2，结论已勘误撤销）；正确坐标下的小规模复核发现**积极结构证据**：WiFi 17/30 帧检出 (3.2,0.8) µs CP-OFDM、SRRC 5/10 帧检出 α=0.2/R=8.333 MHz 单载波结构，符号统计与标签阶数部分一致。Phase B′（配对分类对照）尚未开始。 [主报告](opencode-baseline3-local-iq-round1.md)
 
 ## 复数 STFT 粗图前端验证
 
@@ -138,21 +138,32 @@ C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
   [对照表](../../reports/c3_pilot_results.md) · [复核报告](../../reports/c3_replication_results.md) ·
   [前端验证](../../reports/c3_frontend_validation.md)
 
-## Baseline-3 · 局部原始 IQ 调制结构（第一轮已收尾，判定停止）
+## Baseline-3 · 局部原始 IQ 调制结构（Phase A′ 已完成，Phase B′ 待独立审阅）
 
- 第一轮按预注册协议完成物理核查与同帧配对对照，判定**停止**：WiFi
- 无 CP-OFDM 结构（HE 候选失败率 71.2%，剩余帧 r32 为窄带相干）、SRRC
- 无符号率线（三 α 候选失败 82.5–95.6%）——**标签所称调制在框内 IQ
- 中不存在**（对照类 BLE/Zigbee/LoRa/AM/FM 用同一管线提取完全正常，
- 20–37% 的 advanced 框基本全空）。IQ 物理特征三组全在机会水平（配对
- 增益 −13.6 / −16.4 / −5.0 pp），同帧功率裁块 0.48–0.58；margin=0
- 诊断证明功率基线读的是框内**非调制**细纹理（生成伪迹）。
- 97ed926 的 22.1 pp 分类瓶颈由此获得数据侧物理解释：瓶颈在生成层，
- 不在表示层。裁块几何配方本身影响 ~17 pp，大于既往研究的表示间差异。
- 若数据方重新生成含真实调制的包，物理核查协议可直接复用重启。
- [交接与预注册规则](opencode-baseline3-local-iq-round1.md) ·
- [物理核查](../../reports/local_iq_round1/phase_a_physics.md) ·
- [配对比较](../../reports/local_iq_round1/comparison.md)
+第一轮（2026-11-20）曾判定"标注调制在 IQ 中不存在"并停止路线。
+**该判定已被频率坐标审计推翻**：原始 IQ 零频对应观测中心
+`(f_lo+B/2)`，旧解调偏移半个观测带宽，约 85% WiFi-20 / 67%
+WiFi-40 / 100% SRRC 帧的测量落在错误频带，"控制类验证"被噪声
+混淆指标污染——旧 Phase A 主结论与 Phase B 的 IQ 特征臂均已勘误
+撤销（原文保留）；**功率基线臂走生产管线、不受影响，继续有效**
+（coarse 0.482/0.503/0.552、local_power 0.459/0.535/0.559）。
+
+Phase A′（2026-11-21，正确坐标下 46 帧小规模复核，合成标定 +
+三轨并行 + 负对照）发现**积极结构证据**：WiFi 17/30 帧检出强
+CP-OFDM，全部 (T_u,CP)=(3.2,0.8) µs（SCS 312.5 kHz，legacy 风格；
+HE 12.8 µs 从未胜出），子载波 m4 与标签阶数 10/17 一致；SRRC
+5/10 帧通过结构门限，6 帧带精确 8.333 MHz 符号率线（α=0.2），
+恢复符号 m4 呈 QPSK/16QAM 方向分离。提取链路经 26 项合成单元
+测试验证。**Phase B′（配对分类对照）尚未开始**；若审阅支持继续：
+先全量结构普查，再以真实 numerology 为同步锚构建 WiFi/SRRC
+特征对照有效功率基线，重叠帧单独分层、SRRC 带定时弃权门。
+ [交接与勘误](opencode-baseline3-local-iq-round1.md) ·
+ [Phase A′ 主报告](../../reports/local_iq_round1/phase_ap_report.md) ·
+ [提取审计](../../reports/local_iq_round1/phase_ap_extract.md) ·
+ [WiFi 结构](../../reports/local_iq_round1/phase_ap_wifi.md) ·
+ [SRRC 结构](../../reports/local_iq_round1/phase_ap_srrc.md) ·
+ [撤销的 Phase A](../../reports/local_iq_round1/phase_a_physics.md) ·
+ [勘误的 Phase B](../../reports/local_iq_round1/comparison.md)
 
 ## 协作方式
 

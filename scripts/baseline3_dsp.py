@@ -44,8 +44,21 @@ def read_segment(bin_path, i0, i1):
 
 
 def demod_to_center(x, fs_hz, f_center_hz, f_lo_hz):
-    """Frequency-shift so that f_center sits at DC."""
-    df = 2.0 * np.pi * (f_center_hz - f_lo_hz) / fs_hz
+    """Frequency-shift so that f_center sits at DC.
+
+    Dataset frequency convention (audited 2026-11-21, phase A' step 1):
+    the complex .bin IQ is CENTER-referenced -- FFT bin 0 (zero digital
+    frequency) corresponds to the observation center (f_lo + B/2), where
+    Fs = B. Evidence: raw-FFT landmarks match JSON boxes only under this
+    mapping, and the production STFT label mapping (data.py _label_boxes /
+    infer.py gt_global) is algebraically consistent only with it.
+
+    The required down-conversion is therefore
+        shift = f_center - (f_lo + fs/2),   fs = B.
+    The old formula (f_center - f_lo) was wrong by half the observation
+    bandwidth and invalidated the round-1 raw-IQ census.
+    """
+    df = 2.0 * np.pi * (f_center_hz - f_lo_hz - fs_hz / 2.0) / fs_hz
     n = np.arange(len(x), dtype=np.float64)
     return (x * np.exp(-1j * df * n)).astype(np.complex64)
 
@@ -133,7 +146,11 @@ def mag_histogram(mag, bins=None):
 # ---------------------------------------------------------------------------
 
 def comb_metric(x, tau, period):
-    """CP comb metric at (T_u=tau, T_sym=period), integer samples.
+    """DEPRECATED (phase A' audit 2026-11-21): magnitude-only comb metric.
+    It discards the CP phase coherence and is ~3 orders of magnitude less
+    sensitive than the standard complex accumulation in cp_scan_complex.
+    Kept only so the round-1 census remains reproducible; do not use for
+    new structure checks.
 
     Returns (strength, bump_center_residue, complex comb D).
     strength = |sum m[n] e^{-2*pi*i n/period}| / sum m[n] with
@@ -273,30 +290,136 @@ def wifi_sync(x, fs_hz, bw_hz, max_sym=600):
 
 
 # ---------------------------------------------------------------------------
+# Standard complex cyclic-prefix detector (phase A')
+# ---------------------------------------------------------------------------
+
+CP_TU_US = (3.2, 6.4, 12.8, 25.6, 51.2)
+CP_CP_US = (0.2, 0.4, 0.8, 1.6, 3.2, 6.4)
+
+
+def cp_scan_complex(x, fs_hz, tu_us_candidates=CP_TU_US,
+                    cp_us_candidates=CP_CP_US, min_sym=50):
+    """Complex CP correlation detector over a pre-registered candidate grid.
+
+    For candidate (T_u, T_sym=T_u+CP): the conjugate product
+    c[n] = x[n] * conj(x[n + T_u]) is coherently elevated only inside CP
+    windows, with a constant phase set by any CFO. We accumulate the
+    COMPLEX sum over the CP window for every phase residue of T_sym and
+    take the maximum magnitude, normalized so that a clean CP-OFDM whose
+    in-window product matches the average power scores ~1 and noise scores
+    ~1/sqrt(n_sym * CP):
+
+        R(phi) = sum_k sum_{m<CP} c[phi + m + k*T_sym]
+        metric = max_phi |R(phi)| / (n_sym * CP * pbar),  pbar = mean|x|^2
+
+    Returns dict(best=(metric, tu_us, cp_us, phi, cfo), table=[...]) with
+    entries for every candidate whose lags are integer at fs_hz.
+    """
+    n = len(x)
+    pbar = float(np.mean(np.abs(x) ** 2)) if n else 0.0
+    if pbar <= 0:
+        return {"best": None, "table": []}
+    table = []
+    for tu_us in tu_us_candidates:
+        tau = int(round(tu_us * 1e-6 * fs_hz))
+        if abs(tau - tu_us * 1e-6 * fs_hz) > 1e-6 or tau <= 8 or n <= tau + 32:
+            continue
+        for cp_us in cp_us_candidates:
+            cp = int(round(cp_us * 1e-6 * fs_hz))
+            per = tau + cp
+            if cp <= 0 or n <= per * min_sym:
+                continue
+            c = x[:-tau] * np.conj(x[tau:])
+            m = (len(c) - cp) // per
+            if m < min_sym:
+                continue
+            ctrim = c[: m * per + cp - 1]
+            # M[k, j] = c[k*per + j]
+            M = ctrim[: m * per].reshape(m, per)
+            # window sums of length cp starting at phase j
+            Cs = np.concatenate([np.zeros((m, 1), dtype=M.dtype),
+                                 np.cumsum(M, axis=1)], axis=1)
+            W = Cs[:, cp:] - Cs[:, :-cp]          # W[k, j], j in [0, per-cp]
+            R = W.sum(axis=0)                      # complex R(phi)
+            j = int(np.argmax(np.abs(R)))
+            metric = float(np.abs(R[j]) / (m * cp * pbar))
+            medR = float(np.median(np.abs(R)))
+            ratio = float(np.abs(R[j]) / max(medR, 1e-30))
+            cfo = float(-np.angle(R[j]) / (2.0 * np.pi * tau))  # cycles/sample
+            table.append({"tu_us": tu_us, "cp_us": cp_us, "tau": tau,
+                          "cp": cp, "metric": metric, "ratio": ratio,
+                          "phi": j, "cfo_cycles": cfo, "n_sym": m})
+    if not table:
+        return {"best": None, "table": []}
+    best = max(table, key=lambda t: t["metric"])
+    return {"best": best, "table": table}
+
+
+def cp_strip_fft(x, fs_hz, tu_us, cp_us, phi, cfo=0.0, max_sym=600):
+    """Strip CP at the detected phase and return FFT'd symbols [n_sym, tau].
+
+    CFO convention (verified synthetically in the phase-A' WiFi track):
+    this function multiplies by exp(+j2*pi*cfo*n), so to APPLY a detected
+    CFO (from cp_scan_complex, defined with the opposite sign) you must
+    pass cfo = -detected. With SCS-aligned content cfo ~= 0 and it is moot.
+    """
+    tau = int(round(tu_us * 1e-6 * fs_hz))
+    cp = int(round(cp_us * 1e-6 * fs_hz))
+    per = tau + cp
+    if cfo:
+        n = np.arange(len(x), dtype=np.float64)
+        x = (x * np.exp(1j * 2.0 * np.pi * cfo * n)).astype(np.complex64)
+    starts = np.arange(phi, len(x) - per + 1, per, dtype=np.int64)
+    rows = []
+    for s in starts:
+        a, b = s + cp, s + cp + tau
+        if a < 0 or b > len(x):
+            continue
+        rows.append(np.fft.fft(x[a:b]))
+        if len(rows) >= max_sym:
+            break
+    if not rows:
+        return np.zeros((0, tau), dtype=np.complex64)
+    return np.stack(rows).astype(np.complex64)
+
+
+# ---------------------------------------------------------------------------
 # SRRC: timing-tone rate scan, matched filter, symbol sampling
 # ---------------------------------------------------------------------------
 
 def srrc_pulse_taps(alpha, sps, span_syms=SRRC_SPAN_SYMS):
-    """Root-raised-cosine taps evaluated on a (possibly fractional) grid."""
-    span = span_syms / 2.0
-    n_half = max(4, int(round(span * sps)))
+    """Root-raised-cosine taps (standard Proacos/MATLAB rcosdesign form).
+
+    h(0) = 1 - beta + 4*beta/pi
+    h(+-1/(4 beta)) = (beta/sqrt(2)) * ((1+2/pi) sin(pi/4b) + (1-2/pi) cos(pi/4b))
+    else  h(t) = [sin(pi t (1-b)) + 4 b t cos(pi t (1+b))] / [pi t (1-(4bt)^2)]
+
+    The previous implementation used the sinc(t)cos(pi b t)/(1-(4bt)^2)
+    form, which is NOT the standard RRC and has wider spectral skirts.
+    Taps are normalized to unit energy; the grid may be fractional (sps
+    need not be an integer).
+    """
+    n_half = max(4, int(round(span_syms / 2.0 * sps)))
     n = np.arange(-n_half, n_half + 1, dtype=np.float64)
-    t = n / sps  # in symbol units
+    t = n / sps
     beta = float(alpha)
     h = np.zeros_like(t)
     if beta <= 1e-9:
         h = np.sinc(t)
     else:
-        with np.errstate(divide="ignore", invalid="ignore"):
-            h = np.sinc(t) * np.cos(np.pi * beta * t) / (1.0 - (4.0 * beta * t) ** 2)
-        h[np.abs(1.0 - (4.0 * beta * t) ** 2) < 1e-12] = (
-            np.sinc(1.0 / (4.0 * beta)) * np.pi / (4.0 * beta) * np.cos(np.pi * beta * (1.0 / (4.0 * beta))) /
-            np.sinc(1.0 / (4.0 * beta)) * np.cos(np.pi / 4.0) if False else np.pi / (4.0 * beta)
-        )
-        # exact limit at t = +-1/(4 beta)
-        idx = np.abs(np.abs(t) - 1.0 / (4.0 * beta)) < 0.5 / max(sps, 1.0) / (4.0 * beta) * 0 + 0.5 / sps
-        for i in np.where(idx)[0]:
-            h[i] = np.pi / (4.0 * beta) * np.sinc(1.0 / (4.0 * beta))
+        t4 = 1.0 / (4.0 * beta)
+        tol = 0.5 / sps
+        for i, ti in enumerate(t):
+            if abs(ti) < 1e-12:
+                h[i] = 1.0 - beta + 4.0 * beta / math.pi
+            elif abs(abs(ti) - t4) <= tol:
+                h[i] = (beta / math.sqrt(2.0)) * (
+                    (1.0 + 2.0 / math.pi) * math.sin(math.pi / (4.0 * beta)) +
+                    (1.0 - 2.0 / math.pi) * math.cos(math.pi / (4.0 * beta)))
+            else:
+                h[i] = (math.sin(math.pi * ti * (1.0 - beta)) +
+                        4.0 * beta * ti * math.cos(math.pi * ti * (1.0 + beta))) / \
+                       (math.pi * ti * (1.0 - (4.0 * beta * ti) ** 2))
     h = np.nan_to_num(h, nan=0.0, posinf=0.0, neginf=0.0)
     e = float(np.sum(h ** 2))
     if e <= 0:

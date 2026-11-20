@@ -1,5 +1,16 @@
 # Baseline-3 Phase A · 物理核查：标注框内的 IQ 内容与标签调制不符
 
+> **勘误（2026-11-21，Phase A′）**：本报告的逐帧 IQ 测量使用了错误的
+> 下变频参考（`Δf=f_c−f_lo`；正确为 `f_c−(f_lo+B/2)`，零频对应观测
+> 中心），导致约 85% WiFi-20 / 67% WiFi-40 / 100% SRRC 帧测量的是
+> 偏移 B/2 的错误频带；"控制类验证"亦被噪声混淆指标污染（fill10
+> 0.27–0.45、r32 0.43–0.83 可由噪声复现）。**本文全部框级结论与
+> "标注调制不存在"的主结论已撤销**，正确坐标下的复核见
+> [phase_ap_report.md](phase_ap_report.md)（17/30 WiFi 帧检出
+> (3.2,0.8) µs CP-OFDM；5/10 SRRC 帧检出 α=0.2/R=8.333 MHz 单载波
+> 结构）。本文保留作为方法论记录：坐标审计过程与失败教训见
+> `docs/collaboration/opencode-baseline3-local-iq-round1.md` 勘误节。
+
 2026-11-20，OpenCode。依据 `docs/collaboration/opencode-baseline3-local-iq-round1.md`
 的预注册协议执行。全部指标 label-blind；类别标签只用于汇总报告。
 工件：`reports/local_iq_round1/`（frames.npz、frame_counts.json、census*.npz、

@@ -1,0 +1,4396 @@
+{
+  "meta": {
+    "track": "E \u2014 phase A' label-location energy audit",
+    "date": "2026-11-21",
+    "script": "scripts/baseline3_pa_extract.py",
+    "frames_source": "reports/local_iq_round1/phase_ap_frames.json",
+    "fit_split_only": true,
+    "freq_convention": "abs_mhz = f_lo + B/2 + digital_mhz (np.fft zero frequency = observation center)",
+    "window_rule": "min(10 ms, t2-t1) centered in [t1,t2]",
+    "params": {
+      "win_cap_ms": 10.0,
+      "smooth_hz": 50000.0,
+      "peak_sep_hz": 200000.0,
+      "out_guard_mhz": 2.0,
+      "trim_ms": 0.5,
+      "keep_bw_frac": 1.02,
+      "edge_frac": 0.05,
+      "verdict_inout_db": 6.0,
+      "verdict_peak_db": 10.0,
+      "decoy_shift_mhz": 15.0,
+      "seed_base": 20261121
+    },
+    "workers": 4,
+    "seconds": 3.6
+  },
+  "frames": [
+    {
+      "sample_id": "train/1024",
+      "signal_id": 0,
+      "class": 0,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2401.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2457.0,
+      "t1_ms": 42.0,
+      "t2_ms": 80.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 56.0,
+      "win_t1_ms": 66.0,
+      "i0": 4480000,
+      "i1": 5280000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 560001,
+        "out_region_empty": false,
+        "in_out_db": 5.84,
+        "box_peak_db_above_out": 15.54,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2475.0893,
+            "digital_mhz": 34.0893,
+            "psd_db": 80.63,
+            "db_above_out": 34.47,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2426.0395,
+            "digital_mhz": -14.9605,
+            "psd_db": 79.13,
+            "db_above_out": 32.97,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2474.8876,
+            "digital_mhz": 33.8876,
+            "psd_db": 78.9,
+            "db_above_out": 32.74,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 3730.89,
+        "peak_offset_abs_khz": 3730.89,
+        "occupied_minus10db_mhz": 16.216,
+        "energy_keep_ratio": 0.0811,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -11.911,
+        "peak_offset_abs_mhz": 11.911
+      },
+      "verdict": {
+        "in_out_db": 5.84,
+        "box_peak_db_above_out": 15.54,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1153",
+      "signal_id": 3,
+      "class": 0,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2432.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2457.0,
+      "t1_ms": 0.0,
+      "t2_ms": 64.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 27.0,
+      "win_t1_ms": 37.0,
+      "i0": 1350000,
+      "i1": 1850000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 260001,
+        "out_region_empty": false,
+        "in_out_db": 4.74,
+        "box_peak_db_above_out": 11.4,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2473.6959,
+            "digital_mhz": 16.6959,
+            "psd_db": 80.75,
+            "db_above_out": 24.36,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2474.2048,
+            "digital_mhz": 17.2048,
+            "psd_db": 79.48,
+            "db_above_out": 23.09,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2473.9055,
+            "digital_mhz": 16.9055,
+            "psd_db": 79.25,
+            "db_above_out": 22.87,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -4997.56,
+        "peak_offset_abs_khz": 4997.56,
+        "occupied_minus10db_mhz": 16.446,
+        "energy_keep_ratio": 0.2921,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": 1.696,
+        "peak_offset_abs_mhz": 1.696
+      },
+      "verdict": {
+        "in_out_db": 4.74,
+        "box_peak_db_above_out": 11.4,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/20",
+      "signal_id": 1,
+      "class": 0,
+      "stratum": "clean",
+      "B_mhz": 40.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2407.0,
+      "f1_mhz": 2412.0,
+      "f2_mhz": 2432.0,
+      "t1_ms": 68.0,
+      "t2_ms": 150.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 104.0,
+      "win_t1_ms": 114.0,
+      "i0": 4160000,
+      "i1": 4560000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 160001,
+        "out_region_empty": false,
+        "in_out_db": 15.93,
+        "box_peak_db_above_out": 22.67,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2416.9932,
+            "digital_mhz": -10.0068,
+            "psd_db": 63.19,
+            "db_above_out": 22.67,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2429.4961,
+            "digital_mhz": 2.4961,
+            "psd_db": 63.1,
+            "db_above_out": 22.57,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2428.5619,
+            "digital_mhz": 1.5619,
+            "psd_db": 62.95,
+            "db_above_out": 22.43,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -5006.78,
+        "peak_offset_abs_khz": 5006.78,
+        "occupied_minus10db_mhz": 16.318,
+        "energy_keep_ratio": 0.9743,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": 14.993,
+        "peak_offset_abs_mhz": 14.993
+      },
+      "verdict": {
+        "in_out_db": 15.93,
+        "box_peak_db_above_out": 22.67,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/208",
+      "signal_id": 0,
+      "class": 0,
+      "stratum": "clean",
+      "B_mhz": 30.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2432.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2457.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 150000,
+      "i1": 450000,
+      "n_samples": 300000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 60001,
+        "out_region_empty": false,
+        "in_out_db": 14.0,
+        "box_peak_db_above_out": 18.38,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2441.3564,
+            "digital_mhz": -5.6436,
+            "psd_db": 66.96,
+            "db_above_out": 18.38,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2441.7323,
+            "digital_mhz": -5.2677,
+            "psd_db": 66.96,
+            "db_above_out": 18.38,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2452.2854,
+            "digital_mhz": 5.2854,
+            "psd_db": 66.88,
+            "db_above_out": 18.3,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -5267.67,
+        "peak_offset_abs_khz": 5267.67,
+        "occupied_minus10db_mhz": 19.617,
+        "energy_keep_ratio": 0.9624,
+        "n_trim_samples": 15000,
+        "n_after_trim": 270000
+      },
+      "old": {
+        "peak_offset_mhz": 9.356,
+        "peak_offset_abs_mhz": 9.356
+      },
+      "verdict": {
+        "in_out_db": 14.0,
+        "box_peak_db_above_out": 18.38,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1009",
+      "signal_id": 0,
+      "class": 0,
+      "stratum": "overlap",
+      "B_mhz": 40.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2413.0,
+      "f1_mhz": 2432.0,
+      "f2_mhz": 2452.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 200000,
+      "i1": 600000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 170001,
+        "out_region_empty": false,
+        "in_out_db": 8.29,
+        "box_peak_db_above_out": 28.77,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2446.5285,
+            "digital_mhz": 13.5285,
+            "psd_db": 80.92,
+            "db_above_out": 28.77,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2422.4018,
+            "digital_mhz": -10.5982,
+            "psd_db": 79.63,
+            "db_above_out": 27.49,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2446.3275,
+            "digital_mhz": 13.3275,
+            "psd_db": 77.79,
+            "db_above_out": 25.64,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 4525.11,
+        "peak_offset_abs_khz": 4525.11,
+        "occupied_minus10db_mhz": 1.419,
+        "energy_keep_ratio": 0.6024,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": -15.472,
+        "peak_offset_abs_mhz": 15.472
+      },
+      "verdict": {
+        "in_out_db": 8.29,
+        "box_peak_db_above_out": 28.77,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/123",
+      "signal_id": 2,
+      "class": 1,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2457.0,
+      "t1_ms": 9.0,
+      "t2_ms": 46.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 22.5,
+      "win_t1_ms": 32.5,
+      "i0": 1800000,
+      "i1": 2600000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 560001,
+        "out_region_empty": false,
+        "in_out_db": 14.1,
+        "box_peak_db_above_out": 18.88,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2431.9797,
+            "digital_mhz": -8.0203,
+            "psd_db": 73.75,
+            "db_above_out": 26.15,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2431.7788,
+            "digital_mhz": -8.2212,
+            "psd_db": 71.95,
+            "db_above_out": 24.36,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2432.1868,
+            "digital_mhz": -7.8132,
+            "psd_db": 70.5,
+            "db_above_out": 22.9,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -5019.78,
+        "peak_offset_abs_khz": 5019.78,
+        "occupied_minus10db_mhz": 19.583,
+        "energy_keep_ratio": 0.7474,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": 24.98,
+        "peak_offset_abs_mhz": 24.98
+      },
+      "verdict": {
+        "in_out_db": 14.1,
+        "box_peak_db_above_out": 18.88,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1620",
+      "signal_id": 1,
+      "class": 1,
+      "stratum": "clean",
+      "B_mhz": 40.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2435.0,
+      "f1_mhz": 2447.0,
+      "f2_mhz": 2467.0,
+      "t1_ms": 0.0,
+      "t2_ms": 61.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 25.5,
+      "win_t1_ms": 35.5,
+      "i0": 1020000,
+      "i1": 1420000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 160001,
+        "out_region_empty": false,
+        "in_out_db": 4.49,
+        "box_peak_db_above_out": 8.2,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2436.1677,
+            "digital_mhz": -18.8323,
+            "psd_db": 79.17,
+            "db_above_out": 26.59,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2435.9677,
+            "digital_mhz": -19.0323,
+            "psd_db": 77.76,
+            "db_above_out": 25.19,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2436.3691,
+            "digital_mhz": -18.6309,
+            "psd_db": 74.64,
+            "db_above_out": 22.06,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 9131.11,
+        "peak_offset_abs_khz": 9131.11,
+        "occupied_minus10db_mhz": 20.25,
+        "energy_keep_ratio": 0.2732,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": -0.832,
+        "peak_offset_abs_mhz": 0.832
+      },
+      "verdict": {
+        "in_out_db": 4.49,
+        "box_peak_db_above_out": 8.2,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1730",
+      "signal_id": 1,
+      "class": 1,
+      "stratum": "clean",
+      "B_mhz": 30.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2436.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2457.0,
+      "t1_ms": 0.0,
+      "t2_ms": 11.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 0.5,
+      "win_t1_ms": 10.5,
+      "i0": 15000,
+      "i1": 315000,
+      "n_samples": 300000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 70000,
+        "out_region_empty": false,
+        "in_out_db": 12.13,
+        "box_peak_db_above_out": 16.85,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2459.6961,
+            "digital_mhz": 8.6961,
+            "psd_db": 75.23,
+            "db_above_out": 25.96,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2460.1929,
+            "digital_mhz": 9.1929,
+            "psd_db": 73.81,
+            "db_above_out": 24.55,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2459.9055,
+            "digital_mhz": 8.9055,
+            "psd_db": 73.64,
+            "db_above_out": 24.38,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -5606.33,
+        "peak_offset_abs_khz": 5606.33,
+        "occupied_minus10db_mhz": 19.637,
+        "energy_keep_ratio": 0.6807,
+        "n_trim_samples": 15000,
+        "n_after_trim": 270000
+      },
+      "old": {
+        "peak_offset_mhz": -2.304,
+        "peak_offset_abs_mhz": 2.304
+      },
+      "verdict": {
+        "in_out_db": 12.13,
+        "box_peak_db_above_out": 16.85,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/2945",
+      "signal_id": 0,
+      "class": 1,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2420.0,
+      "f1_mhz": 2442.0,
+      "f2_mhz": 2462.0,
+      "t1_ms": 0.0,
+      "t2_ms": 40.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 15.0,
+      "win_t1_ms": 25.0,
+      "i0": 750000,
+      "i1": 1250000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 260001,
+        "out_region_empty": false,
+        "in_out_db": 8.55,
+        "box_peak_db_above_out": 15.9,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2421.9093,
+            "digital_mhz": -23.0907,
+            "psd_db": 82.67,
+            "db_above_out": 36.51,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2422.11,
+            "digital_mhz": -22.89,
+            "psd_db": 81.25,
+            "db_above_out": 35.1,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2455.7618,
+            "digital_mhz": 10.7618,
+            "psd_db": 62.06,
+            "db_above_out": 15.9,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 3762.0,
+        "peak_offset_abs_khz": 3762.0,
+        "occupied_minus10db_mhz": 16.647,
+        "energy_keep_ratio": 0.2142,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": -5.091,
+        "peak_offset_abs_mhz": 5.091
+      },
+      "verdict": {
+        "in_out_db": 8.55,
+        "box_peak_db_above_out": 15.9,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1021",
+      "signal_id": 1,
+      "class": 1,
+      "stratum": "overlap",
+      "B_mhz": 40.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2432.0,
+      "f1_mhz": 2442.0,
+      "f2_mhz": 2462.0,
+      "t1_ms": 0.0,
+      "t2_ms": 25.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 7.5,
+      "win_t1_ms": 17.5,
+      "i0": 300000,
+      "i1": 700000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 160001,
+        "out_region_empty": false,
+        "in_out_db": 2.37,
+        "box_peak_db_above_out": 7.12,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2433.0054,
+            "digital_mhz": -18.9946,
+            "psd_db": 83.32,
+            "db_above_out": 18.43,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2447.0065,
+            "digital_mhz": -4.9935,
+            "psd_db": 72.01,
+            "db_above_out": 7.12,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2445.7494,
+            "digital_mhz": -6.2506,
+            "psd_db": 71.96,
+            "db_above_out": 7.07,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -4993.56,
+        "peak_offset_abs_khz": 4993.56,
+        "occupied_minus10db_mhz": 19.894,
+        "energy_keep_ratio": 0.5672,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": 1.005,
+        "peak_offset_abs_mhz": 1.005
+      },
+      "verdict": {
+        "in_out_db": 2.37,
+        "box_peak_db_above_out": 7.12,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1128",
+      "signal_id": 3,
+      "class": 2,
+      "stratum": "clean",
+      "B_mhz": 40.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2404.0,
+      "f1_mhz": 2412.0,
+      "f2_mhz": 2432.0,
+      "t1_ms": 0.0,
+      "t2_ms": 25.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 7.5,
+      "win_t1_ms": 17.5,
+      "i0": 300000,
+      "i1": 700000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 160001,
+        "out_region_empty": false,
+        "in_out_db": 10.04,
+        "box_peak_db_above_out": 18.49,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2441.5586,
+            "digital_mhz": 17.5586,
+            "psd_db": 68.26,
+            "db_above_out": 22.28,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2442.4259,
+            "digital_mhz": 18.4259,
+            "psd_db": 67.87,
+            "db_above_out": 21.89,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2441.9259,
+            "digital_mhz": 17.9259,
+            "psd_db": 67.5,
+            "db_above_out": 21.51,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 7483.0,
+        "peak_offset_abs_khz": 7483.0,
+        "occupied_minus10db_mhz": 16.31,
+        "energy_keep_ratio": 0.7271,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": -0.441,
+        "peak_offset_abs_mhz": 0.441
+      },
+      "verdict": {
+        "in_out_db": 10.04,
+        "box_peak_db_above_out": 18.49,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1216",
+      "signal_id": 3,
+      "class": 2,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2457.0,
+      "f2_mhz": 2477.0,
+      "t1_ms": 21.0,
+      "t2_ms": 80.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 45.5,
+      "win_t1_ms": 55.5,
+      "i0": 3640000,
+      "i1": 4440000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 560001,
+        "out_region_empty": false,
+        "in_out_db": 6.76,
+        "box_peak_db_above_out": 18.38,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2452.438,
+            "digital_mhz": 12.438,
+            "psd_db": 75.66,
+            "db_above_out": 28.04,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2451.5595,
+            "digital_mhz": 11.5595,
+            "psd_db": 74.83,
+            "db_above_out": 27.22,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2452.0858,
+            "digital_mhz": 12.0858,
+            "psd_db": 74.69,
+            "db_above_out": 27.08,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 4996.11,
+        "peak_offset_abs_khz": 4996.11,
+        "occupied_minus10db_mhz": 13.473,
+        "energy_keep_ratio": 0.1649,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": 25.438,
+        "peak_offset_abs_mhz": 25.438
+      },
+      "verdict": {
+        "in_out_db": 6.76,
+        "box_peak_db_above_out": 18.38,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1425",
+      "signal_id": 2,
+      "class": 2,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2415.0,
+      "f1_mhz": 2422.0,
+      "f2_mhz": 2442.0,
+      "t1_ms": 11.0,
+      "t2_ms": 49.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 25.0,
+      "win_t1_ms": 35.0,
+      "i0": 1250000,
+      "i1": 1750000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 260001,
+        "out_region_empty": false,
+        "in_out_db": 1.32,
+        "box_peak_db_above_out": 17.85,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2444.0134,
+            "digital_mhz": 4.0134,
+            "psd_db": 73.59,
+            "db_above_out": 22.54,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2444.3826,
+            "digital_mhz": 4.3826,
+            "psd_db": 73.15,
+            "db_above_out": 22.1,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2443.7902,
+            "digital_mhz": 3.7902,
+            "psd_db": 73.03,
+            "db_above_out": 21.98,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -639.67,
+        "peak_offset_abs_khz": 639.67,
+        "occupied_minus10db_mhz": 9.676,
+        "energy_keep_ratio": 0.4984,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": -12.987,
+        "peak_offset_abs_mhz": 12.987
+      },
+      "verdict": {
+        "in_out_db": 1.32,
+        "box_peak_db_above_out": 17.85,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1556",
+      "signal_id": 0,
+      "class": 2,
+      "stratum": "clean",
+      "B_mhz": 30.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2401.0,
+      "f1_mhz": 2402.0,
+      "f2_mhz": 2422.0,
+      "t1_ms": 0.0,
+      "t2_ms": 14.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 2.0,
+      "win_t1_ms": 12.0,
+      "i0": 60000,
+      "i1": 360000,
+      "n_samples": 300000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 70000,
+        "out_region_empty": false,
+        "in_out_db": 16.14,
+        "box_peak_db_above_out": 24.86,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2414.484,
+            "digital_mhz": -1.516,
+            "psd_db": 65.89,
+            "db_above_out": 24.86,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2419.4898,
+            "digital_mhz": 3.4898,
+            "psd_db": 65.67,
+            "db_above_out": 24.63,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2413.2846,
+            "digital_mhz": -2.7154,
+            "psd_db": 65.2,
+            "db_above_out": 24.17,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 2484.0,
+        "peak_offset_abs_khz": 2484.0,
+        "occupied_minus10db_mhz": 16.286,
+        "energy_keep_ratio": 0.9975,
+        "n_trim_samples": 15000,
+        "n_after_trim": 270000
+      },
+      "old": {
+        "peak_offset_mhz": -12.516,
+        "peak_offset_abs_mhz": 12.516
+      },
+      "verdict": {
+        "in_out_db": 16.14,
+        "box_peak_db_above_out": 24.86,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/101",
+      "signal_id": 3,
+      "class": 2,
+      "stratum": "overlap",
+      "B_mhz": 30.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2412.0,
+      "f1_mhz": 2412.0,
+      "f2_mhz": 2432.0,
+      "t1_ms": 40.0,
+      "t2_ms": 100.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 65.0,
+      "win_t1_ms": 75.0,
+      "i0": 1950000,
+      "i1": 2250000,
+      "n_samples": 300000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 80000,
+        "out_region_empty": false,
+        "in_out_db": 9.86,
+        "box_peak_db_above_out": 31.84,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2436.9945,
+            "digital_mhz": 9.9945,
+            "psd_db": 88.09,
+            "db_above_out": 37.43,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2422.0009,
+            "digital_mhz": -4.9991,
+            "psd_db": 82.5,
+            "db_above_out": 31.84,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2416.5253,
+            "digital_mhz": -10.4747,
+            "psd_db": 80.52,
+            "db_above_out": 29.85,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 0.89,
+        "peak_offset_abs_khz": 0.89,
+        "occupied_minus10db_mhz": 1.875,
+        "energy_keep_ratio": 0.7795,
+        "n_trim_samples": 15000,
+        "n_after_trim": 270000
+      },
+      "old": {
+        "peak_offset_mhz": -0.005,
+        "peak_offset_abs_mhz": 0.005
+      },
+      "verdict": {
+        "in_out_db": 9.86,
+        "box_peak_db_above_out": 31.84,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1494",
+      "signal_id": 2,
+      "class": 3,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2401.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2477.0,
+      "t1_ms": 16.0,
+      "t2_ms": 43.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 24.5,
+      "win_t1_ms": 34.5,
+      "i0": 1960000,
+      "i1": 2760000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 8.5,
+        "box_peak_db_above_out": 13.34,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2406.0623,
+            "digital_mhz": -34.9377,
+            "psd_db": 72.1,
+            "db_above_out": 23.91,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2428.0037,
+            "digital_mhz": -12.9963,
+            "psd_db": 71.76,
+            "db_above_out": 23.56,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2405.8105,
+            "digital_mhz": -35.1895,
+            "psd_db": 71.59,
+            "db_above_out": 23.4,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -5004.78,
+        "peak_offset_abs_khz": 5004.78,
+        "occupied_minus10db_mhz": 35.991,
+        "energy_keep_ratio": 0.541,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -10.938,
+        "peak_offset_abs_mhz": 10.938
+      },
+      "verdict": {
+        "in_out_db": 8.5,
+        "box_peak_db_above_out": 13.34,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/2982",
+      "signal_id": 0,
+      "class": 3,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2426.0,
+      "f1_mhz": 2427.0,
+      "f2_mhz": 2467.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 250000,
+      "i1": 750000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 70000,
+        "out_region_empty": false,
+        "in_out_db": 11.86,
+        "box_peak_db_above_out": 16.54,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2462.6232,
+            "digital_mhz": 11.6232,
+            "psd_db": 62.35,
+            "db_above_out": 16.54,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2454.1919,
+            "digital_mhz": 3.1919,
+            "psd_db": 62.34,
+            "db_above_out": 16.52,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2436.6919,
+            "digital_mhz": -14.3081,
+            "psd_db": 62.33,
+            "db_above_out": 16.52,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 15622.67,
+        "peak_offset_abs_khz": 15622.67,
+        "occupied_minus10db_mhz": 35.786,
+        "energy_keep_ratio": 0.9849,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": -9.377,
+        "peak_offset_abs_mhz": 9.377
+      },
+      "verdict": {
+        "in_out_db": 11.86,
+        "box_peak_db_above_out": 16.54,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1504",
+      "signal_id": 2,
+      "class": 3,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2477.0,
+      "t1_ms": 19.0,
+      "t2_ms": 29.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 19.0,
+      "win_t1_ms": 29.0,
+      "i0": 1520000,
+      "i1": 2320000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 8.47,
+        "box_peak_db_above_out": 16.33,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2458.8818,
+            "digital_mhz": 18.8818,
+            "psd_db": 64.7,
+            "db_above_out": 16.33,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2457.6023,
+            "digital_mhz": 17.6023,
+            "psd_db": 64.61,
+            "db_above_out": 16.24,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2460.7359,
+            "digital_mhz": 20.7359,
+            "psd_db": 64.61,
+            "db_above_out": 16.24,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 1881.78,
+        "peak_offset_abs_khz": 1881.78,
+        "occupied_minus10db_mhz": 35.282,
+        "energy_keep_ratio": 0.8965,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -38.118,
+        "peak_offset_abs_mhz": 38.118
+      },
+      "verdict": {
+        "in_out_db": 8.47,
+        "box_peak_db_above_out": 16.33,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/2240",
+      "signal_id": 5,
+      "class": 3,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2402.0,
+      "f1_mhz": 2407.0,
+      "f2_mhz": 2447.0,
+      "t1_ms": 10.0,
+      "t2_ms": 95.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 47.5,
+      "win_t1_ms": 57.5,
+      "i0": 3800000,
+      "i1": 4600000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 6.65,
+        "box_peak_db_above_out": 11.21,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2429.5039,
+            "digital_mhz": -12.4961,
+            "psd_db": 65.94,
+            "db_above_out": 11.21,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2422.6204,
+            "digital_mhz": -19.3796,
+            "psd_db": 65.9,
+            "db_above_out": 11.18,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2423.5564,
+            "digital_mhz": -18.4436,
+            "psd_db": 65.87,
+            "db_above_out": 11.14,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 2504.0,
+        "peak_offset_abs_khz": 2504.0,
+        "occupied_minus10db_mhz": 38.42,
+        "energy_keep_ratio": 0.7992,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -37.496,
+        "peak_offset_abs_mhz": 37.496
+      },
+      "verdict": {
+        "in_out_db": 6.65,
+        "box_peak_db_above_out": 11.21,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1021",
+      "signal_id": 3,
+      "class": 3,
+      "stratum": "overlap",
+      "B_mhz": 40.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2432.0,
+      "f1_mhz": 2432.0,
+      "f2_mhz": 2472.0,
+      "t1_ms": 0.0,
+      "t2_ms": 17.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 3.5,
+      "win_t1_ms": 13.5,
+      "i0": 140000,
+      "i1": 540000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 400000,
+        "n_out_bins": 0,
+        "out_region_empty": true,
+        "in_out_db": null,
+        "box_peak_db_above_out": null,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2432.9957,
+            "digital_mhz": -19.0043,
+            "psd_db": 81.58,
+            "db_above_out": null,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2449.5224,
+            "digital_mhz": -2.4776,
+            "psd_db": 73.41,
+            "db_above_out": null,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2448.2618,
+            "digital_mhz": -3.7382,
+            "psd_db": 73.23,
+            "db_above_out": null,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -18961.33,
+        "peak_offset_abs_khz": 18961.33,
+        "occupied_minus10db_mhz": 6.989,
+        "energy_keep_ratio": 0.983,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": 0.996,
+        "peak_offset_abs_mhz": 0.996
+      },
+      "verdict": {
+        "in_out_db": null,
+        "box_peak_db_above_out": null,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1337",
+      "signal_id": 4,
+      "class": 4,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2402.0,
+      "f1_mhz": 2442.0,
+      "f2_mhz": 2482.0,
+      "t1_ms": 31.0,
+      "t2_ms": 62.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 41.5,
+      "win_t1_ms": 51.5,
+      "i0": 3320000,
+      "i1": 4120000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400000,
+        "n_out_bins": 380001,
+        "out_region_empty": false,
+        "in_out_db": 10.36,
+        "box_peak_db_above_out": 16.38,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2450.1302,
+            "digital_mhz": 8.1302,
+            "psd_db": 61.29,
+            "db_above_out": 16.38,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2449.7987,
+            "digital_mhz": 7.7987,
+            "psd_db": 61.27,
+            "db_above_out": 16.37,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2471.0393,
+            "digital_mhz": 29.0393,
+            "psd_db": 61.23,
+            "db_above_out": 16.33,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -12201.33,
+        "peak_offset_abs_khz": 12201.33,
+        "occupied_minus10db_mhz": 35.655,
+        "energy_keep_ratio": 0.983,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": 28.13,
+        "peak_offset_abs_mhz": 28.13
+      },
+      "verdict": {
+        "in_out_db": 10.36,
+        "box_peak_db_above_out": 16.38,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1550",
+      "signal_id": 0,
+      "class": 4,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2424.0,
+      "f1_mhz": 2427.0,
+      "f2_mhz": 2467.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 250000,
+      "i1": 750000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 60001,
+        "out_region_empty": false,
+        "in_out_db": 10.32,
+        "box_peak_db_above_out": 16.79,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2453.2452,
+            "digital_mhz": 4.2452,
+            "psd_db": 63.29,
+            "db_above_out": 16.79,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2455.759,
+            "digital_mhz": 6.759,
+            "psd_db": 63.17,
+            "db_above_out": 16.68,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2454.5136,
+            "digital_mhz": 5.5136,
+            "psd_db": 63.15,
+            "db_above_out": 16.65,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 7513.67,
+        "peak_offset_abs_khz": 7513.67,
+        "occupied_minus10db_mhz": 35.619,
+        "energy_keep_ratio": 0.9485,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": -18.755,
+        "peak_offset_abs_mhz": 18.755
+      },
+      "verdict": {
+        "in_out_db": 10.32,
+        "box_peak_db_above_out": 16.79,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1836",
+      "signal_id": 1,
+      "class": 4,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2477.0,
+      "t1_ms": 21.0,
+      "t2_ms": 80.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 45.5,
+      "win_t1_ms": 55.5,
+      "i0": 3640000,
+      "i1": 4440000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 8.28,
+        "box_peak_db_above_out": 14.33,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2405.9481,
+            "digital_mhz": -34.0519,
+            "psd_db": 69.04,
+            "db_above_out": 19.48,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2406.1538,
+            "digital_mhz": -33.8462,
+            "psd_db": 68.6,
+            "db_above_out": 19.04,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2405.7462,
+            "digital_mhz": -34.2538,
+            "psd_db": 68.26,
+            "db_above_out": 18.7,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 15926.67,
+        "peak_offset_abs_khz": 15926.67,
+        "occupied_minus10db_mhz": 35.815,
+        "energy_keep_ratio": 0.6208,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -11.052,
+        "peak_offset_abs_mhz": 11.052
+      },
+      "verdict": {
+        "in_out_db": 8.28,
+        "box_peak_db_above_out": 14.33,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1980",
+      "signal_id": 3,
+      "class": 4,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2402.0,
+      "f1_mhz": 2427.0,
+      "f2_mhz": 2467.0,
+      "t1_ms": 7.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 8.5,
+      "win_t1_ms": 18.5,
+      "i0": 680000,
+      "i1": 1480000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 4.59,
+        "box_peak_db_above_out": 17.53,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2472.0526,
+            "digital_mhz": 30.0526,
+            "psd_db": 82.8,
+            "db_above_out": 34.76,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2426.0441,
+            "digital_mhz": -15.9559,
+            "psd_db": 77.82,
+            "db_above_out": 29.77,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2425.8401,
+            "digital_mhz": -16.1599,
+            "psd_db": 77.59,
+            "db_above_out": 29.55,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -20752.56,
+        "peak_offset_abs_khz": 20752.56,
+        "occupied_minus10db_mhz": 13.363,
+        "energy_keep_ratio": 0.1437,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -14.947,
+        "peak_offset_abs_mhz": 14.947
+      },
+      "verdict": {
+        "in_out_db": 4.59,
+        "box_peak_db_above_out": 17.53,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/103",
+      "signal_id": 2,
+      "class": 4,
+      "stratum": "overlap",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2401.0,
+      "f1_mhz": 2412.0,
+      "f2_mhz": 2452.0,
+      "t1_ms": 0.0,
+      "t2_ms": 57.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 23.5,
+      "win_t1_ms": 33.5,
+      "i0": 1880000,
+      "i1": 2680000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 5.67,
+        "box_peak_db_above_out": 24.57,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2437.0153,
+            "digital_mhz": -3.9847,
+            "psd_db": 77.12,
+            "db_above_out": 24.57,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2436.6601,
+            "digital_mhz": -4.3399,
+            "psd_db": 76.83,
+            "db_above_out": 24.28,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2437.5807,
+            "digital_mhz": -3.4193,
+            "psd_db": 76.74,
+            "db_above_out": 24.2,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 5015.33,
+        "peak_offset_abs_khz": 5015.33,
+        "occupied_minus10db_mhz": 2.007,
+        "energy_keep_ratio": 0.8734,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -34.985,
+        "peak_offset_abs_mhz": 34.985
+      },
+      "verdict": {
+        "in_out_db": 5.67,
+        "box_peak_db_above_out": 24.57,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/10",
+      "signal_id": 3,
+      "class": 5,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2432.0,
+      "f2_mhz": 2472.0,
+      "t1_ms": 26.0,
+      "t2_ms": 40.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 28.0,
+      "win_t1_ms": 38.0,
+      "i0": 2240000,
+      "i1": 3040000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 3.74,
+        "box_peak_db_above_out": 20.99,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2407.0318,
+            "digital_mhz": -32.9682,
+            "psd_db": 83.62,
+            "db_above_out": 30.84,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2406.831,
+            "digital_mhz": -33.169,
+            "psd_db": 81.88,
+            "db_above_out": 29.1,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2407.2331,
+            "digital_mhz": -32.7669,
+            "psd_db": 75.34,
+            "db_above_out": 22.56,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -5005.56,
+        "peak_offset_abs_khz": 5005.56,
+        "occupied_minus10db_mhz": 6.66,
+        "energy_keep_ratio": 0.3707,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -4.968,
+        "peak_offset_abs_mhz": 4.968
+      },
+      "verdict": {
+        "in_out_db": 3.74,
+        "box_peak_db_above_out": 20.99,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1975",
+      "signal_id": 0,
+      "class": 5,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2402.0,
+      "f2_mhz": 2442.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 250000,
+      "i1": 750000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 60001,
+        "out_region_empty": false,
+        "in_out_db": 8.27,
+        "box_peak_db_above_out": 13.37,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2404.4792,
+            "digital_mhz": -20.5208,
+            "psd_db": 61.43,
+            "db_above_out": 13.37,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2432.6251,
+            "digital_mhz": 7.6251,
+            "psd_db": 61.33,
+            "db_above_out": 13.27,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2433.2525,
+            "digital_mhz": 8.2525,
+            "psd_db": 61.25,
+            "db_above_out": 13.19,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -17521.44,
+        "peak_offset_abs_khz": 17521.44,
+        "occupied_minus10db_mhz": 35.956,
+        "energy_keep_ratio": 0.9575,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": 7.479,
+        "peak_offset_abs_mhz": 7.479
+      },
+      "verdict": {
+        "in_out_db": 8.27,
+        "box_peak_db_above_out": 13.37,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/3042",
+      "signal_id": 0,
+      "class": 5,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2422.0,
+      "f1_mhz": 2432.0,
+      "f2_mhz": 2472.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 250000,
+      "i1": 750000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 400000,
+        "n_out_bins": 80001,
+        "out_region_empty": false,
+        "in_out_db": 12.97,
+        "box_peak_db_above_out": 28.55,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2449.4803,
+            "digital_mhz": 2.4803,
+            "psd_db": 67.6,
+            "db_above_out": 28.55,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2466.9869,
+            "digital_mhz": 19.9869,
+            "psd_db": 67.23,
+            "db_above_out": 28.18,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2455.7343,
+            "digital_mhz": 8.7343,
+            "psd_db": 66.88,
+            "db_above_out": 27.83,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -2510.67,
+        "peak_offset_abs_khz": 2510.67,
+        "occupied_minus10db_mhz": 14.117,
+        "energy_keep_ratio": 0.9927,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": 22.48,
+        "peak_offset_abs_mhz": 22.48
+      },
+      "verdict": {
+        "in_out_db": 12.97,
+        "box_peak_db_above_out": 28.55,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/312",
+      "signal_id": 0,
+      "class": 5,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2414.0,
+      "f1_mhz": 2422.0,
+      "f2_mhz": 2462.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 250000,
+      "i1": 750000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 60001,
+        "out_region_empty": false,
+        "in_out_db": 13.54,
+        "box_peak_db_above_out": 19.72,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2452.9504,
+            "digital_mhz": 13.9504,
+            "psd_db": 61.15,
+            "db_above_out": 19.72,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2453.8839,
+            "digital_mhz": 14.8839,
+            "psd_db": 61.14,
+            "db_above_out": 19.72,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2454.8006,
+            "digital_mhz": 15.8006,
+            "psd_db": 61.06,
+            "db_above_out": 19.64,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 11883.56,
+        "peak_offset_abs_khz": 11883.56,
+        "occupied_minus10db_mhz": 35.674,
+        "energy_keep_ratio": 1.0123,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": -14.05,
+        "peak_offset_abs_mhz": 14.05
+      },
+      "verdict": {
+        "in_out_db": 13.54,
+        "box_peak_db_above_out": 19.72,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1016",
+      "signal_id": 0,
+      "class": 5,
+      "stratum": "overlap",
+      "B_mhz": 40.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2432.0,
+      "f1_mhz": 2432.0,
+      "f2_mhz": 2472.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 200000,
+      "i1": 600000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 400000,
+        "n_out_bins": 0,
+        "out_region_empty": true,
+        "in_out_db": null,
+        "box_peak_db_above_out": null,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2435.9995,
+            "digital_mhz": -16.0005,
+            "psd_db": 78.96,
+            "db_above_out": null,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2446.9839,
+            "digital_mhz": -5.0161,
+            "psd_db": 72.42,
+            "db_above_out": null,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2446.6614,
+            "digital_mhz": -5.3386,
+            "psd_db": 70.32,
+            "db_above_out": null,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -16000.44,
+        "peak_offset_abs_khz": 16000.44,
+        "occupied_minus10db_mhz": 0.676,
+        "energy_keep_ratio": 0.9927,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": 3.999,
+        "peak_offset_abs_mhz": 3.999
+      },
+      "verdict": {
+        "in_out_db": null,
+        "box_peak_db_above_out": null,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1037",
+      "signal_id": 1,
+      "class": 10,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2417.0,
+      "f1_mhz": 2447.0,
+      "f2_mhz": 2457.0,
+      "t1_ms": 8.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 9.0,
+      "win_t1_ms": 19.0,
+      "i0": 450000,
+      "i1": 950000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 12.63,
+        "box_peak_db_above_out": 16.69,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2432.0887,
+            "digital_mhz": -9.9113,
+            "psd_db": 83.26,
+            "db_above_out": 31.68,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2431.8881,
+            "digital_mhz": -10.1119,
+            "psd_db": 81.48,
+            "db_above_out": 29.9,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2441.3967,
+            "digital_mhz": -0.6033,
+            "psd_db": 78.52,
+            "db_above_out": 26.95,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -468.89,
+        "peak_offset_abs_khz": 468.89,
+        "occupied_minus10db_mhz": 9.378,
+        "energy_keep_ratio": 0.2417,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": 5.089,
+        "peak_offset_abs_mhz": 5.089
+      },
+      "verdict": {
+        "in_out_db": 12.63,
+        "box_peak_db_above_out": 16.69,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1058",
+      "signal_id": 1,
+      "class": 10,
+      "stratum": "clean",
+      "B_mhz": 40.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2432.0,
+      "f1_mhz": 2442.0,
+      "f2_mhz": 2452.0,
+      "t1_ms": 0.0,
+      "t2_ms": 18.31886,
+      "win_ms": 10.0,
+      "win_t0_ms": 4.1594,
+      "win_t1_ms": 14.1594,
+      "i0": 166377,
+      "i1": 566377,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 260001,
+        "out_region_empty": false,
+        "in_out_db": 22.15,
+        "box_peak_db_above_out": 25.74,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2464.9978,
+            "digital_mhz": 12.9978,
+            "psd_db": 88.06,
+            "db_above_out": 41.0,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2464.0085,
+            "digital_mhz": 12.0085,
+            "psd_db": 87.75,
+            "db_above_out": 40.69,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2435.9664,
+            "digital_mhz": -16.0336,
+            "psd_db": 74.8,
+            "db_above_out": 27.75,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 2678.22,
+        "peak_offset_abs_khz": 2678.22,
+        "occupied_minus10db_mhz": 9.465,
+        "energy_keep_ratio": 0.6303,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": -2.002,
+        "peak_offset_abs_mhz": 2.002
+      },
+      "verdict": {
+        "in_out_db": 22.15,
+        "box_peak_db_above_out": 25.74,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1099",
+      "signal_id": 0,
+      "class": 10,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2402.0,
+      "f1_mhz": 2427.0,
+      "f2_mhz": 2437.0,
+      "t1_ms": 0.0,
+      "t2_ms": 47.07886,
+      "win_ms": 10.0,
+      "win_t0_ms": 18.5394,
+      "win_t1_ms": 28.5394,
+      "i0": 1483154,
+      "i1": 2283154,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 660001,
+        "out_region_empty": false,
+        "in_out_db": 9.77,
+        "box_peak_db_above_out": 13.91,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2457.4341,
+            "digital_mhz": 15.4341,
+            "psd_db": 77.83,
+            "db_above_out": 23.72,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2456.566,
+            "digital_mhz": 14.566,
+            "psd_db": 77.59,
+            "db_above_out": 23.48,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2457.0783,
+            "digital_mhz": 15.0783,
+            "psd_db": 77.06,
+            "db_above_out": 22.95,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 1840.89,
+        "peak_offset_abs_khz": 1840.89,
+        "occupied_minus10db_mhz": 9.458,
+        "energy_keep_ratio": 0.3248,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": -14.566,
+        "peak_offset_abs_mhz": 14.566
+      },
+      "verdict": {
+        "in_out_db": 9.77,
+        "box_peak_db_above_out": 13.91,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1160",
+      "signal_id": 1,
+      "class": 10,
+      "stratum": "clean",
+      "B_mhz": 20.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2460.0,
+      "f1_mhz": 2467.0,
+      "f2_mhz": 2477.0,
+      "t1_ms": 0.0,
+      "t2_ms": 12.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 1.0,
+      "win_t1_ms": 11.0,
+      "i0": 20000,
+      "i1": 220000,
+      "n_samples": 200000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 60001,
+        "out_region_empty": false,
+        "in_out_db": 11.32,
+        "box_peak_db_above_out": 14.25,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2463.9789,
+            "digital_mhz": -6.0211,
+            "psd_db": 70.09,
+            "db_above_out": 24.22,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2463.7217,
+            "digital_mhz": -6.2783,
+            "psd_db": 68.54,
+            "db_above_out": 22.67,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2464.1843,
+            "digital_mhz": -5.8157,
+            "psd_db": 68.53,
+            "db_above_out": 22.66,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 10.33,
+        "peak_offset_abs_khz": 10.33,
+        "occupied_minus10db_mhz": 9.993,
+        "energy_keep_ratio": 0.5174,
+        "n_trim_samples": 10000,
+        "n_after_trim": 180000
+      },
+      "old": {
+        "peak_offset_mhz": 1.979,
+        "peak_offset_abs_mhz": 1.979
+      },
+      "verdict": {
+        "in_out_db": 11.32,
+        "box_peak_db_above_out": 14.25,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1011",
+      "signal_id": 0,
+      "class": 10,
+      "stratum": "overlap",
+      "B_mhz": 20.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2427.0,
+      "f1_mhz": 2432.0,
+      "f2_mhz": 2442.0,
+      "t1_ms": 6.0,
+      "t2_ms": 60.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 28.0,
+      "win_t1_ms": 38.0,
+      "i0": 560000,
+      "i1": 760000,
+      "n_samples": 200000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 60001,
+        "out_region_empty": false,
+        "in_out_db": 4.5,
+        "box_peak_db_above_out": 28.36,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2436.9959,
+            "digital_mhz": -0.0041,
+            "psd_db": 90.48,
+            "db_above_out": 28.36,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2433.2575,
+            "digital_mhz": -3.7425,
+            "psd_db": 70.75,
+            "db_above_out": 8.63,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2431.3522,
+            "digital_mhz": -5.6478,
+            "psd_db": 70.59,
+            "db_above_out": 8.47,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -2.11,
+        "peak_offset_abs_khz": 2.11,
+        "occupied_minus10db_mhz": 0.066,
+        "energy_keep_ratio": 0.7292,
+        "n_trim_samples": 10000,
+        "n_after_trim": 180000
+      },
+      "old": {
+        "peak_offset_mhz": 9.996,
+        "peak_offset_abs_mhz": 9.996
+      },
+      "verdict": {
+        "in_out_db": 4.5,
+        "box_peak_db_above_out": 28.36,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1093",
+      "signal_id": 0,
+      "class": 11,
+      "stratum": "clean",
+      "B_mhz": 20.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2419.0,
+      "f1_mhz": 2422.0,
+      "f2_mhz": 2432.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 100000,
+      "i1": 300000,
+      "n_samples": 200000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 60001,
+        "out_region_empty": false,
+        "in_out_db": 17.62,
+        "box_peak_db_above_out": 21.54,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2424.4467,
+            "digital_mhz": -4.5533,
+            "psd_db": 68.06,
+            "db_above_out": 21.54,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2425.3392,
+            "digital_mhz": -3.6608,
+            "psd_db": 67.98,
+            "db_above_out": 21.46,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2426.0391,
+            "digital_mhz": -2.9609,
+            "psd_db": 67.79,
+            "db_above_out": 21.28,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -2691.89,
+        "peak_offset_abs_khz": 2691.89,
+        "occupied_minus10db_mhz": 9.415,
+        "energy_keep_ratio": 0.9757,
+        "n_trim_samples": 10000,
+        "n_after_trim": 180000
+      },
+      "old": {
+        "peak_offset_mhz": 7.447,
+        "peak_offset_abs_mhz": 7.447
+      },
+      "verdict": {
+        "in_out_db": 17.62,
+        "box_peak_db_above_out": 21.54,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/123",
+      "signal_id": 1,
+      "class": 11,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2442.0,
+      "f2_mhz": 2452.0,
+      "t1_ms": 50.0,
+      "t2_ms": 60.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 50.0,
+      "win_t1_ms": 60.0,
+      "i0": 4000000,
+      "i1": 4800000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 660001,
+        "out_region_empty": false,
+        "in_out_db": 9.72,
+        "box_peak_db_above_out": 16.96,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2431.9801,
+            "digital_mhz": -8.0199,
+            "psd_db": 78.17,
+            "db_above_out": 30.94,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2431.7794,
+            "digital_mhz": -8.2206,
+            "psd_db": 76.24,
+            "db_above_out": 29.01,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2432.185,
+            "digital_mhz": -7.815,
+            "psd_db": 74.91,
+            "db_above_out": 27.68,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -2822.11,
+        "peak_offset_abs_khz": 2822.11,
+        "occupied_minus10db_mhz": 8.257,
+        "energy_keep_ratio": 0.238,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": 24.98,
+        "peak_offset_abs_mhz": 24.98
+      },
+      "verdict": {
+        "in_out_db": 9.72,
+        "box_peak_db_above_out": 16.96,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1471",
+      "signal_id": 0,
+      "class": 11,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2407.0,
+      "f1_mhz": 2422.0,
+      "f2_mhz": 2432.0,
+      "t1_ms": 76.0,
+      "t2_ms": 143.19886000000002,
+      "win_ms": 10.0,
+      "win_t0_ms": 104.5994,
+      "win_t1_ms": 114.5994,
+      "i0": 5229972,
+      "i1": 5729972,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": 13.36,
+        "box_peak_db_above_out": 17.17,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2417.5342,
+            "digital_mhz": -14.4658,
+            "psd_db": 76.3,
+            "db_above_out": 23.91,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2417.1975,
+            "digital_mhz": -14.8025,
+            "psd_db": 76.12,
+            "db_above_out": 23.73,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2416.944,
+            "digital_mhz": -15.056,
+            "psd_db": 75.89,
+            "db_above_out": 23.5,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -968.89,
+        "peak_offset_abs_khz": 968.89,
+        "occupied_minus10db_mhz": 9.634,
+        "energy_keep_ratio": 0.4988,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": 15.534,
+        "peak_offset_abs_mhz": 15.534
+      },
+      "verdict": {
+        "in_out_db": 13.36,
+        "box_peak_db_above_out": 17.17,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1986",
+      "signal_id": 0,
+      "class": 11,
+      "stratum": "clean",
+      "B_mhz": 40.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2431.0,
+      "f1_mhz": 2432.0,
+      "f2_mhz": 2442.0,
+      "t1_ms": 0.0,
+      "t2_ms": 40.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 15.0,
+      "win_t1_ms": 25.0,
+      "i0": 600000,
+      "i1": 1000000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 270000,
+        "out_region_empty": false,
+        "in_out_db": 6.82,
+        "box_peak_db_above_out": 11.05,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2466.8734,
+            "digital_mhz": 15.8734,
+            "psd_db": 85.86,
+            "db_above_out": 37.46,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2467.1699,
+            "digital_mhz": 16.1699,
+            "psd_db": 85.56,
+            "db_above_out": 37.16,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2467.4894,
+            "digital_mhz": 16.4894,
+            "psd_db": 76.86,
+            "db_above_out": 28.46,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 3167.44,
+        "peak_offset_abs_khz": 3167.44,
+        "occupied_minus10db_mhz": 9.633,
+        "energy_keep_ratio": 0.0413,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": 9.873,
+        "peak_offset_abs_mhz": 9.873
+      },
+      "verdict": {
+        "in_out_db": 6.82,
+        "box_peak_db_above_out": 11.05,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/1004",
+      "signal_id": 1,
+      "class": 11,
+      "stratum": "overlap",
+      "B_mhz": 20.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2451.0,
+      "f1_mhz": 2452.0,
+      "f2_mhz": 2462.0,
+      "t1_ms": 0.0,
+      "t2_ms": 20.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 5.0,
+      "win_t1_ms": 15.0,
+      "i0": 100000,
+      "i1": 300000,
+      "n_samples": 200000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 70000,
+        "out_region_empty": false,
+        "in_out_db": 23.14,
+        "box_peak_db_above_out": 29.33,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2456.9919,
+            "digital_mhz": -4.0081,
+            "psd_db": 72.92,
+            "db_above_out": 29.33,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2457.4205,
+            "digital_mhz": -3.5795,
+            "psd_db": 72.71,
+            "db_above_out": 29.13,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2456.3593,
+            "digital_mhz": -4.6407,
+            "psd_db": 72.6,
+            "db_above_out": 29.02,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -8.11,
+        "peak_offset_abs_khz": 8.11,
+        "occupied_minus10db_mhz": 9.053,
+        "energy_keep_ratio": 0.977,
+        "n_trim_samples": 10000,
+        "n_after_trim": 180000
+      },
+      "old": {
+        "peak_offset_mhz": 9.992,
+        "peak_offset_abs_mhz": 9.992
+      },
+      "verdict": {
+        "in_out_db": 23.14,
+        "box_peak_db_above_out": 29.33,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/9",
+      "signal_id": 3,
+      "class": 6,
+      "stratum": "control",
+      "B_mhz": 40.0,
+      "bw_mhz": 1.0,
+      "f_lo_mhz": 2401.0,
+      "f1_mhz": 2409.5,
+      "f2_mhz": 2410.5,
+      "t1_ms": 49.0,
+      "t2_ms": 80.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 59.5,
+      "win_t1_ms": 69.5,
+      "i0": 2380000,
+      "i1": 2780000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 10001,
+        "n_out_bins": 350001,
+        "out_region_empty": false,
+        "in_out_db": 17.73,
+        "box_peak_db_above_out": 22.3,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2415.9996,
+            "digital_mhz": -5.0004,
+            "psd_db": 82.05,
+            "db_above_out": 33.98,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2434.0015,
+            "digital_mhz": 13.0015,
+            "psd_db": 76.6,
+            "db_above_out": 28.53,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2432.0002,
+            "digital_mhz": 11.0002,
+            "psd_db": 74.24,
+            "db_above_out": 26.17,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 51.33,
+        "peak_offset_abs_khz": 51.33,
+        "occupied_minus10db_mhz": 0.975,
+        "energy_keep_ratio": 0.2338,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": -14.0,
+        "peak_offset_abs_mhz": 14.0
+      },
+      "verdict": {
+        "in_out_db": 17.73,
+        "box_peak_db_above_out": 22.3,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/21",
+      "signal_id": 4,
+      "class": 6,
+      "stratum": "control",
+      "B_mhz": 30.0,
+      "bw_mhz": 1.0,
+      "f_lo_mhz": 2445.0,
+      "f1_mhz": 2445.5,
+      "f2_mhz": 2446.5,
+      "t1_ms": 42.0,
+      "t2_ms": 67.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 49.5,
+      "win_t1_ms": 59.5,
+      "i0": 1485000,
+      "i1": 1785000,
+      "n_samples": 300000,
+      "raw": {
+        "n_in_bins": 10001,
+        "n_out_bins": 265000,
+        "out_region_empty": false,
+        "in_out_db": 23.96,
+        "box_peak_db_above_out": 30.03,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2449.996,
+            "digital_mhz": -10.004,
+            "psd_db": 86.21,
+            "db_above_out": 34.96,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2454.977,
+            "digital_mhz": -5.023,
+            "psd_db": 84.53,
+            "db_above_out": 33.28,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2446.0153,
+            "digital_mhz": -13.9847,
+            "psd_db": 81.28,
+            "db_above_out": 30.03,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 16.56,
+        "peak_offset_abs_khz": 16.56,
+        "occupied_minus10db_mhz": 0.898,
+        "energy_keep_ratio": 0.391,
+        "n_trim_samples": 15000,
+        "n_after_trim": 270000
+      },
+      "old": {
+        "peak_offset_mhz": -11.004,
+        "peak_offset_abs_mhz": 11.004
+      },
+      "verdict": {
+        "in_out_db": 23.96,
+        "box_peak_db_above_out": 30.03,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/50",
+      "signal_id": 2,
+      "class": 6,
+      "stratum": "control",
+      "B_mhz": 20.0,
+      "bw_mhz": 1.0,
+      "f_lo_mhz": 2427.0,
+      "f1_mhz": 2439.5,
+      "f2_mhz": 2440.5,
+      "t1_ms": 0.0,
+      "t2_ms": 18.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 4.0,
+      "win_t1_ms": 14.0,
+      "i0": 80000,
+      "i1": 280000,
+      "n_samples": 200000,
+      "raw": {
+        "n_in_bins": 10001,
+        "n_out_bins": 150001,
+        "out_region_empty": false,
+        "in_out_db": 11.57,
+        "box_peak_db_above_out": 17.41,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2441.0096,
+            "digital_mhz": 4.0096,
+            "psd_db": 89.95,
+            "db_above_out": 29.25,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2439.9218,
+            "digital_mhz": 2.9218,
+            "psd_db": 78.11,
+            "db_above_out": 17.41,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2440.1323,
+            "digital_mhz": 3.1323,
+            "psd_db": 77.44,
+            "db_above_out": 16.74,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -77.78,
+        "peak_offset_abs_khz": 77.78,
+        "occupied_minus10db_mhz": 0.903,
+        "energy_keep_ratio": 0.2453,
+        "n_trim_samples": 10000,
+        "n_after_trim": 180000
+      },
+      "old": {
+        "peak_offset_mhz": -8.99,
+        "peak_offset_abs_mhz": 8.99
+      },
+      "verdict": {
+        "in_out_db": 11.57,
+        "box_peak_db_above_out": 17.41,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/9",
+      "signal_id": 2,
+      "class": 8,
+      "stratum": "control",
+      "B_mhz": 40.0,
+      "bw_mhz": 2.0,
+      "f_lo_mhz": 2401.0,
+      "f1_mhz": 2421.0,
+      "f2_mhz": 2423.0,
+      "t1_ms": 29.0,
+      "t2_ms": 52.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 35.5,
+      "win_t1_ms": 45.5,
+      "i0": 1420000,
+      "i1": 1820000,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 20001,
+        "n_out_bins": 340001,
+        "out_region_empty": false,
+        "in_out_db": 21.49,
+        "box_peak_db_above_out": 27.98,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2415.9995,
+            "digital_mhz": -5.0005,
+            "psd_db": 81.56,
+            "db_above_out": 33.6,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2434.0057,
+            "digital_mhz": 13.0057,
+            "psd_db": 76.72,
+            "db_above_out": 28.76,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2421.5689,
+            "digital_mhz": 0.5689,
+            "psd_db": 75.94,
+            "db_above_out": 27.98,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -439.11,
+        "peak_offset_abs_khz": 439.11,
+        "occupied_minus10db_mhz": 1.88,
+        "energy_keep_ratio": 0.5917,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": 13.999,
+        "peak_offset_abs_mhz": 13.999
+      },
+      "verdict": {
+        "in_out_db": 21.49,
+        "box_peak_db_above_out": 27.98,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/18",
+      "signal_id": 2,
+      "class": 8,
+      "stratum": "control",
+      "B_mhz": 80.0,
+      "bw_mhz": 2.0,
+      "f_lo_mhz": 2402.0,
+      "f1_mhz": 2476.0,
+      "f2_mhz": 2478.0,
+      "t1_ms": 0.0,
+      "t2_ms": 40.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 15.0,
+      "win_t1_ms": 25.0,
+      "i0": 1200000,
+      "i1": 2000000,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 20001,
+        "n_out_bins": 740001,
+        "out_region_empty": false,
+        "in_out_db": 11.52,
+        "box_peak_db_above_out": 17.94,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2449.9661,
+            "digital_mhz": 7.9661,
+            "psd_db": 84.13,
+            "db_above_out": 30.48,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2471.9758,
+            "digital_mhz": 29.9758,
+            "psd_db": 81.53,
+            "db_above_out": 27.88,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2476.5683,
+            "digital_mhz": 34.5683,
+            "psd_db": 71.59,
+            "db_above_out": 17.94,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -433.0,
+        "peak_offset_abs_khz": 433.0,
+        "occupied_minus10db_mhz": 1.903,
+        "energy_keep_ratio": 0.0931,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": 12.966,
+        "peak_offset_abs_mhz": 12.966
+      },
+      "verdict": {
+        "in_out_db": 11.52,
+        "box_peak_db_above_out": 17.94,
+        "target_at_label": true
+      }
+    },
+    {
+      "sample_id": "train/57",
+      "signal_id": 3,
+      "class": 8,
+      "stratum": "control",
+      "B_mhz": 50.0,
+      "bw_mhz": 2.0,
+      "f_lo_mhz": 2426.0,
+      "f1_mhz": 2431.0,
+      "f2_mhz": 2433.0,
+      "t1_ms": 0.0,
+      "t2_ms": 49.0,
+      "win_ms": 10.0,
+      "win_t0_ms": 19.5,
+      "win_t1_ms": 29.5,
+      "i0": 975000,
+      "i1": 1475000,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 20001,
+        "n_out_bins": 440001,
+        "out_region_empty": false,
+        "in_out_db": 21.23,
+        "box_peak_db_above_out": 24.84,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2437.9887,
+            "digital_mhz": -13.0113,
+            "psd_db": 88.3,
+            "db_above_out": 37.85,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2466.0121,
+            "digital_mhz": 15.0121,
+            "psd_db": 76.37,
+            "db_above_out": 25.92,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2466.2137,
+            "digital_mhz": 15.2137,
+            "psd_db": 75.54,
+            "db_above_out": 25.09,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -23.11,
+        "peak_offset_abs_khz": 23.11,
+        "occupied_minus10db_mhz": 1.957,
+        "energy_keep_ratio": 0.2142,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": -19.011,
+        "peak_offset_abs_mhz": 19.011
+      },
+      "verdict": {
+        "in_out_db": 21.23,
+        "box_peak_db_above_out": 24.84,
+        "target_at_label": true
+      }
+    }
+  ],
+  "synthetic_noise": [
+    {
+      "label": "noise (40,20)",
+      "B_mhz": 40.0,
+      "bw_mhz": 20.0,
+      "f_lo_mhz": 2407.0,
+      "f1_mhz": 2412.0,
+      "f2_mhz": 2432.0,
+      "clone_of": "train/20",
+      "win_ms": 10.0,
+      "content": "complex white gaussian noise",
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 200001,
+        "n_out_bins": 160001,
+        "out_region_empty": false,
+        "in_out_db": -0.03,
+        "box_peak_db_above_out": 2.25,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2426.288,
+            "digital_mhz": -0.712,
+            "psd_db": 59.7,
+            "db_above_out": 2.25,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2438.2452,
+            "digital_mhz": 11.2452,
+            "psd_db": 59.69,
+            "db_above_out": 2.24,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2435.7526,
+            "digital_mhz": 8.7526,
+            "psd_db": 59.68,
+            "db_above_out": 2.24,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 4287.78,
+        "peak_offset_abs_khz": 4287.78,
+        "occupied_minus10db_mhz": 20.4,
+        "energy_keep_ratio": 0.495,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": -15.712,
+        "peak_offset_abs_mhz": 15.712
+      },
+      "verdict": {
+        "in_out_db": -0.03,
+        "box_peak_db_above_out": 2.25,
+        "target_at_label": false
+      }
+    },
+    {
+      "label": "noise (80,40)",
+      "B_mhz": 80.0,
+      "bw_mhz": 40.0,
+      "f_lo_mhz": 2401.0,
+      "f1_mhz": 2437.0,
+      "f2_mhz": 2477.0,
+      "clone_of": "train/1494",
+      "win_ms": 10.0,
+      "content": "complex white gaussian noise",
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 400001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": -0.01,
+        "box_peak_db_above_out": 2.29,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2426.1112,
+            "digital_mhz": -14.8888,
+            "psd_db": 62.78,
+            "db_above_out": 2.32,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2477.3753,
+            "digital_mhz": 36.3753,
+            "psd_db": 62.76,
+            "db_above_out": 2.3,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2454.4888,
+            "digital_mhz": 13.4888,
+            "psd_db": 62.74,
+            "db_above_out": 2.29,
+            "inside_box": true
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 7240.44,
+        "peak_offset_abs_khz": 7240.44,
+        "occupied_minus10db_mhz": 40.8,
+        "energy_keep_ratio": 0.4978,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": 9.111,
+        "peak_offset_abs_mhz": 9.111
+      },
+      "verdict": {
+        "in_out_db": -0.01,
+        "box_peak_db_above_out": 2.29,
+        "target_at_label": false
+      }
+    },
+    {
+      "label": "noise (40,10)",
+      "B_mhz": 40.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2432.0,
+      "f1_mhz": 2442.0,
+      "f2_mhz": 2452.0,
+      "clone_of": "train/1058",
+      "win_ms": 10.0,
+      "content": "complex white gaussian noise",
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 260001,
+        "out_region_empty": false,
+        "in_out_db": -0.01,
+        "box_peak_db_above_out": 2.24,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2433.2133,
+            "digital_mhz": -18.7867,
+            "psd_db": 59.78,
+            "db_above_out": 2.34,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2449.5492,
+            "digital_mhz": -2.4508,
+            "psd_db": 59.68,
+            "db_above_out": 2.24,
+            "inside_box": true
+          },
+          {
+            "abs_mhz": 2439.1842,
+            "digital_mhz": -12.8158,
+            "psd_db": 59.68,
+            "db_above_out": 2.23,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -1010.0,
+        "peak_offset_abs_khz": 1010.0,
+        "occupied_minus10db_mhz": 10.2,
+        "energy_keep_ratio": 0.2478,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": 6.213,
+        "peak_offset_abs_mhz": 6.213
+      },
+      "verdict": {
+        "in_out_db": -0.01,
+        "box_peak_db_above_out": 2.24,
+        "target_at_label": false
+      }
+    },
+    {
+      "label": "noise (30,2)",
+      "B_mhz": 30.0,
+      "bw_mhz": 2.0,
+      "f_lo_mhz": 2400.0,
+      "f1_mhz": 2411.0,
+      "f2_mhz": 2413.0,
+      "clone_of": null,
+      "win_ms": 10.0,
+      "content": "complex white gaussian noise",
+      "n_samples": 300000,
+      "raw": {
+        "n_in_bins": 20001,
+        "n_out_bins": 240001,
+        "out_region_empty": false,
+        "in_out_db": -0.02,
+        "box_peak_db_above_out": 2.17,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2424.6524,
+            "digital_mhz": 9.6524,
+            "psd_db": 58.52,
+            "db_above_out": 2.32,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2402.6122,
+            "digital_mhz": -12.3878,
+            "psd_db": 58.49,
+            "db_above_out": 2.29,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2406.3624,
+            "digital_mhz": -8.6376,
+            "psd_db": 58.47,
+            "db_above_out": 2.27,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": 283.89,
+        "peak_offset_abs_khz": 283.89,
+        "occupied_minus10db_mhz": 2.04,
+        "energy_keep_ratio": 0.0657,
+        "n_trim_samples": 15000,
+        "n_after_trim": 270000
+      },
+      "old": {
+        "peak_offset_mhz": -2.348,
+        "peak_offset_abs_mhz": 2.348
+      },
+      "verdict": {
+        "in_out_db": -0.02,
+        "box_peak_db_above_out": 2.17,
+        "target_at_label": false
+      }
+    }
+  ],
+  "decoy_controls": [
+    {
+      "sample_id": "train/123",
+      "signal_id": 1,
+      "class": 11,
+      "stratum": "clean",
+      "B_mhz": 80.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2400.0,
+      "target_box_mhz": [
+        2442.0,
+        2452.0
+      ],
+      "decoy_band_mhz": [
+        2457.0,
+        2467.0
+      ],
+      "decoy_center_mhz": 2462.0,
+      "decoy_shift_mhz": 15.0,
+      "json_overlap": [],
+      "win_ms": 10.0,
+      "n_samples": 800000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 660001,
+        "out_region_empty": false,
+        "in_out_db": -0.95,
+        "box_peak_db_above_out": 2.66,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2431.9801,
+            "digital_mhz": -8.0199,
+            "psd_db": 78.17,
+            "db_above_out": 30.08,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2431.7794,
+            "digital_mhz": -8.2206,
+            "psd_db": 76.24,
+            "db_above_out": 28.15,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2432.185,
+            "digital_mhz": -7.815,
+            "psd_db": 74.91,
+            "db_above_out": 26.82,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -4123.44,
+        "peak_offset_abs_khz": 4123.44,
+        "occupied_minus10db_mhz": 10.2,
+        "energy_keep_ratio": 0.017,
+        "n_trim_samples": 40000,
+        "n_after_trim": 720000
+      },
+      "old": {
+        "peak_offset_mhz": 9.98,
+        "peak_offset_abs_mhz": 9.98
+      },
+      "verdict": {
+        "in_out_db": -0.95,
+        "box_peak_db_above_out": 2.66,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1471",
+      "signal_id": 0,
+      "class": 11,
+      "stratum": "clean",
+      "B_mhz": 50.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2407.0,
+      "target_box_mhz": [
+        2422.0,
+        2432.0
+      ],
+      "decoy_band_mhz": [
+        2437.0,
+        2447.0
+      ],
+      "decoy_center_mhz": 2442.0,
+      "decoy_shift_mhz": 15.0,
+      "json_overlap": [],
+      "win_ms": 10.0,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 360001,
+        "out_region_empty": false,
+        "in_out_db": -3.08,
+        "box_peak_db_above_out": 6.15,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2417.5342,
+            "digital_mhz": -14.4658,
+            "psd_db": 76.3,
+            "db_above_out": 21.25,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2417.1975,
+            "digital_mhz": -14.8025,
+            "psd_db": 76.12,
+            "db_above_out": 21.08,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2416.944,
+            "digital_mhz": -15.056,
+            "psd_db": 75.89,
+            "db_above_out": 20.84,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -1947.11,
+        "peak_offset_abs_khz": 1947.11,
+        "occupied_minus10db_mhz": 7.589,
+        "energy_keep_ratio": 0.0272,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": 0.534,
+        "peak_offset_abs_mhz": 0.534
+      },
+      "verdict": {
+        "in_out_db": -3.08,
+        "box_peak_db_above_out": 6.15,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/1986",
+      "signal_id": 0,
+      "class": 11,
+      "stratum": "clean",
+      "B_mhz": 40.0,
+      "bw_mhz": 10.0,
+      "f_lo_mhz": 2431.0,
+      "target_box_mhz": [
+        2432.0,
+        2442.0
+      ],
+      "decoy_band_mhz": [
+        2447.0,
+        2457.0
+      ],
+      "decoy_center_mhz": 2452.0,
+      "decoy_shift_mhz": 15.0,
+      "json_overlap": [],
+      "win_ms": 10.0,
+      "n_samples": 400000,
+      "raw": {
+        "n_in_bins": 100001,
+        "n_out_bins": 260001,
+        "out_region_empty": false,
+        "in_out_db": -3.55,
+        "box_peak_db_above_out": 10.03,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2466.8734,
+            "digital_mhz": 15.8734,
+            "psd_db": 85.86,
+            "db_above_out": 34.28,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2467.1699,
+            "digital_mhz": 16.1699,
+            "psd_db": 85.56,
+            "db_above_out": 33.98,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2467.4894,
+            "digital_mhz": 16.4894,
+            "psd_db": 76.86,
+            "db_above_out": 25.28,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -3990.11,
+        "peak_offset_abs_khz": 3990.11,
+        "occupied_minus10db_mhz": 1.817,
+        "energy_keep_ratio": 0.0102,
+        "n_trim_samples": 20000,
+        "n_after_trim": 360000
+      },
+      "old": {
+        "peak_offset_mhz": -5.127,
+        "peak_offset_abs_mhz": 5.127
+      },
+      "verdict": {
+        "in_out_db": -3.55,
+        "box_peak_db_above_out": 10.03,
+        "target_at_label": false
+      }
+    },
+    {
+      "sample_id": "train/57",
+      "signal_id": 3,
+      "class": 8,
+      "stratum": "control",
+      "B_mhz": 50.0,
+      "bw_mhz": 2.0,
+      "f_lo_mhz": 2426.0,
+      "target_box_mhz": [
+        2431.0,
+        2433.0
+      ],
+      "decoy_band_mhz": [
+        2446.0,
+        2448.0
+      ],
+      "decoy_center_mhz": 2447.0,
+      "decoy_shift_mhz": 15.0,
+      "json_overlap": [],
+      "win_ms": 10.0,
+      "n_samples": 500000,
+      "raw": {
+        "n_in_bins": 20001,
+        "n_out_bins": 440001,
+        "out_region_empty": false,
+        "in_out_db": 0.19,
+        "box_peak_db_above_out": 3.97,
+        "smooth_bins": 500,
+        "df_hz": 100.0,
+        "top3": [
+          {
+            "abs_mhz": 2437.9887,
+            "digital_mhz": -13.0113,
+            "psd_db": 88.3,
+            "db_above_out": 37.62,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2466.0121,
+            "digital_mhz": 15.0121,
+            "psd_db": 76.37,
+            "db_above_out": 25.69,
+            "inside_box": false
+          },
+          {
+            "abs_mhz": 2466.2137,
+            "digital_mhz": 15.2137,
+            "psd_db": 75.54,
+            "db_above_out": 24.86,
+            "inside_box": false
+          }
+        ]
+      },
+      "corrected": {
+        "peak_offset_khz": -537.33,
+        "peak_offset_abs_khz": 537.33,
+        "occupied_minus10db_mhz": 2.04,
+        "energy_keep_ratio": 0.0019,
+        "n_trim_samples": 25000,
+        "n_after_trim": 450000
+      },
+      "old": {
+        "peak_offset_mhz": 15.989,
+        "peak_offset_abs_mhz": 15.989
+      },
+      "verdict": {
+        "in_out_db": 0.19,
+        "box_peak_db_above_out": 3.97,
+        "target_at_label": false
+      }
+    }
+  ],
+  "decoy_rejected": [
+    {
+      "id": "train/1099:0",
+      "decoy_band_mhz": [
+        2442.0,
+        2452.0
+      ],
+      "json_overlap": [
+        {
+          "signal_id": 4,
+          "class": 4,
+          "f1_mhz": 2437.0,
+          "f2_mhz": 2477.0,
+          "t1_ms": 0.0,
+          "t2_ms": 39.0
+        }
+      ]
+    },
+    {
+      "id": "train/1058:1",
+      "decoy_band_mhz": [
+        2457.0,
+        2467.0
+      ],
+      "json_overlap": [
+        {
+          "signal_id": 0,
+          "class": 9,
+          "f1_mhz": 2463.97385,
+          "f2_mhz": 2464.02615,
+          "t1_ms": 0.0,
+          "t2_ms": 40.0
+        },
+        {
+          "signal_id": 3,
+          "class": 9,
+          "f1_mhz": 2464.97385,
+          "f2_mhz": 2465.02615,
+          "t1_ms": 0.0,
+          "t2_ms": 40.0
+        }
+      ]
+    },
+    {
+      "id": "train/9:2",
+      "decoy_band_mhz": [
+        2436.0,
+        2438.0
+      ],
+      "json_overlap": [
+        {
+          "signal_id": 5,
+          "class": 9,
+          "f1_mhz": 2437.875,
+          "f2_mhz": 2438.125,
+          "t1_ms": 15.0,
+          "t2_ms": 37.0
+        }
+      ]
+    },
+    {
+      "id": "train/21:4",
+      "decoy_band_mhz": [
+        2460.5,
+        2461.5
+      ],
+      "json_overlap": [
+        {
+          "signal_id": 2,
+          "class": 8,
+          "f1_mhz": 2461.0,
+          "f2_mhz": 2463.0,
+          "t1_ms": 41.0,
+          "t2_ms": 97.0
+        }
+      ]
+    },
+    {
+      "id": "train/1037:1",
+      "decoy_band_mhz": [
+        2457.0,
+        2467.0
+      ],
+      "json_overlap": [
+        {
+          "signal_id": 4,
+          "class": 6,
+          "f1_mhz": 2457.5,
+          "f2_mhz": 2458.5,
+          "t1_ms": 9.0,
+          "t2_ms": 20.0
+        },
+        {
+          "signal_id": 5,
+          "class": 13,
+          "f1_mhz": 2459.94,
+          "f2_mhz": 2460.06,
+          "t1_ms": 0.0,
+          "t2_ms": 20.0
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "per_class_stratum": {
+      "0/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 2,
+        "med_in_out_db": 9.92,
+        "med_box_peak_db": 16.96,
+        "med_abs_peak_khz": 5002.17,
+        "med_occupied_mhz": 16.38,
+        "med_abs_old_peak_mhz": 10.63,
+        "med_keep_ratio": 0.63,
+        "pass_frac": 0.5
+      },
+      "0/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 1,
+        "med_in_out_db": 8.29,
+        "med_box_peak_db": 28.77,
+        "med_abs_peak_khz": 4525.11,
+        "med_occupied_mhz": 1.42,
+        "med_abs_old_peak_mhz": 15.47,
+        "med_keep_ratio": 0.6,
+        "pass_frac": 1.0
+      },
+      "1/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 3,
+        "med_in_out_db": 10.34,
+        "med_box_peak_db": 16.38,
+        "med_abs_peak_khz": 5313.06,
+        "med_occupied_mhz": 19.61,
+        "med_abs_old_peak_mhz": 3.7,
+        "med_keep_ratio": 0.48,
+        "pass_frac": 0.75
+      },
+      "1/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 0,
+        "med_in_out_db": 2.37,
+        "med_box_peak_db": 7.12,
+        "med_abs_peak_khz": 4993.56,
+        "med_occupied_mhz": 19.89,
+        "med_abs_old_peak_mhz": 1.0,
+        "med_keep_ratio": 0.57,
+        "pass_frac": 0.0
+      },
+      "2/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 3,
+        "med_in_out_db": 8.4,
+        "med_box_peak_db": 18.43,
+        "med_abs_peak_khz": 3740.05,
+        "med_occupied_mhz": 14.88,
+        "med_abs_old_peak_mhz": 12.75,
+        "med_keep_ratio": 0.61,
+        "pass_frac": 0.75
+      },
+      "2/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 1,
+        "med_in_out_db": 9.86,
+        "med_box_peak_db": 31.84,
+        "med_abs_peak_khz": 0.89,
+        "med_occupied_mhz": 1.88,
+        "med_abs_old_peak_mhz": 0.01,
+        "med_keep_ratio": 0.78,
+        "pass_frac": 1.0
+      },
+      "3/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 4,
+        "med_in_out_db": 8.48,
+        "med_box_peak_db": 14.83,
+        "med_abs_peak_khz": 3754.39,
+        "med_occupied_mhz": 35.89,
+        "med_abs_old_peak_mhz": 24.22,
+        "med_keep_ratio": 0.85,
+        "pass_frac": 1.0
+      },
+      "3/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 0,
+        "med_in_out_db": null,
+        "med_box_peak_db": null,
+        "med_abs_peak_khz": 18961.33,
+        "med_occupied_mhz": 6.99,
+        "med_abs_old_peak_mhz": 1.0,
+        "med_keep_ratio": 0.98,
+        "pass_frac": 0.0
+      },
+      "4/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 3,
+        "med_in_out_db": 9.3,
+        "med_box_peak_db": 16.59,
+        "med_abs_peak_khz": 14064.0,
+        "med_occupied_mhz": 35.64,
+        "med_abs_old_peak_mhz": 16.85,
+        "med_keep_ratio": 0.78,
+        "pass_frac": 0.75
+      },
+      "4/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 0,
+        "med_in_out_db": 5.67,
+        "med_box_peak_db": 24.57,
+        "med_abs_peak_khz": 5015.33,
+        "med_occupied_mhz": 2.01,
+        "med_abs_old_peak_mhz": 34.98,
+        "med_keep_ratio": 0.87,
+        "pass_frac": 0.0
+      },
+      "5/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 3,
+        "med_in_out_db": 10.62,
+        "med_box_peak_db": 20.35,
+        "med_abs_peak_khz": 8444.56,
+        "med_occupied_mhz": 24.9,
+        "med_abs_old_peak_mhz": 10.76,
+        "med_keep_ratio": 0.98,
+        "pass_frac": 0.75
+      },
+      "5/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 0,
+        "med_in_out_db": null,
+        "med_box_peak_db": null,
+        "med_abs_peak_khz": 16000.44,
+        "med_occupied_mhz": 0.68,
+        "med_abs_old_peak_mhz": 4.0,
+        "med_keep_ratio": 0.99,
+        "pass_frac": 0.0
+      },
+      "6/control": {
+        "n": 3,
+        "n_ok": 3,
+        "n_pass": 3,
+        "med_in_out_db": 17.73,
+        "med_box_peak_db": 22.3,
+        "med_abs_peak_khz": 51.33,
+        "med_occupied_mhz": 0.9,
+        "med_abs_old_peak_mhz": 11.0,
+        "med_keep_ratio": 0.25,
+        "pass_frac": 1.0
+      },
+      "8/control": {
+        "n": 3,
+        "n_ok": 3,
+        "n_pass": 3,
+        "med_in_out_db": 21.23,
+        "med_box_peak_db": 24.84,
+        "med_abs_peak_khz": 433.0,
+        "med_occupied_mhz": 1.9,
+        "med_abs_old_peak_mhz": 14.0,
+        "med_keep_ratio": 0.21,
+        "pass_frac": 1.0
+      },
+      "10/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 4,
+        "med_in_out_db": 11.98,
+        "med_box_peak_db": 15.47,
+        "med_abs_peak_khz": 1154.89,
+        "med_occupied_mhz": 9.46,
+        "med_abs_old_peak_mhz": 3.55,
+        "med_keep_ratio": 0.42,
+        "pass_frac": 1.0
+      },
+      "10/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 0,
+        "med_in_out_db": 4.5,
+        "med_box_peak_db": 28.36,
+        "med_abs_peak_khz": 2.11,
+        "med_occupied_mhz": 0.07,
+        "med_abs_old_peak_mhz": 10.0,
+        "med_keep_ratio": 0.73,
+        "pass_frac": 0.0
+      },
+      "11/clean": {
+        "n": 4,
+        "n_ok": 4,
+        "n_pass": 4,
+        "med_in_out_db": 11.54,
+        "med_box_peak_db": 17.07,
+        "med_abs_peak_khz": 2757.0,
+        "med_occupied_mhz": 9.52,
+        "med_abs_old_peak_mhz": 12.7,
+        "med_keep_ratio": 0.37,
+        "pass_frac": 1.0
+      },
+      "11/overlap": {
+        "n": 1,
+        "n_ok": 1,
+        "n_pass": 1,
+        "med_in_out_db": 23.14,
+        "med_box_peak_db": 29.33,
+        "med_abs_peak_khz": 8.11,
+        "med_occupied_mhz": 9.05,
+        "med_abs_old_peak_mhz": 9.99,
+        "med_keep_ratio": 0.98,
+        "pass_frac": 1.0
+      }
+    },
+    "per_class": {
+      "0": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 3,
+        "med_in_out_db": 8.29,
+        "med_box_peak_db": 18.38,
+        "med_abs_peak_khz": 4997.56,
+        "med_occupied_mhz": 16.32,
+        "med_abs_old_peak_mhz": 11.91,
+        "med_keep_ratio": 0.6,
+        "pass_frac": 0.6
+      },
+      "1": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 3,
+        "med_in_out_db": 8.55,
+        "med_box_peak_db": 15.9,
+        "med_abs_peak_khz": 5019.78,
+        "med_occupied_mhz": 19.64,
+        "med_abs_old_peak_mhz": 2.3,
+        "med_keep_ratio": 0.57,
+        "pass_frac": 0.6
+      },
+      "2": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 4,
+        "med_in_out_db": 9.86,
+        "med_box_peak_db": 18.49,
+        "med_abs_peak_khz": 2484.0,
+        "med_occupied_mhz": 13.47,
+        "med_abs_old_peak_mhz": 12.52,
+        "med_keep_ratio": 0.73,
+        "pass_frac": 0.8
+      },
+      "3": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 4,
+        "med_in_out_db": 8.48,
+        "med_box_peak_db": 14.83,
+        "med_abs_peak_khz": 5004.78,
+        "med_occupied_mhz": 35.79,
+        "med_abs_old_peak_mhz": 10.94,
+        "med_keep_ratio": 0.9,
+        "pass_frac": 0.8
+      },
+      "4": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 3,
+        "med_in_out_db": 8.28,
+        "med_box_peak_db": 16.79,
+        "med_abs_peak_khz": 12201.33,
+        "med_occupied_mhz": 35.62,
+        "med_abs_old_peak_mhz": 18.75,
+        "med_keep_ratio": 0.87,
+        "pass_frac": 0.6
+      },
+      "5": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 3,
+        "med_in_out_db": 10.62,
+        "med_box_peak_db": 20.35,
+        "med_abs_peak_khz": 11883.56,
+        "med_occupied_mhz": 14.12,
+        "med_abs_old_peak_mhz": 7.48,
+        "med_keep_ratio": 0.99,
+        "pass_frac": 0.6
+      },
+      "6": {
+        "n": 3,
+        "n_ok": 3,
+        "n_pass": 3,
+        "med_in_out_db": 17.73,
+        "med_box_peak_db": 22.3,
+        "med_abs_peak_khz": 51.33,
+        "med_occupied_mhz": 0.9,
+        "med_abs_old_peak_mhz": 11.0,
+        "med_keep_ratio": 0.25,
+        "pass_frac": 1.0
+      },
+      "8": {
+        "n": 3,
+        "n_ok": 3,
+        "n_pass": 3,
+        "med_in_out_db": 21.23,
+        "med_box_peak_db": 24.84,
+        "med_abs_peak_khz": 433.0,
+        "med_occupied_mhz": 1.9,
+        "med_abs_old_peak_mhz": 14.0,
+        "med_keep_ratio": 0.21,
+        "pass_frac": 1.0
+      },
+      "10": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 4,
+        "med_in_out_db": 11.32,
+        "med_box_peak_db": 16.69,
+        "med_abs_peak_khz": 468.89,
+        "med_occupied_mhz": 9.46,
+        "med_abs_old_peak_mhz": 5.09,
+        "med_keep_ratio": 0.52,
+        "pass_frac": 0.8
+      },
+      "11": {
+        "n": 5,
+        "n_ok": 5,
+        "n_pass": 5,
+        "med_in_out_db": 13.36,
+        "med_box_peak_db": 17.17,
+        "med_abs_peak_khz": 2691.89,
+        "med_occupied_mhz": 9.41,
+        "med_abs_old_peak_mhz": 9.99,
+        "med_keep_ratio": 0.5,
+        "pass_frac": 1.0
+      }
+    },
+    "per_stratum": {
+      "clean": {
+        "n": 32,
+        "n_ok": 32,
+        "n_pass": 26,
+        "med_in_out_db": 9.9,
+        "med_box_peak_db": 16.82,
+        "med_abs_peak_khz": 4996.84,
+        "med_occupied_mhz": 16.31,
+        "med_abs_old_peak_mhz": 11.48,
+        "med_keep_ratio": 0.63,
+        "pass_frac": 0.812
+      },
+      "control": {
+        "n": 6,
+        "n_ok": 6,
+        "n_pass": 6,
+        "med_in_out_db": 19.48,
+        "med_box_peak_db": 23.57,
+        "med_abs_peak_khz": 64.56,
+        "med_occupied_mhz": 1.43,
+        "med_abs_old_peak_mhz": 13.48,
+        "med_keep_ratio": 0.24,
+        "pass_frac": 1.0
+      },
+      "overlap": {
+        "n": 8,
+        "n_ok": 8,
+        "n_pass": 3,
+        "med_in_out_db": 6.98,
+        "med_box_peak_db": 28.56,
+        "med_abs_peak_khz": 4759.34,
+        "med_occupied_mhz": 1.94,
+        "med_abs_old_peak_mhz": 7.0,
+        "med_keep_ratio": 0.83,
+        "pass_frac": 0.375
+      }
+    },
+    "overall": {
+      "n": 46,
+      "n_ok": 46,
+      "n_pass": 35,
+      "med_in_out_db": 10.18,
+      "med_box_peak_db": 17.69,
+      "med_abs_peak_khz": 3746.44,
+      "med_occupied_mhz": 11.68,
+      "med_abs_old_peak_mhz": 11.03,
+      "med_keep_ratio": 0.61,
+      "pass_frac": 0.761
+    },
+    "synthetic_noise": {
+      "n": 4,
+      "n_ok": 4,
+      "n_pass": 0,
+      "med_in_out_db": -0.01,
+      "med_box_peak_db": 2.25,
+      "med_abs_peak_khz": 2648.89,
+      "med_occupied_mhz": 15.3,
+      "med_abs_old_peak_mhz": 7.66,
+      "med_keep_ratio": 0.37,
+      "pass_frac": 0.0
+    },
+    "decoy_controls": {
+      "n": 4,
+      "n_ok": 4,
+      "n_pass": 0,
+      "med_in_out_db": -2.02,
+      "med_box_peak_db": 5.06,
+      "med_abs_peak_khz": 2968.61,
+      "med_occupied_mhz": 4.81,
+      "med_abs_old_peak_mhz": 7.55,
+      "med_keep_ratio": 0.01,
+      "pass_frac": 0.0
+    },
+    "old_demod_near_halfband": {
+      "n": 46,
+      "count": 18,
+      "matches_top1_inside_box": true,
+      "ids": [
+        "train/20:1",
+        "train/208:0",
+        "train/1009:0",
+        "train/1556:0",
+        "train/2982:0",
+        "train/1504:2",
+        "train/2240:5",
+        "train/1021:3",
+        "train/1337:4",
+        "train/1550:0",
+        "train/103:2",
+        "train/1975:0",
+        "train/3042:0",
+        "train/312:0",
+        "train/1016:0",
+        "train/1011:0",
+        "train/1093:0",
+        "train/1004:1"
+      ]
+    },
+    "verdict_fail_frames": [
+      {
+        "id": "train/1024:0",
+        "class": 0,
+        "stratum": "clean",
+        "in_out_db": 5.84,
+        "box_peak_db": 15.54,
+        "top1_inside_box": false,
+        "top1_abs_mhz": 2475.0893,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/1153:3",
+        "class": 0,
+        "stratum": "clean",
+        "in_out_db": 4.74,
+        "box_peak_db": 11.4,
+        "top1_inside_box": false,
+        "top1_abs_mhz": 2473.6959,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/1620:1",
+        "class": 1,
+        "stratum": "clean",
+        "in_out_db": 4.49,
+        "box_peak_db": 8.2,
+        "top1_inside_box": false,
+        "top1_abs_mhz": 2436.1677,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/1021:1",
+        "class": 1,
+        "stratum": "overlap",
+        "in_out_db": 2.37,
+        "box_peak_db": 7.12,
+        "top1_inside_box": false,
+        "top1_abs_mhz": 2433.0054,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/1425:2",
+        "class": 2,
+        "stratum": "clean",
+        "in_out_db": 1.32,
+        "box_peak_db": 17.85,
+        "top1_inside_box": false,
+        "top1_abs_mhz": 2444.0134,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/1021:3",
+        "class": 3,
+        "stratum": "overlap",
+        "in_out_db": null,
+        "box_peak_db": null,
+        "top1_inside_box": true,
+        "top1_abs_mhz": 2432.9957,
+        "out_region_empty": true
+      },
+      {
+        "id": "train/1980:3",
+        "class": 4,
+        "stratum": "clean",
+        "in_out_db": 4.59,
+        "box_peak_db": 17.53,
+        "top1_inside_box": false,
+        "top1_abs_mhz": 2472.0526,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/103:2",
+        "class": 4,
+        "stratum": "overlap",
+        "in_out_db": 5.67,
+        "box_peak_db": 24.57,
+        "top1_inside_box": true,
+        "top1_abs_mhz": 2437.0153,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/10:3",
+        "class": 5,
+        "stratum": "clean",
+        "in_out_db": 3.74,
+        "box_peak_db": 20.99,
+        "top1_inside_box": false,
+        "top1_abs_mhz": 2407.0318,
+        "out_region_empty": false
+      },
+      {
+        "id": "train/1016:0",
+        "class": 5,
+        "stratum": "overlap",
+        "in_out_db": null,
+        "box_peak_db": null,
+        "top1_inside_box": true,
+        "top1_abs_mhz": 2435.9995,
+        "out_region_empty": true
+      },
+      {
+        "id": "train/1011:0",
+        "class": 10,
+        "stratum": "overlap",
+        "in_out_db": 4.5,
+        "box_peak_db": 28.36,
+        "top1_inside_box": true,
+        "top1_abs_mhz": 2436.9959,
+        "out_region_empty": false
+      }
+    ],
+    "fail_not_evaluable": [
+      "train/1021:3",
+      "train/1016:0"
+    ],
+    "fail_narrow_tone_only": [
+      "train/1024:0",
+      "train/1153:3",
+      "train/1425:2",
+      "train/1980:3",
+      "train/103:2",
+      "train/10:3",
+      "train/1011:0"
+    ],
+    "fail_weak_at_label": [
+      "train/1620:1",
+      "train/1021:1"
+    ],
+    "out_region_empty_frames": [
+      "train/1021:3",
+      "train/1016:0"
+    ],
+    "negative_in_out_frames": [],
+    "top1_peak_outside_box_frames": [
+      "train/1024:0",
+      "train/1153:3",
+      "train/123:2",
+      "train/1620:1",
+      "train/1730:1",
+      "train/2945:0",
+      "train/1021:1",
+      "train/1128:3",
+      "train/1216:3",
+      "train/1425:2",
+      "train/101:3",
+      "train/1494:2",
+      "train/1836:1",
+      "train/1980:3",
+      "train/10:3",
+      "train/1037:1",
+      "train/1058:1",
+      "train/1099:0",
+      "train/1160:1",
+      "train/123:1",
+      "train/1471:0",
+      "train/1986:0",
+      "train/9:3",
+      "train/21:4",
+      "train/50:2",
+      "train/9:2",
+      "train/18:2",
+      "train/57:3"
+    ]
+  }
+}
