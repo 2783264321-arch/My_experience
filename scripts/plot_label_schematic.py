@@ -92,14 +92,12 @@ def load_samples(splits: list[str]) -> list[dict]:
 
 def render_static(sample: dict, path: Path, dpi: int = 120) -> None:
     fig = plt.figure(figsize=(5, 5 * ASPECT))
-    ax = fig.add_axes([0.09, 0.07, 0.88, 0.88])
+    ax = fig.add_axes([0.06, 0.045, 0.92, 0.905])
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.set_xticks([0, 0.5, 1])
     ax.set_yticks([0, 0.5, 1])
     ax.tick_params(labelsize=7, length=2)
-    ax.set_xlabel("time  0-1", fontsize=8)
-    ax.set_ylabel("frequency  0-1", fontsize=8)
     for sp in ax.spines.values():
         sp.set_linewidth(0.6)
     ax.set_title(
@@ -244,8 +242,6 @@ function render(){
     mk('text',{x:X(v),y:H-14,'font-size':10,'text-anchor':'middle',fill:'#888'}).textContent=v;
     mk('text',{x:PL-10,y:Y(v)+3,'font-size':10,'text-anchor':'end',fill:'#888'}).textContent=v;
   });
-  mk('text',{x:PL+PW/2,y:H-2,'font-size':10,'text-anchor':'middle',fill:'#666'}).textContent='time 0-1';
-  mk('text',{x:12,y:PT+PH/2,'font-size':10,'text-anchor':'middle',fill:'#666',transform:`rotate(-90 12 ${PT+PH/2})`}).textContent='freq 0-1';
 
   // overlap pairs
   const pairs=[];
