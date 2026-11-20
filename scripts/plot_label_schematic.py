@@ -233,12 +233,8 @@ function render(){
   svg.innerHTML = '';
   const mk = (tag,attrs)=>{const el=document.createElementNS('http://www.w3.org/2000/svg',tag);
     for(const k in attrs) el.setAttribute(k,attrs[k]); svg.append(el); return el;};
-  // frame (the 0-1 observation window) + midpoint guides
+  // frame = the 0-1 observation window
   mk('rect',{x:PL,y:PT,width:PW,height:PH,fill:'#fff',stroke:'#999','stroke-width':1});
-  [0.5].forEach(v=>{
-    mk('line',{x1:X(v),y1:PT,x2:X(v),y2:PT+PH,stroke:'#eee'});
-    mk('line',{x1:PL,y1:Y(v),x2:PL+PW,y2:Y(v),stroke:'#eee'});
-  });
 
   // overlap pairs
   const pairs=[];
