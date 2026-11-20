@@ -14,3 +14,5 @@ reports/local_rep/*.npz
 reports/local_rep/models/
 reports/complex_coarse_frontend.json
 reports/complex_pilot_cache/
+reports/local_iq_round1/census_all.npz
+reports/local_iq_round1/power_reps.npz

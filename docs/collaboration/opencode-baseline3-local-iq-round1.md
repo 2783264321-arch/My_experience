@@ -83,8 +83,16 @@ QPSK/16QAM）。不用带宽猜类别：两组的带宽在组内均无判别力�
 ## 状态
 
 - [x] Phase 0 交接记录（本文件）与 README 路线更新。
-- [ ] Phase A 物理核查。
-- [ ] Phase B 配对对照。
+- [x] Phase A 物理核查（2026-11-20）：**标注调制在 IQ 中不存在**。
+      WiFi 无 CP/12.8 µs 签名（同步失败≈100%），SRRC 无符号率线（≈100%）；
+      0–5/10–11 框内是窄带音样成分+底噪（fill10 比对照类小 30–100×，
+      无突发、无掩埋台基、无镜像）；对照类 BLE/Zigbee/LoRa/AM/FM 用
+      同一管线提取完全正常，排除几何/解调错误。
+      [详细报告](../../reports/local_iq_round1/phase_a_physics.md) ·
+      [帧表](../../reports/local_iq_round1/frame_counts.json) ·
+      [普查汇总](../../reports/local_iq_round1/census_summary.json) ·
+      [对照普查](../../reports/local_iq_round1/census_controls_summary.json)
+- [ ] Phase B 配对对照（IQ 物理指纹 vs 同框功率基线，全量 5,578 帧）。
 - [ ] Phase C 判定写回。
 
 结果与判定见文末（Phase C 后回填）。
