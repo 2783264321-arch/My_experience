@@ -221,3 +221,18 @@ common>=10 is all dense-positive; 40x80 is `- - + +`, not a valid target.
 Close this dense C3 front-end; do not expand full training or start a
 content-bearing channel follow-up on a holdout subgroup. Details:
 `reports/c3_holdout_strata.md`, `docs/collaboration/opencode-c3-holdout.md`.
+
+## Narrowband intra-band peak/centroid diagnostic: COMPLETED
+
+Read-only reuse of frozen B/C full-val predictions. Narrow 9/12/13: both
+1,437, coarse-missed/fine-found 542, neither 177; controls: background bands
+2,289, B narrow false positives 2,461. Absolute intra-band peak separates
+c_only from background at AUC 0.995 and from B narrow false positives at
+0.965; PAPR only 0.704 overall and 0.502 at 80 MHz (bins/noise confound),
+class 12 even reversed. Centroid offset is a weaker real signal (c_only median
+0.057 vs both 0.010/background 0.012; per-B AUC 0.62-0.84). Recommendation:
+one narrow paired training arm using band_peak + band_centroid derived from
+the same 0.7 ms STFT, original power channel unchanged, no PAPR/complex/
+short-window channels, pre-registered last-checkpoint rule. Details:
+`reports/coarse_narrow_recovery.md`,
+`docs/collaboration/opencode-narrow-recovery.md`.

@@ -109,6 +109,20 @@ C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
   zero3 更好；B×T 无 common≥10 且四对比全 dense 正的条件。`40×80` 为
   `- - + +`，不据此选目标。**建议收尾这版稠密短窗前端**。
   [分层表](../../reports/c3_holdout_strata.md) · [留出复核](opencode-c3-holdout.md)
+
+## 当前下一步：窄带找回假设（只读诊断已完成）
+
+- 复用 B/C 冻结预测，比较 1,437 个 both、**542 个粗图漏掉/细片找到**
+  的窄带 GT 与同 B/T 背景/误检对照。
+- **绝对 peak 是主要可恢复信息**：c_only vs 背景 AUC **0.995**，
+  vs B 窄带误检 AUC **0.965**；PAPR 只有 0.704 且在 80 MHz 失效
+  （0.502），说明峰均比确实受频点数/噪声影响。
+- **centroid 是较弱但真实的第二信号**：c_only |centroid| 中位
+  **0.057** vs both 0.010 / 背景 0.012；提供频率偏移而非噪声。
+- 建议：只做一轮**窄范围配对训练**——同 0.7 ms STFT 派生
+  `band_peak` + `band_centroid` 两个 2048×512 低成本通道，功率通道
+  保持原版；不用 PAPR、不加复数/短窗；预注册只用 last checkpoint。
+  [诊断与结论](opencode-narrow-recovery.md) · [原始表](../../reports/coarse_narrow_recovery.md)
 - [完整复核](opencode-c3-frontends.md#复核dense-seed1730--zero-complex-3-通道对照2026-11-19) ·
   [对照表](../../reports/c3_pilot_results.md) · [复核报告](../../reports/c3_replication_results.md) ·
   [前端验证](../../reports/c3_frontend_validation.md)

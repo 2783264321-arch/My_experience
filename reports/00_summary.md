@@ -159,3 +159,19 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
   `80×80 + + + 0`、`50×60 + + + -` 也不满足严格一致。
 - **建议收尾这版稠密短窗前端，不扩全量。**
 - 详见 `reports/c3_holdout_strata.md`、`docs/collaboration/opencode-c3-holdout.md`。
+
+### 窄带找回假设：带内 peak/centroid 只读诊断
+
+- 复用 B/C 冻结预测：窄带 9/12/13 中 both 1,437、**粗图漏掉/细片找到
+  542**、neither 177；对照背景带 2,289、B 窄带误检 2,461。
+- **绝对 peak 可分性极强**：c_only vs 背景 AUC **0.995**，vs B 误检
+  **0.965**；分 B 全部 ≥0.964。
+- **PAPR 不可靠**：总体 0.704，80 MHz 仅 0.502；class 12 甚至反向
+  （c_only 10.6 vs both 40.2）。峰均比确有频点数/噪声混杂。
+- **centroid 真实但较弱**：c_only |centroid| 中位 **0.057** vs both
+  0.010 / 背景 0.012；AUC 0.62–0.84，80 MHz 最低。
+- 建议只做一轮窄范围配对训练：同一 0.7 ms STFT 派生
+  `band_peak` + `band_centroid` 两个低成本 2048×512 通道，功率通道原样；
+  不加 PAPR、不加复数/短窗；预注册只用 last checkpoint。
+- 详见 `reports/coarse_narrow_recovery.md`、
+  `docs/collaboration/opencode-narrow-recovery.md`。
