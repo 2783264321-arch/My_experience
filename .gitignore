@@ -16,3 +16,4 @@ reports/complex_coarse_frontend.json
 reports/complex_pilot_cache/
 reports/local_iq_round1/census_all.npz
 reports/local_iq_round1/power_reps.npz
+reports/local_iq_round1/power_reps_m0.npz
