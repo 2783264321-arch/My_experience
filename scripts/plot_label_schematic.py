@@ -28,13 +28,6 @@ import json
 import time
 from pathlib import Path
 
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import matplotlib.patheffects as pe
-from matplotlib.patches import Rectangle
-
 DATA_ROOT = Path("/root/autodl-fs/SpaceNet_Dataset/advanced")
 MANIFEST = Path(
     "/root/autodl-tmp/workspace/spacenet/analysis/outputs/split_manifest.csv"
@@ -91,6 +84,13 @@ def load_samples(splits: list[str]) -> list[dict]:
 # ---------------------------------------------------------------- static ---
 
 def render_static(sample: dict, path: Path, dpi: int = 120) -> None:
+    # matplotlib is only needed for static PNGs; browser mode is stdlib-only.
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import matplotlib.patheffects as pe
+    from matplotlib.patches import Rectangle
     fig = plt.figure(figsize=(5, 5 * ASPECT))
     ax = fig.add_axes([0.015, 0.02, 0.97, 0.93])
     ax.set_xlim(0, 1)
