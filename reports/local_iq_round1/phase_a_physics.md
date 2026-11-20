@@ -104,3 +104,16 @@ label-blind 普查（`census.npz`，每类 30 帧）：
   （`census_all.npz`）即为 IQ 特征提取器。
 
 test split 全程封存；原始 IQ/JSON 未被修改。
+
+## 7. 外部旁证检索（2026-11-20）
+
+- 类别语义来源链：SpaceNet advanced 包内无数值→名称映射，也无生成脚本
+  （`reports/spaceNet_class_ids_and_wifi_labels.md` 已核）；该映射对照公开
+  EMSpec 论文（arXiv:2610.12142，Table S4）确定。
+- 该论文的多信号流把 **SpaceNet 列为外部来源数据**（ChaSpark 2026），
+  未描述其波形生成；论文自建的多信号仿真用 TorchSig（SRRC 成形 QPSK/16QAM、
+  WiFi6）是**另一批数据**，与 advanced 包无直接关系。
+- 因此 advanced 包 0–5/10–11 的物理内容只能以实测为准：本报告的对照类
+  普查（6–9/12/13 正常、0–5/10–11 退化）即为主证据；"label bandwidths
+  are design values, not measured occupied bandwidth"（仓库类别核对文档）
+  与实测一致。
