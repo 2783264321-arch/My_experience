@@ -97,6 +97,14 @@ Interpretation:
    **+28.02 pp**; on medium 0.3–2 MHz A best is **+5.29 pp** better
    (0.8917 vs 0.8388), and on wide/very wide/ultra C is only
    +0.91/+1.81/+1.30 pp. The single image is not uniformly worse.
+
+   2026-11-20 correction: the medium +5.29 pp is driven entirely by the
+   57 GT of 1.6–2 MHz SRRC 16QAM (A best 0.766 vs C 0.488); BLE/Zigbee,
+   the main medium residents (2,847 GT), are identical across arms
+   (0.944–0.959), and medium-bandwidth SRRC QPSK slightly favors C
+   (0.859 vs 0.843). Read it as a small-subset failure of the fine
+   branch (cls11 fine-view AP 0.091), not a systematic single-image
+   advantage. See docs/collaboration/opencode-ac-comparison-summaries.md.
 3. **A last is not a fair single-image score without the overfitting caveat.**
    Last is 3.59 pp below best; training loss kept falling while val declined.
    The pre-registered main table uses last for both A and C, but the paper

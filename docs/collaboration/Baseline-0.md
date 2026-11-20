@@ -180,6 +180,7 @@ Baseline-0 至此收尾。物理带宽组 `≤0.25 MHz` 的正文增益已核正
 ## 待复核项
 
 - [x] **`≤0.25 MHz` 正文增益**：原始分组 A best `0.5001996`、C `0.7804442`，C−A = **+28.0245 pp**；原文 `+5.29 pp` 已修正。`+5.2914 pp` 是 A best 在 `medium 0.3–2 MHz` 相对 C 的优势（`0.8917338` vs `0.8388196`）。明细：`reports/group_a_narrowband_check.json`。
+- [x] **medium `+5.29 pp` 重新归因（2026-11-20）**：medium 组 = BLE/Zigbee + 窄带宽 SRRC。BLE/Zigbee（2,847 GT）三臂完全相同（0.944–0.959）；差距全部由 `1.6–2 MHz` SRRC 16QAM 的 **57 个实例**贡献（A best 0.766 vs C 0.488，细片 cls11 AP 仅 0.091），同组 SRRC QPSK 上 C 反而更高（0.859 vs 0.843）。"A best 在 medium 更好"应读作**细片分支在 1.6–2 MHz SRRC 16QAM 上失效的小子集效应**，不是系统性单图优势。 [三轮汇总](opencode-ac-comparison-summaries.md)
 - [ ] 请 Codex / Baseline-1 抽查上述两处与原始 `signal_characteristics.json` 是否一致，并确认全文没有其他把 `+5.29 pp` 归到窄带的表述。
 
 ## 复核边界

@@ -1,0 +1,266 @@
+{
+  "A_last": {
+    "WiFi_all_0-5": {
+      "n_gt": 1439,
+      "n_pred": 2908,
+      "map50_group_filtered": 0.40039032441038497,
+      "ap50_agnostic_group_filtered": 0.8697645159113687,
+      "localization_recall_group_filtered": 0.9374565670604587,
+      "classification_accuracy_group_filtered": 0.4907338769458858
+    },
+    "WiFi_20MHz_0-2": {
+      "n_gt": 997,
+      "n_pred": 2081,
+      "map50_group_filtered": 0.4060886078259605,
+      "ap50_agnostic_group_filtered": 0.8567635771781472,
+      "localization_recall_group_filtered": 0.9247743229689067,
+      "classification_accuracy_group_filtered": 0.5054229934924078
+    },
+    "WiFi_40MHz_3-5": {
+      "n_gt": 442,
+      "n_pred": 827,
+      "map50_group_filtered": 0.39469204099480937,
+      "ap50_agnostic_group_filtered": 0.8775554355792525,
+      "localization_recall_group_filtered": 0.9411764705882353,
+      "classification_accuracy_group_filtered": 0.4831730769230769
+    },
+    "BLE_Zigbee_6-8": {
+      "n_gt": 2847,
+      "n_pred": 3277,
+      "map50_group_filtered": 0.9344259882679942,
+      "ap50_agnostic_group_filtered": 0.9409436674323179,
+      "localization_recall_group_filtered": 0.9525816649104321,
+      "classification_accuracy_group_filtered": 0.9889380530973452
+    },
+    "LoRa_9": {
+      "n_gt": 1411,
+      "n_pred": 5431,
+      "map50_group_filtered": 0.5866586261127762,
+      "ap50_agnostic_group_filtered": 0.5866586261127762,
+      "localization_recall_group_filtered": 0.6966690290574061,
+      "classification_accuracy_group_filtered": 1.0
+    },
+    "SRRC_10-11": {
+      "n_gt": 716,
+      "n_pred": 1243,
+      "map50_group_filtered": 0.4898718846920559,
+      "ap50_agnostic_group_filtered": 0.8796898020803317,
+      "localization_recall_group_filtered": 0.9399441340782123,
+      "classification_accuracy_group_filtered": 0.6597325408618128
+    },
+    "Analog_12-13": {
+      "n_gt": 749,
+      "n_pred": 3314,
+      "map50_group_filtered": 0.3964690224202501,
+      "ap50_agnostic_group_filtered": 0.4086934278216955,
+      "localization_recall_group_filtered": 0.5020026702269693,
+      "classification_accuracy_group_filtered": 0.9654255319148937
+    },
+    "Narrow_9_12_13": {
+      "n_gt": 2160,
+      "n_pred": 8745,
+      "map50_group_filtered": 0.45986555698442544,
+      "ap50_agnostic_group_filtered": 0.5369287208677596,
+      "localization_recall_group_filtered": 0.6439814814814815,
+      "classification_accuracy_group_filtered": 0.9568655643421998
+    }
+  },
+  "A_best": {
+    "WiFi_all_0-5": {
+      "n_gt": 1439,
+      "n_pred": 5196,
+      "map50_group_filtered": 0.4062101521249679,
+      "ap50_agnostic_group_filtered": 0.8244889325033922,
+      "localization_recall_group_filtered": 0.9555246699096595,
+      "classification_accuracy_group_filtered": 0.47054545454545454
+    },
+    "WiFi_20MHz_0-2": {
+      "n_gt": 997,
+      "n_pred": 3924,
+      "map50_group_filtered": 0.38393900539102654,
+      "ap50_agnostic_group_filtered": 0.7858761803235905,
+      "localization_recall_group_filtered": 0.9518555667001003,
+      "classification_accuracy_group_filtered": 0.45310853530031614
+    },
+    "WiFi_40MHz_3-5": {
+      "n_gt": 442,
+      "n_pred": 1272,
+      "map50_group_filtered": 0.42848129885890934,
+      "ap50_agnostic_group_filtered": 0.8814400453589525,
+      "localization_recall_group_filtered": 0.9547511312217195,
+      "classification_accuracy_group_filtered": 0.5308056872037915
+    },
+    "BLE_Zigbee_6-8": {
+      "n_gt": 2847,
+      "n_pred": 5190,
+      "map50_group_filtered": 0.9499452980353933,
+      "ap50_agnostic_group_filtered": 0.9531818486167493,
+      "localization_recall_group_filtered": 0.9676852827537759,
+      "classification_accuracy_group_filtered": 0.9865698729582577
+    },
+    "LoRa_9": {
+      "n_gt": 1411,
+      "n_pred": 11982,
+      "map50_group_filtered": 0.6427162950077789,
+      "ap50_agnostic_group_filtered": 0.6427162950077789,
+      "localization_recall_group_filtered": 0.7476966690290574,
+      "classification_accuracy_group_filtered": 1.0
+    },
+    "SRRC_10-11": {
+      "n_gt": 716,
+      "n_pred": 2479,
+      "map50_group_filtered": 0.639939543643776,
+      "ap50_agnostic_group_filtered": 0.8900502369785295,
+      "localization_recall_group_filtered": 0.9650837988826816,
+      "classification_accuracy_group_filtered": 0.658465991316932
+    },
+    "Analog_12-13": {
+      "n_gt": 749,
+      "n_pred": 6134,
+      "map50_group_filtered": 0.42894131667585134,
+      "ap50_agnostic_group_filtered": 0.4375393964547321,
+      "localization_recall_group_filtered": 0.5006675567423231,
+      "classification_accuracy_group_filtered": 0.992
+    },
+    "Narrow_9_12_13": {
+      "n_gt": 2160,
+      "n_pred": 18116,
+      "map50_group_filtered": 0.5001996427864939,
+      "ap50_agnostic_group_filtered": 0.5847346087147847,
+      "localization_recall_group_filtered": 0.6791666666666667,
+      "classification_accuracy_group_filtered": 0.9570552147239264
+    }
+  },
+  "B_coarse": {
+    "WiFi_all_0-5": {
+      "n_gt": 1439,
+      "n_pred": 4852,
+      "map50_group_filtered": 0.4381256877811371,
+      "ap50_agnostic_group_filtered": 0.8415462385416227,
+      "localization_recall_group_filtered": 0.9680333564975677,
+      "classification_accuracy_group_filtered": 0.4752333094041637
+    },
+    "WiFi_20MHz_0-2": {
+      "n_gt": 997,
+      "n_pred": 3589,
+      "map50_group_filtered": 0.421219707215533,
+      "ap50_agnostic_group_filtered": 0.8270310758120071,
+      "localization_recall_group_filtered": 0.966900702106319,
+      "classification_accuracy_group_filtered": 0.45850622406639
+    },
+    "WiFi_40MHz_3-5": {
+      "n_gt": 442,
+      "n_pred": 1263,
+      "map50_group_filtered": 0.4550316683467413,
+      "ap50_agnostic_group_filtered": 0.8630115845001067,
+      "localization_recall_group_filtered": 0.9638009049773756,
+      "classification_accuracy_group_filtered": 0.528169014084507
+    },
+    "BLE_Zigbee_6-8": {
+      "n_gt": 2847,
+      "n_pred": 4771,
+      "map50_group_filtered": 0.9499122701787627,
+      "ap50_agnostic_group_filtered": 0.9518673816161826,
+      "localization_recall_group_filtered": 0.9669827889005971,
+      "classification_accuracy_group_filtered": 0.9869233563385398
+    },
+    "LoRa_9": {
+      "n_gt": 1411,
+      "n_pred": 7973,
+      "map50_group_filtered": 0.6308045498567881,
+      "ap50_agnostic_group_filtered": 0.6308045498567881,
+      "localization_recall_group_filtered": 0.7292700212615166,
+      "classification_accuracy_group_filtered": 1.0
+    },
+    "SRRC_10-11": {
+      "n_gt": 716,
+      "n_pred": 1879,
+      "map50_group_filtered": 0.5907747430335883,
+      "ap50_agnostic_group_filtered": 0.879117511015511,
+      "localization_recall_group_filtered": 0.9539106145251397,
+      "classification_accuracy_group_filtered": 0.677891654465593
+    },
+    "Analog_12-13": {
+      "n_gt": 749,
+      "n_pred": 5934,
+      "map50_group_filtered": 0.4102834643724748,
+      "ap50_agnostic_group_filtered": 0.422265309668926,
+      "localization_recall_group_filtered": 0.4979973297730307,
+      "classification_accuracy_group_filtered": 0.9812332439678284
+    },
+    "Narrow_9_12_13": {
+      "n_gt": 2160,
+      "n_pred": 13907,
+      "map50_group_filtered": 0.4837904928672459,
+      "ap50_agnostic_group_filtered": 0.5727221364883807,
+      "localization_recall_group_filtered": 0.6671296296296296,
+      "classification_accuracy_group_filtered": 0.9528105482303956
+    }
+  },
+  "C_all": {
+    "WiFi_all_0-5": {
+      "n_gt": 1439,
+      "n_pred": 22897,
+      "map50_group_filtered": 0.4217373923301781,
+      "ap50_agnostic_group_filtered": 0.8327457421774902,
+      "localization_recall_group_filtered": 0.9680333564975677,
+      "classification_accuracy_group_filtered": 0.4752333094041637
+    },
+    "WiFi_20MHz_0-2": {
+      "n_gt": 997,
+      "n_pred": 16774,
+      "map50_group_filtered": 0.40200847167069836,
+      "ap50_agnostic_group_filtered": 0.816499176342061,
+      "localization_recall_group_filtered": 0.966900702106319,
+      "classification_accuracy_group_filtered": 0.45850622406639
+    },
+    "WiFi_40MHz_3-5": {
+      "n_gt": 442,
+      "n_pred": 6123,
+      "map50_group_filtered": 0.4414663129896579,
+      "ap50_agnostic_group_filtered": 0.8554434250363889,
+      "localization_recall_group_filtered": 0.9638009049773756,
+      "classification_accuracy_group_filtered": 0.528169014084507
+    },
+    "BLE_Zigbee_6-8": {
+      "n_gt": 2847,
+      "n_pred": 11558,
+      "map50_group_filtered": 0.9490226535852587,
+      "ap50_agnostic_group_filtered": 0.9548010240762372,
+      "localization_recall_group_filtered": 0.9782226905514577,
+      "classification_accuracy_group_filtered": 0.9791741472172352
+    },
+    "LoRa_9": {
+      "n_gt": 1411,
+      "n_pred": 10310,
+      "map50_group_filtered": 0.9483643712887325,
+      "ap50_agnostic_group_filtered": 0.9483643712887325,
+      "localization_recall_group_filtered": 0.9780297661233168,
+      "classification_accuracy_group_filtered": 1.0
+    },
+    "SRRC_10-11": {
+      "n_gt": 716,
+      "n_pred": 7567,
+      "map50_group_filtered": 0.6394936447327133,
+      "ap50_agnostic_group_filtered": 0.8794839960409835,
+      "localization_recall_group_filtered": 0.9594972067039106,
+      "classification_accuracy_group_filtered": 0.6797671033478894
+    },
+    "Analog_12-13": {
+      "n_gt": 749,
+      "n_pred": 12693,
+      "map50_group_filtered": 0.6964840659588332,
+      "ap50_agnostic_group_filtered": 0.6982291468909327,
+      "localization_recall_group_filtered": 0.7810413885180241,
+      "classification_accuracy_group_filtered": 0.9965811965811966
+    },
+    "Narrow_9_12_13": {
+      "n_gt": 2160,
+      "n_pred": 23003,
+      "map50_group_filtered": 0.7804441677354662,
+      "ap50_agnostic_group_filtered": 0.8694707126540688,
+      "localization_recall_group_filtered": 0.9162037037037037,
+      "classification_accuracy_group_filtered": 0.9848408287013644
+    }
+  }
+}

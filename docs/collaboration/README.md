@@ -78,6 +78,8 @@ OpenCode 在完整 1,543 个验证源上复核了每视图上限 300 与 1,000�
 
 论文保留末轮对末轮的近似等预算主对照（C−A **+10.23** 个百分点），同时给出最佳单图作为更强参照（C−A **+6.64** 个百分点）。同权重下加入细片为 **+6.33** 个百分点。早停是事后模拟，本轮实际训练按 100 轮记录。 [已确认的论文口径](Baseline-0.md#收尾与论文比较口径) · [完整结果](opencode-group-a-fullband-baseline.md) · [对照表](../../reports/group_a_results.md)
 
+后续三轮追问的合并汇总（主对照复述、家族级与类别无关指标、十项被忽略结论，并修正 medium `+5.29 pp` 的归因）：[A/C 对照三轮汇总](opencode-ac-comparison-summaries.md) · [家族级指标](../../reports/family_group_metrics_ab_c.json)
+
 ## C3 三套粗图前端 pilot（已完成）
 
 同一张原版 C1 功率图上比较三种复数额外通道，1536 fit / 384 val、20k steps、
