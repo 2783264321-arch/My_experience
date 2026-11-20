@@ -110,19 +110,28 @@ C1 mean **0.4999**；overlap mean 0.5078（+0.79 pp）；sparse mean 0.4998
   `- - + +`，不据此选目标。**建议收尾这版稠密短窗前端**。
   [分层表](../../reports/c3_holdout_strata.md) · [留出复核](opencode-c3-holdout.md)
 
-## 当前下一步：窄带找回假设（只读诊断已完成）
+## 窄带找回假设：已关闭（网格级复核后不做配对短训）
 
-- 复用 B/C 冻结预测，比较 1,437 个 both、**542 个粗图漏掉/细片找到**
-  的窄带 GT 与同 B/T 背景/误检对照。
-- **绝对 peak 是主要可恢复信息**：c_only vs 背景 AUC **0.995**，
-  vs B 窄带误检 AUC **0.965**；PAPR 只有 0.704 且在 80 MHz 失效
-  （0.502），说明峰均比确实受频点数/噪声影响。
-- **centroid 是较弱但真实的第二信号**：c_only |centroid| 中位
-  **0.057** vs both 0.010 / 背景 0.012；提供频率偏移而非噪声。
-- 建议：只做一轮**窄范围配对训练**——同 0.7 ms STFT 派生
-  `band_peak` + `band_centroid` 两个 2048×512 低成本通道，功率通道
-  保持原版；不用 PAPR、不加复数/短窗；预注册只用 last checkpoint。
-  [诊断与结论](opencode-narrow-recovery.md) · [原始表](../../reports/coarse_narrow_recovery.md)
+- 复核推进到**模型实际看到的 2048×512 网格**（与 C1 输入逐元素同源）：
+  只读，先生成图、再按真值标注时间列划区，对照为同形状背景块与 B 误检，
+  同一 5% 背景误报预算。
+- **均值已经携带信息**：515/542（95%）的粗图漏掉目标，其区域均值超过
+  每一个同形状背景块；AUC mean 0.986 vs peak 0.995，增量集中在 27 例
+  （5%，class 12 占 18）。
+- **漏检不是可见性问题**：这些目标在现有均值图上的局部对比度
+  （35.8 dB）**高于**已检出组（32.6 dB）；差在**薄**（2 行 vs 12 行）。
+  56% 粗图模型完全不触发，25% 只有 IoU 0.3–0.5 的低分近失框，
+  0 例是被分数截断的正确框。
+- **peak 无精度侧机制**：同等预算下 44% 的 B 窄带误检同样通过 peak
+  阈值；对真正弱的 neither 组（177 例）peak 无增益（8.6 vs 9.8 dB）。
+- **质心**：确实降低相对行中心的频率误差（0.011→0.001 MHz），但现有
+  均值图的相邻行加权已达 0.002 MHz，净增量 <1/20 行，且不是漏检瓶颈。
+- **判断：不做「功率＋峰值＋零」配对短训**；预注册关闭条件已满足
+  （可靠可分仅 12/27 例 ≈ 窄带实例召回 1.2%）。粗图找回若继续，
+  方向是检测器侧（薄框分配/回归容差），须先做只读证据。
+  [网格级复核与判断（文末节）](opencode-narrow-recovery.md) ·
+  [网格表](../../reports/coarse_grid_peak.md) · [80 MHz 对比度](../../reports/coarse_contrast_80.md) ·
+  [漏检模式](../../reports/coarse_c_only_bestpred.md) · [band 级原始表](../../reports/coarse_narrow_recovery.md)
 - [完整复核](opencode-c3-frontends.md#复核dense-seed1730--zero-complex-3-通道对照2026-11-19) ·
   [对照表](../../reports/c3_pilot_results.md) · [复核报告](../../reports/c3_replication_results.md) ·
   [前端验证](../../reports/c3_frontend_validation.md)

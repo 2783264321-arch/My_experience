@@ -236,3 +236,41 @@ the same 0.7 ms STFT, original power channel unchanged, no PAPR/complex/
 short-window channels, pre-registered last-checkpoint rule. Details:
 `reports/coarse_narrow_recovery.md`,
 `docs/collaboration/opencode-narrow-recovery.md`.
+
+## Grid-level narrowband peak/centroid review: COMPLETED, hypothesis CLOSED
+
+Read-only, on the exact 2048x512 grid the model sees (same 0.7 ms STFT, same
+linspace row segmentation as C1; the pipeline only adds a fixed global
+monotone dB scaling). Images computed first, then GT-annotated time spans
+define regions; controls are same-shape same-B/T background blocks (5,456) and
+B narrow false positives (2,461) at a unified 5% background FP budget.
+
+- Information: 515/542 (95%) of coarse-missed (c_only) narrow targets have a
+  region mean above EVERY same-shape background block; AUC mean 0.986 vs peak
+  0.995. Only 27/542 (5%, class 12 = 18) have mean similar to background;
+  in-bin peak recall 0.296 (80 MHz: 15 cases, 0.933). Upper bound ~27
+  instances = 1.2% of narrow instance recall.
+- Visibility (80 MHz): c_only stripes are MORE salient in the existing mean
+  map (35.8 dB local contrast) than the detected `both` group (32.6 dB); the
+  difference is thinness (2 rows vs 7-12). Peak adds +6.6 dB for c_only but
+  nothing for `both` (-0.1 dB) and nothing for the truly weak `neither` set
+  (8.6 vs 9.8 dB).
+- Miss mode: 301/542 (56%) no overlapping B box at all (IoU<0.1), 136/542
+  (25%) near-miss boxes at IoU 0.3-0.5 with median score 0.032, and 0 cases of
+  correct boxes cut by score. GT height median 2.5 rows (both: 12).
+- Precision side: at the same 5% budget, 44% of B's existing narrow FPs pass
+  the peak threshold (mean 47%); peak-vs-FP AUC 0.889 at 80 MHz.
+- Centroid validation: does reduce frequency error vs the row centre
+  (0.011 -> 0.001 MHz median, 90% better), but adjacent-row energy weighting
+  from the existing mean map already achieves 0.002-0.003 MHz; net increment
+  <1/20 row at 80 MHz and not the miss bottleneck.
+
+Decision: DO NOT run the power+peak(+zero) paired short training; hypothesis
+closed per the pre-registered rule (reliable recoverable subset 12/27). If
+coarse-view narrow recovery is pursued later, it is a detector-side problem
+(thin-box assignment/regression tolerance); gather read-only evidence first.
+The main scheme (all-view C) already recovers these instances. No training,
+no new inference this round; test remains sealed. Details:
+reports/coarse_grid_peak.md, reports/coarse_contrast_80.md,
+reports/coarse_c_only_bestpred.md,
+docs/collaboration/opencode-narrow-recovery.md.

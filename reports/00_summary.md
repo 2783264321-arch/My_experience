@@ -175,3 +175,26 @@ DirectReg 框映射到原始频带之外，增加了 FP、压低了 class-aware 
   不加 PAPR、不加复数/短窗；预注册只用 last checkpoint。
 - 详见 `reports/coarse_narrow_recovery.md`、
   `docs/collaboration/opencode-narrow-recovery.md`。
+
+### 窄带找回假设：网格级复核后关闭（不做 peak/centroid 配对短训）
+
+- 在与 C1 输入逐元素同源的 2048×512 网格上（同一 0.7 ms STFT、同一
+  linspace 行分段），先算 mean/peak/centroid 三张图，再用真值标注时间列
+  划区；对照为同 B/T 同形状背景块（5,456）与 B 窄带误检（2,461），
+  统一 5% 背景误报预算。
+- **信息侧**：515/542（95%）粗图漏掉目标的区域均值超过所有同形状背景；
+  AUC mean 0.986 / peak 0.995；「均值相近」的只有 27 例（class 12 占 18），
+  bin 内 peak 召回 0.296（80 MHz 15 例 0.933）。
+- **可见性侧（80 MHz）**：c_only 在均值图上对比度 35.8 dB，高于已检出
+  both 组 32.6 dB；差在薄（2 行 vs 7–12 行）。neither 组（177 例，
+  ~10 dB）peak 无增益（8.6 vs 9.8 dB）。
+- **漏检模式**：56% 完全不触发（IoU<0.1）、25% IoU 0.3–0.5 低分近失框、
+  0 例分数截断；c_only GT 高度中位 2.5 行。
+- **精度侧**：同预算下 44% 的 B 窄带误检通过 peak 阈值（mean 47%）。
+- **质心**：相对行中心误差 0.011→0.001 MHz（90% 改善），但相邻行能量
+  加权已达 0.002 MHz，净增量 <1/20 行，非漏检瓶颈。
+- **判断：关闭该假设，不训练**。粗图找回若继续，转向检测器侧
+  （薄框分配/回归容差），先只读取证。主方案（全视图 C）已找回这些实例。
+- 详见 `reports/coarse_grid_peak.md`、`reports/coarse_contrast_80.md`、
+  `reports/coarse_c_only_bestpred.md`、
+  `docs/collaboration/opencode-narrow-recovery.md`。
