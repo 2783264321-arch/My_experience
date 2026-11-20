@@ -12,8 +12,10 @@ label { display:block; font-size:11px; color:#666; margin:10px 0 3px; }
 select, input[type=text] { width:100%; padding:4px 6px; font-size:12px; }
 button { padding:4px 10px; font-size:12px; margin:2px 4px 2px 0; cursor:pointer; }
 #legend { margin-top:14px; font-size:11px; }
-#legend div { margin:3px 0; white-space:nowrap; }
-#legend i { display:inline-block; width:12px; height:12px; border:1.5px solid; margin-right:6px; vertical-align:-2px; }
+#legend div, #ilist div { margin:3px 0; white-space:nowrap; }
+#legend i, #ilist i { display:inline-block; width:12px; height:12px; border:1.5px solid; margin-right:6px; vertical-align:-2px; }
+#ilist { margin-top:14px; font-size:12px; }
+#ilist label { margin:0 0 4px; }
 #stats { margin-top:16px; font-size:11px; color:#888; }
 #head .id { font-size:15px; font-weight:600; }
 #head .meta { color:#666; font-size:12px; margin:2px 0 8px; }
@@ -41,6 +43,7 @@ text.num { font-size:11px; text-anchor:middle; paint-order:stroke; stroke:#fff; 
   </div>
   <div id="pos" style="margin-top:8px;font-size:12px;color:#666"></div>
   <div id="legend"></div>
+  <div id="ilist"></div>
   <div id="stats"></div>
   <div style="margin-top:14px;font-size:11px;color:#999">
     time &#8594; 0-1 &nbsp;·&nbsp; freq &#8593; 0-1 &nbsp;·&nbsp; aspect 2:1<br>
@@ -116,6 +119,9 @@ function render(){
     ? `<div class="t">${pairs.length} overlapping pair${pairs.length>1?'s':''}</div>`
       + pairs.map(p=>`<div>#${p[0]} ∩ #${p[1]} · ${(p[2]*100).toFixed(1)}% of #${p[0]} · ${(p[3]*100).toFixed(1)}% of #${p[1]}</div>`).join('')
     : '<div>no overlapping instances</div>';
+  // per-sample instance list (box id + class) in the sidebar
+  $('ilist').innerHTML = '<label>instances in this sample</label>'
+    + sigs.map((g,k)=>`<div><i style="border-color:${FAMC[g[0]]};background:${FAMC[g[0]]}33"></i>#${k+1} &nbsp;${NAMES[g[0]]}</div>`).join('');
 
   // boxes
   sigs.forEach((g,k)=>{
