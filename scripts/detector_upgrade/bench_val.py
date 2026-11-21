@@ -80,7 +80,7 @@ def main():
     import json as _json
     norm = _json.loads((ROOT / "configs/normalizer.json").read_text())
     norm = (float(norm["lo"]), float(norm["hi"]))
-    recs = pick_val()[: args.samples]
+    recs = pick_val(max(1, args.samples // 6))[: args.samples]
     torch.cuda.reset_peak_memory_stats()
     t_build = t_model = t_merge = 0.0
     n_views = 0

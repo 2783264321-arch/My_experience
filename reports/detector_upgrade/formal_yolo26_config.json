@@ -1,0 +1,33 @@
+{
+  "run": "yolo26l_c1_2048x512",
+  "epochs": 50,
+  "batch_sources": 4,
+  "accum": 2,
+  "workers": 12,
+  "val_every": 5,
+  "val_workers": 8,
+  "val_batch_views": 8,
+  "lr0": 0.001,
+  "weight_decay": 0.0005,
+  "warmup": 3.0,
+  "final_lr_frac": 0.01,
+  "clip_grad": 10.0,
+  "seed": 1729,
+  "resume": false,
+  "overwrite": true,
+  "max_steps": 0,
+  "no_val": false,
+  "min_free_gib": 4.0,
+  "fit_samples": 5957,
+  "val_samples": 1543,
+  "steps_per_epoch": 745,
+  "effective_views": 16,
+  "model": {
+    "copied": 1080,
+    "skipped": 12,
+    "stem_summed": 1,
+    "head": "Detect"
+  },
+  "task": "yolo26l detection",
+  "checkpoint_init": "yolo26l.pt (RGB stem summed, cls heads re-init)"
+}
