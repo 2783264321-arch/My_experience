@@ -1,0 +1,16 @@
+{
+  "identity_ok": true,
+  "c0_map50": 0.6497250320877056,
+  "c0_n_pred": 47783,
+  "sync_time_s": 205.0,
+  "cnn_time_s": 1.8,
+  "n_wifi_preds": 4844,
+  "status_counts": {
+    "sync_fail": 3915,
+    "ok": 807,
+    "no_candidate": 35,
+    "invalid_duration": 63,
+    "invalid_band": 16,
+    "too_few_symbols": 8
+  }
+}
