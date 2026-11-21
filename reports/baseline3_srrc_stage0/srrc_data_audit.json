@@ -1,32 +1,57 @@
 {
   "method": {
-    "fit_target_source": "reports/local_iq_round1/frames.npz (class 10/11 rows)",
-    "val_target_source": "val JSON annotations parsed from advanced/train",
+    "fit_source": "ALL split_manifest.csv split_new=fit files; JSON annotations parsed directly",
+    "val_source": "ALL split_manifest.csv split_new=val files; JSON annotations parsed directly",
+    "target_classes": [
+      10,
+      11
+    ],
+    "band_10mhz": [
+      9.5,
+      10.5
+    ],
     "overlap_definition": "fraction of target box area intersected; any/srrc/wifi/cross/same; strong>=0.25",
-    "ap_definition": "C0 YOLO labels, class-aware greedy matching IoU=0.5, 101-point AP"
+    "ap_full": "C0 YOLO labels, class-aware greedy matching IoU=0.5, 101-point AP",
+    "ap_old_subset": "drop class-10/11 GT outside 9.5-10.5 MHz, keep all predictions (known biased)",
+    "ap_ignore_aware": "valid GT first; unmatched predictions hitting ignored GT at IoU>=0.5 excluded from TP/FP",
+    "manifest_counts": {
+      "fit": 5957,
+      "val": 1543,
+      "test": 2500
+    }
   },
   "splits": {
     "fit": {
-      "n_instances": 2093,
-      "n_files": 1572,
+      "n_files_manifest": 5957,
+      "n_files_with_target": 2179,
+      "n_files_10mhz_instances": 1572,
+      "n_instances": 2752,
+      "n_files": 2179,
       "n_instances_10mhz": 1824,
+      "n_files_10mhz": 1572,
+      "n_instances_narrow": 928,
+      "n_files_narrow": 851,
+      "bandwidth_categories": {
+        "<9.5": 928,
+        "9.5-10.5": 1824
+      },
       "per_class": {
         "10": {
           "all_labels": {
-            "n_instances": 1068,
-            "n_files": 923,
+            "n_instances": 1394,
+            "n_files": 1240,
             "duration_ms": {
-              "n": 1068,
-              "mean": 33.50026146067416,
-              "q05": 4.798860000000001,
-              "median": 26.0,
+              "n": 1394,
+              "mean": 32.35671262553802,
+              "q05": 4.0,
+              "median": 24.0,
               "q95": 80.0,
               "min": 1.0,
               "max": 124.99967999999998
             },
             "bandwidth_mhz": {
-              "n": 1068,
-              "mean": 8.857022471910126,
+              "n": 1394,
+              "mean": 6.8814203730272885,
               "q05": 0.3000000000001819,
               "median": 10.0,
               "q95": 10.0,
@@ -34,17 +59,17 @@
               "max": 10.0
             },
             "overlap": {
-              "any": 824,
-              "srrc": 205,
-              "srrc_cross": 103,
+              "any": 989,
+              "srrc": 209,
+              "srrc_cross": 107,
               "srrc_same": 108,
-              "wifi": 484,
-              "strong25": 514
+              "wifi": 623,
+              "strong25": 659
             },
             "overlap_frac": {
-              "any": 0.7715355805243446,
-              "srrc": 0.19194756554307116,
-              "strong25": 0.4812734082397004
+              "any": 0.7094691535150646,
+              "srrc": 0.14992826398852224,
+              "strong25": 0.4727403156384505
             }
           },
           "10mhz": {
@@ -85,20 +110,20 @@
         },
         "11": {
           "all_labels": {
-            "n_instances": 1025,
-            "n_files": 887,
+            "n_instances": 1358,
+            "n_files": 1202,
             "duration_ms": {
-              "n": 1025,
-              "mean": 30.257355034146343,
+              "n": 1358,
+              "mean": 30.577162547864503,
               "q05": 5.0,
               "median": 21.0,
-              "q95": 76.0,
+              "q95": 78.14999999999986,
               "min": 1.0,
               "max": 117.0
             },
             "bandwidth_mhz": {
-              "n": 1025,
-              "mean": 9.231687804878101,
+              "n": 1358,
+              "mean": 8.066892488954478,
               "q05": 1.6000000000003638,
               "median": 10.0,
               "q95": 10.0,
@@ -106,17 +131,17 @@
               "max": 10.0
             },
             "overlap": {
-              "any": 809,
-              "srrc": 178,
-              "srrc_cross": 104,
-              "srrc_same": 83,
-              "wifi": 477,
-              "strong25": 495
+              "any": 1006,
+              "srrc": 189,
+              "srrc_cross": 108,
+              "srrc_same": 90,
+              "wifi": 618,
+              "strong25": 649
             },
             "overlap_frac": {
-              "any": 0.7892682926829269,
-              "srrc": 0.17365853658536584,
-              "strong25": 0.48292682926829267
+              "any": 0.7407952871870398,
+              "srrc": 0.13917525773195877,
+              "strong25": 0.47790868924889546
             }
           },
           "10mhz": {
@@ -158,9 +183,19 @@
       }
     },
     "val": {
+      "n_files_manifest": 1543,
+      "n_files_with_target": 576,
+      "n_files_10mhz_instances": 404,
       "n_instances": 716,
       "n_files": 576,
       "n_instances_10mhz": 469,
+      "n_files_10mhz": 404,
+      "n_instances_narrow": 247,
+      "n_files_narrow": 230,
+      "bandwidth_categories": {
+        "<9.5": 247,
+        "9.5-10.5": 469
+      },
       "per_class": {
         "10": {
           "all_labels": {
@@ -168,7 +203,7 @@
             "n_files": 337,
             "duration_ms": {
               "n": 376,
-              "mean": 30.132156702127663,
+              "mean": 30.132156702127656,
               "q05": 3.96952,
               "median": 21.0,
               "q95": 78.06903249999999,
@@ -240,7 +275,7 @@
             "n_files": 300,
             "duration_ms": {
               "n": 340,
-              "mean": 30.685446764705883,
+              "mean": 30.68544676470588,
               "q05": 4.0,
               "median": 20.0,
               "q95": 79.05000000000001,
@@ -309,6 +344,12 @@
       }
     }
   },
+  "val_gt_mapping_validation": {
+    "n_samples_checked": 1543,
+    "n_samples_total": 1543,
+    "method": "class + order + normalized geometry (atol=2e-4) vs JSON",
+    "status": "exact"
+  },
   "val_c0_yolo_ap50": {
     "10": {
       "ap50": 0.7079000376354331,
@@ -321,7 +362,7 @@
       "n_pred": 3368
     }
   },
-  "val_c0_yolo_ap50_10mhz": {
+  "val_c0_yolo_ap50_10mhz_old_drop_gt": {
     "10": {
       "ap50": 0.30454891288186015,
       "n_gt": 239,
@@ -333,7 +374,64 @@
       "n_pred": 3368
     }
   },
-  "val_10mhz_subset_note": "val_c0_yolo_ap50 uses all class-10/11 GT; val_c0_yolo_ap50_10mhz drops class-10/11 GT with annotation bandwidth outside 9.5-10.5 MHz and keeps predictions unchanged.",
+  "val_c0_yolo_ap50_10mhz_ignore_aware": {
+    "10": {
+      "ap50": 0.43176696119742447,
+      "n_valid_gt": 239,
+      "n_ignored_gt": 137,
+      "n_pred": 4338,
+      "n_tp": 219,
+      "n_fp": 3983,
+      "n_ignored_pred": 136
+    },
+    "11": {
+      "ap50": 0.3431841141668365,
+      "n_valid_gt": 230,
+      "n_ignored_gt": 110,
+      "n_pred": 3368,
+      "n_tp": 179,
+      "n_fp": 3086,
+      "n_ignored_pred": 103
+    }
+  },
+  "val_10mhz_ap_comparison": {
+    "10": {
+      "old_drop_gt_ap50": 0.30454891288186015,
+      "new_ignore_aware_ap50": 0.43176696119742447,
+      "delta_new_minus_old_pp": 12.721804831556433
+    },
+    "11": {
+      "old_drop_gt_ap50": 0.23769811095539448,
+      "new_ignore_aware_ap50": 0.3431841141668365,
+      "delta_new_minus_old_pp": 10.5486003211442
+    }
+  },
   "val_c0_map50_reference": 0.6497250320877056,
-  "note": "Stage 0 only; no training. Fit has no C0 AP because the YOLO cache is val. Test is sealed."
+  "note": "Stage 0 only; no training. Fit has no C0 AP because the YOLO cache is val. Test is sealed. The old drop-GT AP is kept as a known-biased historical protocol; the ignore-aware AP is the corrected 10 MHz subset result.",
+  "revision_checks": {
+    "old_fit_all_labels_instances": 2093,
+    "new_fit_all_labels_instances": 2752,
+    "old_fit_all_labels_files": 1572,
+    "new_fit_all_labels_files": 2179,
+    "old_fit_10mhz_instances": 1824,
+    "new_fit_10mhz_instances": 1824,
+    "old_fit_10mhz_files": 1572,
+    "new_fit_10mhz_files": 1572,
+    "old_val_all_labels_instances": 716,
+    "new_val_all_labels_instances": 716,
+    "old_val_all_labels_files": 576,
+    "new_val_all_labels_files": 576,
+    "old_val_10mhz_instances": 469,
+    "new_val_10mhz_instances": 469,
+    "old_val_10mhz_files": 404,
+    "new_val_10mhz_files": 404,
+    "narrow_share_fit": 0.3372093023255814,
+    "narrow_share_val": 0.34497206703910616,
+    "val_narrow_share_significantly_higher": false,
+    "old_ap_10mhz_class10": 0.30454891288186015,
+    "new_ap_10mhz_class10": 0.43176696119742447,
+    "old_ap_10mhz_class11": 0.23769811095539448,
+    "new_ap_10mhz_class11": 0.3431841141668365,
+    "gt_mapping_status": "exact"
+  }
 }

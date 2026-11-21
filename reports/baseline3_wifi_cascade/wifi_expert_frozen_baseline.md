@@ -63,6 +63,14 @@ E1/E2/E3 权重在 `runs_local/baseline3ca/weights/`，仅作审计留档，
   不产生 block。
 - 不使用 GT 标签做同步、掩码或直方图参数选择。
 
+**关于 48/98-bin 的说明（勘误）**：20 MHz 使用 48 个 data bins，
+40 MHz 使用 98 个 data bins（`legacy_masks(128)` 的实际返回）。
+现有训练与推理使用**相同的** 48/98-bin 特征定义，因此已报告的
+mAP、权重和冻结基线仍然有效；这属于与原论文不同的、已记录的
+适配实现。**不能**用“histogram per-instance max normalization”
+声称 48/98 与其他子载波集合在数值上等价——归一化不保证不同
+子载波选择的信息等价。
+
 ## 4. OFDM 前端与同步门限
 
 `scripts/baseline3b_ofdm_frontend.py`：
@@ -76,7 +84,10 @@ E1/E2/E3 权重在 `runs_local/baseline3ca/weights/`，仅作审计留档，
   `CP ∈ {0.2, 0.4, 0.8, 1.6, 3.2, 6.4} µs`，label-blind。
 - 通过门限：`metric > 0.34` **且** `ratio > 15`。
 - SCS 312.5 kHz；20 MHz→64-FFT（52 occupied / 48 data），
-  40 MHz→128-FFT（104 occupied / 96 data）；DC 与带边 null。
+  40 MHz→128-FFT（**104 occupied / 98 data**）；DC 与带边 null。
+  `legacy_masks(128)` 的 pilots 为 ±11, ±25, ±39, ±53；其中 ±53
+  不在 occupied 集合内，因此 data = 104 − 6 = **98**。这是当前
+  代码与全部已训练/已评估权重的实际特征定义，不是 96。
 - `filter_symbol_rows` 按带内能量中位数的 0.5 倍丢弃弱行；只在
   连续 symbol run 内构造 block。
 - 最大 4,000 symbols/实例。

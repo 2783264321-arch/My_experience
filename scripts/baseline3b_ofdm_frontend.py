@@ -23,8 +23,10 @@ Scope (task contract):
 Reference OFDM layout (physical reference only, verified per-frame):
 legacy-style 20 MHz -> 64-point FFT at 3.2us (SCS 312.5 kHz), 52 occupied
 subcarriers (48 data + 4 pilots, nulls at DC and band edges); 40 MHz ->
-128-point at 3.2us, 104 occupied (96 data + 8 pilots). The masks are
-configurable and the real-data occupancy is measured, not assumed.
+128-point at 3.2us, 104 occupied (98 data + 6 occupied pilots; the ±53
+pilot indices listed by legacy_masks lie outside the occupied set). The
+masks are configurable and the real-data occupancy is measured, not
+assumed.
 """
 from __future__ import annotations
 
