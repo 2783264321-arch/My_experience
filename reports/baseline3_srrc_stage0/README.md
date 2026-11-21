@@ -105,3 +105,10 @@ SRRC 专家研发暂停，Stage 1/Stage 2 均未启动。
   单元测试：`scripts/test_srrc_ignore_ap.py`。
 - 原始数据只读；未提交原始 IQ/权重；未使用 test。
 - 修订记录：`stage0_errata.md`。
+
+## 后续
+
+2026-11-21 的 fit-only 局部 IQ 分类探针见
+[`reports/baseline3_srrc_local_iq/`](../baseline3_srrc_local_iq/README.md)：
+未接 YOLO、未用 val/test；结论是未同步幅度统计已接近恢复幅度，
+相位差无可重复收益，恢复率是主瓶颈。Stage 0 仍保持归档状态。
