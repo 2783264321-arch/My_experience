@@ -1,0 +1,339 @@
+{
+  "method": {
+    "fit_target_source": "reports/local_iq_round1/frames.npz (class 10/11 rows)",
+    "val_target_source": "val JSON annotations parsed from advanced/train",
+    "overlap_definition": "fraction of target box area intersected; any/srrc/wifi/cross/same; strong>=0.25",
+    "ap_definition": "C0 YOLO labels, class-aware greedy matching IoU=0.5, 101-point AP"
+  },
+  "splits": {
+    "fit": {
+      "n_instances": 2093,
+      "n_files": 1572,
+      "n_instances_10mhz": 1824,
+      "per_class": {
+        "10": {
+          "all_labels": {
+            "n_instances": 1068,
+            "n_files": 923,
+            "duration_ms": {
+              "n": 1068,
+              "mean": 33.50026146067416,
+              "q05": 4.798860000000001,
+              "median": 26.0,
+              "q95": 80.0,
+              "min": 1.0,
+              "max": 124.99967999999998
+            },
+            "bandwidth_mhz": {
+              "n": 1068,
+              "mean": 8.857022471910126,
+              "q05": 0.3000000000001819,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 0.3000000000001819,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 824,
+              "srrc": 205,
+              "srrc_cross": 103,
+              "srrc_same": 108,
+              "wifi": 484,
+              "strong25": 514
+            },
+            "overlap_frac": {
+              "any": 0.7715355805243446,
+              "srrc": 0.19194756554307116,
+              "strong25": 0.4812734082397004
+            }
+          },
+          "10mhz": {
+            "n_instances": 941,
+            "n_files": 868,
+            "duration_ms": {
+              "n": 941,
+              "mean": 33.081070605738574,
+              "q05": 4.798860000000001,
+              "median": 25.0,
+              "q95": 80.0,
+              "min": 1.0,
+              "max": 123.0
+            },
+            "bandwidth_mhz": {
+              "n": 941,
+              "mean": 10.0,
+              "q05": 10.0,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 10.0,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 734,
+              "srrc": 157,
+              "srrc_cross": 80,
+              "srrc_same": 81,
+              "wifi": 424,
+              "strong25": 432
+            },
+            "overlap_frac": {
+              "any": 0.7800212539851222,
+              "srrc": 0.16684378320935175,
+              "strong25": 0.45908607863974493
+            }
+          }
+        },
+        "11": {
+          "all_labels": {
+            "n_instances": 1025,
+            "n_files": 887,
+            "duration_ms": {
+              "n": 1025,
+              "mean": 30.257355034146343,
+              "q05": 5.0,
+              "median": 21.0,
+              "q95": 76.0,
+              "min": 1.0,
+              "max": 117.0
+            },
+            "bandwidth_mhz": {
+              "n": 1025,
+              "mean": 9.231687804878101,
+              "q05": 1.6000000000003638,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 1.6000000000003638,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 809,
+              "srrc": 178,
+              "srrc_cross": 104,
+              "srrc_same": 83,
+              "wifi": 477,
+              "strong25": 495
+            },
+            "overlap_frac": {
+              "any": 0.7892682926829269,
+              "srrc": 0.17365853658536584,
+              "strong25": 0.48292682926829267
+            }
+          },
+          "10mhz": {
+            "n_instances": 883,
+            "n_files": 824,
+            "duration_ms": {
+              "n": 883,
+              "mean": 29.713239229898072,
+              "q05": 5.0,
+              "median": 20.0,
+              "q95": 76.0,
+              "min": 1.0,
+              "max": 117.0
+            },
+            "bandwidth_mhz": {
+              "n": 883,
+              "mean": 10.0,
+              "q05": 10.0,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 10.0,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 707,
+              "srrc": 128,
+              "srrc_cross": 75,
+              "srrc_same": 61,
+              "wifi": 418,
+              "strong25": 415
+            },
+            "overlap_frac": {
+              "any": 0.8006795016987542,
+              "srrc": 0.144960362400906,
+              "strong25": 0.46998867497168745
+            }
+          }
+        }
+      }
+    },
+    "val": {
+      "n_instances": 716,
+      "n_files": 576,
+      "n_instances_10mhz": 469,
+      "per_class": {
+        "10": {
+          "all_labels": {
+            "n_instances": 376,
+            "n_files": 337,
+            "duration_ms": {
+              "n": 376,
+              "mean": 30.132156702127663,
+              "q05": 3.96952,
+              "median": 21.0,
+              "q95": 78.06903249999999,
+              "min": 1.0,
+              "max": 98.99993
+            },
+            "bandwidth_mhz": {
+              "n": 376,
+              "mean": 6.504521276595776,
+              "q05": 0.3000000000001819,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 0.3000000000001819,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 282,
+              "srrc": 56,
+              "srrc_cross": 28,
+              "srrc_same": 35,
+              "wifi": 198,
+              "strong25": 202
+            },
+            "overlap_frac": {
+              "any": 0.75,
+              "srrc": 0.14893617021276595,
+              "strong25": 0.5372340425531915
+            }
+          },
+          "10mhz": {
+            "n_instances": 239,
+            "n_files": 220,
+            "duration_ms": {
+              "n": 239,
+              "mean": 29.810453723849374,
+              "q05": 3.0,
+              "median": 21.0,
+              "q95": 71.43497399999998,
+              "min": 1.0,
+              "max": 94.27886000000001
+            },
+            "bandwidth_mhz": {
+              "n": 239,
+              "mean": 10.0,
+              "q05": 10.0,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 10.0,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 196,
+              "srrc": 43,
+              "srrc_cross": 19,
+              "srrc_same": 28,
+              "wifi": 124,
+              "strong25": 126
+            },
+            "overlap_frac": {
+              "any": 0.8200836820083682,
+              "srrc": 0.1799163179916318,
+              "strong25": 0.5271966527196653
+            }
+          }
+        },
+        "11": {
+          "all_labels": {
+            "n_instances": 340,
+            "n_files": 300,
+            "duration_ms": {
+              "n": 340,
+              "mean": 30.685446764705883,
+              "q05": 4.0,
+              "median": 20.0,
+              "q95": 79.05000000000001,
+              "min": 1.0,
+              "max": 124.0
+            },
+            "bandwidth_mhz": {
+              "n": 340,
+              "mean": 8.211411764706005,
+              "q05": 1.6000000000003638,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 1.6000000000003638,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 258,
+              "srrc": 54,
+              "srrc_cross": 26,
+              "srrc_same": 30,
+              "wifi": 157,
+              "strong25": 161
+            },
+            "overlap_frac": {
+              "any": 0.7588235294117647,
+              "srrc": 0.1588235294117647,
+              "strong25": 0.47352941176470587
+            }
+          },
+          "10mhz": {
+            "n_instances": 230,
+            "n_files": 209,
+            "duration_ms": {
+              "n": 230,
+              "mean": 31.091533652173908,
+              "q05": 4.0,
+              "median": 22.5,
+              "q95": 75.0,
+              "min": 1.8388600000000002,
+              "max": 105.0
+            },
+            "bandwidth_mhz": {
+              "n": 230,
+              "mean": 10.0,
+              "q05": 10.0,
+              "median": 10.0,
+              "q95": 10.0,
+              "min": 10.0,
+              "max": 10.0
+            },
+            "overlap": {
+              "any": 184,
+              "srrc": 36,
+              "srrc_cross": 18,
+              "srrc_same": 20,
+              "wifi": 108,
+              "strong25": 103
+            },
+            "overlap_frac": {
+              "any": 0.8,
+              "srrc": 0.1565217391304348,
+              "strong25": 0.44782608695652176
+            }
+          }
+        }
+      }
+    }
+  },
+  "val_c0_yolo_ap50": {
+    "10": {
+      "ap50": 0.7079000376354331,
+      "n_gt": 376,
+      "n_pred": 4338
+    },
+    "11": {
+      "ap50": 0.5710524866168465,
+      "n_gt": 340,
+      "n_pred": 3368
+    }
+  },
+  "val_c0_yolo_ap50_10mhz": {
+    "10": {
+      "ap50": 0.30454891288186015,
+      "n_gt": 239,
+      "n_pred": 4338
+    },
+    "11": {
+      "ap50": 0.23769811095539448,
+      "n_gt": 230,
+      "n_pred": 3368
+    }
+  },
+  "val_10mhz_subset_note": "val_c0_yolo_ap50 uses all class-10/11 GT; val_c0_yolo_ap50_10mhz drops class-10/11 GT with annotation bandwidth outside 9.5-10.5 MHz and keeps predictions unchanged.",
+  "val_c0_map50_reference": 0.6497250320877056,
+  "note": "Stage 0 only; no training. Fit has no C0 AP because the YOLO cache is val. Test is sealed."
+}
