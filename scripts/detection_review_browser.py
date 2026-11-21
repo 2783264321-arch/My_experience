@@ -146,9 +146,12 @@ button.miss { border:1px solid #d62728; color:#a11; }
 #ilist div.miss { color:#b00; font-weight:600; background:#fff2f2; border-radius:3px; }
 #ilist div:hover { background:#f2f2f2; }
 #ilist div.miss:hover { background:#ffe6e6; }
-#stats { margin-top:14px; font-size:11px; color:#555; }
-#stats table { border-collapse:collapse; margin-top:4px; }
-#stats td { padding:1px 6px 1px 0; white-space:nowrap; }
+#famfilter { margin-top:12px; font-size:11px; }
+#famfilter div { margin:3px 0; white-space:nowrap; }
+#famfilter i { display:inline-block; width:10px; height:10px; border:1.5px solid; margin:0 5px 0 3px; vertical-align:-1px; }
+#famfilter .cnt { color:#999; margin-left:4px; }
+#famfilter input { vertical-align:-1px; margin:0; }
+#stats { margin-top:10px; font-size:11px; color:#555; }
 #head .id { font-size:15px; font-weight:600; }
 #head .meta { color:#666; font-size:12px; margin:2px 0 2px; }
 #head .miss { color:#c0392b; font-weight:600; font-size:12px; margin-bottom:8px; }
@@ -184,6 +187,7 @@ text.num { font-size:11px; text-anchor:middle; paint-order:stroke; stroke:#fff; 
   </div>
   <div id="pos" style="margin-top:8px;font-size:12px;color:#666"></div>
   <div id="legend"></div>
+  <div id="famfilter"></div>
   <div id="ilist"></div>
   <div id="stats"></div>
   <div style="margin-top:14px;font-size:11px;color:#999">
@@ -214,9 +218,19 @@ const svg = $('plot'), tip = $('tip');
   const o=document.createElement('option'); o.textContent=v; o.value=v; $('fb').append(o);
 });
 
+function selectedFams(){
+  return new Set([...document.querySelectorAll('#famfilter input:checked')].map(e=>+e.dataset.fam));
+}
 function applyFilter(){
   const b = $('fb').value, only = $('fmiss').checked;
-  list = DATA.filter(s => (!b || String(s[1])===b) && (!only || s[4].some(g=>!g[5])));
+  const sel = selectedFams();
+  list = DATA.filter(s => {
+    const gs = s[4];
+    if(!gs.some(g=>sel.has(famOf(g[0])))) return false;
+    if(b && String(s[1])!==b) return false;
+    if(only) return gs.some(g=>sel.has(famOf(g[0])) && !g[5]);
+    return true;
+  });
   idx = 0; render();
 }
 $('fb').onchange = applyFilter;
@@ -227,11 +241,12 @@ $('next').onclick = () => { if(list.length){ idx=(idx+1)%list.length; render(); 
 $('rand').onclick = () => { if(list.length){ idx=Math.floor(Math.random()*list.length); render(); } };
 function jumpMiss(dir){
   if(!list.length) return;
+  const sel = selectedFams();
   for(let step=1; step<=list.length; step++){
     const k=(idx+dir*step+list.length*2)%list.length;
-    if(list[k][4].some(g=>!g[5])){ idx=k; render(); return; }
+    if(list[k][4].some(g=>sel.has(famOf(g[0])) && !g[5])){ idx=k; render(); return; }
   }
-  alert('no sample with misses in current filter');
+  alert('no sample with selected-family misses in current filter');
 }
 $('nextmiss').onclick = () => jumpMiss(1);
 $('prevmiss').onclick = () => jumpMiss(-1);
@@ -248,21 +263,23 @@ document.addEventListener('keydown', e => {
 $('legend').innerHTML =
   `<div><i style="border-color:#d62728;background:#d6272833"></i>missed GT</div>`
 + `<div><i style="border-color:#999;background:#99999922"></i>found GT (family fill)</div>`
-+ `<div><i style="border-color:#bbb;background:none;border-style:dashed"></i>prediction (toggle)</div>`;
++ `<div><i style="border-color:#000;background:none;border-style:dashed"></i>prediction (toggle)</div>`;
 
-// global miss table
+// family stats + filter checkboxes
+const FAMSTATS = FAMN.map(()=>({m:0,t:0}));
+DATA.forEach(s=>s[4].forEach(g=>{
+  const f=famOf(g[0]); FAMSTATS[f].t++; if(!g[5]) FAMSTATS[f].m++;
+}));
+$('famfilter').innerHTML = '<label>families (missed / total)</label>' + FAMN.map((n,f)=>
+  `<div><input type="checkbox" data-fam="${f}" checked>`
++ `<i style="border-color:${FAMC[REPR[f]]};background:${FAMC[REPR[f]]}33"></i>${n}`
++ `<span class="cnt">${FAMSTATS[f].m}/${FAMSTATS[f].t}</span></div>`
+).join('');
+$('famfilter').addEventListener('change', applyFilter);
 (() => {
-  const st = {};
-  DATA.forEach(s=>s[4].forEach(g=>{
-    const f=famOf(g[0]); if(!st[f]) st[f]={m:0,t:0};
-    st[f].t++; if(!g[5]) st[f].m++;
-  }));
-  const tm = Object.values(st).reduce((a,v)=>a+v.m,0);
-  const tt = Object.values(st).reduce((a,v)=>a+v.t,0);
-  let html = `<div><b>${tm} / ${tt} missed (${(tm/tt*100).toFixed(2)}%)</b> · ${DATA.length} samples</div><table>`;
-  for(const f in st) html += `<tr><td><i style="display:inline-block;width:9px;height:9px;border:1.5px solid ${FAMC[REPR[f]]};background:${FAMC[REPR[f]]}33;margin-right:5px"></i>${FAMN[f]}</td>`
-    + `<td>${st[f].m} / ${st[f].t}</td><td style="color:#999">${(st[f].m/st[f].t*100).toFixed(1)}%</td></tr>`;
-  $('stats').innerHTML = html + '</table>';
+  const tm = FAMSTATS.reduce((a,v)=>a+v.m,0);
+  const tt = FAMSTATS.reduce((a,v)=>a+v.t,0);
+  $('stats').innerHTML = `<b>${tm} / ${tt} missed (${(tm/tt*100).toFixed(2)}%)</b> · ${DATA.length} samples`;
 })();
 
 function mk(tag,attrs){const el=document.createElementNS('http://www.w3.org/2000/svg',tag);
@@ -298,38 +315,41 @@ function render(){
   if(!list.length){ svg.innerHTML=''; $('head').innerHTML='<div class="id">no sample in filter</div>'; $('ilist').innerHTML=''; $('ovl').innerHTML=''; return; }
   const s = list[idx];
   const [id,B,T,flo,gts,preds] = s;
-  const nm = gts.filter(g=>!g[5]).length;
+  const sel = selectedFams();
+  const shown = gts.map((g,k)=>({g,k})).filter(o=>sel.has(famOf(o.g[0])));
+  const nm = shown.filter(o=>!o.g[5]).length;
   $('pos').textContent = `${idx+1} / ${list.length}`;
   svg.innerHTML = ''; boxEls = [];
 
   mk('rect',{x:PL,y:PT,width:PW,height:PH,fill:'#fff',stroke:'#999','stroke-width':1});
 
-  // GT overlap pairs
+  // GT overlap pairs (selected families only)
   const pairs=[];
-  for(let i=0;i<gts.length;i++) for(let j=i+1;j<gts.length;j++){
-    const a=gts[i], b=gts[j];
+  for(let i=0;i<shown.length;i++) for(let j=i+1;j<shown.length;j++){
+    const a=shown[i].g, b=shown[j].g;
     const ix=Math.min(a[3],b[3])-Math.max(a[1],b[1]), iy=Math.min(a[4],b[4])-Math.max(a[2],b[2]);
     if(ix>0 && iy>0){
       const inter=ix*iy, aa=(a[3]-a[1])*(a[4]-a[2]), bb=(b[3]-b[1])*(b[4]-b[2]);
-      pairs.push([i+1,j+1,inter/aa,inter/bb]);
+      pairs.push([shown[i].k+1,shown[j].k+1,inter/aa,inter/bb]);
     }
   }
   $('head').innerHTML = `<div class="id">${id}</div>`
-    + `<div class="meta">${B} MHz × ${T} ms · GT ${gts.length} signal${gts.length>1?'s':''}</div>`
-    + `<div class="miss">${nm ? `${nm} missed (localized ${gts.length-nm}/${gts.length} = ${((gts.length-nm)/gts.length*100).toFixed(1)}%)` : 'all GT localized'}</div>`;
+    + `<div class="meta">${B} MHz × ${T} ms · GT ${shown.length} signal${shown.length>1?'s':''}${shown.length!==gts.length?` (of ${gts.length})`:''}</div>`
+    + `<div class="miss">${nm ? `${nm} missed (localized ${shown.length-nm}/${shown.length} = ${((shown.length-nm)/shown.length*100).toFixed(1)}%)` : 'all shown GT localized'}</div>`;
   $('ovl').innerHTML = pairs.length
     ? `<div class="t">${pairs.length} overlapping pair${pairs.length>1?'s':''}</div>`
       + pairs.map(p=>`<div>#${p[0]} ∩ #${p[1]} · ${(p[2]*100).toFixed(1)}% of #${p[0]} · ${(p[3]*100).toFixed(1)}% of #${p[1]}</div>`).join('')
     : '';
 
-  // sidebar instance list
-  $('ilist').innerHTML = '<label>instances (✓ found · ✗ missed)</label>' + gts.map((g,k)=>
-    `<div class="${g[5]?'':'miss'}"><i style="border-color:${g[5]?FAMC[g[0]]:'#d62728'};background:${g[5]?FAMC[g[0]]+'33':'#d6272833'}"></i>`
-    + `#${k+1} ${NAMES[g[0]]} <b style="color:${g[5]?'#2a8a2a':'#b00'}">${g[5]?'✓':'✗'}</b></div>`
+  // sidebar instance list (selected families only)
+  $('ilist').innerHTML = '<label>instances (✓ found · ✗ missed)</label>' + shown.map(o=>
+    `<div class="${o.g[5]?'':'miss'}"><i style="border-color:${o.g[5]?FAMC[o.g[0]]:'#d62728'};background:${o.g[5]?FAMC[o.g[0]]+'33':'#d6272833'}"></i>`
+    + `#${o.k+1} ${NAMES[o.g[0]]} <b style="color:${o.g[5]?'#2a8a2a':'#b00'}">${o.g[5]?'✓':'✗'}</b></div>`
   ).join('');
-  [...$('ilist').querySelectorAll('div')].forEach((row,k)=>{
+  [...$('ilist').querySelectorAll('div')].forEach((row,j)=>{
+    const o = shown[j], k = o.k;
     row.addEventListener('mouseenter',ev=>{
-      showGT(ev,s,k,gts[k]);
+      showGT(ev,s,k,o.g);
       const [r,t]=boxEls[k]||[];
       if(r){ r.setAttribute('stroke-width', r.getAttribute('data-bw')==='miss'?'4':'3'); svg.append(r); }
       if(t){ svg.append(t); t.style.fontSize='12px'; }
@@ -347,19 +367,19 @@ function render(){
   if($('fpred').checked && preds.length){
     preds.forEach((g,i)=>{
       const [cls,x1,y1,x2,y2,score]=g;
-      const op = Math.min(0.8, 0.12 + 0.6*score);
+      const op = Math.min(0.9, 0.45 + 0.45*score);
       const r = mk('rect',{x:X(x1),y:Y(y2),width:Math.max((x2-x1)*PW,1.5),height:Math.max((y2-y1)*PH,1.5),
-        fill:'none',stroke:'#9aa', 'stroke-width':0.8, 'stroke-dasharray':'3 2', opacity:op});
+        fill:'none',stroke:'#000', 'stroke-width':0.9, 'stroke-dasharray':'3 2', opacity:op});
       r.addEventListener('mouseenter',ev=>showPred(ev,s,i));
       r.addEventListener('mousemove',moveTip);
       r.addEventListener('mouseleave',hide);
     });
   }
 
-  // GT boxes: found first (faint), missed last (red, on top)
-  const order = gts.map((g,k)=>k).filter(k=>gts[k][5]).concat(gts.map((g,k)=>k).filter(k=>!gts[k][5]));
-  order.forEach(k=>{
-    const g=gts[k], [cls,x1,y1,x2,y2,found]=g;
+  // GT boxes (selected families): found first (faint), missed last (red, on top)
+  const order = shown.filter(o=>o.g[5]).concat(shown.filter(o=>!o.g[5]));
+  order.forEach(o=>{
+    const k=o.k, g=o.g, [cls,x1,y1,x2,y2,found]=g;
     const col = found ? FAMC[cls] : '#d62728';
     const fillOp = found ? 0.10 : 0.24;
     const lw = found ? 1.1 : 2.6;

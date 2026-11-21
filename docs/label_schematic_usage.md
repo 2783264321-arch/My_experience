@@ -90,9 +90,11 @@ PYTHONPATH=. python scripts/detection_review_browser.py \
 
 - 红色 = 未找回（missed，画在最上层），淡色 = 已找回（按家族着色）；
 - 左侧实例清单逐条 ✓/✗；悬浮清单行会把对应框提升并加粗；
+- **families 勾选**（每个家族带 missed/total 计数）：只显示勾选家族实例，
+  `next miss` 与 `samples with misses only` 也只按勾选家族计算；
 - **`prev miss` / `next miss`** 只在含漏检的样本间跳转（270/1,543）；
-- `show predictions` 叠加全部预测（灰色虚线，透明度随分数）；
-- 侧边栏底部有全局漏检统计（按家族）。
+- `show predictions` 叠加全部预测（**黑色虚线**，透明度随分数）；
+- 侧边栏底部有全局漏检统计。
 
 当前数据（C all-views 0.6427）：**301 / 7,162 个 GT 未被定位（4.20%）**，
 分布在 270 / 1,543 个样本；AM/FM 154/749（20.6%），WiFi20 30/997（3.0%），
