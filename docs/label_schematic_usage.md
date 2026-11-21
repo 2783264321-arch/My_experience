@@ -74,3 +74,28 @@ cd reports && python -m http.server 8791        # 前台
 
 注意：test split 的封存口径是"不用于模型选择"；本工具只读标注做可视化，
 `--include-test` 不违反该口径。
+
+## 检测漏检审查浏览器（2026-11-21 新增）
+
+工具：`scripts/detection_review_browser.py`。加载 stage-5 验证预测
+（`runs/yolo11s_c1_directreg_2048x512/stage5_val`，粗图+细片基线 0.6427），
+用评测器的**类别无关** IoU≥0.5 贪心匹配（每样本最多 100 个预测）给每个 GT
+打 found / missed 标记，生成单文件 HTML：
+
+```bash
+cd /root/autodl-tmp/workspace/baseline
+PYTHONPATH=. python scripts/detection_review_browser.py \
+    --out reports/detection_review_browser.html      # ~2.7 MB
+```
+
+- 红色 = 未找回（missed，画在最上层），淡色 = 已找回（按家族着色）；
+- 左侧实例清单逐条 ✓/✗；悬浮清单行会把对应框提升并加粗；
+- **`prev miss` / `next miss`** 只在含漏检的样本间跳转（270/1,543）；
+- `show predictions` 叠加全部预测（灰色虚线，透明度随分数）；
+- 侧边栏底部有全局漏检统计（按家族）。
+
+当前数据（C all-views 0.6427）：**301 / 7,162 个 GT 未被定位（4.20%）**，
+分布在 270 / 1,543 个样本；AM/FM 154/749（20.6%），WiFi20 30/997（3.0%），
+WiFi40 15/442（3.4%），SRRC 20/716（2.8%），BLE/Zigbee 55/2,847（1.9%），
+LoRa 27/1,411（1.9%）；rel_bw ≤0.5% 为 144/1,359（10.6%），
+时长 ≤5 ms 为 61/514（11.9%）。
