@@ -104,20 +104,21 @@ def rect_intersection(a, b):
     return iw * ih
 
 
-def other_signal_risk(sigs, target_gt_idx, f_center, bw, t1, t2):
-    """Max overlap of the segment rectangle with other annotated signals."""
+def other_signal_risk(sigs, target_signal_id, f_center, bw, t1, t2):
+    """Max overlap of the segment with signals other than target_signal_id."""
     a = (f_center - bw / 2, f_center + bw / 2, t1, t2)
     area = max((a[1] - a[0]) * (a[3] - a[2]), 1e-9)
-    best = 0.0; best_lab = None
-    for j, s in enumerate(sigs):
-        if j == target_gt_idx:
+    best = 0.0; best_lab = None; best_sid = None
+    for s in sigs:
+        sid = int(s["signal_id"])
+        if sid == target_signal_id:
             continue
         b = (float(s["start_frequency"]), float(s["end_frequency"]),
              float(s["start_time"]), float(s["end_time"]))
         frac = rect_intersection(a, b) / area
         if frac > best:
-            best, best_lab = float(frac), int(s["class"])
-    return best, best_lab
+            best, best_lab, best_sid = float(frac), int(s["class"]), sid
+    return best, best_lab, best_sid
 
 
 def main():
@@ -135,6 +136,9 @@ def main():
     paired = json.loads((EXP / "paired_gt_pred_sync.json").read_text())["pairs"]
     recs = {r.sample_id: r for r in load_manifest(SPLIT_MANIFEST, split="val")}
     sigs_by = {r.sample_id: r.signals for r in recs.values()}
+    z = np.load(CACHE / "yolo_val_cache.npz", allow_pickle=True)
+    z = {k: z[k] for k in z.files}
+    gt_off = np.concatenate([[0], np.cumsum(z["gt_counts"])])
 
     # ---- matched cases ----
     cases = []
@@ -157,6 +161,10 @@ def main():
             "f_center": float(p["f_center"]), "t1": float(p["t1_ms"]),
             "t2": float(p["t2_ms"]), "bw": int(p["nominal_bw"]),
             "gt_idx": int(p["gt_idx"]),
+            "sample_idx": int(p["sample_idx"]),
+            "target_local_idx": int(p["gt_idx"]) - int(gt_off[int(p["sample_idx"])]),
+            "target_signal_id": int(sigs_by[sid][
+                int(p["gt_idx"]) - int(gt_off[int(p["sample_idx"])])]["signal_id"]),
             "whole_status": q["pred_sync"],
             "whole_metric": q["pred_metric"], "whole_ratio": q["pred_ratio"],
             "gt_sync": q["gt_sync"],
@@ -170,14 +178,16 @@ def main():
                 "f_center": float(p["gt_f_center"]),
                 "t1": float(p["gt_t1"]), "t2": float(p["gt_t2"]),
                 "bw": int(p["nominal_bw"]), "gt_idx": int(p["gt_idx"]),
+                "sample_idx": int(p["sample_idx"]),
+                "target_local_idx": int(p["gt_idx"]) - int(gt_off[int(p["sample_idx"])]),
+                "target_signal_id": int(sigs_by[sid][
+                    int(p["gt_idx"]) - int(gt_off[int(p["sample_idx"])])]["signal_id"]),
                 "whole_status": q["gt_sync"],
                 "whole_metric": q["gt_metric"], "whole_ratio": q["gt_ratio"],
                 "gt_sync": q["gt_sync"],
             })
 
     # ---- unmatched failures (dev only), 12 deterministic ----
-    z = np.load(CACHE / "yolo_val_cache.npz", allow_pickle=True)
-    z = {k: z[k] for k in z.files}
     hz = np.load(CACHE / "hist_cache.npz", allow_pickle=True)
     hz = {k: hz[k] for k in hz.files}
     h_pos = {int(pi): k for k, pi in enumerate(hz["pred_idx"])}
@@ -208,7 +218,9 @@ def main():
             "f_center": 0.5 * (f1 + f2),
             "t1": max(0.0, min(float(m["T_ms"]), t1)),
             "t2": max(0.0, min(float(m["T_ms"]), t2)),
-            "bw": 40, "gt_idx": None, "whole_status": "sync_fail",
+            "bw": 40, "gt_idx": None, "sample_idx": None,
+            "target_local_idx": None, "target_signal_id": None,
+            "whole_status": "sync_fail",
             "whole_metric": float(hz["pred_metric"][pos]),
             "whole_ratio": float(hz["pred_ratio"][pos]), "gt_sync": None,
         })
@@ -268,11 +280,11 @@ def main():
                 family_offset = 3 if c["bw"] == 40 else 0
                 # all selected cases are W40 classes 3/4/5
                 expert = expert3 + 3
-        other_frac = other_lab = None
+        other_frac = other_lab = other_sid = None
         emo = False
-        if best is not None:
-            other_frac, other_lab = other_signal_risk(
-                sigs_by[c["sample_id"]], c["gt_idx"], c["f_center"],
+        if best is not None and c.get("target_signal_id") is not None:
+            other_frac, other_lab, other_sid = other_signal_risk(
+                sigs_by[c["sample_id"]], c["target_signal_id"], c["f_center"],
                 c["bw"], best["t1"], best["t2"])
             emo = bool(expert is not None and other_lab is not None and
                        other_lab in (3, 4, 5) and expert == other_lab)
@@ -293,6 +305,7 @@ def main():
                "corrected": None if gt is None or expert is None else int(expert == gt and yolo != gt),
                "broken": None if gt is None or expert is None else int(expert != gt and yolo == gt),
                "other_frac": other_frac, "other_label": other_lab,
+               "other_signal_id": other_sid,
                "high_other_overlap": None if other_frac is None else int(other_frac >= 0.5),
                "expert_matches_other": int(emo),
                "changed": None if expert is None else int(expert != yolo)}
@@ -300,13 +313,14 @@ def main():
 
     # CSV
     fields = ["kind", "box_type", "split", "sample_id", "pair_index",
+              "sample_idx", "target_local_idx", "target_signal_id",
               "pred_idx", "gt_label", "yolo_label", "whole_status",
               "whole_metric", "whole_ratio", "gt_sync", "n_segments",
               "n_pass_segments", "n_kept_total", "n_blocks_total",
               "best_metric", "best_ratio", "best_t1", "best_t2",
               "expert_label", "expert_correct", "yolo_correct",
               "corrected", "broken", "changed", "other_frac", "other_label",
-              "high_other_overlap", "expert_matches_other"]
+              "other_signal_id", "high_other_overlap", "expert_matches_other"]
     with (OUT / "sync_segment_cases.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         w.writeheader()
