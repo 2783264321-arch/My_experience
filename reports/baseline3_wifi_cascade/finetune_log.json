@@ -1,0 +1,598 @@
+{
+  "cal_instances": 34,
+  "final_instances": 35,
+  "protocol": {
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "batch_inst": 8,
+    "max_updates": 600,
+    "eval_every": 50,
+    "patience": 4,
+    "freeze": "conv blocks 1-2; train conv3+fc",
+    "early_stop": "cal-dev pred loss"
+  },
+  "runs": [
+    {
+      "arm": "E1",
+      "seed": 1729,
+      "best_step": 100,
+      "best_cal_pred_loss": 0.57176,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.7475701570510864,
+          "cal_pred_loss": 0.6011507436052007,
+          "cal_gt_loss": 0.5182379162871368
+        },
+        {
+          "step": 100,
+          "train_loss": 0.5526920557022095,
+          "cal_pred_loss": 0.5717631124803285,
+          "cal_gt_loss": 0.5156335953709129
+        },
+        {
+          "step": 150,
+          "train_loss": 0.4471524655818939,
+          "cal_pred_loss": 0.6450100440059103,
+          "cal_gt_loss": 0.6120335430776966
+        },
+        {
+          "step": 200,
+          "train_loss": 0.15647843480110168,
+          "cal_pred_loss": 0.5919134759587567,
+          "cal_gt_loss": 0.5301185940200204
+        },
+        {
+          "step": 250,
+          "train_loss": 0.4645618200302124,
+          "cal_pred_loss": 0.5766938202407517,
+          "cal_gt_loss": 0.5149883673467381
+        },
+        {
+          "step": 300,
+          "train_loss": 0.3904237747192383,
+          "cal_pred_loss": 0.5971443914181888,
+          "cal_gt_loss": 0.5419341649946764
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E1_seed1729.pt",
+      "n_train_instances": 169,
+      "train_blocks": 663,
+      "seconds": 4.9
+    },
+    {
+      "arm": "E1",
+      "seed": 1730,
+      "best_step": 100,
+      "best_cal_pred_loss": 0.51353,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.4090343713760376,
+          "cal_pred_loss": 0.5753093009712917,
+          "cal_gt_loss": 0.45485311974151443
+        },
+        {
+          "step": 100,
+          "train_loss": 0.8105320334434509,
+          "cal_pred_loss": 0.5135318428052226,
+          "cal_gt_loss": 0.38431977185283794
+        },
+        {
+          "step": 150,
+          "train_loss": 0.35086873173713684,
+          "cal_pred_loss": 0.5732860832204991,
+          "cal_gt_loss": 0.46525511522590474
+        },
+        {
+          "step": 200,
+          "train_loss": 0.3619886040687561,
+          "cal_pred_loss": 0.5267935142724023,
+          "cal_gt_loss": 0.42840769928538464
+        },
+        {
+          "step": 250,
+          "train_loss": 0.4588625133037567,
+          "cal_pred_loss": 0.6431003853144418,
+          "cal_gt_loss": 0.5417992372429384
+        },
+        {
+          "step": 300,
+          "train_loss": 0.208592489361763,
+          "cal_pred_loss": 0.5415350140837782,
+          "cal_gt_loss": 0.44858334629535435
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E1_seed1730.pt",
+      "n_train_instances": 169,
+      "train_blocks": 663,
+      "seconds": 3.0
+    },
+    {
+      "arm": "E1",
+      "seed": 1731,
+      "best_step": 400,
+      "best_cal_pred_loss": 0.47582,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.8693819046020508,
+          "cal_pred_loss": 0.5987891455032875,
+          "cal_gt_loss": 0.45443500943062043
+        },
+        {
+          "step": 100,
+          "train_loss": 0.44557633996009827,
+          "cal_pred_loss": 0.5247579914416638,
+          "cal_gt_loss": 0.41063532813045817
+        },
+        {
+          "step": 150,
+          "train_loss": 0.41797420382499695,
+          "cal_pred_loss": 0.5489870077902878,
+          "cal_gt_loss": 0.42504445039151467
+        },
+        {
+          "step": 200,
+          "train_loss": 0.4428708553314209,
+          "cal_pred_loss": 0.5243737137637148,
+          "cal_gt_loss": 0.41053191324589583
+        },
+        {
+          "step": 250,
+          "train_loss": 0.44708430767059326,
+          "cal_pred_loss": 0.5237941458935291,
+          "cal_gt_loss": 0.4202790869413073
+        },
+        {
+          "step": 300,
+          "train_loss": 0.5831328630447388,
+          "cal_pred_loss": 0.5085268936769363,
+          "cal_gt_loss": 0.4129308476991791
+        },
+        {
+          "step": 350,
+          "train_loss": 0.22746077179908752,
+          "cal_pred_loss": 0.5415850778682658,
+          "cal_gt_loss": 0.42755936670300776
+        },
+        {
+          "step": 400,
+          "train_loss": 0.2207632064819336,
+          "cal_pred_loss": 0.47581906024077414,
+          "cal_gt_loss": 0.36430714413441556
+        },
+        {
+          "step": 450,
+          "train_loss": 0.3658553957939148,
+          "cal_pred_loss": 0.5698567537815556,
+          "cal_gt_loss": 0.4546469194526762
+        },
+        {
+          "step": 500,
+          "train_loss": 0.4010186493396759,
+          "cal_pred_loss": 0.5095443517953112,
+          "cal_gt_loss": 0.39139466390216965
+        },
+        {
+          "step": 550,
+          "train_loss": 0.2476448267698288,
+          "cal_pred_loss": 0.5656168653768227,
+          "cal_gt_loss": 0.4417675129540316
+        },
+        {
+          "step": 600,
+          "train_loss": 0.2682383060455322,
+          "cal_pred_loss": 0.5589932815008299,
+          "cal_gt_loss": 0.461628250022503
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E1_seed1731.pt",
+      "n_train_instances": 169,
+      "train_blocks": 663,
+      "seconds": 5.8
+    },
+    {
+      "arm": "E2",
+      "seed": 1729,
+      "best_step": 200,
+      "best_cal_pred_loss": 0.56444,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.6876070499420166,
+          "cal_pred_loss": 0.6024669672282812,
+          "cal_gt_loss": 0.5067811221220611
+        },
+        {
+          "step": 100,
+          "train_loss": 0.532564640045166,
+          "cal_pred_loss": 0.5731243396965923,
+          "cal_gt_loss": 0.5156262686933204
+        },
+        {
+          "step": 150,
+          "train_loss": 0.38148611783981323,
+          "cal_pred_loss": 0.6138899771893565,
+          "cal_gt_loss": 0.5506256803811121
+        },
+        {
+          "step": 200,
+          "train_loss": 0.1734379678964615,
+          "cal_pred_loss": 0.5644401559398304,
+          "cal_gt_loss": 0.5031719410291489
+        },
+        {
+          "step": 250,
+          "train_loss": 0.4066658616065979,
+          "cal_pred_loss": 0.5772772192919906,
+          "cal_gt_loss": 0.5061160571202891
+        },
+        {
+          "step": 300,
+          "train_loss": 0.437340646982193,
+          "cal_pred_loss": 0.6281113836575041,
+          "cal_gt_loss": 0.5701316446043316
+        },
+        {
+          "step": 350,
+          "train_loss": 0.6153637766838074,
+          "cal_pred_loss": 0.5998989192959927,
+          "cal_gt_loss": 0.538673325237375
+        },
+        {
+          "step": 400,
+          "train_loss": 0.07443659007549286,
+          "cal_pred_loss": 0.5853016139211259,
+          "cal_gt_loss": 0.5211369631237983
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E2_seed1729.pt",
+      "n_train_instances": 169,
+      "train_blocks": 1326,
+      "seconds": 6.7
+    },
+    {
+      "arm": "E2",
+      "seed": 1730,
+      "best_step": 100,
+      "best_cal_pred_loss": 0.51045,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.4480460584163666,
+          "cal_pred_loss": 0.5652532750971372,
+          "cal_gt_loss": 0.4420763554449787
+        },
+        {
+          "step": 100,
+          "train_loss": 0.8058999180793762,
+          "cal_pred_loss": 0.5104501714345306,
+          "cal_gt_loss": 0.3690149736238414
+        },
+        {
+          "step": 150,
+          "train_loss": 0.3017640709877014,
+          "cal_pred_loss": 0.6014901581940845,
+          "cal_gt_loss": 0.46782603109998944
+        },
+        {
+          "step": 200,
+          "train_loss": 0.3916507959365845,
+          "cal_pred_loss": 0.5215562939041416,
+          "cal_gt_loss": 0.42248182076824387
+        },
+        {
+          "step": 250,
+          "train_loss": 0.3452235460281372,
+          "cal_pred_loss": 0.688623306029709,
+          "cal_gt_loss": 0.5971327413175244
+        },
+        {
+          "step": 300,
+          "train_loss": 0.19611597061157227,
+          "cal_pred_loss": 0.5715811881816861,
+          "cal_gt_loss": 0.48505191108046286
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E2_seed1730.pt",
+      "n_train_instances": 169,
+      "train_blocks": 1326,
+      "seconds": 5.7
+    },
+    {
+      "arm": "E2",
+      "seed": 1731,
+      "best_step": 400,
+      "best_cal_pred_loss": 0.47466,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.7632716298103333,
+          "cal_pred_loss": 0.6191016370162177,
+          "cal_gt_loss": 0.47392082661569906
+        },
+        {
+          "step": 100,
+          "train_loss": 0.4022909700870514,
+          "cal_pred_loss": 0.5184943028792155,
+          "cal_gt_loss": 0.40042311093129634
+        },
+        {
+          "step": 150,
+          "train_loss": 0.38068076968193054,
+          "cal_pred_loss": 0.5148627841528628,
+          "cal_gt_loss": 0.390684910617561
+        },
+        {
+          "step": 200,
+          "train_loss": 0.3640477955341339,
+          "cal_pred_loss": 0.5098466598397721,
+          "cal_gt_loss": 0.39717917933616276
+        },
+        {
+          "step": 250,
+          "train_loss": 0.3548194468021393,
+          "cal_pred_loss": 0.5119244602199494,
+          "cal_gt_loss": 0.4192730463725692
+        },
+        {
+          "step": 300,
+          "train_loss": 0.5153353810310364,
+          "cal_pred_loss": 0.49796291847809127,
+          "cal_gt_loss": 0.42021288169422716
+        },
+        {
+          "step": 350,
+          "train_loss": 0.21279029548168182,
+          "cal_pred_loss": 0.5244623174744715,
+          "cal_gt_loss": 0.42393409230189294
+        },
+        {
+          "step": 400,
+          "train_loss": 0.22022581100463867,
+          "cal_pred_loss": 0.4746590821305863,
+          "cal_gt_loss": 0.36989302301387283
+        },
+        {
+          "step": 450,
+          "train_loss": 0.47644364833831787,
+          "cal_pred_loss": 0.5223815176101442,
+          "cal_gt_loss": 0.4202431537068751
+        },
+        {
+          "step": 500,
+          "train_loss": 0.48286914825439453,
+          "cal_pred_loss": 0.4892044677715215,
+          "cal_gt_loss": 0.3810029585341142
+        },
+        {
+          "step": 550,
+          "train_loss": 0.22327445447444916,
+          "cal_pred_loss": 0.5946314885076364,
+          "cal_gt_loss": 0.4683480308923092
+        },
+        {
+          "step": 600,
+          "train_loss": 0.41677147150039673,
+          "cal_pred_loss": 0.5300011729611974,
+          "cal_gt_loss": 0.42936132492390344
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E2_seed1731.pt",
+      "n_train_instances": 169,
+      "train_blocks": 1326,
+      "seconds": 10.9
+    },
+    {
+      "arm": "E3",
+      "seed": 1729,
+      "best_step": 300,
+      "best_cal_pred_loss": 0.53089,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.6921287178993225,
+          "cal_pred_loss": 0.5823424890763818,
+          "cal_gt_loss": 0.5091930673492032
+        },
+        {
+          "step": 100,
+          "train_loss": 0.7874253392219543,
+          "cal_pred_loss": 0.56240786911386,
+          "cal_gt_loss": 0.47556628136346585
+        },
+        {
+          "step": 150,
+          "train_loss": 0.799239993095398,
+          "cal_pred_loss": 0.5351329126120778,
+          "cal_gt_loss": 0.47625665732825234
+        },
+        {
+          "step": 200,
+          "train_loss": 1.0804193019866943,
+          "cal_pred_loss": 0.5494566036633628,
+          "cal_gt_loss": 0.4856042530236497
+        },
+        {
+          "step": 250,
+          "train_loss": 0.9667629599571228,
+          "cal_pred_loss": 0.5516185393920054,
+          "cal_gt_loss": 0.48722640638690023
+        },
+        {
+          "step": 300,
+          "train_loss": 0.5792831778526306,
+          "cal_pred_loss": 0.5308939771679808,
+          "cal_gt_loss": 0.46026375069863984
+        },
+        {
+          "step": 350,
+          "train_loss": 0.9278323650360107,
+          "cal_pred_loss": 0.5723844863830303,
+          "cal_gt_loss": 0.511831117748239
+        },
+        {
+          "step": 400,
+          "train_loss": 0.7953415513038635,
+          "cal_pred_loss": 0.5538578609434139,
+          "cal_gt_loss": 0.4681306782450045
+        },
+        {
+          "step": 450,
+          "train_loss": 0.6879922151565552,
+          "cal_pred_loss": 0.6031443857647687,
+          "cal_gt_loss": 0.5152357227674796
+        },
+        {
+          "step": 500,
+          "train_loss": 1.0561347007751465,
+          "cal_pred_loss": 0.6065444402985233,
+          "cal_gt_loss": 0.5479076985962579
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E3_seed1729.pt",
+      "n_train_instances": 169,
+      "train_blocks": 663,
+      "seconds": 6.1
+    },
+    {
+      "arm": "E3",
+      "seed": 1730,
+      "best_step": 250,
+      "best_cal_pred_loss": 0.57095,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 1.0284981727600098,
+          "cal_pred_loss": 0.5945048761061438,
+          "cal_gt_loss": 0.5111465254222447
+        },
+        {
+          "step": 100,
+          "train_loss": 0.7518555521965027,
+          "cal_pred_loss": 0.6207147613383367,
+          "cal_gt_loss": 0.5493998007806273
+        },
+        {
+          "step": 150,
+          "train_loss": 0.9192250370979309,
+          "cal_pred_loss": 0.619390788094451,
+          "cal_gt_loss": 0.5240603997483136
+        },
+        {
+          "step": 200,
+          "train_loss": 0.8811337947845459,
+          "cal_pred_loss": 0.6016404997220327,
+          "cal_gt_loss": 0.5249730608659721
+        },
+        {
+          "step": 250,
+          "train_loss": 0.8389944434165955,
+          "cal_pred_loss": 0.5709549353753838,
+          "cal_gt_loss": 0.49038741158358334
+        },
+        {
+          "step": 300,
+          "train_loss": 0.523063600063324,
+          "cal_pred_loss": 0.6216368599284804,
+          "cal_gt_loss": 0.4469255312898572
+        },
+        {
+          "step": 350,
+          "train_loss": 0.6384974122047424,
+          "cal_pred_loss": 0.6022081567143637,
+          "cal_gt_loss": 0.5102624750945611
+        },
+        {
+          "step": 400,
+          "train_loss": 0.7397111058235168,
+          "cal_pred_loss": 0.6230482999604263,
+          "cal_gt_loss": 0.5282120027277277
+        },
+        {
+          "step": 450,
+          "train_loss": 1.0255016088485718,
+          "cal_pred_loss": 0.6003345277211151,
+          "cal_gt_loss": 0.5217177890072783
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E3_seed1730.pt",
+      "n_train_instances": 169,
+      "train_blocks": 663,
+      "seconds": 4.3
+    },
+    {
+      "arm": "E3",
+      "seed": 1731,
+      "best_step": 300,
+      "best_cal_pred_loss": 0.51133,
+      "history": [
+        {
+          "step": 50,
+          "train_loss": 0.5806437730789185,
+          "cal_pred_loss": 0.5627348956037562,
+          "cal_gt_loss": 0.39577491281083027
+        },
+        {
+          "step": 100,
+          "train_loss": 0.6369367241859436,
+          "cal_pred_loss": 0.531212747848258,
+          "cal_gt_loss": 0.4157703639624047
+        },
+        {
+          "step": 150,
+          "train_loss": 1.0858677625656128,
+          "cal_pred_loss": 0.5399658405670794,
+          "cal_gt_loss": 0.4398414985104374
+        },
+        {
+          "step": 200,
+          "train_loss": 0.6805856823921204,
+          "cal_pred_loss": 0.5840688587815734,
+          "cal_gt_loss": 0.45671262036900123
+        },
+        {
+          "step": 250,
+          "train_loss": 0.6032437682151794,
+          "cal_pred_loss": 0.5319348865476741,
+          "cal_gt_loss": 0.4317619669121292
+        },
+        {
+          "step": 300,
+          "train_loss": 1.110450029373169,
+          "cal_pred_loss": 0.5113266067377689,
+          "cal_gt_loss": 0.4106203167861408
+        },
+        {
+          "step": 350,
+          "train_loss": 1.2536017894744873,
+          "cal_pred_loss": 0.6108172972904681,
+          "cal_gt_loss": 0.4656187916082414
+        },
+        {
+          "step": 400,
+          "train_loss": 0.9254225492477417,
+          "cal_pred_loss": 0.5651914316499441,
+          "cal_gt_loss": 0.44948090502174076
+        },
+        {
+          "step": 450,
+          "train_loss": 0.6026574969291687,
+          "cal_pred_loss": 0.5339864483714388,
+          "cal_gt_loss": 0.4408791981784829
+        },
+        {
+          "step": 500,
+          "train_loss": 0.4622965157032013,
+          "cal_pred_loss": 0.5956086008293352,
+          "cal_gt_loss": 0.47080543900962285
+        }
+      ],
+      "weights": "/root/autodl-tmp/workspace/baseline/runs_local/baseline3ca/weights/E3_seed1731.pt",
+      "n_train_instances": 169,
+      "train_blocks": 663,
+      "seconds": 4.3
+    }
+  ]
+}
