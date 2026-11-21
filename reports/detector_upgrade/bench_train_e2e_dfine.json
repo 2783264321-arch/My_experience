@@ -1,0 +1,23 @@
+{
+ "kind": "dfine",
+ "sources_per_step": 8,
+ "views_per_step": 16,
+ "micro_sources": 4,
+ "micro_views": 8,
+ "accum": 2,
+ "workers": 8,
+ "step_s_mean": 0.7903341948986053,
+ "data_s_mean": 0.00039018938938776654,
+ "compute_s_mean": 0.7903341948986053,
+ "steps_per_epoch": 745,
+ "epoch_s": 588.798975199461,
+ "train_50ep_s": 29439.94875997305,
+ "peak_alloc_gib": 15.065410137176514,
+ "peak_reserved_gib": 16.900390625,
+ "build": {
+  "copied": 1156,
+  "skipped": 17,
+  "stem_summed": 1,
+  "params_m": 31.11
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "kind": "dfine",
+ "wall_s": 159.05652336776257,
+ "loss_first50": 82.88230300903321,
+ "loss_last50": 73.15026657104492,
+ "infer_dets_4_samples": [
+  3000,
+  6900,
+  6900,
+  10500
+ ],
+ "checkpoint": "/root/autodl-tmp/worktrees/detector-upgrade/reports/detector_upgrade/short_dfine.pt"
+}

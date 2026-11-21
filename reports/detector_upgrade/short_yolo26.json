@@ -1,0 +1,13 @@
+{
+ "kind": "yolo26",
+ "wall_s": 84.4416371434927,
+ "loss_first50": 83.01685676574706,
+ "loss_last50": 33.50504104614258,
+ "infer_dets_4_samples": [
+  1277,
+  842,
+  2186,
+  1640
+ ],
+ "checkpoint": "/root/autodl-tmp/worktrees/detector-upgrade/reports/detector_upgrade/short_yolo26.pt"
+}

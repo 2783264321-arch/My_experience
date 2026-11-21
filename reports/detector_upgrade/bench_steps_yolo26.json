@@ -1,0 +1,102 @@
+[
+ {
+  "kind": "yolo26",
+  "views": 8,
+  "sources": 4,
+  "oom": false,
+  "step_s_mean": 0.18945431212584177,
+  "step_s_min": 0.1886582151055336,
+  "step_s_max": 0.1909952387213707,
+  "loss": 144.62924194335938,
+  "peak_alloc_gib": 13.166593074798584,
+  "peak_reserved_gib": 14.853515625,
+  "build": {
+   "copied": 1080,
+   "skipped": 12,
+   "stem_summed": 1,
+   "head": "Detect"
+  },
+  "samples": [
+   [
+    "train/1",
+    5.0,
+    20.0,
+    18
+   ],
+   [
+    "train/4",
+    20.0,
+    20.0,
+    18
+   ],
+   [
+    "train/0",
+    30.0,
+    80.0,
+    18
+   ],
+   [
+    "train/6",
+    40.0,
+    60.0,
+    18
+   ]
+  ]
+ },
+ {
+  "kind": "yolo26",
+  "views": 12,
+  "sources": 6,
+  "oom": false,
+  "step_s_mean": 0.2768268585205078,
+  "step_s_min": 0.2765669971704483,
+  "step_s_max": 0.27725791931152344,
+  "loss": 239.1732635498047,
+  "peak_alloc_gib": 19.957377910614014,
+  "peak_reserved_gib": 22.03515625,
+  "build": {
+   "copied": 1080,
+   "skipped": 12,
+   "stem_summed": 1,
+   "head": "Detect"
+  },
+  "samples": [
+   [
+    "train/1",
+    5.0,
+    20.0,
+    35
+   ],
+   [
+    "train/4",
+    20.0,
+    20.0,
+    35
+   ],
+   [
+    "train/0",
+    30.0,
+    80.0,
+    35
+   ],
+   [
+    "train/6",
+    40.0,
+    60.0,
+    35
+   ],
+   [
+    "train/3",
+    50.0,
+    60.0,
+    35
+   ],
+   [
+    "train/10",
+    80.0,
+    40.0,
+    35
+   ]
+  ]
+ }
+]

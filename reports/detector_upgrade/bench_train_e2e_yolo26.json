@@ -1,0 +1,23 @@
+{
+ "kind": "yolo26",
+ "sources_per_step": 8,
+ "views_per_step": 16,
+ "micro_sources": 4,
+ "micro_views": 8,
+ "accum": 2,
+ "workers": 8,
+ "step_s_mean": 0.38623438651363057,
+ "data_s_mean": 0.005784558753172557,
+ "compute_s_mean": 0.38623438651363057,
+ "steps_per_epoch": 745,
+ "epoch_s": 287.7446179526548,
+ "train_50ep_s": 14387.230897632739,
+ "peak_alloc_gib": 13.167919158935547,
+ "peak_reserved_gib": 14.853515625,
+ "build": {
+  "copied": 1080,
+  "skipped": 12,
+  "stem_summed": 1,
+  "head": "Detect"
+ }
+}

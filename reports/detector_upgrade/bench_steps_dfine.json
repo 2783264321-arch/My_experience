@@ -1,0 +1,202 @@
+[
+ {
+  "kind": "dfine",
+  "views": 4,
+  "sources": 2,
+  "oom": false,
+  "step_s_mean": 0.2668910895784696,
+  "step_s_min": 0.248711496591568,
+  "step_s_max": 0.2934497594833374,
+  "loss": 120.25460815429688,
+  "peak_alloc_gib": 7.81715726852417,
+  "peak_reserved_gib": 8.951171875,
+  "build": {
+   "copied": 1156,
+   "skipped": 17,
+   "stem_summed": 1,
+   "params_m": 31.11
+  },
+  "samples": [
+   [
+    "train/1",
+    5.0,
+    20.0,
+    10
+   ],
+   [
+    "train/4",
+    20.0,
+    20.0,
+    10
+   ]
+  ]
+ },
+ {
+  "kind": "dfine",
+  "views": 8,
+  "sources": 4,
+  "oom": false,
+  "step_s_mean": 0.3808460260430972,
+  "step_s_min": 0.3789061829447746,
+  "step_s_max": 0.3841201290488243,
+  "loss": 95.114013671875,
+  "peak_alloc_gib": 15.518189430236816,
+  "peak_reserved_gib": 17.140625,
+  "build": {
+   "copied": 1156,
+   "skipped": 17,
+   "stem_summed": 1,
+   "params_m": 31.11
+  },
+  "samples": [
+   [
+    "train/1",
+    5.0,
+    20.0,
+    18
+   ],
+   [
+    "train/4",
+    20.0,
+    20.0,
+    18
+   ],
+   [
+    "train/0",
+    30.0,
+    80.0,
+    18
+   ],
+   [
+    "train/6",
+    40.0,
+    60.0,
+    18
+   ]
+  ]
+ },
+ {
+  "kind": "dfine",
+  "views": 12,
+  "sources": 6,
+  "oom": true,
+  "step_s_mean": 0.52652557939291,
+  "step_s_min": 0.513411857187748,
+  "step_s_max": 0.539639301598072,
+  "loss": null,
+  "peak_alloc_gib": 22.787482738494873,
+  "peak_reserved_gib": 23.03125,
+  "build": {
+   "copied": 1156,
+   "skipped": 17,
+   "stem_summed": 1,
+   "params_m": 31.11
+  },
+  "samples": [
+   [
+    "train/1",
+    5.0,
+    20.0,
+    35
+   ],
+   [
+    "train/4",
+    20.0,
+    20.0,
+    35
+   ],
+   [
+    "train/0",
+    30.0,
+    80.0,
+    35
+   ],
+   [
+    "train/6",
+    40.0,
+    60.0,
+    35
+   ],
+   [
+    "train/3",
+    50.0,
+    60.0,
+    35
+   ],
+   [
+    "train/10",
+    80.0,
+    40.0,
+    35
+   ]
+  ]
+ },
+ {
+  "kind": "dfine",
+  "views": 16,
+  "sources": 8,
+  "oom": true,
+  "step_s_mean": null,
+  "step_s_min": null,
+  "step_s_max": null,
+  "loss": null,
+  "peak_alloc_gib": 22.627341747283936,
+  "peak_reserved_gib": 22.896484375,
+  "build": {
+   "copied": 1156,
+   "skipped": 17,
+   "stem_summed": 1,
+   "params_m": 31.11
+  },
+  "samples": [
+   [
+    "train/1",
+    5.0,
+    20.0,
+    10
+   ],
+   [
+    "train/4",
+    20.0,
+    20.0,
+    10
+   ],
+   [
+    "train/0",
+    30.0,
+    80.0,
+    10
+   ],
+   [
+    "train/6",
+    40.0,
+    60.0,
+    10
+   ],
+   [
+    "train/3",
+    50.0,
+    60.0,
+    10
+   ],
+   [
+    "train/10",
+    80.0,
+    40.0,
+    10
+   ],
+   [
+    "train/22",
+    5.0,
+    20.0,
+    10
+   ],
+   [
+    "train/5",
+    20.0,
+    60.0,
+    10
+   ]
+  ]
+ }
+]
