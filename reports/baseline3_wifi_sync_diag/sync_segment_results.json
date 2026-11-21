@@ -1,0 +1,366 @@
+{
+  "n_cases": 544,
+  "matched": {
+    "pred_class3": {
+      "n": 54,
+      "n_recovered": 17,
+      "recovery_rate": 0.3148148148148148,
+      "n_with_expert": 17,
+      "n_kept_total": 15189,
+      "n_blocks_total": 61,
+      "n_pass_segments": 61,
+      "n_high_other_overlap": 17,
+      "n_expert_matches_other": 15,
+      "expert_acc": 0.8235294117647058,
+      "yolo_acc": 1.0,
+      "corrected": 0,
+      "broken": 3,
+      "net": -3,
+      "both_correct": 14,
+      "both_wrong": 0,
+      "confusion": [
+        [
+          14,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "pred_class4": {
+      "n": 107,
+      "n_recovered": 12,
+      "recovery_rate": 0.11214953271028037,
+      "n_with_expert": 12,
+      "n_kept_total": 12200,
+      "n_blocks_total": 49,
+      "n_pass_segments": 49,
+      "n_high_other_overlap": 12,
+      "n_expert_matches_other": 5,
+      "expert_acc": 0.4166666666666667,
+      "yolo_acc": 0.25,
+      "corrected": 5,
+      "broken": 3,
+      "net": 2,
+      "both_correct": 0,
+      "both_wrong": 4,
+      "confusion": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          5,
+          5
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "pred_class5": {
+      "n": 106,
+      "n_recovered": 13,
+      "recovery_rate": 0.12264150943396226,
+      "n_with_expert": 13,
+      "n_kept_total": 13446,
+      "n_blocks_total": 54,
+      "n_pass_segments": 54,
+      "n_high_other_overlap": 13,
+      "n_expert_matches_other": 10,
+      "expert_acc": 0.6923076923076923,
+      "yolo_acc": 0.07692307692307693,
+      "corrected": 9,
+      "broken": 1,
+      "net": 8,
+      "both_correct": 0,
+      "both_wrong": 3,
+      "confusion": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          9
+        ]
+      ]
+    },
+    "pred_all": {
+      "n": 267,
+      "n_recovered": 42,
+      "recovery_rate": 0.15730337078651685,
+      "n_with_expert": 42,
+      "n_kept_total": 40835,
+      "n_blocks_total": 164,
+      "n_pass_segments": 164,
+      "n_high_other_overlap": 42,
+      "n_expert_matches_other": 30,
+      "expert_acc": 0.6666666666666666,
+      "yolo_acc": 0.5,
+      "corrected": 14,
+      "broken": 7,
+      "net": 7,
+      "both_correct": 14,
+      "both_wrong": 7,
+      "confusion": [
+        [
+          14,
+          0,
+          3
+        ],
+        [
+          2,
+          5,
+          5
+        ],
+        [
+          4,
+          0,
+          9
+        ]
+      ]
+    },
+    "gt_class3": {
+      "n": 53,
+      "n_recovered": 15,
+      "recovery_rate": 0.2830188679245283,
+      "n_with_expert": 15,
+      "n_kept_total": 15687,
+      "n_blocks_total": 63,
+      "n_pass_segments": 63,
+      "n_high_other_overlap": 15,
+      "n_expert_matches_other": 12,
+      "expert_acc": 0.7333333333333333,
+      "yolo_acc": 1.0,
+      "corrected": 0,
+      "broken": 4,
+      "net": -4,
+      "both_correct": 11,
+      "both_wrong": 0,
+      "confusion": [
+        [
+          11,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "gt_class4": {
+      "n": 106,
+      "n_recovered": 13,
+      "recovery_rate": 0.12264150943396226,
+      "n_with_expert": 13,
+      "n_kept_total": 13695,
+      "n_blocks_total": 55,
+      "n_pass_segments": 55,
+      "n_high_other_overlap": 13,
+      "n_expert_matches_other": 6,
+      "expert_acc": 0.46153846153846156,
+      "yolo_acc": 0.23076923076923078,
+      "corrected": 6,
+      "broken": 3,
+      "net": 3,
+      "both_correct": 0,
+      "both_wrong": 4,
+      "confusion": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          6,
+          6
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "gt_class5": {
+      "n": 106,
+      "n_recovered": 13,
+      "recovery_rate": 0.12264150943396226,
+      "n_with_expert": 13,
+      "n_kept_total": 12948,
+      "n_blocks_total": 52,
+      "n_pass_segments": 52,
+      "n_high_other_overlap": 13,
+      "n_expert_matches_other": 10,
+      "expert_acc": 0.6923076923076923,
+      "yolo_acc": 0.07692307692307693,
+      "corrected": 9,
+      "broken": 1,
+      "net": 8,
+      "both_correct": 0,
+      "both_wrong": 3,
+      "confusion": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          9
+        ]
+      ]
+    },
+    "gt_all": {
+      "n": 265,
+      "n_recovered": 41,
+      "recovery_rate": 0.15471698113207547,
+      "n_with_expert": 41,
+      "n_kept_total": 42330,
+      "n_blocks_total": 170,
+      "n_pass_segments": 170,
+      "n_high_other_overlap": 41,
+      "n_expert_matches_other": 28,
+      "expert_acc": 0.6341463414634146,
+      "yolo_acc": 0.4634146341463415,
+      "corrected": 15,
+      "broken": 8,
+      "net": 7,
+      "both_correct": 11,
+      "both_wrong": 7,
+      "confusion": [
+        [
+          11,
+          1,
+          3
+        ],
+        [
+          1,
+          6,
+          6
+        ],
+        [
+          2,
+          2,
+          9
+        ]
+      ]
+    },
+    "pred_adaptation-train": {
+      "n": 218,
+      "n_recovered": 35,
+      "recovery_rate": 0.16055045871559634,
+      "n_with_expert": 35,
+      "n_kept_total": 34610,
+      "n_blocks_total": 139,
+      "n_pass_segments": 139,
+      "n_high_other_overlap": 35,
+      "n_expert_matches_other": 26,
+      "expert_acc": 0.6857142857142857,
+      "yolo_acc": 0.4857142857142857,
+      "corrected": 13,
+      "broken": 6,
+      "net": 7,
+      "both_correct": 11,
+      "both_wrong": 5,
+      "confusion": [
+        [
+          11,
+          0,
+          2
+        ],
+        [
+          2,
+          5,
+          4
+        ],
+        [
+          3,
+          0,
+          8
+        ]
+      ]
+    },
+    "pred_calibration-dev": {
+      "n": 49,
+      "n_recovered": 7,
+      "recovery_rate": 0.14285714285714285,
+      "n_with_expert": 7,
+      "n_kept_total": 6225,
+      "n_blocks_total": 25,
+      "n_pass_segments": 25,
+      "n_high_other_overlap": 7,
+      "n_expert_matches_other": 4,
+      "expert_acc": 0.5714285714285714,
+      "yolo_acc": 0.5714285714285714,
+      "corrected": 1,
+      "broken": 1,
+      "net": 0,
+      "both_correct": 3,
+      "both_wrong": 2,
+      "confusion": [
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  "unmatched": {
+    "n": 12,
+    "n_recovered": 1,
+    "n_changed": 0,
+    "n_high_other_overlap": 1,
+    "n_expert_matches_other": 0,
+    "expert_labels": {
+      "5": 1
+    },
+    "n_kept_total": 498
+  }
+}

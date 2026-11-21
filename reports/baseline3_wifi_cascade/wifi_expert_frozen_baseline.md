@@ -165,3 +165,11 @@ final-dev 是内部开发留出，不是独立测试；test 未使用。
   `cascade_adaptation_comparison.md`
 - 数据划分：`reports/baseline3_wifi_cascade/adaptation_split_v2.json`
 - 权重哈希审计：`reports/baseline3_wifi_cascade/finetune_freeze_audit.json`
+
+## 后续诊断
+
+2026-11-21 的同步失败短段诊断见
+[`reports/baseline3_wifi_sync_diag/`](../baseline3_wifi_sync_diag/README.md)：
+短段找回 15.7% 的 Pred 失败框，但 42/42 个找回段与框内另一条标注
+信号高重叠，14/14 个“改对”的专家类别等于其他信号；净 +7 不可
+归因于目标恢复。未改推理，保留现行整段规则。
