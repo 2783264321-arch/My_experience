@@ -1,0 +1,6577 @@
+{
+  "final_dev": {
+    "samples": 140,
+    "matched_pairs": 216,
+    "dual_sync_pairs": 35,
+    "wifi_preds": 704,
+    "sync_ok": 125,
+    "sync_coverage": 0.1776,
+    "sync_ok_matched_pairs": 37,
+    "sync_ok_unmatched": 88
+  },
+  "flips_vs_E0": {
+    "E1": {
+      "conditional": {
+        "per_seed": {
+          "1729": {
+            "corrected": 2,
+            "broken": 1,
+            "net": 1,
+            "n": 35
+          },
+          "1730": {
+            "corrected": 0,
+            "broken": 1,
+            "net": -1,
+            "n": 35
+          },
+          "1731": {
+            "corrected": 3,
+            "broken": 5,
+            "net": -2,
+            "n": 35
+          }
+        },
+        "seed_mean": {
+          "corrected": 1.6666666666666667,
+          "broken": 2.3333333333333335,
+          "net": -0.6666666666666666
+        }
+      },
+      "all_instance": {
+        "per_seed": {
+          "1729": {
+            "corrected": 2,
+            "broken": 1,
+            "net": 1,
+            "n": 216
+          },
+          "1730": {
+            "corrected": 0,
+            "broken": 1,
+            "net": -1,
+            "n": 216
+          },
+          "1731": {
+            "corrected": 3,
+            "broken": 5,
+            "net": -2,
+            "n": 216
+          }
+        },
+        "seed_mean": {
+          "corrected": 1.6666666666666667,
+          "broken": 2.3333333333333335,
+          "net": -0.6666666666666666
+        }
+      }
+    },
+    "E2": {
+      "conditional": {
+        "per_seed": {
+          "1729": {
+            "corrected": 2,
+            "broken": 1,
+            "net": 1,
+            "n": 35
+          },
+          "1730": {
+            "corrected": 0,
+            "broken": 0,
+            "net": 0,
+            "n": 35
+          },
+          "1731": {
+            "corrected": 4,
+            "broken": 4,
+            "net": 0,
+            "n": 35
+          }
+        },
+        "seed_mean": {
+          "corrected": 2.0,
+          "broken": 1.6666666666666667,
+          "net": 0.3333333333333333
+        }
+      },
+      "all_instance": {
+        "per_seed": {
+          "1729": {
+            "corrected": 2,
+            "broken": 1,
+            "net": 1,
+            "n": 216
+          },
+          "1730": {
+            "corrected": 0,
+            "broken": 0,
+            "net": 0,
+            "n": 216
+          },
+          "1731": {
+            "corrected": 4,
+            "broken": 4,
+            "net": 0,
+            "n": 216
+          }
+        },
+        "seed_mean": {
+          "corrected": 2.0,
+          "broken": 1.6666666666666667,
+          "net": 0.3333333333333333
+        }
+      }
+    },
+    "E3": {
+      "conditional": {
+        "per_seed": {
+          "1729": {
+            "corrected": 2,
+            "broken": 1,
+            "net": 1,
+            "n": 35
+          },
+          "1730": {
+            "corrected": 1,
+            "broken": 4,
+            "net": -3,
+            "n": 35
+          },
+          "1731": {
+            "corrected": 2,
+            "broken": 3,
+            "net": -1,
+            "n": 35
+          }
+        },
+        "seed_mean": {
+          "corrected": 1.6666666666666667,
+          "broken": 2.6666666666666665,
+          "net": -1.0
+        }
+      },
+      "all_instance": {
+        "per_seed": {
+          "1729": {
+            "corrected": 2,
+            "broken": 1,
+            "net": 1,
+            "n": 216
+          },
+          "1730": {
+            "corrected": 1,
+            "broken": 4,
+            "net": -3,
+            "n": 216
+          },
+          "1731": {
+            "corrected": 2,
+            "broken": 3,
+            "net": -1,
+            "n": 216
+          }
+        },
+        "seed_mean": {
+          "corrected": 1.6666666666666667,
+          "broken": 2.6666666666666665,
+          "net": -1.0
+        }
+      }
+    }
+  },
+  "per_class_pr": {
+    "E0": {
+      "1729": {
+        "confusion": [
+          [
+            13,
+            2,
+            1
+          ],
+          [
+            1,
+            11,
+            2
+          ],
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.8666666666666667,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.7333333333333333,
+            "recall": 0.7857142857142857,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.4,
+            "recall": 0.4,
+            "support": 5
+          }
+        }
+      },
+      "1730": {
+        "confusion": [
+          [
+            13,
+            2,
+            1
+          ],
+          [
+            0,
+            10,
+            4
+          ],
+          [
+            1,
+            0,
+            4
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.9285714285714286,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.8333333333333334,
+            "recall": 0.7142857142857143,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.4444444444444444,
+            "recall": 0.8,
+            "support": 5
+          }
+        }
+      },
+      "1731": {
+        "confusion": [
+          [
+            14,
+            1,
+            1
+          ],
+          [
+            2,
+            10,
+            2
+          ],
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.8235294117647058,
+            "recall": 0.875,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.7692307692307693,
+            "recall": 0.7142857142857143,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.4,
+            "recall": 0.4,
+            "support": 5
+          }
+        }
+      }
+    },
+    "E1": {
+      "1729": {
+        "confusion": [
+          [
+            13,
+            2,
+            1
+          ],
+          [
+            0,
+            11,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 1.0,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.7333333333333333,
+            "recall": 0.7857142857142857,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.42857142857142855,
+            "recall": 0.6,
+            "support": 5
+          }
+        }
+      },
+      "1730": {
+        "confusion": [
+          [
+            13,
+            1,
+            2
+          ],
+          [
+            0,
+            9,
+            5
+          ],
+          [
+            1,
+            0,
+            4
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.9285714285714286,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.9,
+            "recall": 0.6428571428571429,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.36363636363636365,
+            "recall": 0.8,
+            "support": 5
+          }
+        }
+      },
+      "1731": {
+        "confusion": [
+          [
+            13,
+            0,
+            3
+          ],
+          [
+            0,
+            6,
+            8
+          ],
+          [
+            0,
+            0,
+            5
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 1.0,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 1.0,
+            "recall": 0.42857142857142855,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.3125,
+            "recall": 1.0,
+            "support": 5
+          }
+        }
+      }
+    },
+    "E2": {
+      "1729": {
+        "confusion": [
+          [
+            13,
+            1,
+            2
+          ],
+          [
+            0,
+            11,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 1.0,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.7857142857142857,
+            "recall": 0.7857142857142857,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.375,
+            "recall": 0.6,
+            "support": 5
+          }
+        }
+      },
+      "1730": {
+        "confusion": [
+          [
+            13,
+            1,
+            2
+          ],
+          [
+            0,
+            10,
+            4
+          ],
+          [
+            1,
+            0,
+            4
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.9285714285714286,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.9090909090909091,
+            "recall": 0.7142857142857143,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.4,
+            "recall": 0.8,
+            "support": 5
+          }
+        }
+      },
+      "1731": {
+        "confusion": [
+          [
+            13,
+            0,
+            3
+          ],
+          [
+            0,
+            8,
+            6
+          ],
+          [
+            0,
+            0,
+            5
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 1.0,
+            "recall": 0.8125,
+            "support": 16
+          },
+          "1": {
+            "precision": 1.0,
+            "recall": 0.5714285714285714,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.35714285714285715,
+            "recall": 1.0,
+            "support": 5
+          }
+        }
+      }
+    },
+    "E3": {
+      "1729": {
+        "confusion": [
+          [
+            14,
+            1,
+            1
+          ],
+          [
+            1,
+            10,
+            3
+          ],
+          [
+            1,
+            1,
+            3
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.875,
+            "recall": 0.875,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.8333333333333334,
+            "recall": 0.7142857142857143,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.42857142857142855,
+            "recall": 0.6,
+            "support": 5
+          }
+        }
+      },
+      "1730": {
+        "confusion": [
+          [
+            12,
+            3,
+            1
+          ],
+          [
+            2,
+            9,
+            3
+          ],
+          [
+            1,
+            1,
+            3
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.8,
+            "recall": 0.75,
+            "support": 16
+          },
+          "1": {
+            "precision": 0.6923076923076923,
+            "recall": 0.6428571428571429,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.42857142857142855,
+            "recall": 0.6,
+            "support": 5
+          }
+        }
+      },
+      "1731": {
+        "confusion": [
+          [
+            14,
+            0,
+            2
+          ],
+          [
+            3,
+            7,
+            4
+          ],
+          [
+            1,
+            0,
+            4
+          ]
+        ],
+        "per_class": {
+          "0": {
+            "precision": 0.7777777777777778,
+            "recall": 0.875,
+            "support": 16
+          },
+          "1": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "support": 14
+          },
+          "2": {
+            "precision": 0.4,
+            "recall": 0.8,
+            "support": 5
+          }
+        }
+      }
+    }
+  },
+  "strata": {
+    "E0": {
+      "clean": {
+        "n": 6,
+        "acc": 1.0
+      },
+      "overlap": {
+        "n": 29,
+        "acc": 0.7011494252873564
+      },
+      "iou_hi>=0.75": {
+        "n": 32,
+        "acc": 0.7604166666666666
+      },
+      "iou_lo<0.75": {
+        "n": 3,
+        "acc": 0.6666666666666666
+      },
+      "offset<0.5MHz": {
+        "n": 34,
+        "acc": 0.7450980392156863
+      },
+      "offset>=0.5MHz": {
+        "n": 1,
+        "acc": 1.0
+      },
+      "class0": {
+        "n": 8,
+        "acc": 0.75
+      },
+      "class1": {
+        "n": 11,
+        "acc": 0.7272727272727272
+      },
+      "class2": {
+        "n": 4,
+        "acc": 0.4166666666666667
+      },
+      "class3": {
+        "n": 8,
+        "acc": 0.9166666666666666
+      },
+      "class4": {
+        "n": 3,
+        "acc": 0.7777777777777777
+      },
+      "class5": {
+        "n": 1,
+        "acc": 1.0
+      }
+    },
+    "E1": {
+      "clean": {
+        "n": 6,
+        "acc": 1.0
+      },
+      "overlap": {
+        "n": 29,
+        "acc": 0.6781609195402298
+      },
+      "iou_hi>=0.75": {
+        "n": 32,
+        "acc": 0.7395833333333334
+      },
+      "iou_lo<0.75": {
+        "n": 3,
+        "acc": 0.6666666666666666
+      },
+      "offset<0.5MHz": {
+        "n": 34,
+        "acc": 0.7254901960784315
+      },
+      "offset>=0.5MHz": {
+        "n": 1,
+        "acc": 1.0
+      },
+      "class0": {
+        "n": 8,
+        "acc": 0.75
+      },
+      "class1": {
+        "n": 11,
+        "acc": 0.5757575757575758
+      },
+      "class2": {
+        "n": 4,
+        "acc": 0.75
+      },
+      "class3": {
+        "n": 8,
+        "acc": 0.875
+      },
+      "class4": {
+        "n": 3,
+        "acc": 0.7777777777777777
+      },
+      "class5": {
+        "n": 1,
+        "acc": 1.0
+      }
+    },
+    "E2": {
+      "clean": {
+        "n": 6,
+        "acc": 1.0
+      },
+      "overlap": {
+        "n": 29,
+        "acc": 0.7126436781609197
+      },
+      "iou_hi>=0.75": {
+        "n": 32,
+        "acc": 0.7708333333333334
+      },
+      "iou_lo<0.75": {
+        "n": 3,
+        "acc": 0.6666666666666666
+      },
+      "offset<0.5MHz": {
+        "n": 34,
+        "acc": 0.7549019607843137
+      },
+      "offset>=0.5MHz": {
+        "n": 1,
+        "acc": 1.0
+      },
+      "class0": {
+        "n": 8,
+        "acc": 0.75
+      },
+      "class1": {
+        "n": 11,
+        "acc": 0.6363636363636364
+      },
+      "class2": {
+        "n": 4,
+        "acc": 0.75
+      },
+      "class3": {
+        "n": 8,
+        "acc": 0.875
+      },
+      "class4": {
+        "n": 3,
+        "acc": 0.8888888888888888
+      },
+      "class5": {
+        "n": 1,
+        "acc": 1.0
+      }
+    },
+    "E3": {
+      "clean": {
+        "n": 6,
+        "acc": 1.0
+      },
+      "overlap": {
+        "n": 29,
+        "acc": 0.6666666666666666
+      },
+      "iou_hi>=0.75": {
+        "n": 32,
+        "acc": 0.7291666666666666
+      },
+      "iou_lo<0.75": {
+        "n": 3,
+        "acc": 0.6666666666666666
+      },
+      "offset<0.5MHz": {
+        "n": 34,
+        "acc": 0.7156862745098039
+      },
+      "offset>=0.5MHz": {
+        "n": 1,
+        "acc": 1.0
+      },
+      "class0": {
+        "n": 8,
+        "acc": 0.75
+      },
+      "class1": {
+        "n": 11,
+        "acc": 0.6060606060606061
+      },
+      "class2": {
+        "n": 4,
+        "acc": 0.5833333333333334
+      },
+      "class3": {
+        "n": 8,
+        "acc": 0.9166666666666666
+      },
+      "class4": {
+        "n": 3,
+        "acc": 0.6666666666666666
+      },
+      "class5": {
+        "n": 1,
+        "acc": 1.0
+      }
+    }
+  },
+  "bootstrap_delta_vs_E0": {
+    "E1": {
+      "conditional": {
+        "1729": {
+          "delta": 0.03225806451612903,
+          "lo": 0.0,
+          "hi": 0.0967741935483871
+        },
+        "1730": {
+          "delta": -0.03225806451612903,
+          "lo": -0.0967741935483871,
+          "hi": 0.0
+        },
+        "1731": {
+          "delta": -0.06451612903225806,
+          "lo": -0.22580645161290322,
+          "hi": 0.0967741935483871
+        }
+      },
+      "all_instance": {
+        "1729": {
+          "delta": 0.007142857142857143,
+          "lo": 0.0,
+          "hi": 0.02142857142857143
+        },
+        "1730": {
+          "delta": -0.007142857142857143,
+          "lo": -0.02142857142857143,
+          "hi": 0.0
+        },
+        "1731": {
+          "delta": -0.008928571428571428,
+          "lo": -0.03571428571428571,
+          "hi": 0.01607142857142857
+        }
+      }
+    },
+    "E2": {
+      "conditional": {
+        "1729": {
+          "delta": 0.03225806451612903,
+          "lo": 0.0,
+          "hi": 0.0967741935483871
+        },
+        "1730": {
+          "delta": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "1731": {
+          "delta": 0.0,
+          "lo": -0.16129032258064516,
+          "hi": 0.16129032258064516
+        }
+      },
+      "all_instance": {
+        "1729": {
+          "delta": 0.007142857142857143,
+          "lo": 0.0,
+          "hi": 0.02142857142857143
+        },
+        "1730": {
+          "delta": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "1731": {
+          "delta": 0.0017857142857142857,
+          "lo": -0.019642857142857142,
+          "hi": 0.025
+        }
+      }
+    },
+    "E3": {
+      "conditional": {
+        "1729": {
+          "delta": 0.03225806451612903,
+          "lo": 0.0,
+          "hi": 0.0967741935483871
+        },
+        "1730": {
+          "delta": -0.08064516129032258,
+          "lo": -0.20967741935483872,
+          "hi": 0.03225806451612903
+        },
+        "1731": {
+          "delta": -0.03225806451612903,
+          "lo": -0.12903225806451613,
+          "hi": 0.06451612903225806
+        }
+      },
+      "all_instance": {
+        "1729": {
+          "delta": 0.0017857142857142857,
+          "lo": 0.0,
+          "hi": 0.005357142857142857
+        },
+        "1730": {
+          "delta": -0.010714285714285714,
+          "lo": -0.03571428571428571,
+          "hi": 0.010714285714285714
+        },
+        "1731": {
+          "delta": -0.010714285714285714,
+          "lo": -0.03214285714285714,
+          "hi": 0.007142857142857143
+        }
+      }
+    }
+  },
+  "unmatched_categories_all": {
+    "wifi_gt_secondary_duplicate": 265,
+    "wifi_gt_low_iou": 275,
+    "no_match": 17,
+    "nonwifi_gt": 4
+  },
+  "unmatched_categories_final": {
+    "wifi_gt_low_iou": 53,
+    "wifi_gt_secondary_duplicate": 33,
+    "no_match": 2
+  },
+  "unmatched_items": [
+    {
+      "pred_idx": 353,
+      "sample_id": "train/56",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0017769751138985157,
+      "best_gt_iou": 0.504,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 354,
+      "sample_id": "train/56",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0013839495368301868,
+      "best_gt_iou": 0.527,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 388,
+      "sample_id": "train/85",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.003115394851192832,
+      "best_gt_iou": 0.065,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 389,
+      "sample_id": "train/85",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.0018891681684181094,
+      "best_gt_iou": 0.093,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 397,
+      "sample_id": "train/85",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.0011360422940924764,
+      "best_gt_iou": 0.385,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 830,
+      "sample_id": "train/156",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.08107913285493851,
+      "best_gt_iou": 0.433,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 831,
+      "sample_id": "train/156",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.07396945357322693,
+      "best_gt_iou": 0.893,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 839,
+      "sample_id": "train/156",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.010722029954195023,
+      "best_gt_iou": 0.889,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 888,
+      "sample_id": "train/156",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.0011859156657010317,
+      "best_gt_iou": 0.261,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 890,
+      "sample_id": "train/156",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.0011304450454190373,
+      "best_gt_iou": 0.37,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1004,
+      "sample_id": "train/186",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.6644905209541321,
+      "best_gt_iou": 0.655,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1012,
+      "sample_id": "train/186",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.0705907791852951,
+      "best_gt_iou": 0.664,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1013,
+      "sample_id": "train/186",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.05074240267276764,
+      "best_gt_iou": 0.191,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1019,
+      "sample_id": "train/186",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.010689657181501389,
+      "best_gt_iou": 0.643,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1096,
+      "sample_id": "train/207",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5918925404548645,
+      "best_gt_iou": 0.964,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1097,
+      "sample_id": "train/207",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5592336058616638,
+      "best_gt_iou": 0.408,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1100,
+      "sample_id": "train/207",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.015591534785926342,
+      "best_gt_iou": 0.421,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1101,
+      "sample_id": "train/207",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.007248572073876858,
+      "best_gt_iou": 0.404,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1104,
+      "sample_id": "train/207",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0027509962674230337,
+      "best_gt_iou": 0.951,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1524,
+      "sample_id": "train/253",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0012869297061115503,
+      "best_gt_iou": 0.889,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1617,
+      "sample_id": "train/276",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.6464542150497437,
+      "best_gt_iou": 0.988,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1673,
+      "sample_id": "train/277",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0011267863446846604,
+      "best_gt_iou": 0.483,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1826,
+      "sample_id": "train/322",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.611036479473114,
+      "best_gt_iou": 0.974,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 1836,
+      "sample_id": "train/322",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.002702215453609824,
+      "best_gt_iou": 0.107,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1845,
+      "sample_id": "train/333",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.20786619186401367,
+      "best_gt_iou": 0.281,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1849,
+      "sample_id": "train/333",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.12969987094402313,
+      "best_gt_iou": 0.294,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1855,
+      "sample_id": "train/333",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.01116344053298235,
+      "best_gt_iou": 0.366,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 1938,
+      "sample_id": "train/351",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.010386588983237743,
+      "best_gt_iou": 0.281,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 2823,
+      "sample_id": "train/470",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0050623491406440735,
+      "best_gt_iou": 0.461,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3441,
+      "sample_id": "train/573",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.028756093233823776,
+      "best_gt_iou": 0.344,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3461,
+      "sample_id": "train/576",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.3679715692996979,
+      "best_gt_iou": 0.498,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3462,
+      "sample_id": "train/576",
+      "split": "final-dev",
+      "pred_label": 3,
+      "pred_score": 0.3469434976577759,
+      "best_gt_iou": 0.645,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 3464,
+      "sample_id": "train/576",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.2955836355686188,
+      "best_gt_iou": 0.498,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3472,
+      "sample_id": "train/576",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0021077292039990425,
+      "best_gt_iou": 0.502,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 3560,
+      "sample_id": "train/595",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.8337323665618896,
+      "best_gt_iou": 0.966,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 3562,
+      "sample_id": "train/595",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.40431585907936096,
+      "best_gt_iou": 0.969,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 3898,
+      "sample_id": "train/648",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.7810465097427368,
+      "best_gt_iou": 0.995,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 3899,
+      "sample_id": "train/648",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.6542327404022217,
+      "best_gt_iou": 0.346,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3901,
+      "sample_id": "train/648",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.3963544964790344,
+      "best_gt_iou": 0.58,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 3903,
+      "sample_id": "train/648",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.018002498894929886,
+      "best_gt_iou": 0.35,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3904,
+      "sample_id": "train/648",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.008903545327484608,
+      "best_gt_iou": 0.422,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3908,
+      "sample_id": "train/648",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0011048986343666911,
+      "best_gt_iou": 0.193,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3918,
+      "sample_id": "train/651",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.0013577296631410718,
+      "best_gt_iou": 0.304,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 3976,
+      "sample_id": "train/671",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.6048181653022766,
+      "best_gt_iou": 0.952,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 4011,
+      "sample_id": "train/675",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.07731406390666962,
+      "best_gt_iou": 0.813,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 4012,
+      "sample_id": "train/675",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.030600570142269135,
+      "best_gt_iou": 0.916,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 4015,
+      "sample_id": "train/675",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.010913609527051449,
+      "best_gt_iou": 0.355,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 4030,
+      "sample_id": "train/675",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.001936547108925879,
+      "best_gt_iou": 0.39,
+      "best_gt_label": 11,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 4173,
+      "sample_id": "train/708",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.01855350472033024,
+      "best_gt_iou": 0.6,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 4182,
+      "sample_id": "train/708",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.001439231331460178,
+      "best_gt_iou": 0.485,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 4183,
+      "sample_id": "train/708",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0012334026396274567,
+      "best_gt_iou": 0.287,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 4709,
+      "sample_id": "train/792",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.0505608431994915,
+      "best_gt_iou": 0.731,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 4722,
+      "sample_id": "train/792",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.004118121229112148,
+      "best_gt_iou": 0.409,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 4724,
+      "sample_id": "train/792",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0031442316249012947,
+      "best_gt_iou": 0.567,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 5059,
+      "sample_id": "train/845",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.001100424793548882,
+      "best_gt_iou": 0.456,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 5104,
+      "sample_id": "train/859",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.003923666197806597,
+      "best_gt_iou": 0.504,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 6056,
+      "sample_id": "train/991",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.6279072761535645,
+      "best_gt_iou": 0.985,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 6646,
+      "sample_id": "train/1068",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.3569495379924774,
+      "best_gt_iou": 0.97,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 7048,
+      "sample_id": "train/1110",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.00215523736551404,
+      "best_gt_iou": 0.339,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7058,
+      "sample_id": "train/1110",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.0014590146020054817,
+      "best_gt_iou": 0.417,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7097,
+      "sample_id": "train/1115",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.5978761911392212,
+      "best_gt_iou": 0.673,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 7152,
+      "sample_id": "train/1119",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.5864740610122681,
+      "best_gt_iou": 0.974,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 7156,
+      "sample_id": "train/1119",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.0036513085942715406,
+      "best_gt_iou": 0.255,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7209,
+      "sample_id": "train/1142",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.4710288941860199,
+      "best_gt_iou": 0.988,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 7211,
+      "sample_id": "train/1142",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.09045150130987167,
+      "best_gt_iou": 0.497,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7214,
+      "sample_id": "train/1142",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.016182977706193924,
+      "best_gt_iou": 0.625,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 7216,
+      "sample_id": "train/1142",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.006132419221103191,
+      "best_gt_iou": 0.656,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 7263,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.09349630028009415,
+      "best_gt_iou": 0.48,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7265,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.07853996008634567,
+      "best_gt_iou": 0.282,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7273,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.06697191298007965,
+      "best_gt_iou": 0.485,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7284,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.03708096593618393,
+      "best_gt_iou": 0.481,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7287,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.03067685104906559,
+      "best_gt_iou": 0.367,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7292,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.02529868669807911,
+      "best_gt_iou": 0.392,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7310,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.003843527752906084,
+      "best_gt_iou": 0.253,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7313,
+      "sample_id": "train/1143",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.003185816342011094,
+      "best_gt_iou": 0.126,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 7817,
+      "sample_id": "train/1210",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5598435401916504,
+      "best_gt_iou": 0.976,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8345,
+      "sample_id": "train/1308",
+      "split": "calibration-dev",
+      "pred_label": 4,
+      "pred_score": 0.7254602909088135,
+      "best_gt_iou": 0.98,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8356,
+      "sample_id": "train/1308",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.02476811595261097,
+      "best_gt_iou": 0.432,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 8359,
+      "sample_id": "train/1308",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.008478954434394836,
+      "best_gt_iou": 0.416,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 8373,
+      "sample_id": "train/1308",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.002295189071446657,
+      "best_gt_iou": 0.516,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8378,
+      "sample_id": "train/1308",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0015086684143170714,
+      "best_gt_iou": 0.522,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8389,
+      "sample_id": "train/1322",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.6878019571304321,
+      "best_gt_iou": 0.984,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8500,
+      "sample_id": "train/1338",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.6202707886695862,
+      "best_gt_iou": 0.98,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8505,
+      "sample_id": "train/1338",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.11309848725795746,
+      "best_gt_iou": 0.657,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8523,
+      "sample_id": "train/1338",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0011829654686152935,
+      "best_gt_iou": 0.588,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8744,
+      "sample_id": "train/1378",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5762739777565002,
+      "best_gt_iou": 0.988,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8748,
+      "sample_id": "train/1378",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.4428744912147522,
+      "best_gt_iou": 0.973,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8884,
+      "sample_id": "train/1402",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.9235653281211853,
+      "best_gt_iou": 0.949,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8913,
+      "sample_id": "train/1404",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.8350642919540405,
+      "best_gt_iou": 0.988,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 8917,
+      "sample_id": "train/1404",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4017427861690521,
+      "best_gt_iou": 0.985,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9074,
+      "sample_id": "train/1444",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.001611095736734569,
+      "best_gt_iou": 0.443,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9371,
+      "sample_id": "train/1486",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.6485133171081543,
+      "best_gt_iou": 0.997,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9372,
+      "sample_id": "train/1486",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.466739684343338,
+      "best_gt_iou": 0.998,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9376,
+      "sample_id": "train/1486",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.009072893299162388,
+      "best_gt_iou": 0.501,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9377,
+      "sample_id": "train/1486",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.00428074412047863,
+      "best_gt_iou": 0.132,
+      "best_gt_label": 7,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 9387,
+      "sample_id": "train/1486",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.00113682821393013,
+      "best_gt_iou": 0.176,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9388,
+      "sample_id": "train/1486",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.0011290868278592825,
+      "best_gt_iou": 0.459,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9389,
+      "sample_id": "train/1486",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.001032163156196475,
+      "best_gt_iou": 0.237,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9403,
+      "sample_id": "train/1500",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.004033362492918968,
+      "best_gt_iou": 0.066,
+      "best_gt_label": 8,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 9413,
+      "sample_id": "train/1500",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0020820165518671274,
+      "best_gt_iou": 0.478,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9414,
+      "sample_id": "train/1500",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0020521492697298527,
+      "best_gt_iou": 0.044,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9416,
+      "sample_id": "train/1500",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0018792391056194901,
+      "best_gt_iou": 0.11,
+      "best_gt_label": 8,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 9578,
+      "sample_id": "train/1539",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.547717809677124,
+      "best_gt_iou": 0.931,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9579,
+      "sample_id": "train/1539",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.2585066556930542,
+      "best_gt_iou": 0.929,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9582,
+      "sample_id": "train/1539",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.025653352960944176,
+      "best_gt_iou": 0.689,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9584,
+      "sample_id": "train/1539",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.022188670933246613,
+      "best_gt_iou": 0.921,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 9586,
+      "sample_id": "train/1539",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.01239143405109644,
+      "best_gt_iou": 0.487,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9600,
+      "sample_id": "train/1539",
+      "split": "calibration-dev",
+      "pred_label": 4,
+      "pred_score": 0.0015427801990881562,
+      "best_gt_iou": 0.489,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 9898,
+      "sample_id": "train/1580",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5939673185348511,
+      "best_gt_iou": 0.959,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10004,
+      "sample_id": "train/1599",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.017811179161071777,
+      "best_gt_iou": 0.97,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10099,
+      "sample_id": "train/1611",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.4782106578350067,
+      "best_gt_iou": 0.606,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10100,
+      "sample_id": "train/1611",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4557619094848633,
+      "best_gt_iou": 0.889,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10102,
+      "sample_id": "train/1611",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.33933302760124207,
+      "best_gt_iou": 0.594,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10103,
+      "sample_id": "train/1611",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.2680584490299225,
+      "best_gt_iou": 0.86,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10105,
+      "sample_id": "train/1611",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.1530296802520752,
+      "best_gt_iou": 0.45,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 10108,
+      "sample_id": "train/1611",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.03429979085922241,
+      "best_gt_iou": 0.457,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 10109,
+      "sample_id": "train/1611",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.033214449882507324,
+      "best_gt_iou": 0.481,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 10135,
+      "sample_id": "train/1613",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.6945063471794128,
+      "best_gt_iou": 0.991,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10202,
+      "sample_id": "train/1636",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.07364192605018616,
+      "best_gt_iou": 0.641,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10204,
+      "sample_id": "train/1636",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.020372740924358368,
+      "best_gt_iou": 0.72,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10273,
+      "sample_id": "train/1649",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.010524526238441467,
+      "best_gt_iou": 0.979,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10757,
+      "sample_id": "train/1703",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.008250298909842968,
+      "best_gt_iou": 0.834,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 10763,
+      "sample_id": "train/1703",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.005430624820291996,
+      "best_gt_iou": 0.712,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11042,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.8045907020568848,
+      "best_gt_iou": 0.788,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11045,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.1315690279006958,
+      "best_gt_iou": 0.824,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11050,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.015343007631599903,
+      "best_gt_iou": 0.387,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 11051,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.011000453494489193,
+      "best_gt_iou": 0.508,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11053,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.008780577220022678,
+      "best_gt_iou": 0.417,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 11054,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.008268840610980988,
+      "best_gt_iou": 0.503,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11057,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.005649293772876263,
+      "best_gt_iou": 0.552,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11085,
+      "sample_id": "train/1731",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0014409490395337343,
+      "best_gt_iou": 0.546,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11115,
+      "sample_id": "train/1737",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5727799534797668,
+      "best_gt_iou": 0.966,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 11166,
+      "sample_id": "train/1741",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.012111642397940159,
+      "best_gt_iou": 0.287,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 11173,
+      "sample_id": "train/1741",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.009475888684391975,
+      "best_gt_iou": 0.188,
+      "best_gt_label": 10,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 11174,
+      "sample_id": "train/1741",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.00933467410504818,
+      "best_gt_iou": 0.452,
+      "best_gt_label": 10,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 12225,
+      "sample_id": "train/1884",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.7010935544967651,
+      "best_gt_iou": 0.956,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12287,
+      "sample_id": "train/1901",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.6279235482215881,
+      "best_gt_iou": 0.987,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12289,
+      "sample_id": "train/1901",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.23974597454071045,
+      "best_gt_iou": 0.968,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12294,
+      "sample_id": "train/1901",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0033083430025726557,
+      "best_gt_iou": 0.526,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12389,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.0993286669254303,
+      "best_gt_iou": 0.331,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12391,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.08922485262155533,
+      "best_gt_iou": 0.496,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12393,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.07190076261758804,
+      "best_gt_iou": 0.332,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12398,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.029579954221844673,
+      "best_gt_iou": 0.307,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12400,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.016436578705906868,
+      "best_gt_iou": 0.453,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12407,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.009326175786554813,
+      "best_gt_iou": 0.196,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12408,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.007283034734427929,
+      "best_gt_iou": 0.408,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12411,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.005922113545238972,
+      "best_gt_iou": 0.436,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12422,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.002413572045043111,
+      "best_gt_iou": 0.688,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12436,
+      "sample_id": "train/1909",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0012407664908096194,
+      "best_gt_iou": 0.221,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12837,
+      "sample_id": "train/1952",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.8627781271934509,
+      "best_gt_iou": 0.94,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12838,
+      "sample_id": "train/1952",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.7285959720611572,
+      "best_gt_iou": 0.943,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12840,
+      "sample_id": "train/1952",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.510129988193512,
+      "best_gt_iou": 0.489,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12841,
+      "sample_id": "train/1952",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.4384867250919342,
+      "best_gt_iou": 0.987,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12842,
+      "sample_id": "train/1952",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.3398834764957428,
+      "best_gt_iou": 0.953,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12845,
+      "sample_id": "train/1952",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.18561065196990967,
+      "best_gt_iou": 0.493,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12848,
+      "sample_id": "train/1952",
+      "split": "calibration-dev",
+      "pred_label": 5,
+      "pred_score": 0.001880921539850533,
+      "best_gt_iou": 0.408,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 12854,
+      "sample_id": "train/1956",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.549182116985321,
+      "best_gt_iou": 0.985,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 12859,
+      "sample_id": "train/1956",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.2892899215221405,
+      "best_gt_iou": 0.983,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13049,
+      "sample_id": "train/1999",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.31691795587539673,
+      "best_gt_iou": 0.963,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13083,
+      "sample_id": "train/1999",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0028417932335287333,
+      "best_gt_iou": 0.907,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13341,
+      "sample_id": "train/2034",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.7937074899673462,
+      "best_gt_iou": 0.989,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13344,
+      "sample_id": "train/2034",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.03679980710148811,
+      "best_gt_iou": 0.567,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13347,
+      "sample_id": "train/2034",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.010701039806008339,
+      "best_gt_iou": 0.988,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13403,
+      "sample_id": "train/2047",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.5443503260612488,
+      "best_gt_iou": 0.624,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13404,
+      "sample_id": "train/2047",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.4526422619819641,
+      "best_gt_iou": 0.597,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13406,
+      "sample_id": "train/2047",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.2138662189245224,
+      "best_gt_iou": 0.606,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13409,
+      "sample_id": "train/2047",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.003036847338080406,
+      "best_gt_iou": 0.258,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 13411,
+      "sample_id": "train/2047",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0018306253477931023,
+      "best_gt_iou": 0.385,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 13662,
+      "sample_id": "train/2107",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.047502148896455765,
+      "best_gt_iou": 0.515,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13667,
+      "sample_id": "train/2107",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.023661982268095016,
+      "best_gt_iou": 0.279,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 13842,
+      "sample_id": "train/2119",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.7588791847229004,
+      "best_gt_iou": 0.985,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13845,
+      "sample_id": "train/2119",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4144359230995178,
+      "best_gt_iou": 0.982,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 13990,
+      "sample_id": "train/2138",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.006454762537032366,
+      "best_gt_iou": 0.415,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14001,
+      "sample_id": "train/2138",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0015056151896715164,
+      "best_gt_iou": 0.018,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14003,
+      "sample_id": "train/2138",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0013309948844835162,
+      "best_gt_iou": 0.017,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14004,
+      "sample_id": "train/2138",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0011999940034002066,
+      "best_gt_iou": 0.503,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 14006,
+      "sample_id": "train/2138",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0010139849036931992,
+      "best_gt_iou": 0.547,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 14112,
+      "sample_id": "train/2149",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0012728081783279777,
+      "best_gt_iou": 0.324,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14245,
+      "sample_id": "train/2184",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.6906791925430298,
+      "best_gt_iou": 0.47,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14246,
+      "sample_id": "train/2184",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.6075510382652283,
+      "best_gt_iou": 0.461,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14247,
+      "sample_id": "train/2184",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5785312056541443,
+      "best_gt_iou": 0.969,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 14252,
+      "sample_id": "train/2184",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.03109559416770935,
+      "best_gt_iou": 0.575,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 14254,
+      "sample_id": "train/2184",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.002347707049921155,
+      "best_gt_iou": 0.336,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14891,
+      "sample_id": "train/2265",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.6664091944694519,
+      "best_gt_iou": 0.992,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 14897,
+      "sample_id": "train/2265",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.008135991171002388,
+      "best_gt_iou": 0.612,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 14904,
+      "sample_id": "train/2265",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0027010811027139425,
+      "best_gt_iou": 0.426,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 14971,
+      "sample_id": "train/2275",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0012170914560556412,
+      "best_gt_iou": 0.467,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 15269,
+      "sample_id": "train/2331",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5628668069839478,
+      "best_gt_iou": 0.975,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 15496,
+      "sample_id": "train/2395",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5070902109146118,
+      "best_gt_iou": 0.578,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 15503,
+      "sample_id": "train/2395",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.025330957025289536,
+      "best_gt_iou": 0.584,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 15504,
+      "sample_id": "train/2395",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.021237477660179138,
+      "best_gt_iou": 0.519,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 15506,
+      "sample_id": "train/2395",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.012242878787219524,
+      "best_gt_iou": 0.722,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 15507,
+      "sample_id": "train/2395",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.008918107487261295,
+      "best_gt_iou": 0.74,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 15902,
+      "sample_id": "train/2443",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.011851361021399498,
+      "best_gt_iou": 0.154,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 15903,
+      "sample_id": "train/2443",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.010153158567845821,
+      "best_gt_iou": 0.087,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 15915,
+      "sample_id": "train/2443",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.003448312170803547,
+      "best_gt_iou": 0.097,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 15921,
+      "sample_id": "train/2443",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0024318830110132694,
+      "best_gt_iou": 0.458,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 16353,
+      "sample_id": "train/2516",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.006954750046133995,
+      "best_gt_iou": 0.472,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 16357,
+      "sample_id": "train/2516",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.003257199190557003,
+      "best_gt_iou": 0.075,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 16364,
+      "sample_id": "train/2516",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0011725666699931026,
+      "best_gt_iou": 0.062,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 16394,
+      "sample_id": "train/2526",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.08195754140615463,
+      "best_gt_iou": 0.469,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 16858,
+      "sample_id": "train/2569",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.001454792683944106,
+      "best_gt_iou": 0.488,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 16984,
+      "sample_id": "train/2589",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.012012278661131859,
+      "best_gt_iou": 0.498,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 16994,
+      "sample_id": "train/2592",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4367716312408447,
+      "best_gt_iou": 0.992,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17008,
+      "sample_id": "train/2592",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.0014465701533481479,
+      "best_gt_iou": 0.755,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17022,
+      "sample_id": "train/2595",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.04101519286632538,
+      "best_gt_iou": 0.616,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17025,
+      "sample_id": "train/2595",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.02470904029905796,
+      "best_gt_iou": 0.676,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17026,
+      "sample_id": "train/2595",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.021320955827832222,
+      "best_gt_iou": 0.743,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17189,
+      "sample_id": "train/2626",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0016137240454554558,
+      "best_gt_iou": 0.51,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17192,
+      "sample_id": "train/2626",
+      "split": "calibration-dev",
+      "pred_label": 4,
+      "pred_score": 0.001455825986340642,
+      "best_gt_iou": 0.386,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 17298,
+      "sample_id": "train/2645",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.5696208477020264,
+      "best_gt_iou": 0.966,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17299,
+      "sample_id": "train/2645",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.5639328956604004,
+      "best_gt_iou": 0.98,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17367,
+      "sample_id": "train/2647",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.5110975503921509,
+      "best_gt_iou": 0.948,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 17473,
+      "sample_id": "train/2667",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.4747498631477356,
+      "best_gt_iou": 0.955,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18149,
+      "sample_id": "train/2745",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.005951514933258295,
+      "best_gt_iou": 0.398,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18165,
+      "sample_id": "train/2745",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0015103414189070463,
+      "best_gt_iou": 0.29,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18221,
+      "sample_id": "train/2778",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.6535505056381226,
+      "best_gt_iou": 0.993,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18224,
+      "sample_id": "train/2778",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.005073528736829758,
+      "best_gt_iou": 0.517,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18332,
+      "sample_id": "train/2800",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.002181310672312975,
+      "best_gt_iou": 0.267,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18397,
+      "sample_id": "train/2812",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0034972792491316795,
+      "best_gt_iou": 0.432,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18464,
+      "sample_id": "train/2830",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5545057654380798,
+      "best_gt_iou": 0.985,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18535,
+      "sample_id": "train/2838",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.18405278027057648,
+      "best_gt_iou": 0.463,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18537,
+      "sample_id": "train/2838",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.002010027412325144,
+      "best_gt_iou": 0.516,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18625,
+      "sample_id": "train/2858",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5548037886619568,
+      "best_gt_iou": 0.98,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18627,
+      "sample_id": "train/2858",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.3712002635002136,
+      "best_gt_iou": 0.953,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18629,
+      "sample_id": "train/2858",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.01622633822262287,
+      "best_gt_iou": 0.613,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18630,
+      "sample_id": "train/2858",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.012464042752981186,
+      "best_gt_iou": 0.443,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18632,
+      "sample_id": "train/2858",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.005553271155804396,
+      "best_gt_iou": 0.298,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18719,
+      "sample_id": "train/2869",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.004896347876638174,
+      "best_gt_iou": 0.614,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18721,
+      "sample_id": "train/2869",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.004088050220161676,
+      "best_gt_iou": 0.312,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 18843,
+      "sample_id": "train/2893",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5750212073326111,
+      "best_gt_iou": 0.989,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 18847,
+      "sample_id": "train/2893",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0013907201355323195,
+      "best_gt_iou": 0.566,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 19451,
+      "sample_id": "train/2964",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.0013214993523433805,
+      "best_gt_iou": 0.159,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 19461,
+      "sample_id": "train/2967",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5028237700462341,
+      "best_gt_iou": 0.931,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 19595,
+      "sample_id": "train/2976",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5730097889900208,
+      "best_gt_iou": 0.96,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 19786,
+      "sample_id": "train/3014",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.019635772332549095,
+      "best_gt_iou": 0.489,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20185,
+      "sample_id": "train/3105",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5163970589637756,
+      "best_gt_iou": 0.951,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20200,
+      "sample_id": "train/3107",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.6227304935455322,
+      "best_gt_iou": 0.938,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20202,
+      "sample_id": "train/3107",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0647570863366127,
+      "best_gt_iou": 0.438,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20203,
+      "sample_id": "train/3107",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.020904550328850746,
+      "best_gt_iou": 0.93,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20204,
+      "sample_id": "train/3107",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.018560707569122314,
+      "best_gt_iou": 0.415,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20207,
+      "sample_id": "train/3107",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.005613159853965044,
+      "best_gt_iou": 0.329,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20211,
+      "sample_id": "train/3107",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.004286587703973055,
+      "best_gt_iou": 0.601,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20531,
+      "sample_id": "train/3142",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0031791541259735823,
+      "best_gt_iou": 0.506,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20533,
+      "sample_id": "train/3142",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.002691248431801796,
+      "best_gt_iou": 0.276,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20583,
+      "sample_id": "train/3151",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5518159866333008,
+      "best_gt_iou": 0.981,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20584,
+      "sample_id": "train/3151",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.020980119705200195,
+      "best_gt_iou": 0.188,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20585,
+      "sample_id": "train/3151",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.011130905710160732,
+      "best_gt_iou": 0.151,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20591,
+      "sample_id": "train/3151",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0010338465217500925,
+      "best_gt_iou": 0.286,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20651,
+      "sample_id": "train/3166",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.004452661611139774,
+      "best_gt_iou": 0.182,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20653,
+      "sample_id": "train/3166",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.004080753307789564,
+      "best_gt_iou": 0.501,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20655,
+      "sample_id": "train/3166",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0022138445638120174,
+      "best_gt_iou": 0.495,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 20910,
+      "sample_id": "train/3197",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4813421666622162,
+      "best_gt_iou": 0.98,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20951,
+      "sample_id": "train/3201",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.025096215307712555,
+      "best_gt_iou": 0.54,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 20963,
+      "sample_id": "train/3201",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0014638103311881423,
+      "best_gt_iou": 0.585,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 21050,
+      "sample_id": "train/3214",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.05139123648405075,
+      "best_gt_iou": 0.31,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 21051,
+      "sample_id": "train/3214",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0348939374089241,
+      "best_gt_iou": 0.309,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 21053,
+      "sample_id": "train/3214",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.014462851919233799,
+      "best_gt_iou": 0.341,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 21064,
+      "sample_id": "train/3217",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.806964635848999,
+      "best_gt_iou": 0.975,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 21159,
+      "sample_id": "train/3221",
+      "split": "calibration-dev",
+      "pred_label": 5,
+      "pred_score": 0.4202773869037628,
+      "best_gt_iou": 0.97,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 21160,
+      "sample_id": "train/3221",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.020457128062844276,
+      "best_gt_iou": 0.398,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 21275,
+      "sample_id": "train/3240",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5010771751403809,
+      "best_gt_iou": 0.965,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 21422,
+      "sample_id": "train/3256",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.001444152556359768,
+      "best_gt_iou": 0.59,
+      "best_gt_label": 11,
+      "category": "nonwifi_gt"
+    },
+    {
+      "pred_idx": 21448,
+      "sample_id": "train/3257",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0014508719323202968,
+      "best_gt_iou": 0.156,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 21485,
+      "sample_id": "train/3260",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.029524104669690132,
+      "best_gt_iou": 0.534,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 21487,
+      "sample_id": "train/3260",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.02523333951830864,
+      "best_gt_iou": 0.689,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 21835,
+      "sample_id": "train/3305",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.7036674618721008,
+      "best_gt_iou": 0.952,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 21846,
+      "sample_id": "train/3305",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.002130997832864523,
+      "best_gt_iou": 0.076,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 21848,
+      "sample_id": "train/3305",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0011179193388670683,
+      "best_gt_iou": 0.431,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 21928,
+      "sample_id": "train/3330",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.2827971577644348,
+      "best_gt_iou": 0.952,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 22148,
+      "sample_id": "train/3362",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.652306079864502,
+      "best_gt_iou": 0.974,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 22364,
+      "sample_id": "train/3420",
+      "split": "final-dev",
+      "pred_label": 4,
+      "pred_score": 0.03010639175772667,
+      "best_gt_iou": 0.589,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 22366,
+      "sample_id": "train/3420",
+      "split": "final-dev",
+      "pred_label": 5,
+      "pred_score": 0.0071633923798799515,
+      "best_gt_iou": 0.622,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 22369,
+      "sample_id": "train/3420",
+      "split": "final-dev",
+      "pred_label": 4,
+      "pred_score": 0.0024352946784347296,
+      "best_gt_iou": 0.273,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 22606,
+      "sample_id": "train/3454",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.010673215612769127,
+      "best_gt_iou": 0.479,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 22699,
+      "sample_id": "train/3464",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.5054880380630493,
+      "best_gt_iou": 0.981,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 22702,
+      "sample_id": "train/3464",
+      "split": "calibration-dev",
+      "pred_label": 4,
+      "pred_score": 0.2952781319618225,
+      "best_gt_iou": 0.969,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 22703,
+      "sample_id": "train/3464",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.07826016843318939,
+      "best_gt_iou": 0.755,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 22747,
+      "sample_id": "train/3476",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0037610873114317656,
+      "best_gt_iou": 0.482,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 22754,
+      "sample_id": "train/3476",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.0018554192502051592,
+      "best_gt_iou": 0.489,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 23228,
+      "sample_id": "train/3588",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.44622060656547546,
+      "best_gt_iou": 0.958,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 23234,
+      "sample_id": "train/3588",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.008082681335508823,
+      "best_gt_iou": 0.941,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 23641,
+      "sample_id": "train/3625",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.006540386471897364,
+      "best_gt_iou": 0.312,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 23649,
+      "sample_id": "train/3625",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0025683101266622543,
+      "best_gt_iou": 0.312,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 23760,
+      "sample_id": "train/3645",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.8083731532096863,
+      "best_gt_iou": 0.987,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 23785,
+      "sample_id": "train/3646",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0012612531427294016,
+      "best_gt_iou": 0.607,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 23906,
+      "sample_id": "train/3688",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.29408201575279236,
+      "best_gt_iou": 0.964,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 23907,
+      "sample_id": "train/3688",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.25652965903282166,
+      "best_gt_iou": 0.954,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 23928,
+      "sample_id": "train/3688",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.003752250224351883,
+      "best_gt_iou": 0.162,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 23982,
+      "sample_id": "train/3691",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.6847966313362122,
+      "best_gt_iou": 0.973,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 23984,
+      "sample_id": "train/3691",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.2765910029411316,
+      "best_gt_iou": 0.943,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 24019,
+      "sample_id": "train/3705",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.14114587008953094,
+      "best_gt_iou": 0.54,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 24030,
+      "sample_id": "train/3705",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.008857345208525658,
+      "best_gt_iou": 0.47,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 24037,
+      "sample_id": "train/3705",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.003061870578676462,
+      "best_gt_iou": 0.521,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 24695,
+      "sample_id": "train/3799",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.0383472815155983,
+      "best_gt_iou": 0.039,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 24696,
+      "sample_id": "train/3799",
+      "split": "calibration-dev",
+      "pred_label": 5,
+      "pred_score": 0.029600605368614197,
+      "best_gt_iou": 0.042,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 24941,
+      "sample_id": "train/3815",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.17793896794319153,
+      "best_gt_iou": 0.499,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 24966,
+      "sample_id": "train/3815",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0012276868801563978,
+      "best_gt_iou": 0.365,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 24971,
+      "sample_id": "train/3818",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.001081055961549282,
+      "best_gt_iou": 0.001,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 25246,
+      "sample_id": "train/3849",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.4170670807361603,
+      "best_gt_iou": 0.929,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 25326,
+      "sample_id": "train/3862",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.25003522634506226,
+      "best_gt_iou": 0.399,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 25336,
+      "sample_id": "train/3862",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.006993115413933992,
+      "best_gt_iou": 0.399,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 25595,
+      "sample_id": "train/3886",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.576022744178772,
+      "best_gt_iou": 0.914,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26162,
+      "sample_id": "train/3957",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.02949136309325695,
+      "best_gt_iou": 0.832,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26165,
+      "sample_id": "train/3957",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.010285058058798313,
+      "best_gt_iou": 0.539,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26166,
+      "sample_id": "train/3957",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.008880331180989742,
+      "best_gt_iou": 0.483,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 26170,
+      "sample_id": "train/3957",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0047112987376749516,
+      "best_gt_iou": 0.818,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26247,
+      "sample_id": "train/3973",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.00355482567101717,
+      "best_gt_iou": 0.498,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 26706,
+      "sample_id": "train/4015",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.45505955815315247,
+      "best_gt_iou": 0.929,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26931,
+      "sample_id": "train/4059",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.3053928017616272,
+      "best_gt_iou": 0.991,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26936,
+      "sample_id": "train/4059",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0012731495080515742,
+      "best_gt_iou": 0.138,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 26987,
+      "sample_id": "train/4082",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.10197184979915619,
+      "best_gt_iou": 0.621,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26994,
+      "sample_id": "train/4082",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.03739991411566734,
+      "best_gt_iou": 0.544,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 26999,
+      "sample_id": "train/4082",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.027817612513899803,
+      "best_gt_iou": 0.683,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 27012,
+      "sample_id": "train/4082",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.008624720387160778,
+      "best_gt_iou": 0.447,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 27374,
+      "sample_id": "train/4133",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4414750933647156,
+      "best_gt_iou": 0.987,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 27976,
+      "sample_id": "train/4226",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.008629932068288326,
+      "best_gt_iou": 0.49,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 27977,
+      "sample_id": "train/4226",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.006321195978671312,
+      "best_gt_iou": 0.499,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28141,
+      "sample_id": "train/4249",
+      "split": "final-dev",
+      "pred_label": 4,
+      "pred_score": 0.034934766590595245,
+      "best_gt_iou": 0.496,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28147,
+      "sample_id": "train/4249",
+      "split": "final-dev",
+      "pred_label": 3,
+      "pred_score": 0.013292043469846249,
+      "best_gt_iou": 0.5,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28166,
+      "sample_id": "train/4249",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.0019621909596025944,
+      "best_gt_iou": 0.919,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 28174,
+      "sample_id": "train/4250",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0013212048215791583,
+      "best_gt_iou": 0.443,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28176,
+      "sample_id": "train/4250",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.001258748467080295,
+      "best_gt_iou": 0.398,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28258,
+      "sample_id": "train/4260",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.4826836884021759,
+      "best_gt_iou": 0.972,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 28268,
+      "sample_id": "train/4262",
+      "split": "final-dev",
+      "pred_label": 4,
+      "pred_score": 0.017263265326619148,
+      "best_gt_iou": 0.486,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28271,
+      "sample_id": "train/4262",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.005495358724147081,
+      "best_gt_iou": 0.509,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 28272,
+      "sample_id": "train/4262",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0017650695517659187,
+      "best_gt_iou": 0.487,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28273,
+      "sample_id": "train/4262",
+      "split": "final-dev",
+      "pred_label": 3,
+      "pred_score": 0.0015905080363154411,
+      "best_gt_iou": 0.2,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28274,
+      "sample_id": "train/4262",
+      "split": "final-dev",
+      "pred_label": 4,
+      "pred_score": 0.0012390263145789504,
+      "best_gt_iou": 0.548,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 28275,
+      "sample_id": "train/4262",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0012058848515152931,
+      "best_gt_iou": 0.4,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28417,
+      "sample_id": "train/4294",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0010880650952458382,
+      "best_gt_iou": 0.664,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 28844,
+      "sample_id": "train/4400",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.019427290186285973,
+      "best_gt_iou": 0.133,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28845,
+      "sample_id": "train/4400",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.003993176855146885,
+      "best_gt_iou": 0.103,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28846,
+      "sample_id": "train/4400",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.002846040762960911,
+      "best_gt_iou": 0.446,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 28850,
+      "sample_id": "train/4400",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.001443178509362042,
+      "best_gt_iou": 0.37,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 29021,
+      "sample_id": "train/4455",
+      "split": "calibration-dev",
+      "pred_label": 4,
+      "pred_score": 0.004665904212743044,
+      "best_gt_iou": 0.45,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 29336,
+      "sample_id": "train/4518",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.0015121842734515667,
+      "best_gt_iou": 0.56,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 29337,
+      "sample_id": "train/4518",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0013779267901554704,
+      "best_gt_iou": 0.509,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 29559,
+      "sample_id": "train/4574",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.22898787260055542,
+      "best_gt_iou": 0.886,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 29563,
+      "sample_id": "train/4574",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.04303745925426483,
+      "best_gt_iou": 0.816,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 29583,
+      "sample_id": "train/4574",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.00230862176977098,
+      "best_gt_iou": 0.526,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 29633,
+      "sample_id": "train/4589",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.36835339665412903,
+      "best_gt_iou": 0.892,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 30494,
+      "sample_id": "train/4708",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.00827513076364994,
+      "best_gt_iou": 0.604,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 30501,
+      "sample_id": "train/4708",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.003131774952635169,
+      "best_gt_iou": 0.304,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 30630,
+      "sample_id": "train/4712",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.41438326239585876,
+      "best_gt_iou": 0.922,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 30634,
+      "sample_id": "train/4712",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.017823128029704094,
+      "best_gt_iou": 0.409,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 30644,
+      "sample_id": "train/4712",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0030061802826821804,
+      "best_gt_iou": 0.7,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 30646,
+      "sample_id": "train/4712",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0028131878934800625,
+      "best_gt_iou": 0.342,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 30657,
+      "sample_id": "train/4712",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0014224667102098465,
+      "best_gt_iou": 0.236,
+      "best_gt_label": 11,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 30660,
+      "sample_id": "train/4712",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0012171813286840916,
+      "best_gt_iou": 0.314,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 30668,
+      "sample_id": "train/4719",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.5300697088241577,
+      "best_gt_iou": 0.988,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 30688,
+      "sample_id": "train/4720",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4885542392730713,
+      "best_gt_iou": 0.935,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 30698,
+      "sample_id": "train/4720",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.022068480029702187,
+      "best_gt_iou": 0.693,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 30933,
+      "sample_id": "train/4787",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.6181126236915588,
+      "best_gt_iou": 0.978,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 31701,
+      "sample_id": "train/4866",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0011843143729493022,
+      "best_gt_iou": 0.143,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 31709,
+      "sample_id": "train/4871",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.01884210668504238,
+      "best_gt_iou": 0.99,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 31742,
+      "sample_id": "train/4876",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.6230867505073547,
+      "best_gt_iou": 0.993,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 32079,
+      "sample_id": "train/4980",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.09409566223621368,
+      "best_gt_iou": 0.317,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 32081,
+      "sample_id": "train/4980",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.07790247350931168,
+      "best_gt_iou": 0.308,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 32089,
+      "sample_id": "train/4980",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.016543593257665634,
+      "best_gt_iou": 0.439,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 32314,
+      "sample_id": "train/5007",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0036065406166017056,
+      "best_gt_iou": 0.649,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 32337,
+      "sample_id": "train/5007",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.001742118620313704,
+      "best_gt_iou": 0.551,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 32819,
+      "sample_id": "train/5070",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.8982611894607544,
+      "best_gt_iou": 0.984,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 32824,
+      "sample_id": "train/5070",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0029263687320053577,
+      "best_gt_iou": 0.99,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 34199,
+      "sample_id": "train/5325",
+      "split": "calibration-dev",
+      "pred_label": 4,
+      "pred_score": 0.002554163569584489,
+      "best_gt_iou": 0.538,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 34387,
+      "sample_id": "train/5364",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.9276332855224609,
+      "best_gt_iou": 0.929,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 34456,
+      "sample_id": "train/5375",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.009028902277350426,
+      "best_gt_iou": 0.767,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 34508,
+      "sample_id": "train/5385",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.32068976759910583,
+      "best_gt_iou": 0.972,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 35042,
+      "sample_id": "train/5469",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.011065265163779259,
+      "best_gt_iou": 0.474,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35043,
+      "sample_id": "train/5469",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0014577674446627498,
+      "best_gt_iou": 0.761,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 35047,
+      "sample_id": "train/5469",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.00120297831017524,
+      "best_gt_iou": 0.617,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 35048,
+      "sample_id": "train/5469",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0010563003597781062,
+      "best_gt_iou": 0.172,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35143,
+      "sample_id": "train/5493",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0017312123673036695,
+      "best_gt_iou": 0.481,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35170,
+      "sample_id": "train/5504",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.018340056762099266,
+      "best_gt_iou": 0.483,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35173,
+      "sample_id": "train/5504",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.002611119532957673,
+      "best_gt_iou": 0.099,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35784,
+      "sample_id": "train/5613",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.07362852245569229,
+      "best_gt_iou": 0.46,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35790,
+      "sample_id": "train/5613",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.004822210408747196,
+      "best_gt_iou": 0.527,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 35801,
+      "sample_id": "train/5613",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.0022002439945936203,
+      "best_gt_iou": 0.332,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35847,
+      "sample_id": "train/5624",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.4919087886810303,
+      "best_gt_iou": 0.962,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 35848,
+      "sample_id": "train/5624",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.0014683027984574437,
+      "best_gt_iou": 0.945,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 35855,
+      "sample_id": "train/5626",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.5117785930633545,
+      "best_gt_iou": 0.987,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 35873,
+      "sample_id": "train/5626",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.0015323514817282557,
+      "best_gt_iou": 0.384,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35882,
+      "sample_id": "train/5628",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0016173066105693579,
+      "best_gt_iou": 0.471,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 35922,
+      "sample_id": "train/5641",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5973943471908569,
+      "best_gt_iou": 0.991,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36007,
+      "sample_id": "train/5654",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.00605387706309557,
+      "best_gt_iou": 0.361,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36009,
+      "sample_id": "train/5654",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.0037925492506474257,
+      "best_gt_iou": 0.452,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36011,
+      "sample_id": "train/5654",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.002671829191967845,
+      "best_gt_iou": 0.518,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36016,
+      "sample_id": "train/5654",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0016538609052076936,
+      "best_gt_iou": 0.369,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36021,
+      "sample_id": "train/5654",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.0010152071481570601,
+      "best_gt_iou": 0.279,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36142,
+      "sample_id": "train/5667",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0036940844729542732,
+      "best_gt_iou": 0.423,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36148,
+      "sample_id": "train/5667",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.0010558380745351315,
+      "best_gt_iou": 0.407,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36151,
+      "sample_id": "train/5670",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.5546132326126099,
+      "best_gt_iou": 0.975,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36162,
+      "sample_id": "train/5670",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.0017729130340740085,
+      "best_gt_iou": 0.701,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36263,
+      "sample_id": "train/5698",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.600600004196167,
+      "best_gt_iou": 0.844,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36287,
+      "sample_id": "train/5700",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.3925337493419647,
+      "best_gt_iou": 0.494,
+      "best_gt_label": 11,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 36288,
+      "sample_id": "train/5700",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.3589479625225067,
+      "best_gt_iou": 0.5,
+      "best_gt_label": 11,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 36290,
+      "sample_id": "train/5700",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.08339593559503555,
+      "best_gt_iou": 0.482,
+      "best_gt_label": 11,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 36294,
+      "sample_id": "train/5700",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.020078547298908234,
+      "best_gt_iou": 0.921,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36295,
+      "sample_id": "train/5700",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.016174232587218285,
+      "best_gt_iou": 0.648,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36346,
+      "sample_id": "train/5709",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.4004386365413666,
+      "best_gt_iou": 0.821,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36348,
+      "sample_id": "train/5709",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.3304034471511841,
+      "best_gt_iou": 0.826,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 36355,
+      "sample_id": "train/5709",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.0020815806929022074,
+      "best_gt_iou": 0.127,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36423,
+      "sample_id": "train/5730",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.009028151631355286,
+      "best_gt_iou": 0.282,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 36445,
+      "sample_id": "train/5730",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0021743113175034523,
+      "best_gt_iou": 0.057,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37178,
+      "sample_id": "train/5800",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.9049068689346313,
+      "best_gt_iou": 0.909,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 37201,
+      "sample_id": "train/5800",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.006542481016367674,
+      "best_gt_iou": 0.39,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37235,
+      "sample_id": "train/5800",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.0013829382369294763,
+      "best_gt_iou": 0.312,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37256,
+      "sample_id": "train/5821",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.5195989012718201,
+      "best_gt_iou": 0.965,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 37274,
+      "sample_id": "train/5821",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.004495005123317242,
+      "best_gt_iou": 0.446,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37381,
+      "sample_id": "train/5843",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.6690304279327393,
+      "best_gt_iou": 0.996,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 37407,
+      "sample_id": "train/5843",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.001352714141830802,
+      "best_gt_iou": 0.206,
+      "best_gt_label": 10,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 37419,
+      "sample_id": "train/5851",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.70013427734375,
+      "best_gt_iou": 0.48,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37421,
+      "sample_id": "train/5851",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.2039193958044052,
+      "best_gt_iou": 0.417,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37423,
+      "sample_id": "train/5851",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.1557888239622116,
+      "best_gt_iou": 0.467,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37443,
+      "sample_id": "train/5851",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0030626480001956224,
+      "best_gt_iou": 0.241,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 37784,
+      "sample_id": "train/5881",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0010163456900045276,
+      "best_gt_iou": 0.248,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 38190,
+      "sample_id": "train/5956",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0590951070189476,
+      "best_gt_iou": 0.115,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 38193,
+      "sample_id": "train/5956",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.009823453612625599,
+      "best_gt_iou": 0.329,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 38195,
+      "sample_id": "train/5956",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0076375687494874,
+      "best_gt_iou": 0.102,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 38197,
+      "sample_id": "train/5956",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.004193933214992285,
+      "best_gt_iou": 0.661,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 38203,
+      "sample_id": "train/5956",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.002817506669089198,
+      "best_gt_iou": 0.647,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 38208,
+      "sample_id": "train/5956",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0022411069367080927,
+      "best_gt_iou": 0.164,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 38283,
+      "sample_id": "train/5968",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.5612951517105103,
+      "best_gt_iou": 0.986,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 38597,
+      "sample_id": "train/6028",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.00595391821116209,
+      "best_gt_iou": 0.417,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 38751,
+      "sample_id": "train/6039",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.008112850598990917,
+      "best_gt_iou": 0.939,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 38775,
+      "sample_id": "train/6041",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.4963226914405823,
+      "best_gt_iou": 0.931,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 38939,
+      "sample_id": "train/6067",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.7663990259170532,
+      "best_gt_iou": 0.967,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 39121,
+      "sample_id": "train/6087",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.3021289110183716,
+      "best_gt_iou": 0.985,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 39123,
+      "sample_id": "train/6087",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.13742293417453766,
+      "best_gt_iou": 0.978,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 39140,
+      "sample_id": "train/6087",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.0026405476965010166,
+      "best_gt_iou": 0.14,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 39435,
+      "sample_id": "train/6113",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4690950810909271,
+      "best_gt_iou": 0.993,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 39450,
+      "sample_id": "train/6113",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.003966695163398981,
+      "best_gt_iou": 0.605,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 39487,
+      "sample_id": "train/6129",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.013758828863501549,
+      "best_gt_iou": 0.265,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 39489,
+      "sample_id": "train/6129",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.011927125044167042,
+      "best_gt_iou": 0.273,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 39516,
+      "sample_id": "train/6129",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.002667432650923729,
+      "best_gt_iou": 0.24,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 39526,
+      "sample_id": "train/6129",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.001575990580022335,
+      "best_gt_iou": 0.234,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 39528,
+      "sample_id": "train/6129",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0014831426087766886,
+      "best_gt_iou": 0.193,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 39779,
+      "sample_id": "train/6166",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.679499089717865,
+      "best_gt_iou": 0.346,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 39783,
+      "sample_id": "train/6166",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.05594779923558235,
+      "best_gt_iou": 0.678,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 39784,
+      "sample_id": "train/6166",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.04665613919496536,
+      "best_gt_iou": 0.692,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 40019,
+      "sample_id": "train/6207",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.4499833583831787,
+      "best_gt_iou": 0.974,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 40358,
+      "sample_id": "train/6252",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.007104368880391121,
+      "best_gt_iou": 0.473,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 40384,
+      "sample_id": "train/6252",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.0031383512541651726,
+      "best_gt_iou": 0.428,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 40415,
+      "sample_id": "train/6252",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.0015390481567010283,
+      "best_gt_iou": 0.45,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 40416,
+      "sample_id": "train/6252",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.0014585104072466493,
+      "best_gt_iou": 0.429,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 40432,
+      "sample_id": "train/6253",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.005912316031754017,
+      "best_gt_iou": 0.477,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 40438,
+      "sample_id": "train/6253",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.002272939309477806,
+      "best_gt_iou": 0.511,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 40602,
+      "sample_id": "train/6293",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.021537186577916145,
+      "best_gt_iou": 0.132,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 40604,
+      "sample_id": "train/6293",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.015192587859928608,
+      "best_gt_iou": 0.138,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 41292,
+      "sample_id": "train/6383",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.08955198526382446,
+      "best_gt_iou": 0.368,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 41306,
+      "sample_id": "train/6383",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.00208685384131968,
+      "best_gt_iou": 0.398,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 41317,
+      "sample_id": "train/6386",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.6027865409851074,
+      "best_gt_iou": 0.962,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 41319,
+      "sample_id": "train/6386",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.544716477394104,
+      "best_gt_iou": 0.936,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 41325,
+      "sample_id": "train/6386",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.009141046553850174,
+      "best_gt_iou": 0.173,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 41397,
+      "sample_id": "train/6390",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0011056788498535752,
+      "best_gt_iou": 0.477,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 41417,
+      "sample_id": "train/6393",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.06278438121080399,
+      "best_gt_iou": 0.604,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 41991,
+      "sample_id": "train/6471",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.38766351342201233,
+      "best_gt_iou": 0.994,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 41992,
+      "sample_id": "train/6471",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.001465396722778678,
+      "best_gt_iou": 0.011,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42111,
+      "sample_id": "train/6503",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.06966164708137512,
+      "best_gt_iou": 0.429,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42114,
+      "sample_id": "train/6503",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.05909334868192673,
+      "best_gt_iou": 0.42,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42138,
+      "sample_id": "train/6503",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.026907410472631454,
+      "best_gt_iou": 0.486,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42139,
+      "sample_id": "train/6503",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.02412790060043335,
+      "best_gt_iou": 0.432,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42141,
+      "sample_id": "train/6503",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.02269861288368702,
+      "best_gt_iou": 0.432,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42145,
+      "sample_id": "train/6503",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.02012096531689167,
+      "best_gt_iou": 0.429,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42163,
+      "sample_id": "train/6503",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.00137754634488374,
+      "best_gt_iou": 0.236,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42343,
+      "sample_id": "train/6545",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.9485453963279724,
+      "best_gt_iou": 0.984,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42353,
+      "sample_id": "train/6545",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.006264915689826012,
+      "best_gt_iou": 0.854,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42482,
+      "sample_id": "train/6564",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.0019046547822654247,
+      "best_gt_iou": 0.434,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42517,
+      "sample_id": "train/6573",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.012563256546854973,
+      "best_gt_iou": 0.38,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42521,
+      "sample_id": "train/6573",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.005499172490090132,
+      "best_gt_iou": 0.447,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42522,
+      "sample_id": "train/6573",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.004961063154041767,
+      "best_gt_iou": 0.476,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42523,
+      "sample_id": "train/6573",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.004384842235594988,
+      "best_gt_iou": 0.451,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42528,
+      "sample_id": "train/6573",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.0020580189302563667,
+      "best_gt_iou": 0.183,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42533,
+      "sample_id": "train/6573",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.0013082853984087706,
+      "best_gt_iou": 0.437,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42535,
+      "sample_id": "train/6573",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0011117602698504925,
+      "best_gt_iou": 0.493,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42653,
+      "sample_id": "train/6611",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.004899738822132349,
+      "best_gt_iou": 0.649,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42654,
+      "sample_id": "train/6611",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.0015098289586603642,
+      "best_gt_iou": 0.259,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42656,
+      "sample_id": "train/6611",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.0010848105885088444,
+      "best_gt_iou": 0.206,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42769,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.11692013591527939,
+      "best_gt_iou": 0.554,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42772,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.08618311583995819,
+      "best_gt_iou": 0.544,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42774,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.05168069526553154,
+      "best_gt_iou": 0.728,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42779,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.010722227394580841,
+      "best_gt_iou": 0.341,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42780,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.010195894166827202,
+      "best_gt_iou": 0.718,
+      "best_gt_label": 2,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42781,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.009621676057577133,
+      "best_gt_iou": 0.352,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42787,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.004541362170130014,
+      "best_gt_iou": 0.306,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 42797,
+      "sample_id": "train/6635",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0010293532395735383,
+      "best_gt_iou": 0.213,
+      "best_gt_label": 6,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 42972,
+      "sample_id": "train/6692",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.6605366468429565,
+      "best_gt_iou": 0.687,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42976,
+      "sample_id": "train/6692",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.34166207909584045,
+      "best_gt_iou": 0.974,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 42977,
+      "sample_id": "train/6692",
+      "split": "calibration-dev",
+      "pred_label": 5,
+      "pred_score": 0.18658284842967987,
+      "best_gt_iou": 0.594,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 43009,
+      "sample_id": "train/6696",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0066677904687821865,
+      "best_gt_iou": 0.113,
+      "best_gt_label": 2,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43204,
+      "sample_id": "train/6714",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.47465553879737854,
+      "best_gt_iou": 0.729,
+      "best_gt_label": 11,
+      "category": "nonwifi_gt"
+    },
+    {
+      "pred_idx": 43206,
+      "sample_id": "train/6714",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.10466578602790833,
+      "best_gt_iou": 0.734,
+      "best_gt_label": 11,
+      "category": "nonwifi_gt"
+    },
+    {
+      "pred_idx": 43208,
+      "sample_id": "train/6714",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.006778149865567684,
+      "best_gt_iou": 0.459,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43209,
+      "sample_id": "train/6714",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.002966576488688588,
+      "best_gt_iou": 0.252,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43210,
+      "sample_id": "train/6714",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0020525106228888035,
+      "best_gt_iou": 0.192,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43215,
+      "sample_id": "train/6714",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0011439801892265677,
+      "best_gt_iou": 0.477,
+      "best_gt_label": 11,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 43322,
+      "sample_id": "train/6742",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0032713371329009533,
+      "best_gt_iou": 0.452,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43785,
+      "sample_id": "train/6826",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.00246259942650795,
+      "best_gt_iou": 0.331,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43917,
+      "sample_id": "train/6844",
+      "split": "final-dev",
+      "pred_label": 3,
+      "pred_score": 0.002505615819245577,
+      "best_gt_iou": 0.353,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43920,
+      "sample_id": "train/6844",
+      "split": "final-dev",
+      "pred_label": 3,
+      "pred_score": 0.0020359850022941828,
+      "best_gt_iou": 0.601,
+      "best_gt_label": 4,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 43926,
+      "sample_id": "train/6844",
+      "split": "final-dev",
+      "pred_label": 4,
+      "pred_score": 0.0010943744564428926,
+      "best_gt_iou": 0.418,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43936,
+      "sample_id": "train/6852",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.005553713534027338,
+      "best_gt_iou": 0.099,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43942,
+      "sample_id": "train/6852",
+      "split": "calibration-dev",
+      "pred_label": 1,
+      "pred_score": 0.002059937221929431,
+      "best_gt_iou": 0.084,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 43944,
+      "sample_id": "train/6852",
+      "split": "calibration-dev",
+      "pred_label": 2,
+      "pred_score": 0.001599381328560412,
+      "best_gt_iou": 0.0,
+      "best_gt_label": null,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 44017,
+      "sample_id": "train/6876",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0010539392242208123,
+      "best_gt_iou": 0.455,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 44115,
+      "sample_id": "train/6888",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.33324912190437317,
+      "best_gt_iou": 0.449,
+      "best_gt_label": 10,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 44118,
+      "sample_id": "train/6888",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.11157767474651337,
+      "best_gt_iou": 0.499,
+      "best_gt_label": 10,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 44242,
+      "sample_id": "train/6893",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.4155377149581909,
+      "best_gt_iou": 0.955,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 44243,
+      "sample_id": "train/6893",
+      "split": "final-dev",
+      "pred_label": 5,
+      "pred_score": 0.1908927708864212,
+      "best_gt_iou": 0.53,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 44244,
+      "sample_id": "train/6893",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.0021672886796295643,
+      "best_gt_iou": 0.842,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 44738,
+      "sample_id": "train/6958",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.651068925857544,
+      "best_gt_iou": 0.903,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 44740,
+      "sample_id": "train/6958",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.23341317474842072,
+      "best_gt_iou": 0.695,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 44742,
+      "sample_id": "train/6958",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.019614359363913536,
+      "best_gt_iou": 0.314,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 44745,
+      "sample_id": "train/6958",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.006005903705954552,
+      "best_gt_iou": 0.312,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 44747,
+      "sample_id": "train/6958",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.0052678887732326984,
+      "best_gt_iou": 0.259,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 44784,
+      "sample_id": "train/6969",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.6638911366462708,
+      "best_gt_iou": 0.962,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 44789,
+      "sample_id": "train/6969",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.11512952297925949,
+      "best_gt_iou": 0.978,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 44825,
+      "sample_id": "train/6969",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.0014423858374357224,
+      "best_gt_iou": 0.371,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45108,
+      "sample_id": "train/6999",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.05204925686120987,
+      "best_gt_iou": 0.831,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 45111,
+      "sample_id": "train/6999",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.01144733838737011,
+      "best_gt_iou": 0.285,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45112,
+      "sample_id": "train/6999",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.009285060688853264,
+      "best_gt_iou": 0.459,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45117,
+      "sample_id": "train/6999",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0038096699863672256,
+      "best_gt_iou": 0.547,
+      "best_gt_label": 10,
+      "category": "nonwifi_gt"
+    },
+    {
+      "pred_idx": 45119,
+      "sample_id": "train/6999",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0034608931746333838,
+      "best_gt_iou": 0.409,
+      "best_gt_label": 10,
+      "category": "no_match"
+    },
+    {
+      "pred_idx": 45130,
+      "sample_id": "train/6999",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0015260159270837903,
+      "best_gt_iou": 0.159,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45224,
+      "sample_id": "train/7041",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.01034687552601099,
+      "best_gt_iou": 0.489,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45279,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.3393145501613617,
+      "best_gt_iou": 0.317,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45280,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.2685130834579468,
+      "best_gt_iou": 0.314,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45281,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.23872268199920654,
+      "best_gt_iou": 0.341,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45284,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.060693129897117615,
+      "best_gt_iou": 0.606,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 45286,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.04136433079838753,
+      "best_gt_iou": 0.06,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45287,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.030548395588994026,
+      "best_gt_iou": 0.201,
+      "best_gt_label": 5,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45288,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.011215444654226303,
+      "best_gt_iou": 0.118,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45291,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0055698431096971035,
+      "best_gt_iou": 0.398,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45292,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.0045358710922300816,
+      "best_gt_iou": 0.114,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45294,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0030814162455499172,
+      "best_gt_iou": 0.476,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45302,
+      "sample_id": "train/7054",
+      "split": "adaptation-train",
+      "pred_label": 5,
+      "pred_score": 0.0014548591570928693,
+      "best_gt_iou": 0.202,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45357,
+      "sample_id": "train/7087",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.05362509563565254,
+      "best_gt_iou": 0.753,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 45360,
+      "sample_id": "train/7087",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.012668462470173836,
+      "best_gt_iou": 0.479,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45366,
+      "sample_id": "train/7087",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0026748243253678083,
+      "best_gt_iou": 0.415,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45372,
+      "sample_id": "train/7087",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0018720243824645877,
+      "best_gt_iou": 0.532,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 45374,
+      "sample_id": "train/7087",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0017507675802335143,
+      "best_gt_iou": 0.14,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45378,
+      "sample_id": "train/7087",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0015279768267646432,
+      "best_gt_iou": 0.472,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45680,
+      "sample_id": "train/7142",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.010518955998122692,
+      "best_gt_iou": 0.496,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45681,
+      "sample_id": "train/7142",
+      "split": "adaptation-train",
+      "pred_label": 4,
+      "pred_score": 0.004318971652537584,
+      "best_gt_iou": 0.856,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 45682,
+      "sample_id": "train/7142",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.003474074648693204,
+      "best_gt_iou": 0.495,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45683,
+      "sample_id": "train/7142",
+      "split": "adaptation-train",
+      "pred_label": 3,
+      "pred_score": 0.0021495854016393423,
+      "best_gt_iou": 0.36,
+      "best_gt_label": 0,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 45684,
+      "sample_id": "train/7142",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.0016057435423135757,
+      "best_gt_iou": 0.629,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 45685,
+      "sample_id": "train/7142",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.0014853813918307424,
+      "best_gt_iou": 0.106,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 46849,
+      "sample_id": "train/7302",
+      "split": "final-dev",
+      "pred_label": 0,
+      "pred_score": 0.07566309720277786,
+      "best_gt_iou": 0.493,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 46852,
+      "sample_id": "train/7302",
+      "split": "final-dev",
+      "pred_label": 2,
+      "pred_score": 0.013199199922382832,
+      "best_gt_iou": 0.502,
+      "best_gt_label": 3,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 46853,
+      "sample_id": "train/7302",
+      "split": "final-dev",
+      "pred_label": 1,
+      "pred_score": 0.010265079326927662,
+      "best_gt_iou": 0.494,
+      "best_gt_label": 3,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 47194,
+      "sample_id": "train/7355",
+      "split": "adaptation-train",
+      "pred_label": 2,
+      "pred_score": 0.004902445711195469,
+      "best_gt_iou": 0.46,
+      "best_gt_label": 1,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 47384,
+      "sample_id": "train/7400",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.5045551061630249,
+      "best_gt_iou": 0.98,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 47385,
+      "sample_id": "train/7400",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.31378743052482605,
+      "best_gt_iou": 0.835,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 47387,
+      "sample_id": "train/7400",
+      "split": "adaptation-train",
+      "pred_label": 0,
+      "pred_score": 0.2804362177848816,
+      "best_gt_iou": 0.818,
+      "best_gt_label": 1,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 47574,
+      "sample_id": "train/7462",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.5717056393623352,
+      "best_gt_iou": 0.767,
+      "best_gt_label": 0,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 47743,
+      "sample_id": "train/7481",
+      "split": "adaptation-train",
+      "pred_label": 1,
+      "pred_score": 0.0020128863397985697,
+      "best_gt_iou": 0.574,
+      "best_gt_label": 5,
+      "category": "wifi_gt_secondary_duplicate"
+    },
+    {
+      "pred_idx": 47758,
+      "sample_id": "train/7494",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.043957509100437164,
+      "best_gt_iou": 0.442,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 47763,
+      "sample_id": "train/7494",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.0016624049749225378,
+      "best_gt_iou": 0.271,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 47765,
+      "sample_id": "train/7494",
+      "split": "calibration-dev",
+      "pred_label": 3,
+      "pred_score": 0.0013193790800869465,
+      "best_gt_iou": 0.393,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    },
+    {
+      "pred_idx": 47768,
+      "sample_id": "train/7494",
+      "split": "calibration-dev",
+      "pred_label": 0,
+      "pred_score": 0.001077228575013578,
+      "best_gt_iou": 0.388,
+      "best_gt_label": 4,
+      "category": "wifi_gt_low_iou"
+    }
+  ],
+  "ap_diagnostic_drop_unmatched": {
+    "n_dropped": 88,
+    "C0": {
+      "map50": 0.6634728210649045,
+      "map50_no_unmatched": 0.6582930903215072,
+      "delta_pp": -0.518
+    },
+    "E0": {
+      "map50": 0.6719077622168413,
+      "map50_no_unmatched": 0.6734631285005762,
+      "delta_pp": 0.156
+    },
+    "E2_seedmean": {
+      "map50": 0.6796670550040705,
+      "map50_no_unmatched": 0.6821634783703922,
+      "delta_pp": 0.25
+    }
+  }
+}

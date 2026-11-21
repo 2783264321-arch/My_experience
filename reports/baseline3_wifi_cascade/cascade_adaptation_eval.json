@@ -1,0 +1,6053 @@
+{
+  "final_dev_samples": 140,
+  "matched_pairs": 216,
+  "dual_sync_pairs": 35,
+  "classification": {
+    "conditional": {
+      "E0": {
+        "1729": {
+          "n": 35,
+          "accuracy": 0.7428571428571429,
+          "macro_f1": 0.6657767890248424,
+          "confusion": [
+            [
+              13,
+              2,
+              1
+            ],
+            [
+              1,
+              11,
+              2
+            ],
+            [
+              1,
+              2,
+              2
+            ]
+          ],
+          "ci": {
+            "mean": 0.7419742473975319,
+            "lo": 0.5833333333333334,
+            "hi": 0.8890350877192981
+          }
+        },
+        "1730": {
+          "n": 35,
+          "accuracy": 0.7714285714285715,
+          "macro_f1": 0.7357753357753358,
+          "confusion": [
+            [
+              13,
+              2,
+              1
+            ],
+            [
+              0,
+              10,
+              4
+            ],
+            [
+              1,
+              0,
+              4
+            ]
+          ],
+          "ci": {
+            "mean": 0.7750244393337372,
+            "lo": 0.6176470588235294,
+            "hi": 0.9091577540106951
+          }
+        },
+        "1731": {
+          "n": 35,
+          "accuracy": 0.7428571428571429,
+          "macro_f1": 0.6630751964085299,
+          "confusion": [
+            [
+              14,
+              1,
+              1
+            ],
+            [
+              2,
+              10,
+              2
+            ],
+            [
+              1,
+              2,
+              2
+            ]
+          ],
+          "ci": {
+            "mean": 0.7479304862623494,
+            "lo": 0.5945734797297297,
+            "hi": 0.8888888888888888
+          }
+        }
+      },
+      "E1": {
+        "1729": {
+          "n": 35,
+          "accuracy": 0.7714285714285715,
+          "macro_f1": 0.7183908045977011,
+          "confusion": [
+            [
+              13,
+              2,
+              1
+            ],
+            [
+              0,
+              11,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "ci": {
+            "mean": 0.7709108303231842,
+            "lo": 0.6216216216216216,
+            "hi": 0.9117647058823529
+          }
+        },
+        "1730": {
+          "n": 35,
+          "accuracy": 0.7428571428571429,
+          "macro_f1": 0.7055555555555556,
+          "confusion": [
+            [
+              13,
+              1,
+              2
+            ],
+            [
+              0,
+              9,
+              5
+            ],
+            [
+              1,
+              0,
+              4
+            ]
+          ],
+          "ci": {
+            "mean": 0.7455966156115713,
+            "lo": 0.5944733194733195,
+            "hi": 0.8823529411764706
+          }
+        },
+        "1731": {
+          "n": 35,
+          "accuracy": 0.6857142857142857,
+          "macro_f1": 0.6575807334428024,
+          "confusion": [
+            [
+              13,
+              0,
+              3
+            ],
+            [
+              0,
+              6,
+              8
+            ],
+            [
+              0,
+              0,
+              5
+            ]
+          ],
+          "ci": {
+            "mean": 0.6866896758112508,
+            "lo": 0.5277777777777778,
+            "hi": 0.8484848484848485
+          }
+        }
+      },
+      "E2": {
+        "1729": {
+          "n": 35,
+          "accuracy": 0.7714285714285715,
+          "macro_f1": 0.7146014904635595,
+          "confusion": [
+            [
+              13,
+              1,
+              2
+            ],
+            [
+              0,
+              11,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "ci": {
+            "mean": 0.7709108303231842,
+            "lo": 0.6216216216216216,
+            "hi": 0.9117647058823529
+          }
+        },
+        "1730": {
+          "n": 35,
+          "accuracy": 0.7714285714285715,
+          "macro_f1": 0.7333333333333333,
+          "confusion": [
+            [
+              13,
+              1,
+              2
+            ],
+            [
+              0,
+              10,
+              4
+            ],
+            [
+              1,
+              0,
+              4
+            ]
+          ],
+          "ci": {
+            "mean": 0.7750244393337372,
+            "lo": 0.6176470588235294,
+            "hi": 0.9091577540106951
+          }
+        },
+        "1731": {
+          "n": 35,
+          "accuracy": 0.7428571428571429,
+          "macro_f1": 0.7167134136281142,
+          "confusion": [
+            [
+              13,
+              0,
+              3
+            ],
+            [
+              0,
+              8,
+              6
+            ],
+            [
+              0,
+              0,
+              5
+            ]
+          ],
+          "ci": {
+            "mean": 0.743937923601504,
+            "lo": 0.5882352941176471,
+            "hi": 0.8858687258687257
+          }
+        }
+      },
+      "E3": {
+        "1729": {
+          "n": 35,
+          "accuracy": 0.7714285714285715,
+          "macro_f1": 0.7147435897435898,
+          "confusion": [
+            [
+              14,
+              1,
+              1
+            ],
+            [
+              1,
+              10,
+              3
+            ],
+            [
+              1,
+              1,
+              3
+            ]
+          ],
+          "ci": {
+            "mean": 0.7708320710600616,
+            "lo": 0.6152777777777778,
+            "hi": 0.9117647058823529
+          }
+        },
+        "1730": {
+          "n": 35,
+          "accuracy": 0.6857142857142857,
+          "macro_f1": 0.6469534050179212,
+          "confusion": [
+            [
+              12,
+              3,
+              1
+            ],
+            [
+              2,
+              9,
+              3
+            ],
+            [
+              1,
+              1,
+              3
+            ]
+          ],
+          "ci": {
+            "mean": 0.684922164562298,
+            "lo": 0.5142857142857142,
+            "hi": 0.84375
+          }
+        },
+        "1731": {
+          "n": 35,
+          "accuracy": 0.7142857142857143,
+          "macro_f1": 0.6745098039215686,
+          "confusion": [
+            [
+              14,
+              0,
+              2
+            ],
+            [
+              3,
+              7,
+              4
+            ],
+            [
+              1,
+              0,
+              4
+            ]
+          ],
+          "ci": {
+            "mean": 0.7178992243185877,
+            "lo": 0.5555555555555556,
+            "hi": 0.8787878787878788
+          }
+        }
+      }
+    },
+    "all_instance": {
+      "E0": {
+        "1729": {
+          "n": 216,
+          "accuracy": 0.5324074074074074,
+          "macro_f1": 0.5320049877476425,
+          "confusion": [
+            [
+              46,
+              27,
+              11
+            ],
+            [
+              23,
+              40,
+              11
+            ],
+            [
+              12,
+              17,
+              29
+            ]
+          ],
+          "ci": {
+            "mean": 0.5317430939949973,
+            "lo": 0.4744115878107458,
+            "hi": 0.5936288744397449
+          }
+        },
+        "1730": {
+          "n": 216,
+          "accuracy": 0.5370370370370371,
+          "macro_f1": 0.5376246608597972,
+          "confusion": [
+            [
+              46,
+              27,
+              11
+            ],
+            [
+              22,
+              39,
+              13
+            ],
+            [
+              12,
+              15,
+              31
+            ]
+          ],
+          "ci": {
+            "mean": 0.5383727471730905,
+            "lo": 0.47782866379310346,
+            "hi": 0.5990349295398384
+          }
+        },
+        "1731": {
+          "n": 216,
+          "accuracy": 0.5324074074074074,
+          "macro_f1": 0.5316614477467084,
+          "confusion": [
+            [
+              47,
+              26,
+              11
+            ],
+            [
+              24,
+              39,
+              11
+            ],
+            [
+              12,
+              17,
+              29
+            ]
+          ],
+          "ci": {
+            "mean": 0.5317476489331846,
+            "lo": 0.4700460829493088,
+            "hi": 0.591743119266055
+          }
+        }
+      },
+      "E1": {
+        "1729": {
+          "n": 216,
+          "accuracy": 0.5370370370370371,
+          "macro_f1": 0.5370956107929006,
+          "confusion": [
+            [
+              46,
+              27,
+              11
+            ],
+            [
+              22,
+              40,
+              12
+            ],
+            [
+              11,
+              17,
+              30
+            ]
+          ],
+          "ci": {
+            "mean": 0.536492841834759,
+            "lo": 0.4770589109751954,
+            "hi": 0.5963323322499691
+          }
+        },
+        "1730": {
+          "n": 216,
+          "accuracy": 0.5324074074074074,
+          "macro_f1": 0.5322793568941657,
+          "confusion": [
+            [
+              46,
+              26,
+              12
+            ],
+            [
+              22,
+              38,
+              14
+            ],
+            [
+              12,
+              15,
+              31
+            ]
+          ],
+          "ci": {
+            "mean": 0.533636001541953,
+            "lo": 0.4731470189701897,
+            "hi": 0.5943591808559595
+          }
+        },
+        "1731": {
+          "n": 216,
+          "accuracy": 0.5231481481481481,
+          "macro_f1": 0.5225163896551882,
+          "confusion": [
+            [
+              46,
+              25,
+              13
+            ],
+            [
+              22,
+              35,
+              17
+            ],
+            [
+              11,
+              15,
+              32
+            ]
+          ],
+          "ci": {
+            "mean": 0.5223673349209037,
+            "lo": 0.4639389389389389,
+            "hi": 0.580952380952381
+          }
+        }
+      },
+      "E2": {
+        "1729": {
+          "n": 216,
+          "accuracy": 0.5370370370370371,
+          "macro_f1": 0.536561867918595,
+          "confusion": [
+            [
+              46,
+              26,
+              12
+            ],
+            [
+              22,
+              40,
+              12
+            ],
+            [
+              11,
+              17,
+              30
+            ]
+          ],
+          "ci": {
+            "mean": 0.536492841834759,
+            "lo": 0.4770589109751954,
+            "hi": 0.5963323322499691
+          }
+        },
+        "1730": {
+          "n": 216,
+          "accuracy": 0.5370370370370371,
+          "macro_f1": 0.5371095884574703,
+          "confusion": [
+            [
+              46,
+              26,
+              12
+            ],
+            [
+              22,
+              39,
+              13
+            ],
+            [
+              12,
+              15,
+              31
+            ]
+          ],
+          "ci": {
+            "mean": 0.5383727471730905,
+            "lo": 0.47782866379310346,
+            "hi": 0.5990349295398384
+          }
+        },
+        "1731": {
+          "n": 216,
+          "accuracy": 0.5324074074074074,
+          "macro_f1": 0.5322854281452019,
+          "confusion": [
+            [
+              46,
+              25,
+              13
+            ],
+            [
+              22,
+              37,
+              15
+            ],
+            [
+              11,
+              15,
+              32
+            ]
+          ],
+          "ci": {
+            "mean": 0.5317569642914737,
+            "lo": 0.47256504922644166,
+            "hi": 0.5895316593886463
+          }
+        }
+      },
+      "E3": {
+        "1729": {
+          "n": 216,
+          "accuracy": 0.5370370370370371,
+          "macro_f1": 0.5366771357443725,
+          "confusion": [
+            [
+              47,
+              26,
+              11
+            ],
+            [
+              23,
+              39,
+              12
+            ],
+            [
+              12,
+              16,
+              30
+            ]
+          ],
+          "ci": {
+            "mean": 0.5361712116839479,
+            "lo": 0.4782147251845775,
+            "hi": 0.5962744688469801
+          }
+        },
+        "1730": {
+          "n": 216,
+          "accuracy": 0.5231481481481481,
+          "macro_f1": 0.5243915243915244,
+          "confusion": [
+            [
+              45,
+              28,
+              11
+            ],
+            [
+              24,
+              38,
+              12
+            ],
+            [
+              12,
+              16,
+              30
+            ]
+          ],
+          "ci": {
+            "mean": 0.5242521247893089,
+            "lo": 0.45698529411764705,
+            "hi": 0.5880044549266247
+          }
+        },
+        "1731": {
+          "n": 216,
+          "accuracy": 0.5277777777777778,
+          "macro_f1": 0.5277944862155388,
+          "confusion": [
+            [
+              47,
+              25,
+              12
+            ],
+            [
+              25,
+              36,
+              13
+            ],
+            [
+              12,
+              15,
+              31
+            ]
+          ],
+          "ci": {
+            "mean": 0.5268393899192354,
+            "lo": 0.46543778801843316,
+            "hi": 0.5845480719461698
+          }
+        }
+      }
+    }
+  },
+  "cascade": {
+    "C0": {
+      "map50": 0.6634728210649045,
+      "n_pred": 5237,
+      "per_class": {
+        "0": 0.43547436874227924,
+        "1": 0.4059557032002734,
+        "2": 0.6566094562825932,
+        "3": 0.6296727407126822,
+        "4": 0.38708095795120295,
+        "5": 0.2186621501906783,
+        "6": 0.9988217373773576,
+        "7": 0.9618978711016317,
+        "8": 0.9038206845418325,
+        "9": 0.9853173275612503,
+        "10": 0.6817524096693584,
+        "11": 0.445749014263707,
+        "12": 0.7986578453078067,
+        "13": 0.7791472280060084
+      }
+    },
+    "E0": {
+      "seeds": {
+        "1729": {
+          "map50": 0.6719077622168413,
+          "delta_pp": 0.843,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.41879242514616205,
+            "1": 0.41167486627286143,
+            "2": 0.6279790428914755,
+            "3": 0.6621737350640797,
+            "4": 0.4656742088047442,
+            "5": 0.26525027502750276,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1730": {
+          "map50": 0.6803768362273174,
+          "delta_pp": 1.69,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.41886745789847835,
+            "1": 0.4368201783508501,
+            "2": 0.6475802170515851,
+            "3": 0.6954218685911053,
+            "4": 0.5064367975259063,
+            "5": 0.26498506993556503,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1731": {
+          "map50": 0.6766403408731249,
+          "delta_pp": 1.317,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.41800416298997356,
+            "1": 0.41270495440715754,
+            "2": 0.6272183759526123,
+            "3": 0.7028161192269243,
+            "4": 0.492071971882562,
+            "5": 0.26498506993556503,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        }
+      },
+      "map50_mean": 0.6763083131057611,
+      "map50_std": 0.0034654471070320794,
+      "delta_pp_mean": 1.284
+    },
+    "E1": {
+      "seeds": {
+        "1729": {
+          "map50": 0.678012616123311,
+          "delta_pp": 1.454,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.439595652001917,
+            "1": 0.3839265954722128,
+            "2": 0.6482836849852949,
+            "3": 0.6956565716048663,
+            "4": 0.5039276287877236,
+            "5": 0.2656223750453863,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1730": {
+          "map50": 0.6744701659756652,
+          "delta_pp": 1.1,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.41886745789847835,
+            "1": 0.40907300241185746,
+            "2": 0.6448912270557106,
+            "3": 0.6954218685911053,
+            "4": 0.46647873012773244,
+            "5": 0.25268591974547494,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1731": {
+          "map50": 0.6748899726314654,
+          "delta_pp": 1.142,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.4396135806240475,
+            "1": 0.36066599133590305,
+            "2": 0.6629902293204569,
+            "3": 0.6956565716048663,
+            "4": 0.492071971882562,
+            "5": 0.24229715424372655,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        }
+      },
+      "map50_mean": 0.6757909182434805,
+      "map50_std": 0.001580298602373578,
+      "delta_pp_mean": 1.232
+    },
+    "E2": {
+      "seeds": {
+        "1729": {
+          "map50": 0.6799690586007745,
+          "delta_pp": 1.65,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.43953759921881147,
+            "1": 0.39416706273813557,
+            "2": 0.6443200623356359,
+            "3": 0.6954218685911053,
+            "4": 0.5374293886050385,
+            "5": 0.2535267210931619,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1730": {
+          "map50": 0.6781863943455887,
+          "delta_pp": 1.471,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.41886745789847835,
+            "1": 0.40839291665040417,
+            "2": 0.6455958892960906,
+            "3": 0.6954218685911053,
+            "4": 0.5064367975259063,
+            "5": 0.26473047304730474,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1731": {
+          "map50": 0.6778217111058547,
+          "delta_pp": 1.435,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.4395553118334464,
+            "1": 0.397761124550251,
+            "2": 0.6669977035381587,
+            "3": 0.6956565716048663,
+            "4": 0.492071971882562,
+            "5": 0.24229715424372655,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        }
+      },
+      "map50_mean": 0.6786590546840726,
+      "map50_std": 0.000938200818114629,
+      "delta_pp_mean": 1.519
+    },
+    "E3": {
+      "seeds": {
+        "1729": {
+          "map50": 0.6772913433489499,
+          "delta_pp": 1.382,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.41879242514616205,
+            "1": 0.4042560589821644,
+            "2": 0.6443200623356359,
+            "3": 0.702988310359081,
+            "4": 0.492071971882562,
+            "5": 0.2644858603507409,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1730": {
+          "map50": 0.6692898909207301,
+          "delta_pp": 0.582,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.41806076428018246,
+            "1": 0.4047492844349571,
+            "2": 0.6443200623356359,
+            "3": 0.6305177104237967,
+            "4": 0.45108246303437255,
+            "5": 0.26616407055232305,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        },
+        "1731": {
+          "map50": 0.6739687761265263,
+          "delta_pp": 1.05,
+          "n_relabeled": 807,
+          "per_class": {
+            "0": 0.4053607013354391,
+            "1": 0.3710703041344995,
+            "2": 0.6448654214320373,
+            "3": 0.7014079741124913,
+            "4": 0.492071971882562,
+            "5": 0.2656223750453863,
+            "6": 0.9988217373773576,
+            "7": 0.9618978711016317,
+            "8": 0.9038206845418325,
+            "9": 0.9853173275612503,
+            "10": 0.6817524096693584,
+            "11": 0.445749014263707,
+            "12": 0.7986578453078067,
+            "13": 0.7791472280060084
+          }
+        }
+      },
+      "map50_mean": 0.6735166701320688,
+      "map50_std": 0.003282185259136002,
+      "delta_pp_mean": 1.004
+    },
+    "E2_seedmean": {
+      "map50": 0.6796670550040705,
+      "delta_pp": 1.619,
+      "bootstrap_delta_ci": {
+        "mean": 1.5348336754029088,
+        "lo": -0.31657682851398167,
+        "hi": 3.559298620751728
+      }
+    }
+  },
+  "unmatched_sync_ok": {
+    "count": 561,
+    "categories": {
+      "wifi_gt_secondary_duplicate": 265,
+      "wifi_gt_low_iou": 275,
+      "no_match": 17,
+      "nonwifi_gt": 4
+    },
+    "items": [
+      {
+        "sample_id": "train/56",
+        "pred_label": 2,
+        "pred_score": 0.0017769751138985157,
+        "best_gt_iou": 0.504,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/56",
+        "pred_label": 2,
+        "pred_score": 0.0013839495368301868,
+        "best_gt_iou": 0.527,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/85",
+        "pred_label": 1,
+        "pred_score": 0.003115394851192832,
+        "best_gt_iou": 0.065,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/85",
+        "pred_label": 3,
+        "pred_score": 0.0018891681684181094,
+        "best_gt_iou": 0.093,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/85",
+        "pred_label": 2,
+        "pred_score": 0.0011360422940924764,
+        "best_gt_iou": 0.385,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/156",
+        "pred_label": 1,
+        "pred_score": 0.08107913285493851,
+        "best_gt_iou": 0.433,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/156",
+        "pred_label": 1,
+        "pred_score": 0.07396945357322693,
+        "best_gt_iou": 0.893,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/156",
+        "pred_label": 2,
+        "pred_score": 0.010722029954195023,
+        "best_gt_iou": 0.889,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/156",
+        "pred_label": 1,
+        "pred_score": 0.0011859156657010317,
+        "best_gt_iou": 0.261,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/156",
+        "pred_label": 0,
+        "pred_score": 0.0011304450454190373,
+        "best_gt_iou": 0.37,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/186",
+        "pred_label": 1,
+        "pred_score": 0.6644905209541321,
+        "best_gt_iou": 0.655,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/186",
+        "pred_label": 2,
+        "pred_score": 0.0705907791852951,
+        "best_gt_iou": 0.664,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/186",
+        "pred_label": 1,
+        "pred_score": 0.05074240267276764,
+        "best_gt_iou": 0.191,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/186",
+        "pred_label": 1,
+        "pred_score": 0.010689657181501389,
+        "best_gt_iou": 0.643,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/207",
+        "pred_label": 1,
+        "pred_score": 0.5918925404548645,
+        "best_gt_iou": 0.964,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/207",
+        "pred_label": 1,
+        "pred_score": 0.5592336058616638,
+        "best_gt_iou": 0.408,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/207",
+        "pred_label": 2,
+        "pred_score": 0.015591534785926342,
+        "best_gt_iou": 0.421,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/207",
+        "pred_label": 0,
+        "pred_score": 0.007248572073876858,
+        "best_gt_iou": 0.404,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/207",
+        "pred_label": 2,
+        "pred_score": 0.0027509962674230337,
+        "best_gt_iou": 0.951,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/253",
+        "pred_label": 2,
+        "pred_score": 0.0012869297061115503,
+        "best_gt_iou": 0.889,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/276",
+        "pred_label": 0,
+        "pred_score": 0.6464542150497437,
+        "best_gt_iou": 0.988,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/277",
+        "pred_label": 2,
+        "pred_score": 0.0011267863446846604,
+        "best_gt_iou": 0.483,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/322",
+        "pred_label": 0,
+        "pred_score": 0.611036479473114,
+        "best_gt_iou": 0.974,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/322",
+        "pred_label": 1,
+        "pred_score": 0.002702215453609824,
+        "best_gt_iou": 0.107,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/333",
+        "pred_label": 5,
+        "pred_score": 0.20786619186401367,
+        "best_gt_iou": 0.281,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/333",
+        "pred_label": 4,
+        "pred_score": 0.12969987094402313,
+        "best_gt_iou": 0.294,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/333",
+        "pred_label": 3,
+        "pred_score": 0.01116344053298235,
+        "best_gt_iou": 0.366,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/351",
+        "pred_label": 0,
+        "pred_score": 0.010386588983237743,
+        "best_gt_iou": 0.281,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/470",
+        "pred_label": 2,
+        "pred_score": 0.0050623491406440735,
+        "best_gt_iou": 0.461,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/573",
+        "pred_label": 2,
+        "pred_score": 0.028756093233823776,
+        "best_gt_iou": 0.344,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/576",
+        "pred_label": 1,
+        "pred_score": 0.3679715692996979,
+        "best_gt_iou": 0.498,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/576",
+        "pred_label": 3,
+        "pred_score": 0.3469434976577759,
+        "best_gt_iou": 0.645,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/576",
+        "pred_label": 0,
+        "pred_score": 0.2955836355686188,
+        "best_gt_iou": 0.498,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/576",
+        "pred_label": 2,
+        "pred_score": 0.0021077292039990425,
+        "best_gt_iou": 0.502,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/595",
+        "pred_label": 2,
+        "pred_score": 0.8337323665618896,
+        "best_gt_iou": 0.966,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/595",
+        "pred_label": 0,
+        "pred_score": 0.40431585907936096,
+        "best_gt_iou": 0.969,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/648",
+        "pred_label": 1,
+        "pred_score": 0.7810465097427368,
+        "best_gt_iou": 0.995,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/648",
+        "pred_label": 2,
+        "pred_score": 0.6542327404022217,
+        "best_gt_iou": 0.346,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/648",
+        "pred_label": 1,
+        "pred_score": 0.3963544964790344,
+        "best_gt_iou": 0.58,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/648",
+        "pred_label": 0,
+        "pred_score": 0.018002498894929886,
+        "best_gt_iou": 0.35,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/648",
+        "pred_label": 2,
+        "pred_score": 0.008903545327484608,
+        "best_gt_iou": 0.422,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/648",
+        "pred_label": 2,
+        "pred_score": 0.0011048986343666911,
+        "best_gt_iou": 0.193,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/651",
+        "pred_label": 4,
+        "pred_score": 0.0013577296631410718,
+        "best_gt_iou": 0.304,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/671",
+        "pred_label": 0,
+        "pred_score": 0.6048181653022766,
+        "best_gt_iou": 0.952,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/675",
+        "pred_label": 2,
+        "pred_score": 0.07731406390666962,
+        "best_gt_iou": 0.813,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/675",
+        "pred_label": 0,
+        "pred_score": 0.030600570142269135,
+        "best_gt_iou": 0.916,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/675",
+        "pred_label": 2,
+        "pred_score": 0.010913609527051449,
+        "best_gt_iou": 0.355,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/675",
+        "pred_label": 1,
+        "pred_score": 0.001936547108925879,
+        "best_gt_iou": 0.39,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/708",
+        "pred_label": 4,
+        "pred_score": 0.01855350472033024,
+        "best_gt_iou": 0.6,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/708",
+        "pred_label": 5,
+        "pred_score": 0.001439231331460178,
+        "best_gt_iou": 0.485,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/708",
+        "pred_label": 0,
+        "pred_score": 0.0012334026396274567,
+        "best_gt_iou": 0.287,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/792",
+        "pred_label": 0,
+        "pred_score": 0.0505608431994915,
+        "best_gt_iou": 0.731,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/792",
+        "pred_label": 2,
+        "pred_score": 0.004118121229112148,
+        "best_gt_iou": 0.409,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/792",
+        "pred_label": 1,
+        "pred_score": 0.0031442316249012947,
+        "best_gt_iou": 0.567,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/845",
+        "pred_label": 2,
+        "pred_score": 0.001100424793548882,
+        "best_gt_iou": 0.456,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/859",
+        "pred_label": 1,
+        "pred_score": 0.003923666197806597,
+        "best_gt_iou": 0.504,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/991",
+        "pred_label": 1,
+        "pred_score": 0.6279072761535645,
+        "best_gt_iou": 0.985,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1068",
+        "pred_label": 0,
+        "pred_score": 0.3569495379924774,
+        "best_gt_iou": 0.97,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1110",
+        "pred_label": 1,
+        "pred_score": 0.00215523736551404,
+        "best_gt_iou": 0.339,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1110",
+        "pred_label": 0,
+        "pred_score": 0.0014590146020054817,
+        "best_gt_iou": 0.417,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1115",
+        "pred_label": 1,
+        "pred_score": 0.5978761911392212,
+        "best_gt_iou": 0.673,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1119",
+        "pred_label": 1,
+        "pred_score": 0.5864740610122681,
+        "best_gt_iou": 0.974,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1119",
+        "pred_label": 1,
+        "pred_score": 0.0036513085942715406,
+        "best_gt_iou": 0.255,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1142",
+        "pred_label": 1,
+        "pred_score": 0.4710288941860199,
+        "best_gt_iou": 0.988,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1142",
+        "pred_label": 3,
+        "pred_score": 0.09045150130987167,
+        "best_gt_iou": 0.497,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1142",
+        "pred_label": 1,
+        "pred_score": 0.016182977706193924,
+        "best_gt_iou": 0.625,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1142",
+        "pred_label": 0,
+        "pred_score": 0.006132419221103191,
+        "best_gt_iou": 0.656,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 0,
+        "pred_score": 0.09349630028009415,
+        "best_gt_iou": 0.48,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 0,
+        "pred_score": 0.07853996008634567,
+        "best_gt_iou": 0.282,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 0,
+        "pred_score": 0.06697191298007965,
+        "best_gt_iou": 0.485,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 1,
+        "pred_score": 0.03708096593618393,
+        "best_gt_iou": 0.481,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 1,
+        "pred_score": 0.03067685104906559,
+        "best_gt_iou": 0.367,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 0,
+        "pred_score": 0.02529868669807911,
+        "best_gt_iou": 0.392,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 1,
+        "pred_score": 0.003843527752906084,
+        "best_gt_iou": 0.253,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1143",
+        "pred_label": 1,
+        "pred_score": 0.003185816342011094,
+        "best_gt_iou": 0.126,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1210",
+        "pred_label": 1,
+        "pred_score": 0.5598435401916504,
+        "best_gt_iou": 0.976,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1308",
+        "pred_label": 4,
+        "pred_score": 0.7254602909088135,
+        "best_gt_iou": 0.98,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1308",
+        "pred_label": 0,
+        "pred_score": 0.02476811595261097,
+        "best_gt_iou": 0.432,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1308",
+        "pred_label": 2,
+        "pred_score": 0.008478954434394836,
+        "best_gt_iou": 0.416,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1308",
+        "pred_label": 2,
+        "pred_score": 0.002295189071446657,
+        "best_gt_iou": 0.516,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1308",
+        "pred_label": 1,
+        "pred_score": 0.0015086684143170714,
+        "best_gt_iou": 0.522,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1322",
+        "pred_label": 0,
+        "pred_score": 0.6878019571304321,
+        "best_gt_iou": 0.984,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1338",
+        "pred_label": 0,
+        "pred_score": 0.6202707886695862,
+        "best_gt_iou": 0.98,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1338",
+        "pred_label": 4,
+        "pred_score": 0.11309848725795746,
+        "best_gt_iou": 0.657,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1338",
+        "pred_label": 2,
+        "pred_score": 0.0011829654686152935,
+        "best_gt_iou": 0.588,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1378",
+        "pred_label": 0,
+        "pred_score": 0.5762739777565002,
+        "best_gt_iou": 0.988,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1378",
+        "pred_label": 2,
+        "pred_score": 0.4428744912147522,
+        "best_gt_iou": 0.973,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1402",
+        "pred_label": 1,
+        "pred_score": 0.9235653281211853,
+        "best_gt_iou": 0.949,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1404",
+        "pred_label": 1,
+        "pred_score": 0.8350642919540405,
+        "best_gt_iou": 0.988,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1404",
+        "pred_label": 0,
+        "pred_score": 0.4017427861690521,
+        "best_gt_iou": 0.985,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1444",
+        "pred_label": 0,
+        "pred_score": 0.001611095736734569,
+        "best_gt_iou": 0.443,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1486",
+        "pred_label": 3,
+        "pred_score": 0.6485133171081543,
+        "best_gt_iou": 0.997,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1486",
+        "pred_label": 5,
+        "pred_score": 0.466739684343338,
+        "best_gt_iou": 0.998,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1486",
+        "pred_label": 1,
+        "pred_score": 0.009072893299162388,
+        "best_gt_iou": 0.501,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1486",
+        "pred_label": 2,
+        "pred_score": 0.00428074412047863,
+        "best_gt_iou": 0.132,
+        "best_gt_label": 7,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/1486",
+        "pred_label": 3,
+        "pred_score": 0.00113682821393013,
+        "best_gt_iou": 0.176,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1486",
+        "pred_label": 4,
+        "pred_score": 0.0011290868278592825,
+        "best_gt_iou": 0.459,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1486",
+        "pred_label": 4,
+        "pred_score": 0.001032163156196475,
+        "best_gt_iou": 0.237,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1500",
+        "pred_label": 2,
+        "pred_score": 0.004033362492918968,
+        "best_gt_iou": 0.066,
+        "best_gt_label": 8,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/1500",
+        "pred_label": 0,
+        "pred_score": 0.0020820165518671274,
+        "best_gt_iou": 0.478,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1500",
+        "pred_label": 2,
+        "pred_score": 0.0020521492697298527,
+        "best_gt_iou": 0.044,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1500",
+        "pred_label": 2,
+        "pred_score": 0.0018792391056194901,
+        "best_gt_iou": 0.11,
+        "best_gt_label": 8,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/1539",
+        "pred_label": 1,
+        "pred_score": 0.547717809677124,
+        "best_gt_iou": 0.931,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1539",
+        "pred_label": 1,
+        "pred_score": 0.2585066556930542,
+        "best_gt_iou": 0.929,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1539",
+        "pred_label": 2,
+        "pred_score": 0.025653352960944176,
+        "best_gt_iou": 0.689,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1539",
+        "pred_label": 2,
+        "pred_score": 0.022188670933246613,
+        "best_gt_iou": 0.921,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1539",
+        "pred_label": 3,
+        "pred_score": 0.01239143405109644,
+        "best_gt_iou": 0.487,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1539",
+        "pred_label": 4,
+        "pred_score": 0.0015427801990881562,
+        "best_gt_iou": 0.489,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1580",
+        "pred_label": 1,
+        "pred_score": 0.5939673185348511,
+        "best_gt_iou": 0.959,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1599",
+        "pred_label": 0,
+        "pred_score": 0.017811179161071777,
+        "best_gt_iou": 0.97,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1611",
+        "pred_label": 3,
+        "pred_score": 0.4782106578350067,
+        "best_gt_iou": 0.606,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1611",
+        "pred_label": 0,
+        "pred_score": 0.4557619094848633,
+        "best_gt_iou": 0.889,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1611",
+        "pred_label": 0,
+        "pred_score": 0.33933302760124207,
+        "best_gt_iou": 0.594,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1611",
+        "pred_label": 4,
+        "pred_score": 0.2680584490299225,
+        "best_gt_iou": 0.86,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1611",
+        "pred_label": 3,
+        "pred_score": 0.1530296802520752,
+        "best_gt_iou": 0.45,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1611",
+        "pred_label": 4,
+        "pred_score": 0.03429979085922241,
+        "best_gt_iou": 0.457,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1611",
+        "pred_label": 5,
+        "pred_score": 0.033214449882507324,
+        "best_gt_iou": 0.481,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1613",
+        "pred_label": 3,
+        "pred_score": 0.6945063471794128,
+        "best_gt_iou": 0.991,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1636",
+        "pred_label": 2,
+        "pred_score": 0.07364192605018616,
+        "best_gt_iou": 0.641,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1636",
+        "pred_label": 0,
+        "pred_score": 0.020372740924358368,
+        "best_gt_iou": 0.72,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1649",
+        "pred_label": 2,
+        "pred_score": 0.010524526238441467,
+        "best_gt_iou": 0.979,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1703",
+        "pred_label": 1,
+        "pred_score": 0.008250298909842968,
+        "best_gt_iou": 0.834,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1703",
+        "pred_label": 0,
+        "pred_score": 0.005430624820291996,
+        "best_gt_iou": 0.712,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 1,
+        "pred_score": 0.8045907020568848,
+        "best_gt_iou": 0.788,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 4,
+        "pred_score": 0.1315690279006958,
+        "best_gt_iou": 0.824,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 2,
+        "pred_score": 0.015343007631599903,
+        "best_gt_iou": 0.387,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 0,
+        "pred_score": 0.011000453494489193,
+        "best_gt_iou": 0.508,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 1,
+        "pred_score": 0.008780577220022678,
+        "best_gt_iou": 0.417,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 1,
+        "pred_score": 0.008268840610980988,
+        "best_gt_iou": 0.503,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 2,
+        "pred_score": 0.005649293772876263,
+        "best_gt_iou": 0.552,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1731",
+        "pred_label": 1,
+        "pred_score": 0.0014409490395337343,
+        "best_gt_iou": 0.546,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1737",
+        "pred_label": 0,
+        "pred_score": 0.5727799534797668,
+        "best_gt_iou": 0.966,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1741",
+        "pred_label": 1,
+        "pred_score": 0.012111642397940159,
+        "best_gt_iou": 0.287,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1741",
+        "pred_label": 2,
+        "pred_score": 0.009475888684391975,
+        "best_gt_iou": 0.188,
+        "best_gt_label": 10,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/1741",
+        "pred_label": 1,
+        "pred_score": 0.00933467410504818,
+        "best_gt_iou": 0.452,
+        "best_gt_label": 10,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/1884",
+        "pred_label": 3,
+        "pred_score": 0.7010935544967651,
+        "best_gt_iou": 0.956,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1901",
+        "pred_label": 3,
+        "pred_score": 0.6279235482215881,
+        "best_gt_iou": 0.987,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1901",
+        "pred_label": 4,
+        "pred_score": 0.23974597454071045,
+        "best_gt_iou": 0.968,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1901",
+        "pred_label": 1,
+        "pred_score": 0.0033083430025726557,
+        "best_gt_iou": 0.526,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 1,
+        "pred_score": 0.0993286669254303,
+        "best_gt_iou": 0.331,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 1,
+        "pred_score": 0.08922485262155533,
+        "best_gt_iou": 0.496,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 2,
+        "pred_score": 0.07190076261758804,
+        "best_gt_iou": 0.332,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 0,
+        "pred_score": 0.029579954221844673,
+        "best_gt_iou": 0.307,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 2,
+        "pred_score": 0.016436578705906868,
+        "best_gt_iou": 0.453,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 1,
+        "pred_score": 0.009326175786554813,
+        "best_gt_iou": 0.196,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 2,
+        "pred_score": 0.007283034734427929,
+        "best_gt_iou": 0.408,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 0,
+        "pred_score": 0.005922113545238972,
+        "best_gt_iou": 0.436,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 1,
+        "pred_score": 0.002413572045043111,
+        "best_gt_iou": 0.688,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1909",
+        "pred_label": 2,
+        "pred_score": 0.0012407664908096194,
+        "best_gt_iou": 0.221,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1952",
+        "pred_label": 2,
+        "pred_score": 0.8627781271934509,
+        "best_gt_iou": 0.94,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1952",
+        "pred_label": 1,
+        "pred_score": 0.7285959720611572,
+        "best_gt_iou": 0.943,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1952",
+        "pred_label": 2,
+        "pred_score": 0.510129988193512,
+        "best_gt_iou": 0.489,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1952",
+        "pred_label": 3,
+        "pred_score": 0.4384867250919342,
+        "best_gt_iou": 0.987,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1952",
+        "pred_label": 2,
+        "pred_score": 0.3398834764957428,
+        "best_gt_iou": 0.953,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1952",
+        "pred_label": 1,
+        "pred_score": 0.18561065196990967,
+        "best_gt_iou": 0.493,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1952",
+        "pred_label": 5,
+        "pred_score": 0.001880921539850533,
+        "best_gt_iou": 0.408,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/1956",
+        "pred_label": 0,
+        "pred_score": 0.549182116985321,
+        "best_gt_iou": 0.985,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1956",
+        "pred_label": 2,
+        "pred_score": 0.2892899215221405,
+        "best_gt_iou": 0.983,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1999",
+        "pred_label": 0,
+        "pred_score": 0.31691795587539673,
+        "best_gt_iou": 0.963,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/1999",
+        "pred_label": 2,
+        "pred_score": 0.0028417932335287333,
+        "best_gt_iou": 0.907,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2034",
+        "pred_label": 1,
+        "pred_score": 0.7937074899673462,
+        "best_gt_iou": 0.989,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2034",
+        "pred_label": 2,
+        "pred_score": 0.03679980710148811,
+        "best_gt_iou": 0.567,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2034",
+        "pred_label": 0,
+        "pred_score": 0.010701039806008339,
+        "best_gt_iou": 0.988,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2047",
+        "pred_label": 3,
+        "pred_score": 0.5443503260612488,
+        "best_gt_iou": 0.624,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2047",
+        "pred_label": 3,
+        "pred_score": 0.4526422619819641,
+        "best_gt_iou": 0.597,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2047",
+        "pred_label": 4,
+        "pred_score": 0.2138662189245224,
+        "best_gt_iou": 0.606,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2047",
+        "pred_label": 3,
+        "pred_score": 0.003036847338080406,
+        "best_gt_iou": 0.258,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2047",
+        "pred_label": 0,
+        "pred_score": 0.0018306253477931023,
+        "best_gt_iou": 0.385,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2107",
+        "pred_label": 1,
+        "pred_score": 0.047502148896455765,
+        "best_gt_iou": 0.515,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2107",
+        "pred_label": 1,
+        "pred_score": 0.023661982268095016,
+        "best_gt_iou": 0.279,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2119",
+        "pred_label": 2,
+        "pred_score": 0.7588791847229004,
+        "best_gt_iou": 0.985,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2119",
+        "pred_label": 0,
+        "pred_score": 0.4144359230995178,
+        "best_gt_iou": 0.982,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2138",
+        "pred_label": 3,
+        "pred_score": 0.006454762537032366,
+        "best_gt_iou": 0.415,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2138",
+        "pred_label": 1,
+        "pred_score": 0.0015056151896715164,
+        "best_gt_iou": 0.018,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2138",
+        "pred_label": 1,
+        "pred_score": 0.0013309948844835162,
+        "best_gt_iou": 0.017,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2138",
+        "pred_label": 0,
+        "pred_score": 0.0011999940034002066,
+        "best_gt_iou": 0.503,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2138",
+        "pred_label": 1,
+        "pred_score": 0.0010139849036931992,
+        "best_gt_iou": 0.547,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2149",
+        "pred_label": 2,
+        "pred_score": 0.0012728081783279777,
+        "best_gt_iou": 0.324,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2184",
+        "pred_label": 1,
+        "pred_score": 0.6906791925430298,
+        "best_gt_iou": 0.47,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2184",
+        "pred_label": 2,
+        "pred_score": 0.6075510382652283,
+        "best_gt_iou": 0.461,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2184",
+        "pred_label": 0,
+        "pred_score": 0.5785312056541443,
+        "best_gt_iou": 0.969,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2184",
+        "pred_label": 5,
+        "pred_score": 0.03109559416770935,
+        "best_gt_iou": 0.575,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2184",
+        "pred_label": 1,
+        "pred_score": 0.002347707049921155,
+        "best_gt_iou": 0.336,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2265",
+        "pred_label": 0,
+        "pred_score": 0.6664091944694519,
+        "best_gt_iou": 0.992,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2265",
+        "pred_label": 2,
+        "pred_score": 0.008135991171002388,
+        "best_gt_iou": 0.612,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2265",
+        "pred_label": 1,
+        "pred_score": 0.0027010811027139425,
+        "best_gt_iou": 0.426,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2275",
+        "pred_label": 1,
+        "pred_score": 0.0012170914560556412,
+        "best_gt_iou": 0.467,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2331",
+        "pred_label": 1,
+        "pred_score": 0.5628668069839478,
+        "best_gt_iou": 0.975,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2395",
+        "pred_label": 1,
+        "pred_score": 0.5070902109146118,
+        "best_gt_iou": 0.578,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2395",
+        "pred_label": 1,
+        "pred_score": 0.025330957025289536,
+        "best_gt_iou": 0.584,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2395",
+        "pred_label": 0,
+        "pred_score": 0.021237477660179138,
+        "best_gt_iou": 0.519,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2395",
+        "pred_label": 0,
+        "pred_score": 0.012242878787219524,
+        "best_gt_iou": 0.722,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2395",
+        "pred_label": 1,
+        "pred_score": 0.008918107487261295,
+        "best_gt_iou": 0.74,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2443",
+        "pred_label": 2,
+        "pred_score": 0.011851361021399498,
+        "best_gt_iou": 0.154,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2443",
+        "pred_label": 0,
+        "pred_score": 0.010153158567845821,
+        "best_gt_iou": 0.087,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2443",
+        "pred_label": 1,
+        "pred_score": 0.003448312170803547,
+        "best_gt_iou": 0.097,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2443",
+        "pred_label": 1,
+        "pred_score": 0.0024318830110132694,
+        "best_gt_iou": 0.458,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2516",
+        "pred_label": 2,
+        "pred_score": 0.006954750046133995,
+        "best_gt_iou": 0.472,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2516",
+        "pred_label": 1,
+        "pred_score": 0.003257199190557003,
+        "best_gt_iou": 0.075,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2516",
+        "pred_label": 2,
+        "pred_score": 0.0011725666699931026,
+        "best_gt_iou": 0.062,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2526",
+        "pred_label": 1,
+        "pred_score": 0.08195754140615463,
+        "best_gt_iou": 0.469,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2569",
+        "pred_label": 0,
+        "pred_score": 0.001454792683944106,
+        "best_gt_iou": 0.488,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2589",
+        "pred_label": 1,
+        "pred_score": 0.012012278661131859,
+        "best_gt_iou": 0.498,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2592",
+        "pred_label": 0,
+        "pred_score": 0.4367716312408447,
+        "best_gt_iou": 0.992,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2592",
+        "pred_label": 4,
+        "pred_score": 0.0014465701533481479,
+        "best_gt_iou": 0.755,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2595",
+        "pred_label": 5,
+        "pred_score": 0.04101519286632538,
+        "best_gt_iou": 0.616,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2595",
+        "pred_label": 3,
+        "pred_score": 0.02470904029905796,
+        "best_gt_iou": 0.676,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2595",
+        "pred_label": 0,
+        "pred_score": 0.021320955827832222,
+        "best_gt_iou": 0.743,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2626",
+        "pred_label": 1,
+        "pred_score": 0.0016137240454554558,
+        "best_gt_iou": 0.51,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2626",
+        "pred_label": 4,
+        "pred_score": 0.001455825986340642,
+        "best_gt_iou": 0.386,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2645",
+        "pred_label": 1,
+        "pred_score": 0.5696208477020264,
+        "best_gt_iou": 0.966,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2645",
+        "pred_label": 0,
+        "pred_score": 0.5639328956604004,
+        "best_gt_iou": 0.98,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2647",
+        "pred_label": 3,
+        "pred_score": 0.5110975503921509,
+        "best_gt_iou": 0.948,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2667",
+        "pred_label": 1,
+        "pred_score": 0.4747498631477356,
+        "best_gt_iou": 0.955,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2745",
+        "pred_label": 1,
+        "pred_score": 0.005951514933258295,
+        "best_gt_iou": 0.398,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2745",
+        "pred_label": 0,
+        "pred_score": 0.0015103414189070463,
+        "best_gt_iou": 0.29,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2778",
+        "pred_label": 1,
+        "pred_score": 0.6535505056381226,
+        "best_gt_iou": 0.993,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2778",
+        "pred_label": 0,
+        "pred_score": 0.005073528736829758,
+        "best_gt_iou": 0.517,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2800",
+        "pred_label": 1,
+        "pred_score": 0.002181310672312975,
+        "best_gt_iou": 0.267,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2812",
+        "pred_label": 2,
+        "pred_score": 0.0034972792491316795,
+        "best_gt_iou": 0.432,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2830",
+        "pred_label": 0,
+        "pred_score": 0.5545057654380798,
+        "best_gt_iou": 0.985,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2838",
+        "pred_label": 1,
+        "pred_score": 0.18405278027057648,
+        "best_gt_iou": 0.463,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2838",
+        "pred_label": 0,
+        "pred_score": 0.002010027412325144,
+        "best_gt_iou": 0.516,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2858",
+        "pred_label": 0,
+        "pred_score": 0.5548037886619568,
+        "best_gt_iou": 0.98,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2858",
+        "pred_label": 3,
+        "pred_score": 0.3712002635002136,
+        "best_gt_iou": 0.953,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2858",
+        "pred_label": 2,
+        "pred_score": 0.01622633822262287,
+        "best_gt_iou": 0.613,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2858",
+        "pred_label": 1,
+        "pred_score": 0.012464042752981186,
+        "best_gt_iou": 0.443,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2858",
+        "pred_label": 5,
+        "pred_score": 0.005553271155804396,
+        "best_gt_iou": 0.298,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2869",
+        "pred_label": 1,
+        "pred_score": 0.004896347876638174,
+        "best_gt_iou": 0.614,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2869",
+        "pred_label": 3,
+        "pred_score": 0.004088050220161676,
+        "best_gt_iou": 0.312,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2893",
+        "pred_label": 0,
+        "pred_score": 0.5750212073326111,
+        "best_gt_iou": 0.989,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2893",
+        "pred_label": 2,
+        "pred_score": 0.0013907201355323195,
+        "best_gt_iou": 0.566,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2964",
+        "pred_label": 3,
+        "pred_score": 0.0013214993523433805,
+        "best_gt_iou": 0.159,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/2967",
+        "pred_label": 0,
+        "pred_score": 0.5028237700462341,
+        "best_gt_iou": 0.931,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/2976",
+        "pred_label": 0,
+        "pred_score": 0.5730097889900208,
+        "best_gt_iou": 0.96,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3014",
+        "pred_label": 0,
+        "pred_score": 0.019635772332549095,
+        "best_gt_iou": 0.489,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3105",
+        "pred_label": 0,
+        "pred_score": 0.5163970589637756,
+        "best_gt_iou": 0.951,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3107",
+        "pred_label": 0,
+        "pred_score": 0.6227304935455322,
+        "best_gt_iou": 0.938,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3107",
+        "pred_label": 0,
+        "pred_score": 0.0647570863366127,
+        "best_gt_iou": 0.438,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3107",
+        "pred_label": 2,
+        "pred_score": 0.020904550328850746,
+        "best_gt_iou": 0.93,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3107",
+        "pred_label": 2,
+        "pred_score": 0.018560707569122314,
+        "best_gt_iou": 0.415,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3107",
+        "pred_label": 1,
+        "pred_score": 0.005613159853965044,
+        "best_gt_iou": 0.329,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3107",
+        "pred_label": 2,
+        "pred_score": 0.004286587703973055,
+        "best_gt_iou": 0.601,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3142",
+        "pred_label": 1,
+        "pred_score": 0.0031791541259735823,
+        "best_gt_iou": 0.506,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3142",
+        "pred_label": 3,
+        "pred_score": 0.002691248431801796,
+        "best_gt_iou": 0.276,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3151",
+        "pred_label": 1,
+        "pred_score": 0.5518159866333008,
+        "best_gt_iou": 0.981,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3151",
+        "pred_label": 0,
+        "pred_score": 0.020980119705200195,
+        "best_gt_iou": 0.188,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3151",
+        "pred_label": 2,
+        "pred_score": 0.011130905710160732,
+        "best_gt_iou": 0.151,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3151",
+        "pred_label": 1,
+        "pred_score": 0.0010338465217500925,
+        "best_gt_iou": 0.286,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3166",
+        "pred_label": 2,
+        "pred_score": 0.004452661611139774,
+        "best_gt_iou": 0.182,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3166",
+        "pred_label": 0,
+        "pred_score": 0.004080753307789564,
+        "best_gt_iou": 0.501,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3166",
+        "pred_label": 1,
+        "pred_score": 0.0022138445638120174,
+        "best_gt_iou": 0.495,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3197",
+        "pred_label": 0,
+        "pred_score": 0.4813421666622162,
+        "best_gt_iou": 0.98,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3201",
+        "pred_label": 1,
+        "pred_score": 0.025096215307712555,
+        "best_gt_iou": 0.54,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3201",
+        "pred_label": 0,
+        "pred_score": 0.0014638103311881423,
+        "best_gt_iou": 0.585,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3214",
+        "pred_label": 2,
+        "pred_score": 0.05139123648405075,
+        "best_gt_iou": 0.31,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3214",
+        "pred_label": 0,
+        "pred_score": 0.0348939374089241,
+        "best_gt_iou": 0.309,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3214",
+        "pred_label": 1,
+        "pred_score": 0.014462851919233799,
+        "best_gt_iou": 0.341,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3217",
+        "pred_label": 2,
+        "pred_score": 0.806964635848999,
+        "best_gt_iou": 0.975,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3221",
+        "pred_label": 5,
+        "pred_score": 0.4202773869037628,
+        "best_gt_iou": 0.97,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3221",
+        "pred_label": 2,
+        "pred_score": 0.020457128062844276,
+        "best_gt_iou": 0.398,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3240",
+        "pred_label": 1,
+        "pred_score": 0.5010771751403809,
+        "best_gt_iou": 0.965,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3256",
+        "pred_label": 2,
+        "pred_score": 0.001444152556359768,
+        "best_gt_iou": 0.59,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "nonwifi_gt"
+      },
+      {
+        "sample_id": "train/3257",
+        "pred_label": 1,
+        "pred_score": 0.0014508719323202968,
+        "best_gt_iou": 0.156,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3260",
+        "pred_label": 2,
+        "pred_score": 0.029524104669690132,
+        "best_gt_iou": 0.534,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3260",
+        "pred_label": 1,
+        "pred_score": 0.02523333951830864,
+        "best_gt_iou": 0.689,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3305",
+        "pred_label": 0,
+        "pred_score": 0.7036674618721008,
+        "best_gt_iou": 0.952,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3305",
+        "pred_label": 5,
+        "pred_score": 0.002130997832864523,
+        "best_gt_iou": 0.076,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3305",
+        "pred_label": 2,
+        "pred_score": 0.0011179193388670683,
+        "best_gt_iou": 0.431,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3330",
+        "pred_label": 4,
+        "pred_score": 0.2827971577644348,
+        "best_gt_iou": 0.952,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3362",
+        "pred_label": 1,
+        "pred_score": 0.652306079864502,
+        "best_gt_iou": 0.974,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3420",
+        "pred_label": 4,
+        "pred_score": 0.03010639175772667,
+        "best_gt_iou": 0.589,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3420",
+        "pred_label": 5,
+        "pred_score": 0.0071633923798799515,
+        "best_gt_iou": 0.622,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3420",
+        "pred_label": 4,
+        "pred_score": 0.0024352946784347296,
+        "best_gt_iou": 0.273,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3454",
+        "pred_label": 0,
+        "pred_score": 0.010673215612769127,
+        "best_gt_iou": 0.479,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3464",
+        "pred_label": 3,
+        "pred_score": 0.5054880380630493,
+        "best_gt_iou": 0.981,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3464",
+        "pred_label": 4,
+        "pred_score": 0.2952781319618225,
+        "best_gt_iou": 0.969,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3464",
+        "pred_label": 2,
+        "pred_score": 0.07826016843318939,
+        "best_gt_iou": 0.755,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3476",
+        "pred_label": 1,
+        "pred_score": 0.0037610873114317656,
+        "best_gt_iou": 0.482,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3476",
+        "pred_label": 0,
+        "pred_score": 0.0018554192502051592,
+        "best_gt_iou": 0.489,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3588",
+        "pred_label": 0,
+        "pred_score": 0.44622060656547546,
+        "best_gt_iou": 0.958,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3588",
+        "pred_label": 2,
+        "pred_score": 0.008082681335508823,
+        "best_gt_iou": 0.941,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3625",
+        "pred_label": 0,
+        "pred_score": 0.006540386471897364,
+        "best_gt_iou": 0.312,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3625",
+        "pred_label": 1,
+        "pred_score": 0.0025683101266622543,
+        "best_gt_iou": 0.312,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3645",
+        "pred_label": 3,
+        "pred_score": 0.8083731532096863,
+        "best_gt_iou": 0.987,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3646",
+        "pred_label": 2,
+        "pred_score": 0.0012612531427294016,
+        "best_gt_iou": 0.607,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3688",
+        "pred_label": 1,
+        "pred_score": 0.29408201575279236,
+        "best_gt_iou": 0.964,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3688",
+        "pred_label": 2,
+        "pred_score": 0.25652965903282166,
+        "best_gt_iou": 0.954,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3688",
+        "pred_label": 1,
+        "pred_score": 0.003752250224351883,
+        "best_gt_iou": 0.162,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3691",
+        "pred_label": 1,
+        "pred_score": 0.6847966313362122,
+        "best_gt_iou": 0.973,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3691",
+        "pred_label": 0,
+        "pred_score": 0.2765910029411316,
+        "best_gt_iou": 0.943,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3705",
+        "pred_label": 1,
+        "pred_score": 0.14114587008953094,
+        "best_gt_iou": 0.54,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3705",
+        "pred_label": 0,
+        "pred_score": 0.008857345208525658,
+        "best_gt_iou": 0.47,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3705",
+        "pred_label": 1,
+        "pred_score": 0.003061870578676462,
+        "best_gt_iou": 0.521,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3799",
+        "pred_label": 3,
+        "pred_score": 0.0383472815155983,
+        "best_gt_iou": 0.039,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3799",
+        "pred_label": 5,
+        "pred_score": 0.029600605368614197,
+        "best_gt_iou": 0.042,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3815",
+        "pred_label": 2,
+        "pred_score": 0.17793896794319153,
+        "best_gt_iou": 0.499,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3815",
+        "pred_label": 1,
+        "pred_score": 0.0012276868801563978,
+        "best_gt_iou": 0.365,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3818",
+        "pred_label": 0,
+        "pred_score": 0.001081055961549282,
+        "best_gt_iou": 0.001,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3849",
+        "pred_label": 1,
+        "pred_score": 0.4170670807361603,
+        "best_gt_iou": 0.929,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3862",
+        "pred_label": 2,
+        "pred_score": 0.25003522634506226,
+        "best_gt_iou": 0.399,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3862",
+        "pred_label": 1,
+        "pred_score": 0.006993115413933992,
+        "best_gt_iou": 0.399,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3886",
+        "pred_label": 1,
+        "pred_score": 0.576022744178772,
+        "best_gt_iou": 0.914,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3957",
+        "pred_label": 1,
+        "pred_score": 0.02949136309325695,
+        "best_gt_iou": 0.832,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3957",
+        "pred_label": 1,
+        "pred_score": 0.010285058058798313,
+        "best_gt_iou": 0.539,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3957",
+        "pred_label": 2,
+        "pred_score": 0.008880331180989742,
+        "best_gt_iou": 0.483,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/3957",
+        "pred_label": 2,
+        "pred_score": 0.0047112987376749516,
+        "best_gt_iou": 0.818,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/3973",
+        "pred_label": 1,
+        "pred_score": 0.00355482567101717,
+        "best_gt_iou": 0.498,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4015",
+        "pred_label": 1,
+        "pred_score": 0.45505955815315247,
+        "best_gt_iou": 0.929,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4059",
+        "pred_label": 1,
+        "pred_score": 0.3053928017616272,
+        "best_gt_iou": 0.991,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4059",
+        "pred_label": 1,
+        "pred_score": 0.0012731495080515742,
+        "best_gt_iou": 0.138,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4082",
+        "pred_label": 0,
+        "pred_score": 0.10197184979915619,
+        "best_gt_iou": 0.621,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4082",
+        "pred_label": 1,
+        "pred_score": 0.03739991411566734,
+        "best_gt_iou": 0.544,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4082",
+        "pred_label": 2,
+        "pred_score": 0.027817612513899803,
+        "best_gt_iou": 0.683,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4082",
+        "pred_label": 2,
+        "pred_score": 0.008624720387160778,
+        "best_gt_iou": 0.447,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4133",
+        "pred_label": 0,
+        "pred_score": 0.4414750933647156,
+        "best_gt_iou": 0.987,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4226",
+        "pred_label": 1,
+        "pred_score": 0.008629932068288326,
+        "best_gt_iou": 0.49,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4226",
+        "pred_label": 0,
+        "pred_score": 0.006321195978671312,
+        "best_gt_iou": 0.499,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4249",
+        "pred_label": 4,
+        "pred_score": 0.034934766590595245,
+        "best_gt_iou": 0.496,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4249",
+        "pred_label": 3,
+        "pred_score": 0.013292043469846249,
+        "best_gt_iou": 0.5,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4249",
+        "pred_label": 1,
+        "pred_score": 0.0019621909596025944,
+        "best_gt_iou": 0.919,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4250",
+        "pred_label": 0,
+        "pred_score": 0.0013212048215791583,
+        "best_gt_iou": 0.443,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4250",
+        "pred_label": 1,
+        "pred_score": 0.001258748467080295,
+        "best_gt_iou": 0.398,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4260",
+        "pred_label": 2,
+        "pred_score": 0.4826836884021759,
+        "best_gt_iou": 0.972,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4262",
+        "pred_label": 4,
+        "pred_score": 0.017263265326619148,
+        "best_gt_iou": 0.486,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4262",
+        "pred_label": 1,
+        "pred_score": 0.005495358724147081,
+        "best_gt_iou": 0.509,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4262",
+        "pred_label": 2,
+        "pred_score": 0.0017650695517659187,
+        "best_gt_iou": 0.487,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4262",
+        "pred_label": 3,
+        "pred_score": 0.0015905080363154411,
+        "best_gt_iou": 0.2,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4262",
+        "pred_label": 4,
+        "pred_score": 0.0012390263145789504,
+        "best_gt_iou": 0.548,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4262",
+        "pred_label": 2,
+        "pred_score": 0.0012058848515152931,
+        "best_gt_iou": 0.4,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4294",
+        "pred_label": 2,
+        "pred_score": 0.0010880650952458382,
+        "best_gt_iou": 0.664,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4400",
+        "pred_label": 2,
+        "pred_score": 0.019427290186285973,
+        "best_gt_iou": 0.133,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4400",
+        "pred_label": 1,
+        "pred_score": 0.003993176855146885,
+        "best_gt_iou": 0.103,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4400",
+        "pred_label": 1,
+        "pred_score": 0.002846040762960911,
+        "best_gt_iou": 0.446,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4400",
+        "pred_label": 4,
+        "pred_score": 0.001443178509362042,
+        "best_gt_iou": 0.37,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4455",
+        "pred_label": 4,
+        "pred_score": 0.004665904212743044,
+        "best_gt_iou": 0.45,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4518",
+        "pred_label": 0,
+        "pred_score": 0.0015121842734515667,
+        "best_gt_iou": 0.56,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4518",
+        "pred_label": 1,
+        "pred_score": 0.0013779267901554704,
+        "best_gt_iou": 0.509,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4574",
+        "pred_label": 1,
+        "pred_score": 0.22898787260055542,
+        "best_gt_iou": 0.886,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4574",
+        "pred_label": 0,
+        "pred_score": 0.04303745925426483,
+        "best_gt_iou": 0.816,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4574",
+        "pred_label": 2,
+        "pred_score": 0.00230862176977098,
+        "best_gt_iou": 0.526,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4589",
+        "pred_label": 3,
+        "pred_score": 0.36835339665412903,
+        "best_gt_iou": 0.892,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4708",
+        "pred_label": 1,
+        "pred_score": 0.00827513076364994,
+        "best_gt_iou": 0.604,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4708",
+        "pred_label": 2,
+        "pred_score": 0.003131774952635169,
+        "best_gt_iou": 0.304,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4712",
+        "pred_label": 1,
+        "pred_score": 0.41438326239585876,
+        "best_gt_iou": 0.922,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4712",
+        "pred_label": 2,
+        "pred_score": 0.017823128029704094,
+        "best_gt_iou": 0.409,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4712",
+        "pred_label": 2,
+        "pred_score": 0.0030061802826821804,
+        "best_gt_iou": 0.7,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4712",
+        "pred_label": 1,
+        "pred_score": 0.0028131878934800625,
+        "best_gt_iou": 0.342,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4712",
+        "pred_label": 0,
+        "pred_score": 0.0014224667102098465,
+        "best_gt_iou": 0.236,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/4712",
+        "pred_label": 1,
+        "pred_score": 0.0012171813286840916,
+        "best_gt_iou": 0.314,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4719",
+        "pred_label": 0,
+        "pred_score": 0.5300697088241577,
+        "best_gt_iou": 0.988,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4720",
+        "pred_label": 0,
+        "pred_score": 0.4885542392730713,
+        "best_gt_iou": 0.935,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4720",
+        "pred_label": 4,
+        "pred_score": 0.022068480029702187,
+        "best_gt_iou": 0.693,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4787",
+        "pred_label": 0,
+        "pred_score": 0.6181126236915588,
+        "best_gt_iou": 0.978,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4866",
+        "pred_label": 2,
+        "pred_score": 0.0011843143729493022,
+        "best_gt_iou": 0.143,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4871",
+        "pred_label": 2,
+        "pred_score": 0.01884210668504238,
+        "best_gt_iou": 0.99,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4876",
+        "pred_label": 1,
+        "pred_score": 0.6230867505073547,
+        "best_gt_iou": 0.993,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/4980",
+        "pred_label": 0,
+        "pred_score": 0.09409566223621368,
+        "best_gt_iou": 0.317,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4980",
+        "pred_label": 1,
+        "pred_score": 0.07790247350931168,
+        "best_gt_iou": 0.308,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/4980",
+        "pred_label": 2,
+        "pred_score": 0.016543593257665634,
+        "best_gt_iou": 0.439,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5007",
+        "pred_label": 0,
+        "pred_score": 0.0036065406166017056,
+        "best_gt_iou": 0.649,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5007",
+        "pred_label": 2,
+        "pred_score": 0.001742118620313704,
+        "best_gt_iou": 0.551,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5070",
+        "pred_label": 1,
+        "pred_score": 0.8982611894607544,
+        "best_gt_iou": 0.984,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5070",
+        "pred_label": 0,
+        "pred_score": 0.0029263687320053577,
+        "best_gt_iou": 0.99,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5325",
+        "pred_label": 4,
+        "pred_score": 0.002554163569584489,
+        "best_gt_iou": 0.538,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5364",
+        "pred_label": 2,
+        "pred_score": 0.9276332855224609,
+        "best_gt_iou": 0.929,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5375",
+        "pred_label": 2,
+        "pred_score": 0.009028902277350426,
+        "best_gt_iou": 0.767,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5385",
+        "pred_label": 1,
+        "pred_score": 0.32068976759910583,
+        "best_gt_iou": 0.972,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5469",
+        "pred_label": 2,
+        "pred_score": 0.011065265163779259,
+        "best_gt_iou": 0.474,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5469",
+        "pred_label": 2,
+        "pred_score": 0.0014577674446627498,
+        "best_gt_iou": 0.761,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5469",
+        "pred_label": 1,
+        "pred_score": 0.00120297831017524,
+        "best_gt_iou": 0.617,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5469",
+        "pred_label": 2,
+        "pred_score": 0.0010563003597781062,
+        "best_gt_iou": 0.172,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5493",
+        "pred_label": 0,
+        "pred_score": 0.0017312123673036695,
+        "best_gt_iou": 0.481,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5504",
+        "pred_label": 1,
+        "pred_score": 0.018340056762099266,
+        "best_gt_iou": 0.483,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5504",
+        "pred_label": 2,
+        "pred_score": 0.002611119532957673,
+        "best_gt_iou": 0.099,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5613",
+        "pred_label": 3,
+        "pred_score": 0.07362852245569229,
+        "best_gt_iou": 0.46,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5613",
+        "pred_label": 4,
+        "pred_score": 0.004822210408747196,
+        "best_gt_iou": 0.527,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5613",
+        "pred_label": 5,
+        "pred_score": 0.0022002439945936203,
+        "best_gt_iou": 0.332,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5624",
+        "pred_label": 0,
+        "pred_score": 0.4919087886810303,
+        "best_gt_iou": 0.962,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5624",
+        "pred_label": 2,
+        "pred_score": 0.0014683027984574437,
+        "best_gt_iou": 0.945,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5626",
+        "pred_label": 1,
+        "pred_score": 0.5117785930633545,
+        "best_gt_iou": 0.987,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5626",
+        "pred_label": 1,
+        "pred_score": 0.0015323514817282557,
+        "best_gt_iou": 0.384,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5628",
+        "pred_label": 2,
+        "pred_score": 0.0016173066105693579,
+        "best_gt_iou": 0.471,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5641",
+        "pred_label": 1,
+        "pred_score": 0.5973943471908569,
+        "best_gt_iou": 0.991,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5654",
+        "pred_label": 1,
+        "pred_score": 0.00605387706309557,
+        "best_gt_iou": 0.361,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5654",
+        "pred_label": 4,
+        "pred_score": 0.0037925492506474257,
+        "best_gt_iou": 0.452,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5654",
+        "pred_label": 1,
+        "pred_score": 0.002671829191967845,
+        "best_gt_iou": 0.518,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5654",
+        "pred_label": 0,
+        "pred_score": 0.0016538609052076936,
+        "best_gt_iou": 0.369,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5654",
+        "pred_label": 3,
+        "pred_score": 0.0010152071481570601,
+        "best_gt_iou": 0.279,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5667",
+        "pred_label": 2,
+        "pred_score": 0.0036940844729542732,
+        "best_gt_iou": 0.423,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5667",
+        "pred_label": 0,
+        "pred_score": 0.0010558380745351315,
+        "best_gt_iou": 0.407,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5670",
+        "pred_label": 1,
+        "pred_score": 0.5546132326126099,
+        "best_gt_iou": 0.975,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5670",
+        "pred_label": 0,
+        "pred_score": 0.0017729130340740085,
+        "best_gt_iou": 0.701,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5698",
+        "pred_label": 4,
+        "pred_score": 0.600600004196167,
+        "best_gt_iou": 0.844,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5700",
+        "pred_label": 2,
+        "pred_score": 0.3925337493419647,
+        "best_gt_iou": 0.494,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/5700",
+        "pred_label": 0,
+        "pred_score": 0.3589479625225067,
+        "best_gt_iou": 0.5,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/5700",
+        "pred_label": 1,
+        "pred_score": 0.08339593559503555,
+        "best_gt_iou": 0.482,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/5700",
+        "pred_label": 2,
+        "pred_score": 0.020078547298908234,
+        "best_gt_iou": 0.921,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5700",
+        "pred_label": 0,
+        "pred_score": 0.016174232587218285,
+        "best_gt_iou": 0.648,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5709",
+        "pred_label": 3,
+        "pred_score": 0.4004386365413666,
+        "best_gt_iou": 0.821,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5709",
+        "pred_label": 4,
+        "pred_score": 0.3304034471511841,
+        "best_gt_iou": 0.826,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5709",
+        "pred_label": 3,
+        "pred_score": 0.0020815806929022074,
+        "best_gt_iou": 0.127,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5730",
+        "pred_label": 0,
+        "pred_score": 0.009028151631355286,
+        "best_gt_iou": 0.282,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5730",
+        "pred_label": 0,
+        "pred_score": 0.0021743113175034523,
+        "best_gt_iou": 0.057,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5800",
+        "pred_label": 2,
+        "pred_score": 0.9049068689346313,
+        "best_gt_iou": 0.909,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5800",
+        "pred_label": 1,
+        "pred_score": 0.006542481016367674,
+        "best_gt_iou": 0.39,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5800",
+        "pred_label": 0,
+        "pred_score": 0.0013829382369294763,
+        "best_gt_iou": 0.312,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5821",
+        "pred_label": 0,
+        "pred_score": 0.5195989012718201,
+        "best_gt_iou": 0.965,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5821",
+        "pred_label": 1,
+        "pred_score": 0.004495005123317242,
+        "best_gt_iou": 0.446,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5843",
+        "pred_label": 1,
+        "pred_score": 0.6690304279327393,
+        "best_gt_iou": 0.996,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5843",
+        "pred_label": 0,
+        "pred_score": 0.001352714141830802,
+        "best_gt_iou": 0.206,
+        "best_gt_label": 10,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/5851",
+        "pred_label": 2,
+        "pred_score": 0.70013427734375,
+        "best_gt_iou": 0.48,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5851",
+        "pred_label": 0,
+        "pred_score": 0.2039193958044052,
+        "best_gt_iou": 0.417,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5851",
+        "pred_label": 1,
+        "pred_score": 0.1557888239622116,
+        "best_gt_iou": 0.467,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5851",
+        "pred_label": 1,
+        "pred_score": 0.0030626480001956224,
+        "best_gt_iou": 0.241,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5881",
+        "pred_label": 2,
+        "pred_score": 0.0010163456900045276,
+        "best_gt_iou": 0.248,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5956",
+        "pred_label": 1,
+        "pred_score": 0.0590951070189476,
+        "best_gt_iou": 0.115,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5956",
+        "pred_label": 1,
+        "pred_score": 0.009823453612625599,
+        "best_gt_iou": 0.329,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5956",
+        "pred_label": 0,
+        "pred_score": 0.0076375687494874,
+        "best_gt_iou": 0.102,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5956",
+        "pred_label": 1,
+        "pred_score": 0.004193933214992285,
+        "best_gt_iou": 0.661,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5956",
+        "pred_label": 2,
+        "pred_score": 0.002817506669089198,
+        "best_gt_iou": 0.647,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/5956",
+        "pred_label": 1,
+        "pred_score": 0.0022411069367080927,
+        "best_gt_iou": 0.164,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/5968",
+        "pred_label": 1,
+        "pred_score": 0.5612951517105103,
+        "best_gt_iou": 0.986,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6028",
+        "pred_label": 2,
+        "pred_score": 0.00595391821116209,
+        "best_gt_iou": 0.417,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6039",
+        "pred_label": 1,
+        "pred_score": 0.008112850598990917,
+        "best_gt_iou": 0.939,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6041",
+        "pred_label": 1,
+        "pred_score": 0.4963226914405823,
+        "best_gt_iou": 0.931,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6067",
+        "pred_label": 1,
+        "pred_score": 0.7663990259170532,
+        "best_gt_iou": 0.967,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6087",
+        "pred_label": 1,
+        "pred_score": 0.3021289110183716,
+        "best_gt_iou": 0.985,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6087",
+        "pred_label": 2,
+        "pred_score": 0.13742293417453766,
+        "best_gt_iou": 0.978,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6087",
+        "pred_label": 0,
+        "pred_score": 0.0026405476965010166,
+        "best_gt_iou": 0.14,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6113",
+        "pred_label": 0,
+        "pred_score": 0.4690950810909271,
+        "best_gt_iou": 0.993,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6113",
+        "pred_label": 2,
+        "pred_score": 0.003966695163398981,
+        "best_gt_iou": 0.605,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6129",
+        "pred_label": 1,
+        "pred_score": 0.013758828863501549,
+        "best_gt_iou": 0.265,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6129",
+        "pred_label": 2,
+        "pred_score": 0.011927125044167042,
+        "best_gt_iou": 0.273,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6129",
+        "pred_label": 0,
+        "pred_score": 0.002667432650923729,
+        "best_gt_iou": 0.24,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6129",
+        "pred_label": 2,
+        "pred_score": 0.001575990580022335,
+        "best_gt_iou": 0.234,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6129",
+        "pred_label": 1,
+        "pred_score": 0.0014831426087766886,
+        "best_gt_iou": 0.193,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6166",
+        "pred_label": 2,
+        "pred_score": 0.679499089717865,
+        "best_gt_iou": 0.346,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6166",
+        "pred_label": 1,
+        "pred_score": 0.05594779923558235,
+        "best_gt_iou": 0.678,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6166",
+        "pred_label": 0,
+        "pred_score": 0.04665613919496536,
+        "best_gt_iou": 0.692,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6207",
+        "pred_label": 0,
+        "pred_score": 0.4499833583831787,
+        "best_gt_iou": 0.974,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6252",
+        "pred_label": 1,
+        "pred_score": 0.007104368880391121,
+        "best_gt_iou": 0.473,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6252",
+        "pred_label": 2,
+        "pred_score": 0.0031383512541651726,
+        "best_gt_iou": 0.428,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6252",
+        "pred_label": 0,
+        "pred_score": 0.0015390481567010283,
+        "best_gt_iou": 0.45,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6252",
+        "pred_label": 3,
+        "pred_score": 0.0014585104072466493,
+        "best_gt_iou": 0.429,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6253",
+        "pred_label": 2,
+        "pred_score": 0.005912316031754017,
+        "best_gt_iou": 0.477,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6253",
+        "pred_label": 2,
+        "pred_score": 0.002272939309477806,
+        "best_gt_iou": 0.511,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6293",
+        "pred_label": 2,
+        "pred_score": 0.021537186577916145,
+        "best_gt_iou": 0.132,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6293",
+        "pred_label": 1,
+        "pred_score": 0.015192587859928608,
+        "best_gt_iou": 0.138,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6383",
+        "pred_label": 1,
+        "pred_score": 0.08955198526382446,
+        "best_gt_iou": 0.368,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6383",
+        "pred_label": 0,
+        "pred_score": 0.00208685384131968,
+        "best_gt_iou": 0.398,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6386",
+        "pred_label": 2,
+        "pred_score": 0.6027865409851074,
+        "best_gt_iou": 0.962,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6386",
+        "pred_label": 0,
+        "pred_score": 0.544716477394104,
+        "best_gt_iou": 0.936,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6386",
+        "pred_label": 1,
+        "pred_score": 0.009141046553850174,
+        "best_gt_iou": 0.173,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6390",
+        "pred_label": 2,
+        "pred_score": 0.0011056788498535752,
+        "best_gt_iou": 0.477,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6393",
+        "pred_label": 0,
+        "pred_score": 0.06278438121080399,
+        "best_gt_iou": 0.604,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6471",
+        "pred_label": 5,
+        "pred_score": 0.38766351342201233,
+        "best_gt_iou": 0.994,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6471",
+        "pred_label": 0,
+        "pred_score": 0.001465396722778678,
+        "best_gt_iou": 0.011,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6503",
+        "pred_label": 2,
+        "pred_score": 0.06966164708137512,
+        "best_gt_iou": 0.429,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6503",
+        "pred_label": 0,
+        "pred_score": 0.05909334868192673,
+        "best_gt_iou": 0.42,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6503",
+        "pred_label": 1,
+        "pred_score": 0.026907410472631454,
+        "best_gt_iou": 0.486,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6503",
+        "pred_label": 1,
+        "pred_score": 0.02412790060043335,
+        "best_gt_iou": 0.432,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6503",
+        "pred_label": 0,
+        "pred_score": 0.02269861288368702,
+        "best_gt_iou": 0.432,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6503",
+        "pred_label": 1,
+        "pred_score": 0.02012096531689167,
+        "best_gt_iou": 0.429,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6503",
+        "pred_label": 1,
+        "pred_score": 0.00137754634488374,
+        "best_gt_iou": 0.236,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6545",
+        "pred_label": 2,
+        "pred_score": 0.9485453963279724,
+        "best_gt_iou": 0.984,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6545",
+        "pred_label": 3,
+        "pred_score": 0.006264915689826012,
+        "best_gt_iou": 0.854,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6564",
+        "pred_label": 1,
+        "pred_score": 0.0019046547822654247,
+        "best_gt_iou": 0.434,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6573",
+        "pred_label": 4,
+        "pred_score": 0.012563256546854973,
+        "best_gt_iou": 0.38,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6573",
+        "pred_label": 4,
+        "pred_score": 0.005499172490090132,
+        "best_gt_iou": 0.447,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6573",
+        "pred_label": 0,
+        "pred_score": 0.004961063154041767,
+        "best_gt_iou": 0.476,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6573",
+        "pred_label": 3,
+        "pred_score": 0.004384842235594988,
+        "best_gt_iou": 0.451,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6573",
+        "pred_label": 4,
+        "pred_score": 0.0020580189302563667,
+        "best_gt_iou": 0.183,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6573",
+        "pred_label": 5,
+        "pred_score": 0.0013082853984087706,
+        "best_gt_iou": 0.437,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6573",
+        "pred_label": 1,
+        "pred_score": 0.0011117602698504925,
+        "best_gt_iou": 0.493,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6611",
+        "pred_label": 2,
+        "pred_score": 0.004899738822132349,
+        "best_gt_iou": 0.649,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6611",
+        "pred_label": 2,
+        "pred_score": 0.0015098289586603642,
+        "best_gt_iou": 0.259,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6611",
+        "pred_label": 0,
+        "pred_score": 0.0010848105885088444,
+        "best_gt_iou": 0.206,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 1,
+        "pred_score": 0.11692013591527939,
+        "best_gt_iou": 0.554,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 0,
+        "pred_score": 0.08618311583995819,
+        "best_gt_iou": 0.544,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 0,
+        "pred_score": 0.05168069526553154,
+        "best_gt_iou": 0.728,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 1,
+        "pred_score": 0.010722227394580841,
+        "best_gt_iou": 0.341,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 1,
+        "pred_score": 0.010195894166827202,
+        "best_gt_iou": 0.718,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 0,
+        "pred_score": 0.009621676057577133,
+        "best_gt_iou": 0.352,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 2,
+        "pred_score": 0.004541362170130014,
+        "best_gt_iou": 0.306,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6635",
+        "pred_label": 1,
+        "pred_score": 0.0010293532395735383,
+        "best_gt_iou": 0.213,
+        "best_gt_label": 6,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/6692",
+        "pred_label": 3,
+        "pred_score": 0.6605366468429565,
+        "best_gt_iou": 0.687,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6692",
+        "pred_label": 2,
+        "pred_score": 0.34166207909584045,
+        "best_gt_iou": 0.974,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6692",
+        "pred_label": 5,
+        "pred_score": 0.18658284842967987,
+        "best_gt_iou": 0.594,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6696",
+        "pred_label": 1,
+        "pred_score": 0.0066677904687821865,
+        "best_gt_iou": 0.113,
+        "best_gt_label": 2,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6714",
+        "pred_label": 0,
+        "pred_score": 0.47465553879737854,
+        "best_gt_iou": 0.729,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "nonwifi_gt"
+      },
+      {
+        "sample_id": "train/6714",
+        "pred_label": 2,
+        "pred_score": 0.10466578602790833,
+        "best_gt_iou": 0.734,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "nonwifi_gt"
+      },
+      {
+        "sample_id": "train/6714",
+        "pred_label": 2,
+        "pred_score": 0.006778149865567684,
+        "best_gt_iou": 0.459,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6714",
+        "pred_label": 0,
+        "pred_score": 0.002966576488688588,
+        "best_gt_iou": 0.252,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6714",
+        "pred_label": 1,
+        "pred_score": 0.0020525106228888035,
+        "best_gt_iou": 0.192,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6714",
+        "pred_label": 1,
+        "pred_score": 0.0011439801892265677,
+        "best_gt_iou": 0.477,
+        "best_gt_label": 11,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/6742",
+        "pred_label": 1,
+        "pred_score": 0.0032713371329009533,
+        "best_gt_iou": 0.452,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6826",
+        "pred_label": 2,
+        "pred_score": 0.00246259942650795,
+        "best_gt_iou": 0.331,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6844",
+        "pred_label": 3,
+        "pred_score": 0.002505615819245577,
+        "best_gt_iou": 0.353,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6844",
+        "pred_label": 3,
+        "pred_score": 0.0020359850022941828,
+        "best_gt_iou": 0.601,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6844",
+        "pred_label": 4,
+        "pred_score": 0.0010943744564428926,
+        "best_gt_iou": 0.418,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6852",
+        "pred_label": 0,
+        "pred_score": 0.005553713534027338,
+        "best_gt_iou": 0.099,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6852",
+        "pred_label": 1,
+        "pred_score": 0.002059937221929431,
+        "best_gt_iou": 0.084,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6852",
+        "pred_label": 2,
+        "pred_score": 0.001599381328560412,
+        "best_gt_iou": 0.0,
+        "best_gt_label": null,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/6876",
+        "pred_label": 1,
+        "pred_score": 0.0010539392242208123,
+        "best_gt_iou": 0.455,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6888",
+        "pred_label": 2,
+        "pred_score": 0.33324912190437317,
+        "best_gt_iou": 0.449,
+        "best_gt_label": 10,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/6888",
+        "pred_label": 1,
+        "pred_score": 0.11157767474651337,
+        "best_gt_iou": 0.499,
+        "best_gt_label": 10,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/6893",
+        "pred_label": 1,
+        "pred_score": 0.4155377149581909,
+        "best_gt_iou": 0.955,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6893",
+        "pred_label": 5,
+        "pred_score": 0.1908927708864212,
+        "best_gt_iou": 0.53,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6893",
+        "pred_label": 2,
+        "pred_score": 0.0021672886796295643,
+        "best_gt_iou": 0.842,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6958",
+        "pred_label": 0,
+        "pred_score": 0.651068925857544,
+        "best_gt_iou": 0.903,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6958",
+        "pred_label": 2,
+        "pred_score": 0.23341317474842072,
+        "best_gt_iou": 0.695,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6958",
+        "pred_label": 4,
+        "pred_score": 0.019614359363913536,
+        "best_gt_iou": 0.314,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6958",
+        "pred_label": 3,
+        "pred_score": 0.006005903705954552,
+        "best_gt_iou": 0.312,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6958",
+        "pred_label": 4,
+        "pred_score": 0.0052678887732326984,
+        "best_gt_iou": 0.259,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6969",
+        "pred_label": 1,
+        "pred_score": 0.6638911366462708,
+        "best_gt_iou": 0.962,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6969",
+        "pred_label": 2,
+        "pred_score": 0.11512952297925949,
+        "best_gt_iou": 0.978,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6969",
+        "pred_label": 3,
+        "pred_score": 0.0014423858374357224,
+        "best_gt_iou": 0.371,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6999",
+        "pred_label": 1,
+        "pred_score": 0.05204925686120987,
+        "best_gt_iou": 0.831,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/6999",
+        "pred_label": 1,
+        "pred_score": 0.01144733838737011,
+        "best_gt_iou": 0.285,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6999",
+        "pred_label": 0,
+        "pred_score": 0.009285060688853264,
+        "best_gt_iou": 0.459,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/6999",
+        "pred_label": 2,
+        "pred_score": 0.0038096699863672256,
+        "best_gt_iou": 0.547,
+        "best_gt_label": 10,
+        "gt_is_wifi": false,
+        "unmatched_category": "nonwifi_gt"
+      },
+      {
+        "sample_id": "train/6999",
+        "pred_label": 1,
+        "pred_score": 0.0034608931746333838,
+        "best_gt_iou": 0.409,
+        "best_gt_label": 10,
+        "gt_is_wifi": false,
+        "unmatched_category": "no_match"
+      },
+      {
+        "sample_id": "train/6999",
+        "pred_label": 0,
+        "pred_score": 0.0015260159270837903,
+        "best_gt_iou": 0.159,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7041",
+        "pred_label": 2,
+        "pred_score": 0.01034687552601099,
+        "best_gt_iou": 0.489,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 4,
+        "pred_score": 0.3393145501613617,
+        "best_gt_iou": 0.317,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 3,
+        "pred_score": 0.2685130834579468,
+        "best_gt_iou": 0.314,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 5,
+        "pred_score": 0.23872268199920654,
+        "best_gt_iou": 0.341,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 4,
+        "pred_score": 0.060693129897117615,
+        "best_gt_iou": 0.606,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 1,
+        "pred_score": 0.04136433079838753,
+        "best_gt_iou": 0.06,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 3,
+        "pred_score": 0.030548395588994026,
+        "best_gt_iou": 0.201,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 4,
+        "pred_score": 0.011215444654226303,
+        "best_gt_iou": 0.118,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 0,
+        "pred_score": 0.0055698431096971035,
+        "best_gt_iou": 0.398,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 3,
+        "pred_score": 0.0045358710922300816,
+        "best_gt_iou": 0.114,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 0,
+        "pred_score": 0.0030814162455499172,
+        "best_gt_iou": 0.476,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7054",
+        "pred_label": 5,
+        "pred_score": 0.0014548591570928693,
+        "best_gt_iou": 0.202,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7087",
+        "pred_label": 0,
+        "pred_score": 0.05362509563565254,
+        "best_gt_iou": 0.753,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7087",
+        "pred_label": 1,
+        "pred_score": 0.012668462470173836,
+        "best_gt_iou": 0.479,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7087",
+        "pred_label": 2,
+        "pred_score": 0.0026748243253678083,
+        "best_gt_iou": 0.415,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7087",
+        "pred_label": 0,
+        "pred_score": 0.0018720243824645877,
+        "best_gt_iou": 0.532,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7087",
+        "pred_label": 2,
+        "pred_score": 0.0017507675802335143,
+        "best_gt_iou": 0.14,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7087",
+        "pred_label": 2,
+        "pred_score": 0.0015279768267646432,
+        "best_gt_iou": 0.472,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7142",
+        "pred_label": 0,
+        "pred_score": 0.010518955998122692,
+        "best_gt_iou": 0.496,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7142",
+        "pred_label": 4,
+        "pred_score": 0.004318971652537584,
+        "best_gt_iou": 0.856,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7142",
+        "pred_label": 1,
+        "pred_score": 0.003474074648693204,
+        "best_gt_iou": 0.495,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7142",
+        "pred_label": 3,
+        "pred_score": 0.0021495854016393423,
+        "best_gt_iou": 0.36,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7142",
+        "pred_label": 0,
+        "pred_score": 0.0016057435423135757,
+        "best_gt_iou": 0.629,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7142",
+        "pred_label": 2,
+        "pred_score": 0.0014853813918307424,
+        "best_gt_iou": 0.106,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7302",
+        "pred_label": 0,
+        "pred_score": 0.07566309720277786,
+        "best_gt_iou": 0.493,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7302",
+        "pred_label": 2,
+        "pred_score": 0.013199199922382832,
+        "best_gt_iou": 0.502,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7302",
+        "pred_label": 1,
+        "pred_score": 0.010265079326927662,
+        "best_gt_iou": 0.494,
+        "best_gt_label": 3,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7355",
+        "pred_label": 2,
+        "pred_score": 0.004902445711195469,
+        "best_gt_iou": 0.46,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7400",
+        "pred_label": 1,
+        "pred_score": 0.5045551061630249,
+        "best_gt_iou": 0.98,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7400",
+        "pred_label": 1,
+        "pred_score": 0.31378743052482605,
+        "best_gt_iou": 0.835,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7400",
+        "pred_label": 0,
+        "pred_score": 0.2804362177848816,
+        "best_gt_iou": 0.818,
+        "best_gt_label": 1,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7462",
+        "pred_label": 0,
+        "pred_score": 0.5717056393623352,
+        "best_gt_iou": 0.767,
+        "best_gt_label": 0,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7481",
+        "pred_label": 1,
+        "pred_score": 0.0020128863397985697,
+        "best_gt_iou": 0.574,
+        "best_gt_label": 5,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_secondary_duplicate"
+      },
+      {
+        "sample_id": "train/7494",
+        "pred_label": 0,
+        "pred_score": 0.043957509100437164,
+        "best_gt_iou": 0.442,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7494",
+        "pred_label": 0,
+        "pred_score": 0.0016624049749225378,
+        "best_gt_iou": 0.271,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7494",
+        "pred_label": 3,
+        "pred_score": 0.0013193790800869465,
+        "best_gt_iou": 0.393,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      },
+      {
+        "sample_id": "train/7494",
+        "pred_label": 0,
+        "pred_score": 0.001077228575013578,
+        "best_gt_iou": 0.388,
+        "best_gt_label": 4,
+        "gt_is_wifi": true,
+        "unmatched_category": "wifi_gt_low_iou"
+      }
+    ],
+    "note": "unmatched_category was corrected in place; the original code had a ternary bug that labelled WiFi GT matches with IoU>=0.5 as nonwifi_gt. Corrected counts are also in adaptation_report_stats.json.",
+    "corrected_categories": {
+      "wifi_gt_secondary_duplicate": 265,
+      "wifi_gt_low_iou": 275,
+      "no_match": 17,
+      "nonwifi_gt": 4
+    }
+  }
+}

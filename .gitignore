@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 cache/
 runs/
+runs_local/
 data/
 *.pt
 *.pth
