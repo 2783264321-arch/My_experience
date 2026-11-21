@@ -1,0 +1,850 @@
+{
+  "final_dev_group": {
+    "E0": {
+      "1729": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 115,
+        "group_accuracy": 0.5348837209302325,
+        "strict_all_matched_accuracy": 0.5324074074074074,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1730": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 116,
+        "group_accuracy": 0.5395348837209303,
+        "strict_all_matched_accuracy": 0.5370370370370371,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1731": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 115,
+        "group_accuracy": 0.5348837209302325,
+        "strict_all_matched_accuracy": 0.5324074074074074,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      }
+    },
+    "E1": {
+      "1729": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 116,
+        "group_accuracy": 0.5395348837209303,
+        "strict_all_matched_accuracy": 0.5370370370370371,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1730": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 115,
+        "group_accuracy": 0.5348837209302325,
+        "strict_all_matched_accuracy": 0.5324074074074074,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1731": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 113,
+        "group_accuracy": 0.5255813953488372,
+        "strict_all_matched_accuracy": 0.5231481481481481,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      }
+    },
+    "E2": {
+      "1729": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 116,
+        "group_accuracy": 0.5395348837209303,
+        "strict_all_matched_accuracy": 0.5370370370370371,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1730": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 116,
+        "group_accuracy": 0.5395348837209303,
+        "strict_all_matched_accuracy": 0.5370370370370371,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1731": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 115,
+        "group_accuracy": 0.5348837209302325,
+        "strict_all_matched_accuracy": 0.5324074074074074,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      }
+    },
+    "E3": {
+      "1729": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 116,
+        "group_accuracy": 0.5395348837209303,
+        "strict_all_matched_accuracy": 0.5370370370370371,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1730": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 113,
+        "group_accuracy": 0.5255813953488372,
+        "strict_all_matched_accuracy": 0.5231481481481481,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      },
+      "1731": {
+        "n_correct_family": 215,
+        "n_cross_family": 1,
+        "n_all_matched": 216,
+        "correct_family_correct": 114,
+        "group_accuracy": 0.5302325581395348,
+        "strict_all_matched_accuracy": 0.5277777777777778,
+        "cross_family_items": [
+          {
+            "sample_id": "train/5510",
+            "gt_label": 2,
+            "pred_label": 4,
+            "y": 2,
+            "has_pred_hist": false
+          }
+        ]
+      }
+    }
+  },
+  "relabel": {
+    "full-val": {
+      "candidates_wifi": 4844,
+      "sync_ok": 807,
+      "matched_sync_ok": 246,
+      "unmatched_sync_ok": 561,
+      "arms": {
+        "E0": {
+          "1729": {
+            "expert_classified": 807,
+            "label_changed": 514,
+            "label_changed_matched": 126,
+            "label_changed_unmatched": 388,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 96,
+                "2": 204,
+                "0": 215,
+                "5": 50,
+                "1": 208,
+                "4": 34
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 807,
+            "label_changed": 514,
+            "label_changed_matched": 130,
+            "label_changed_unmatched": 384,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 86,
+                "2": 274,
+                "0": 195,
+                "5": 63,
+                "1": 158,
+                "4": 31
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 807,
+            "label_changed": 502,
+            "label_changed_matched": 125,
+            "label_changed_unmatched": 377,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 101,
+                "2": 243,
+                "0": 215,
+                "5": 52,
+                "1": 169,
+                "4": 27
+              }
+            }
+          }
+        },
+        "E1": {
+          "1729": {
+            "expert_classified": 807,
+            "label_changed": 516,
+            "label_changed_matched": 128,
+            "label_changed_unmatched": 388,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 89,
+                "2": 210,
+                "0": 208,
+                "1": 209,
+                "5": 60,
+                "4": 31
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 807,
+            "label_changed": 517,
+            "label_changed_matched": 131,
+            "label_changed_unmatched": 386,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 86,
+                "2": 297,
+                "0": 198,
+                "5": 74,
+                "1": 132,
+                "4": 20
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 807,
+            "label_changed": 517,
+            "label_changed_matched": 129,
+            "label_changed_unmatched": 388,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 86,
+                "2": 331,
+                "0": 201,
+                "5": 88,
+                "1": 95,
+                "4": 6
+              }
+            }
+          }
+        },
+        "E2": {
+          "1729": {
+            "expert_classified": 807,
+            "label_changed": 506,
+            "label_changed_matched": 126,
+            "label_changed_unmatched": 380,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 91,
+                "2": 236,
+                "0": 217,
+                "1": 174,
+                "5": 66,
+                "4": 23
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 807,
+            "label_changed": 515,
+            "label_changed_matched": 130,
+            "label_changed_unmatched": 385,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 91,
+                "2": 283,
+                "0": 211,
+                "5": 62,
+                "1": 133,
+                "4": 27
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 807,
+            "label_changed": 517,
+            "label_changed_matched": 131,
+            "label_changed_unmatched": 386,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 88,
+                "2": 317,
+                "0": 205,
+                "5": 80,
+                "1": 105,
+                "4": 12
+              }
+            }
+          }
+        },
+        "E3": {
+          "1729": {
+            "expert_classified": 807,
+            "label_changed": 509,
+            "label_changed_matched": 127,
+            "label_changed_unmatched": 382,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 93,
+                "2": 244,
+                "0": 210,
+                "5": 63,
+                "1": 173,
+                "4": 24
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 807,
+            "label_changed": 510,
+            "label_changed_matched": 125,
+            "label_changed_unmatched": 385,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 84,
+                "2": 244,
+                "0": 205,
+                "5": 55,
+                "1": 178,
+                "4": 41
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 807,
+            "label_changed": 514,
+            "label_changed_matched": 124,
+            "label_changed_unmatched": 390,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "3": 102,
+                "0": 216,
+                "2": 181,
+                "1": 230,
+                "5": 27,
+                "4": 51
+              },
+              "expert": {
+                "3": 99,
+                "2": 311,
+                "0": 206,
+                "5": 66,
+                "1": 110,
+                "4": 15
+              }
+            }
+          }
+        }
+      }
+    },
+    "final-dev": {
+      "candidates_wifi": 704,
+      "sync_ok": 125,
+      "matched_sync_ok": 37,
+      "unmatched_sync_ok": 88,
+      "arms": {
+        "E0": {
+          "1729": {
+            "expert_classified": 125,
+            "label_changed": 86,
+            "label_changed_matched": 22,
+            "label_changed_unmatched": 64,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 37,
+                "2": 28,
+                "4": 6,
+                "3": 14,
+                "0": 35,
+                "5": 5
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 125,
+            "label_changed": 85,
+            "label_changed_matched": 23,
+            "label_changed_unmatched": 62,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 27,
+                "2": 40,
+                "4": 6,
+                "3": 13,
+                "0": 33,
+                "5": 6
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 125,
+            "label_changed": 84,
+            "label_changed_matched": 21,
+            "label_changed_unmatched": 63,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 34,
+                "2": 30,
+                "4": 4,
+                "3": 15,
+                "0": 36,
+                "5": 6
+              }
+            }
+          }
+        },
+        "E1": {
+          "1729": {
+            "expert_classified": 125,
+            "label_changed": 89,
+            "label_changed_matched": 22,
+            "label_changed_unmatched": 67,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 36,
+                "2": 31,
+                "4": 6,
+                "3": 12,
+                "0": 33,
+                "5": 7
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 125,
+            "label_changed": 87,
+            "label_changed_matched": 23,
+            "label_changed_unmatched": 64,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 22,
+                "2": 45,
+                "4": 4,
+                "3": 13,
+                "0": 33,
+                "5": 8
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 125,
+            "label_changed": 85,
+            "label_changed_matched": 21,
+            "label_changed_unmatched": 64,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 13,
+                "2": 55,
+                "4": 2,
+                "3": 12,
+                "0": 32,
+                "5": 11
+              }
+            }
+          }
+        },
+        "E2": {
+          "1729": {
+            "expert_classified": 125,
+            "label_changed": 85,
+            "label_changed_matched": 22,
+            "label_changed_unmatched": 63,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 30,
+                "2": 36,
+                "4": 4,
+                "3": 13,
+                "0": 34,
+                "5": 8
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 125,
+            "label_changed": 87,
+            "label_changed_matched": 23,
+            "label_changed_unmatched": 64,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 25,
+                "2": 42,
+                "4": 4,
+                "3": 13,
+                "0": 33,
+                "5": 8
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 125,
+            "label_changed": 84,
+            "label_changed_matched": 22,
+            "label_changed_unmatched": 62,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 18,
+                "2": 49,
+                "4": 2,
+                "3": 12,
+                "0": 33,
+                "5": 11
+              }
+            }
+          }
+        },
+        "E3": {
+          "1729": {
+            "expert_classified": 125,
+            "label_changed": 83,
+            "label_changed_matched": 20,
+            "label_changed_unmatched": 63,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 29,
+                "2": 36,
+                "4": 2,
+                "3": 14,
+                "0": 35,
+                "5": 9
+              }
+            }
+          },
+          "1730": {
+            "expert_classified": 125,
+            "label_changed": 85,
+            "label_changed_matched": 22,
+            "label_changed_unmatched": 63,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 29,
+                "2": 36,
+                "4": 7,
+                "3": 14,
+                "0": 35,
+                "5": 4
+              }
+            }
+          },
+          "1731": {
+            "expert_classified": 125,
+            "label_changed": 86,
+            "label_changed_matched": 20,
+            "label_changed_unmatched": 66,
+            "family_changed": 0,
+            "labels": {
+              "yolo": {
+                "0": 35,
+                "1": 40,
+                "2": 25,
+                "3": 16,
+                "4": 7,
+                "5": 2
+              },
+              "expert": {
+                "1": 16,
+                "2": 46,
+                "4": 2,
+                "3": 16,
+                "0": 38,
+                "5": 7
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

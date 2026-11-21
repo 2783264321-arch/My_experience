@@ -1,5 +1,10 @@
 # Phase C′-Adaptation · E1：Pred-only 微调结果
 
+> **勘误（2026-11-21）**：本实验冻结的是 conv1/conv2 的**参数**；
+> BatchNorm1/2 的 running statistics 仍随 `model.train()` 更新。详见
+> [`finetune_freeze_erratum.md`](finetune_freeze_erratum.md)。权重与
+> mAP 不变。
+
 2026-11-21。从 SHARED_seed{s} 初始化，仅用 169 个双同步配对的
 预测框直方图微调（663 块）。冻结 conv1/conv2，训练 conv3+FC；
 Adam lr 1e-4，600 updates 预算，cal-dev pred loss 早停。
@@ -17,7 +22,8 @@ Adam lr 1e-4，600 updates 预算，cal-dev pred loss 早停。
 | 指标 | E0 冻结 | E1 微调 | 差值 |
 | --- | ---: | ---: | ---: |
 | 条件准确率（seed 均值） | 0.7524 | 0.7333 | **−1.9 pp** |
-| 全实例准确率（含 YOLO 回退） | 0.5340 | 0.5309 | −0.3 pp |
+| 正确家族组内准确率（215 对） | 0.5364 | 0.5333 | −0.3 pp |
+| 严格全匹配（216 对；跨家族计错） | 0.5340 | 0.5309 | −0.3 pp |
 | GT 域准确率（36 个 GT 同步配对） | 0.787 | 0.750 | **−3.7 pp** |
 | 级联 mAP50（140 样本子集） | 0.67631 | 0.67579 | **−0.05 pp** |
 | 级联 seed 波动 | ±0.35 pp | ±0.16 pp | — |

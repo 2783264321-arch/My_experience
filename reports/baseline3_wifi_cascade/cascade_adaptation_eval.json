@@ -714,7 +714,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 514,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 86,
+          "n_family_changed": 0
         },
         "1730": {
           "map50": 0.6803768362273174,
@@ -735,7 +741,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 514,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 85,
+          "n_family_changed": 0
         },
         "1731": {
           "map50": 0.6766403408731249,
@@ -756,7 +768,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 502,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 84,
+          "n_family_changed": 0
         }
       },
       "map50_mean": 0.6763083131057611,
@@ -784,7 +802,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 516,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 89,
+          "n_family_changed": 0
         },
         "1730": {
           "map50": 0.6744701659756652,
@@ -805,7 +829,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 517,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 87,
+          "n_family_changed": 0
         },
         "1731": {
           "map50": 0.6748899726314654,
@@ -826,7 +856,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 517,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 85,
+          "n_family_changed": 0
         }
       },
       "map50_mean": 0.6757909182434805,
@@ -854,7 +890,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 506,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 85,
+          "n_family_changed": 0
         },
         "1730": {
           "map50": 0.6781863943455887,
@@ -875,7 +917,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 515,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 87,
+          "n_family_changed": 0
         },
         "1731": {
           "map50": 0.6778217111058547,
@@ -896,7 +944,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 517,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 84,
+          "n_family_changed": 0
         }
       },
       "map50_mean": 0.6786590546840726,
@@ -924,7 +978,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 509,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 83,
+          "n_family_changed": 0
         },
         "1730": {
           "map50": 0.6692898909207301,
@@ -945,7 +1005,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 510,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 85,
+          "n_family_changed": 0
         },
         "1731": {
           "map50": 0.6739687761265263,
@@ -966,7 +1032,13 @@
             "11": 0.445749014263707,
             "12": 0.7986578453078067,
             "13": 0.7791472280060084
-          }
+          },
+          "n_relabeled_legacy_expert_classified": 807,
+          "n_expert_classified_full_val": 807,
+          "n_label_changed_full_val": 514,
+          "n_expert_classified_final_dev": 125,
+          "n_label_changed_final_dev": 86,
+          "n_family_changed": 0
         }
       },
       "map50_mean": 0.6735166701320688,
@@ -6049,5 +6121,6 @@
       "no_match": 17,
       "nonwifi_gt": 4
     }
-  }
+  },
+  "n_relabeled_note": "n_relabeled is legacy and equals the number of sync-ok WiFi predictions classified by the expert (full-val 807, final-dev 125), NOT the number of changed labels. Use n_label_changed_* fields or finaldev_metric_audit.json."
 }

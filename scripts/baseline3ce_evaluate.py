@@ -35,6 +35,10 @@ SEEDS = (1729, 1730, 1731)
 def load_all():
     hz = np.load(CACHE / "hist_cache.npz", allow_pickle=True)
     yz = np.load(CACHE / "yolo_val_cache.npz", allow_pickle=True)
+    # Materialize once: repeated NpzFile access decompresses the full
+    # array per call, and slice views then keep every copy alive.
+    hz = {k: hz[k] for k in hz.files}
+    yz = {k: yz[k] for k in yz.files}
     pairs = json.loads((EXP / "adaptation_pairs.json").read_text())
     split = json.loads((EXP / "adaptation_split_v2.json").read_text())
     return hz, yz, pairs, split
@@ -191,6 +195,11 @@ def main():
             m = ev["per_iou"]["0.5"]["map_class_aware"]
             per_seed[str(seed)] = {
                 "map50": m, "delta_pp": round(100 * (m - m0), 3),
+                "n_expert_classified": len(lm),
+                "n_label_changed": sum(
+                    1 for pi, p in lm.items()
+                    if int(p) != int(c0_labels[pi])),
+                # legacy field: this is expert-classified, not changed.
                 "n_relabeled": len(lm),
                 "per_class": {k: v["ap"]
                               for k, v in ev["per_iou"]["0.5"]["per_class"].items()},

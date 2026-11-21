@@ -6,7 +6,14 @@ E2: GT+Pred mixed fine-tuning, instance-balanced 1:1 (same 169 pairs).
 
 Protocol (pre-registered, identical across arms and seeds):
 - init from the matching-shared GT-only weights SHARED_seed{s}.pt
-- freeze the first two conv blocks; train conv3 + fc1 + fc2
+- freeze the PARAMETERS of the first two conv blocks (features[0:8]);
+  train conv3 + fc1 + fc2. NOTE: BatchNorm running statistics are NOT
+  frozen. model.train() updates running_mean/running_var of every BN
+  layer, including BN1/BN2 inside the "frozen" blocks. The audit in
+  finetune_freeze_audit.json confirms conv1/conv2 weights are unchanged
+  while BN1/BN2 buffers changed in every reported run. This docstring
+  records the actual behavior of the reported experiments; it is not a
+  retroactive change to the configuration.
 - Adam lr 1e-4, weight decay 1e-4
 - fixed update budget: 600 optimizer steps (adam steps), batch of 8
   instances per step; each instance contributes all its blocks (<=4 per
@@ -47,7 +54,11 @@ WD = 1e-4
 
 
 class FineTuneNet(HistCNN):
-    """HistCNN with the first two conv blocks frozen."""
+    """HistCNN with conv1/conv2 parameters frozen.
+
+    BatchNorm running statistics are intentionally left trainable in the
+    reported runs (model.train() updates them); see the module docstring.
+    """
 
     def __init__(self):
         super().__init__(3)
