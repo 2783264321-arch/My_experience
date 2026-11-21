@@ -1,0 +1,77 @@
+{
+  "split": "val",
+  "n_predictions_srrc": 7706,
+  "n_candidates_pre_feature": 691,
+  "n_feature_failed": 0,
+  "n_candidates": 691,
+  "n_matched": 367,
+  "n_unmatched": 324,
+  "matched_yolo_acc": 0.5204359673024523,
+  "matched_pred_acc": 0.6185286103542235,
+  "matched_gt_acc": 0.5846994535519126,
+  "n_changed": 65,
+  "n_corrected": 17,
+  "n_worsened": 14,
+  "n_unmatched_changed": 34,
+  "unmatched_changed_categories": {
+    "no_gt": 2,
+    "duplicate_srrc_gt": 29,
+    "low_iou_srrc": 3
+  },
+  "changed_by_class": {
+    "10": 28,
+    "11": 37
+  },
+  "candidate_pred_class": {
+    "11": 439,
+    "10": 252
+  },
+  "conf_quantiles": {
+    "0.5": 0.5651380074308242,
+    "0.75": 0.6453135088421424,
+    "0.9": 0.8182092608740587,
+    "0.95": 0.8698603090611123,
+    "0.99": 0.9565504926218572
+  },
+  "same_target": {
+    "n": 366,
+    "gt_acc": 0.5846994535519126,
+    "pred_acc": 0.6174863387978142,
+    "agreement": 0.8797814207650273,
+    "gt_conf": [
+      [
+        83,
+        104
+      ],
+      [
+        48,
+        131
+      ]
+    ],
+    "pred_conf": [
+      [
+        88,
+        99
+      ],
+      [
+        41,
+        138
+      ]
+    ]
+  },
+  "ap": {
+    "C0_map50": 0.6497250320877056,
+    "new_map50": 0.647348077715896,
+    "delta_pp": -0.23769543718096253,
+    "C0_class10_ap50": 0.7079000376354331,
+    "C0_class11_ap50": 0.5710524866168465,
+    "new_class10_ap50": 0.6881148081491313,
+    "new_class11_ap50": 0.5575603548978126,
+    "n_changed": 65,
+    "oracle_matched_only_map50": 0.647928367773585,
+    "oracle_matched_only_delta_pp": -0.17966643141206218,
+    "oracle_unmatched_only_map50": 0.6489439084589154,
+    "oracle_unmatched_only_delta_pp": -0.07811236287902368,
+    "oracle_note": "matched/unmatched split is an oracle diagnostic using GT matching; not deployable."
+  }
+}

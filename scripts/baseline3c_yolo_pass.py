@@ -42,6 +42,8 @@ def main():
     ap.add_argument("--max-det", type=int, default=100)
     ap.add_argument("--max-det-view", type=int, default=300)
     ap.add_argument("--max-samples", type=int, default=0)
+    ap.add_argument("--split", default="val", choices=("fit", "val"))
+    ap.add_argument("--out", default="")
     args = ap.parse_args()
 
     run = ROOT / "runs/yolo11s_c1_directreg_2048x512"
@@ -50,7 +52,7 @@ def main():
         raise FileNotFoundError(ckpt)
     norm_cfg = json.loads((ROOT / "configs/normalizer.json").read_text())
     norm = (float(norm_cfg["lo"]), float(norm_cfg["hi"]))
-    records = load_manifest(SPLIT_MANIFEST, split="val")
+    records = load_manifest(SPLIT_MANIFEST, split=args.split)
     if args.max_samples:
         records = records[: args.max_samples]
     model = build_model(str(ROOT / "configs/yolo11s_c1_directreg.yaml"))
@@ -158,7 +160,8 @@ def main():
     out["meta"] = np.array([json.dumps(m) for m in meta])
     out["n_samples"] = np.array(len(records))
 
-    path = OUTDIR / "yolo_val_cache.npz"
+    path = (Path(args.out) if args.out else
+            OUTDIR / f"yolo_{args.split}_cache.npz")
     np.savez_compressed(path, **out)
     n_c0 = sum(len(a[0]) for a in all_c0)
     n_both = sum(len(a[0]) for a in all_both)

@@ -57,3 +57,11 @@ PYTHONPATH=. .venv/bin/python -m unittest scripts.test_srrc_frontend
 ```
 
 原始 IQ/权重未入库；`run.log` 为本地日志。
+
+
+## 后续
+
+2026-11-21 的 YOLO 框离线复核见
+[`reports/baseline3_srrc_yolo_offline/`](../baseline3_srrc_yolo_offline/README.md)：
+固定框/分数/NMS，规则在 fit 锁定、val 只核验一次；结论是净 +3 个匹配框但
+mAP −0.238 pp，建议收尾。

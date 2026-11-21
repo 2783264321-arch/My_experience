@@ -112,3 +112,9 @@ SRRC 专家研发暂停，Stage 1/Stage 2 均未启动。
 [`reports/baseline3_srrc_local_iq/`](../baseline3_srrc_local_iq/README.md)：
 未接 YOLO、未用 val/test；结论是未同步幅度统计已接近恢复幅度，
 相位差无可重复收益，恢复率是主瓶颈。Stage 0 仍保持归档状态。
+
+
+### YOLO 框离线复核
+
+[`reports/baseline3_srrc_yolo_offline/`](../baseline3_srrc_yolo_offline/README.md)：
+净 +3 个匹配框、mAP −0.238 pp，建议收尾。

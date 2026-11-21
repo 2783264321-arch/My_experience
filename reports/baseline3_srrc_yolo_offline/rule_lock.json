@@ -1,0 +1,19 @@
+{
+  "feature": "B0_unsync",
+  "classifier": "StandardScaler + LogisticRegression(C=1, class_weight=balanced)",
+  "classifier_sha256": "378d164f2b6cf3198cce0bf94ac6d7c72dc4890d9bf1f233715cacde3a46c068",
+  "classes": [
+    10,
+    11
+  ],
+  "predicted_width_mhz": [
+    9.5,
+    10.5
+  ],
+  "score_threshold": 0.01,
+  "prob_threshold": 0.7,
+  "locked_on": "fit predicted-only diagnostics",
+  "fit_candidates_score01": 2681,
+  "fit_flips_prob070_score01": 175,
+  "note": "Rule locked before fit/val truth scoring; no val tuning."
+}

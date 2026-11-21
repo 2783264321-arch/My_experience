@@ -1,0 +1,62 @@
+{
+  "split": "fit",
+  "n_predictions_srrc": 28643,
+  "n_candidates_pre_feature": 2682,
+  "n_feature_failed": 1,
+  "n_candidates": 2681,
+  "n_matched": 1734,
+  "n_unmatched": 947,
+  "matched_yolo_acc": 0.9204152249134948,
+  "matched_pred_acc": 0.6199538638985006,
+  "matched_gt_acc": 0.6325823223570191,
+  "n_changed": 175,
+  "n_corrected": 12,
+  "n_worsened": 60,
+  "n_unmatched_changed": 103,
+  "unmatched_changed_categories": {
+    "duplicate_srrc_gt": 88,
+    "no_gt": 9,
+    "low_iou_srrc": 6
+  },
+  "changed_by_class": {
+    "11": 87,
+    "10": 88
+  },
+  "candidate_pred_class": {
+    "10": 917,
+    "11": 1764
+  },
+  "conf_quantiles": {
+    "0.5": 0.5717563796471505,
+    "0.75": 0.6471390193267749,
+    "0.9": 0.7648554092843555,
+    "0.95": 0.8603674052283635,
+    "0.99": 0.9511480377111349
+  },
+  "same_target": {
+    "n": 1731,
+    "gt_acc": 0.6325823223570191,
+    "pred_acc": 0.6192952050837666,
+    "agreement": 0.9104563835932987,
+    "gt_conf": [
+      [
+        445,
+        441
+      ],
+      [
+        195,
+        650
+      ]
+    ],
+    "pred_conf": [
+      [
+        431,
+        455
+      ],
+      [
+        204,
+        641
+      ]
+    ]
+  }
+}
