@@ -90,8 +90,11 @@ PYTHONPATH=. python scripts/detection_review_browser.py \
 
 - 红色 = 未找回（missed，画在最上层），淡色 = 已找回（按家族着色）；
 - 左侧实例清单逐条 ✓/✗；悬浮清单行会把对应框提升并加粗；
-- **families 勾选**（每个家族带 missed/total 计数）：只显示勾选家族实例，
-  `next miss` 与 `samples with misses only` 也只按勾选家族计算；
+- **miss scope（14 类勾选，每类带 missed/total 计数）**：只影响
+  `prev/next miss` 与 `samples with misses only` 的判定（例如只勾 FM，
+  就只在 FM 漏检间跳转；`all` / `none` 一键全选/清空）。示意图与实例清单
+  始终显示当前样本的全部实例作为上下文；scope 显示在 miss 按钮下方，
+  头部会额外标出 `N in scope`；
 - **`prev miss` / `next miss`** 只在含漏检的样本间跳转（270/1,543）；
 - `show predictions` 叠加全部预测（**黑色虚线**，透明度随分数）；
 - 侧边栏底部有全局漏检统计。
