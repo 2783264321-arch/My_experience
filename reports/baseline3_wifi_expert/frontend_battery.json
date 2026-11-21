@@ -1,0 +1,196 @@
+{
+  "passed": 38,
+  "failed": 0,
+  "detail": [
+    {
+      "name": "B20 bw20 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.88"
+    },
+    {
+      "name": "B30 bw20 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.91"
+    },
+    {
+      "name": "B30 bw20 off+2.5 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.97"
+    },
+    {
+      "name": "B30 bw20 off+4.8 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.98"
+    },
+    {
+      "name": "B40 bw20 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.98"
+    },
+    {
+      "name": "B40 bw20 off+5.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.93"
+    },
+    {
+      "name": "B40 bw20 off+9.7 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.93"
+    },
+    {
+      "name": "B50 bw20 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.95"
+    },
+    {
+      "name": "B50 bw20 off+7.5 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.98"
+    },
+    {
+      "name": "B50 bw20 off+14.5 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.98"
+    },
+    {
+      "name": "B80 bw20 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.96"
+    },
+    {
+      "name": "B80 bw20 off+15.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.95"
+    },
+    {
+      "name": "B80 bw20 off+29.1 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.95"
+    },
+    {
+      "name": "B40 bw40 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.90"
+    },
+    {
+      "name": "B50 bw40 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.90"
+    },
+    {
+      "name": "B50 bw40 off+2.5 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.91"
+    },
+    {
+      "name": "B50 bw40 off+4.8 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.99"
+    },
+    {
+      "name": "B80 bw40 off+0.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.93"
+    },
+    {
+      "name": "B80 bw40 off+10.0 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.94"
+    },
+    {
+      "name": "B80 bw40 off+19.4 all orders x random starts",
+      "ok": true,
+      "info": "min_metric=0.94"
+    },
+    {
+      "name": "start-invariance <15% over full period",
+      "ok": true,
+      "info": "spread=0.1% min=0.984 max=0.985"
+    },
+    {
+      "name": "B40 bw20 order4 m4",
+      "ok": true,
+      "info": "m4=1.000 theory=1.00 n_sym=800 (dropped 132)"
+    },
+    {
+      "name": "B40 bw20 order16 m4",
+      "ok": true,
+      "info": "m4=1.322 theory=1.32 n_sym=800 (dropped 132)"
+    },
+    {
+      "name": "B40 bw20 order64 m4",
+      "ok": true,
+      "info": "m4=1.385 theory=1.38 n_sym=800 (dropped 132)"
+    },
+    {
+      "name": "B80 bw40 order4 m4",
+      "ok": true,
+      "info": "m4=1.002 theory=1.00 n_sym=800 (dropped 128)"
+    },
+    {
+      "name": "B80 bw40 order16 m4",
+      "ok": true,
+      "info": "m4=1.322 theory=1.32 n_sym=800 (dropped 128)"
+    },
+    {
+      "name": "B80 bw40 order64 m4",
+      "ok": true,
+      "info": "m4=1.379 theory=1.38 n_sym=800 (dropped 128)"
+    },
+    {
+      "name": "B20 bw20 order4 m4",
+      "ok": true,
+      "info": "m4=1.000 theory=1.00 n_sym=800 (dropped 140)"
+    },
+    {
+      "name": "B20 bw20 order16 m4",
+      "ok": true,
+      "info": "m4=1.323 theory=1.32 n_sym=800 (dropped 140)"
+    },
+    {
+      "name": "B20 bw20 order64 m4",
+      "ok": true,
+      "info": "m4=1.379 theory=1.38 n_sym=800 (dropped 140)"
+    },
+    {
+      "name": "no-CP trial 0",
+      "ok": true,
+      "info": "metric=0.152 ratio=3.1 at (25.6,0.2)us"
+    },
+    {
+      "name": "no-CP trial 1",
+      "ok": true,
+      "info": "metric=0.153 ratio=2.9 at (25.6,0.2)us"
+    },
+    {
+      "name": "no-CP trial 2",
+      "ok": true,
+      "info": "metric=0.141 ratio=2.6 at (25.6,0.2)us"
+    },
+    {
+      "name": "noise trial 0",
+      "ok": true,
+      "info": "metric=0.069 ratio=3.2"
+    },
+    {
+      "name": "noise trial 1",
+      "ok": true,
+      "info": "metric=0.062 ratio=2.9"
+    },
+    {
+      "name": "noise trial 2",
+      "ok": true,
+      "info": "metric=0.068 ratio=3.3"
+    },
+    {
+      "name": "train/1058 landmarks",
+      "ok": true,
+      "info": "abs top peaks [np.float64(2464.0), np.float64(2465.0), np.float64(2448.5), np.float64(2449.7)] vs expect [(2464.0, 2465.0, 9021), (2442.0, 2452.0, 266)]"
+    },
+    {
+      "name": "train/3663 landmarks",
+      "ok": true,
+      "info": "abs top peaks [np.float64(2438.1), np.float64(2436.0), np.float64(2446.6), np.float64(2447.6)] vs expect [(2436.0, 2438.0, 351), (2446.0, 2448.0, 189)]"
+    }
+  ]
+}
