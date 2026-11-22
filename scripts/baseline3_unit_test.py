@@ -10,7 +10,8 @@ Validates, with synthetic captures of known content:
       preservation and out-of-band suppression;
   T4  changing observation bandwidth introduces no systematic shift;
   T5  complex CP detector calibration: synthetic OFDM positives (12.8/0.8 and
-      3.2/0.8 numerologies) across SNR, plus pure-noise negatives.
+      3.2/0.8 numerologies) across SNR, plus pure-noise negatives;
+  T6  0.2 ms IQ crop context and windows confined to the GT time interval.
 
 Run:  PYTHONPATH=. python scripts/baseline3_unit_test.py
 """
@@ -18,6 +19,7 @@ from __future__ import annotations
 
 import math
 from pathlib import Path
+from types import SimpleNamespace
 import tempfile
 
 import numpy as np
@@ -26,6 +28,8 @@ from scripts.baseline3_dsp import (
     read_segment, demod_to_center, band_limit_fft,
     cp_scan_complex, gen_wifi_ofdm, qam_symbols,
 )
+
+from scripts.baseline3srrc_phase0_verify import crop_and_resample, windows_from_crop
 
 PASS = 0
 FAIL = 0
@@ -188,6 +192,24 @@ def main():
         check(f"noise trial {trial}",
               b is not None and b["ratio"] < 8,
               f"metric={b['metric']:.4f} ratio={b['ratio']:.1f} at Tu={b['tu_us']}us")
+
+    print("T6: SRRC crop bounds on a 40 MS/s capture")
+    with tempfile.TemporaryDirectory() as td:
+        path = Path(td) / "srrc.bin"
+        np.ones(2 * n, dtype="<f2").tofile(path)
+        rec = SimpleNamespace(bin_path=path, B_mhz=40, T_ms=5, N=n, f_lo=flo)
+        sig = {"start_time": 0.4, "end_time": 1.4,
+               "start_frequency": flo + 15, "end_frequency": flo + 25}
+        crop = crop_and_resample(rec, sig)
+        check("0.2 ms context per side",
+              (crop["i0"], crop["i1"], crop["out_points"]) == (8000, 64000, 28000))
+        windows = windows_from_crop(crop, sig)
+        check("training windows stay in GT",
+              windows["windows"][0]["start"] == 4000
+              and windows["windows"][-1]["stop"] == 24000)
+        short = windows_from_crop(crop, dict(sig, end_time=0.41))
+        check("short GT clips to its end",
+              short["n_windows"] == 1 and short["windows"][0]["stop"] == short["gt_end"])
 
     print(f"\n{PASS} passed, {FAIL} failed")
     return 1 if FAIL else 0

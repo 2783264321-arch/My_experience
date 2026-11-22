@@ -41,10 +41,10 @@ class Block(nn.Module):
 
 
 class TinyResNet(nn.Module):
-    def __init__(self, width=32):
+    def __init__(self, width=32, *, in_channels=2):
         super().__init__()
         self.stem = nn.Sequential(
-            nn.Conv1d(2, width, 9, padding=4),
+            nn.Conv1d(in_channels, width, 9, padding=4),
             nn.BatchNorm1d(width), nn.ReLU())
         self.blocks = nn.Sequential(Block(width), Block(width), Block(width))
         self.head = nn.Linear(width, 2)
@@ -86,7 +86,7 @@ def main():
         a = time.perf_counter() - a
         wins = []
         for x in w["windows"]:
-            z = crop["x"][x["start"]:x["start"] + WIN]
+            z = crop["x"][x["start"]:x["stop"]]
             if len(z) < WIN:
                 z = np.pad(z, (0, WIN - len(z)))
             wins.append(z)

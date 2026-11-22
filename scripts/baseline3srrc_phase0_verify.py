@@ -86,14 +86,15 @@ def overlap_frac(rec, sig) -> dict:
 def crop_and_resample(rec, sig, fs_out=FS_OUT, edge_ms=EDGE_MS):
     fs_in = float(rec.B_mhz) * 1e6
     t1 = float(sig["start_time"]); t2 = float(sig["end_time"])
-    edge = edge_ms / 1000.0
-    ta = max(0.0, t1 - edge)
-    tb = min(float(rec.T_ms), t2 + edge)
+    ta = max(0.0, t1 - edge_ms)
+    tb = min(float(rec.T_ms), t2 + edge_ms)
     i0 = max(0, int(round(ta / 1000.0 * fs_in)))
     i1 = min(int(rec.N), int(round(tb / 1000.0 * fs_in)))
     if i1 - i0 < 256:
         raise RuntimeError("crop too short")
     x = read_segment(str(rec.bin_path), i0, i1)
+    if len(x) != i1 - i0:
+        raise ValueError(f"IQ file shorter than manifest: {rec.bin_path}")
     fc = 0.5 * (float(sig["start_frequency"]) + float(sig["end_frequency"])) * 1e6
     xd = demod_to_center(x, fs_in, fc, float(rec.f_lo) * 1e6)
     xb = band_limit_fft(xd, fs_in, KEEP_BW, edge_frac=0.05)
@@ -102,7 +103,8 @@ def crop_and_resample(rec, sig, fs_out=FS_OUT, edge_ms=EDGE_MS):
     return {
         "x": xr.astype(np.complex64), "fs_out": fs_out,
         "fs_in": fs_in, "i0": i0, "i1": i1,
-        "ta": ta, "tb": tb, "crop_ms": (i1 - i0) / fs_in * 1000.0,
+        "ta": i0 / fs_in * 1000.0, "tb": i1 / fs_in * 1000.0,
+        "crop_ms": (i1 - i0) / fs_in * 1000.0,
         "raw_points": int(i1 - i0), "out_points": int(len(xr)),
         "ratio": [ratio.numerator, ratio.denominator],
     }
@@ -115,7 +117,9 @@ def windows_from_crop(crop, sig, n_win=N_WIN, win=WIN):
     a = int(round((t1 - ta) / 1000.0 * fs))
     b = int(round((t2 - ta) / 1000.0 * fs))
     a = max(0, min(len(crop["x"]), a))
-    b = max(a + 1, min(len(crop["x"]), b))
+    b = max(0, min(len(crop["x"]), b))
+    if b <= a:
+        raise ValueError("Box interval has no samples inside IQ crop")
     span = b - a
     if span <= win:
         starts = [a]
@@ -123,16 +127,15 @@ def windows_from_crop(crop, sig, n_win=N_WIN, win=WIN):
         starts = np.linspace(a, b - win, n_win)
         starts = [int(round(s)) for s in starts]
     wins = []
-    for s in starts:
-        w = crop["x"][s:s + win]
-        if len(w) < win:
-            w = np.pad(w, (0, win - len(w)))
+    for start in starts:
+        stop = min(start + win, b)
+        w = crop["x"][start:stop]
         rms = float(np.sqrt(np.mean(np.abs(w) ** 2)))
-        wins.append({"start": int(s), "rms": rms,
+        wins.append({"start": start, "stop": stop, "rms": rms,
                      "finite": bool(np.isfinite(w).all())})
-    return {"gt_start": int(a), "gt_end": int(b), "span": int(span),
+    return {"gt_start": a, "gt_end": b, "span": span,
             "n_windows": len(wins), "windows": wins,
-            "coverage": float(len(wins) * win / max(span, 1))}
+            "coverage": min(1.0, len(wins) * win / span)}
 
 
 def read_segment_check() -> dict:
