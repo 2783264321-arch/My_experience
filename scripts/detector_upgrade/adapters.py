@@ -68,9 +68,10 @@ def _patch_pos_embed():
         pos_dim = embed_dim // 4
         omega = torch.arange(pos_dim, dtype=torch.float32) / pos_dim
         omega = 1.0 / (temperature ** omega)
-        out_w = gw.flatten()[..., None] @ omega[None]
         out_h = gh.flatten()[..., None] @ omega[None]
-        return torch.concat([out_w.sin(), out_w.cos(), out_h.sin(), out_h.cos()], dim=1)[None]
+        out_w = gw.flatten()[..., None] @ omega[None]
+        # square convention: first half = vertical (h), second half = horizontal (w)
+        return torch.concat([out_h.sin(), out_h.cos(), out_w.sin(), out_w.cos()], dim=1)[None]
 
     HybridEncoder.build_2d_sincos_position_embedding = staticmethod(fixed)
     HybridEncoder._rect_patched = True

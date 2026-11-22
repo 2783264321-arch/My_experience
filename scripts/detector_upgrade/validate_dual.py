@@ -73,7 +73,8 @@ def _eval_set(gts, preds):
 
 def run_dual(model, records: Sequence, normalizer, batch_views=8, workers=8,
              conf=0.001, iou=0.5, max_det_view=300, max_det=100,
-             max_samples: Optional[int] = None, log_interval_s=120.0):
+             max_samples: Optional[int] = None, log_interval_s=120.0,
+             infer_fn=None):
     t0 = time.perf_counter()
     recs = list(records[:max_samples] if max_samples else records)
     ds = FullViewDataset(recs, normalizer, view_mode="all")
@@ -93,8 +94,11 @@ def run_dual(model, records: Sequence, normalizer, batch_views=8, workers=8,
     def flush(chunk):
         nonlocal n_boundary
         images = torch.stack([b["tensor"] for b in chunk], 0).cuda(non_blocking=True)
-        dets = _nms_view_batch(model, images, conf=conf, iou=iou,
-                               max_det=max_det_view, multi_label=False)
+        if infer_fn is None:
+            dets = _nms_view_batch(model, images, conf=conf, iou=iou,
+                                   max_det=max_det_view, multi_label=False)
+        else:
+            dets = infer_fn(images)
         for b, det in zip(chunk, dets):
             p = _map_view_dets(det, b["view_type"], b["start"], b["F"])
             bm = _boundary_mask(p, b["view_type"], b["start"], b["F"])

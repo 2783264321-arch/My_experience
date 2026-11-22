@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-22",
+  "pos_embed": {
+    "square_bit_exact": true,
+    "square_semantics": "first half = vertical/frequency (h), second half = horizontal/time (w)",
+    "rect_fixed_semantics": "vertical changes first half only; horizontal changes second half only",
+    "eval_cache_shape": [1, 1024, 256],
+    "cache_equals_dynamic": true,
+    "tokens_expected": 1024
+  },
+  "weights": {
+    "file": "dfine_l_obj2coco_e25.pth",
+    "copied": 1156, "skipped": 17, "stem_summed": 1, "params_m": 31.11,
+    "stem": [32, 1, 3, 3], "score_head": [14, 256], "denoise_embedding": [15, 256]
+  },
+  "real_batch": {
+    "views": 8, "gt": 16, "loss": 93.255,
+    "parts": {"loss_vfl": 0.464, "loss_bbox": 3.566, "loss_giou": 2.176, "loss_fgl": 1.102},
+    "grads_finite": true,
+    "empty_view_loss": 110.547, "empty_view_loss_finite": true,
+    "decode_boxes_per_view": [300, 300],
+    "normalized_cxcywh_in_0_1": true, "width_height_positive": true,
+    "width_min_max": [0.049899, 0.998], "height_min_max": [0.0008, 1.0],
+    "wide_boxes_w_gt_0.9": 6, "narrow_boxes_h_lt_0.002": 3
+  },
+  "checkpoint": {
+    "model_keys": 1173, "ema_keys": 1173, "optimizer_state_entries": 570,
+    "resume_loss": 90.714, "resume_epoch": 1, "resume_step": 5
+  },
+  "budget_measurement": {
+    "peak_reserved_gib": 16.73,
+    "steady_step_s": 0.95,
+    "steps_per_epoch": 745,
+    "val_views_timed": 412, "val_elapsed_s": 9.32,
+    "projected_val_full_s": 565,
+    "projected_train_50ep_h": 9.83,
+    "projected_total_h": 11.9
+  }
+}

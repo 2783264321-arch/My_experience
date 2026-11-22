@@ -5,12 +5,14 @@ import argparse, json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN = ROOT / "runs/yolo26l_c1_2048x512/val_history.json"
+
 
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--epoch", type=int, required=True)
+    ap.add_argument("--run", default="yolo26l_c1_2048x512")
     a = ap.parse_args()
+    RUN = ROOT / "runs" / a.run / "val_history.json"
     if not RUN.exists():
         print("no val_history yet"); return
     h = json.loads(RUN.read_text())
