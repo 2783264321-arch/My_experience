@@ -67,10 +67,10 @@ def main():
         md.append(f"| {name} | {r['epoch']+1 if r['epoch'] is not None else '-'} | {r['filtered_map50']:.6f} | {r['filtered_map50_95']:.6f} | {r['unfiltered_map50']:.6f} | {r['ap50_agnostic']:.4f} | {r['ap75_agnostic']:.4f} | {r['localization_recall']:.4f} |")
     md += ['',f"对比：YOLO11s 0.649725（{res['best_minus_yolo11_pp']:+.2f} pp）、"
            f"YOLO26l 0.659601（{res['best_minus_yolo26_pp']:+.2f} pp）。",'','## 分组（best）','',
-           '| 组 | mAP50 | 50:95 | AP_agn50 | AP_agn75 | recall(全预测) | recall(旧按类) |',
-           '| --- | ---: | ---: | ---: | ---: | ---: | ---: |']
+           '| 组 | mAP50 | 50:95 | recall(全预测) | recall(旧按类) |',
+           '| --- | ---: | ---: | ---: | ---: |']
     for g,v in best['groups'].items():
-        md.append(f"| {g} | {v['map50']:.4f} | {v['map50_95']:.4f} | {v['ap50_agnostic']:.4f} | {v['ap75_agnostic']:.4f} | {v['recall']:.4f} | {v['recall_strict_predclass']:.4f} |")
+        md.append(f"| {g} | {v['map50']:.4f} | {v['map50_95']:.4f} | {v['recall']:.4f} | {v['recall_strict_predclass']:.4f} |")
     (OUT/'formal_dfine_results.md').write_text('\n'.join(md)+'\n')
     print(json.dumps({'best_map50':best['filtered_map50'],'delta_y11_pp':res['best_minus_yolo11_pp'],
                       'delta_y26_pp':res['best_minus_yolo26_pp'],'ap75':best['ap75_agnostic']},ensure_ascii=False))
