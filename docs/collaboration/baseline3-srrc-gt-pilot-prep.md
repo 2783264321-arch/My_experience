@@ -48,3 +48,5 @@ python -m scripts.baseline3srrc_gt_pilot train \
 ## 本机已核验
 
 早期 DSP 回归和毫秒缓冲回归检查使用合成 IQ 通过。另用 24 个合成文件验证了无 IQ 的清单生成、组内分割、8/16 窗缓存，以及幅度和 I/Q 各一轮的 CPU 前向、反向和逐实例 logit 导出。真实 fit 裁剪、服务器吞吐和正式分类表现待 AutoDL 实测。
+
+**AutoDL 实测（2026-11-22，OpenCode）**：完整 fit 清单 1,824 实例 / 1,571 组；40 组试切 33.34 s / 3.09 MB，D-FINE 步时 +1.54%；全量缓存 1,112.84 s / 114.4 MiB，D-FINE 同时段步时 +1.03%，未触发停止。缓存与监控记录见 [opencode-srrc-gt-pilot-cache.md](opencode-srrc-gt-pilot-cache.md)。
