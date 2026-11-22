@@ -68,3 +68,6 @@ GPU 空闲、磁盘 7.4 GiB 可用（last+best 约 0.75 GiB），资源满足。
 - 里程碑：第 20/30/40/50 轮（epoch 19/29/39/49）各汇报一次；
   训练结束自动跑 best.pt 全量验证并写 `formal_dfine_results.json/md`。
 - 最终表与三模型归因（含 AP_agn@0.75、分组、共同匹配 IoU/分类）在结束后回填。
+- **评测口径修正**（AP75 缺 GT、D-FINE 阈值、分组召回）见
+  [opencode-eval-fixes.md](opencode-eval-fixes.md)；训练中的 val_history 分组
+  召回是旧口径，最终以修正后的 full-val 为准。

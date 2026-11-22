@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Formal D-FINE-L validation: rebuild from checkpoint, native decode, dual protocol."""
 from __future__ import annotations
-import argparse, json, sys, time
+import argparse, json, math, sys, time
 from pathlib import Path
 import numpy as np, torch
 
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT)); sys.path.insert(0,str(ROOT/'scripts/detector_upgrade'))
 from adapters import build_dfine
-from src.signals.data import SPLIT_MANIFEST, load_manifest
+from src.signals.data import SPLIT_MANIFEST, N_TIME, load_manifest
+from src.signals.infer import gt_global
 from validate_dual import run_dual
 
 def stratified(records,n):
@@ -17,12 +18,15 @@ def stratified(records,n):
     for b in sorted(by): out+=by[b][:n]
     return out
 
-def save_npz(path,preds):
+def save_npz(path,preds,gts):
     np.savez_compressed(path,
         pred_boxes=np.concatenate([p.boxes.reshape(-1,4) for p in preds]).astype(np.float32),
         pred_scores=np.concatenate([p.scores.reshape(-1) for p in preds]).astype(np.float32),
         pred_labels=np.concatenate([p.labels.reshape(-1) for p in preds]).astype(np.int64),
-        pred_sample_index=np.concatenate([np.full(len(p.boxes),i,dtype=np.int64) for i,p in enumerate(preds)]))
+        pred_sample_index=np.concatenate([np.full(len(p.boxes),i,dtype=np.int64) for i,p in enumerate(preds)]),
+        gt_boxes=np.concatenate([g.boxes.reshape(-1,4) for g in gts]).astype(np.float32),
+        gt_labels=np.concatenate([g.labels.reshape(-1) for g in gts]).astype(np.int64),
+        gt_sample_index=np.concatenate([np.full(len(g.boxes),i,dtype=np.int64) for i,g in enumerate(gts)]))
 
 def main():
     ap=argparse.ArgumentParser()
@@ -30,6 +34,7 @@ def main():
     ap.add_argument('--checkpoint',default='best.pt')
     ap.add_argument('--weights',choices=['ema','model'],default='ema')
     ap.add_argument('--stratified',type=int,default=0)
+    ap.add_argument('--conf',type=float,default=0.001)
     ap.add_argument('--batch-views',type=int,default=8)
     ap.add_argument('--workers',type=int,default=8)
     ap.add_argument('--output',default='')
@@ -45,7 +50,12 @@ def main():
     def infer(images):
         with torch.no_grad(), torch.autocast('cuda',dtype=torch.bfloat16):
             res=post(model(images),torch.tensor([[512,2048]]*images.shape[0],device=images.device))
-        return [torch.cat([r['boxes'],r['scores'][:,None],r['labels'][:,None].float()],1).float() for r in res]
+        out=[]
+        for r in res:
+            keep=r['scores']>=a.conf          # common candidate threshold
+            out.append(torch.cat([r['boxes'][keep],r['scores'][keep,None],
+                                  r['labels'][keep,None].float()],1).float())
+        return out
     norm_d=json.loads((ROOT/'configs/normalizer.json').read_text()); norm=(norm_d['lo'],norm_d['hi'])
     records=load_manifest(SPLIT_MANIFEST,split='val')
     if a.stratified: records=stratified(records,a.stratified)
@@ -53,7 +63,8 @@ def main():
     out_dir.mkdir(parents=True,exist_ok=True)
     t0=time.perf_counter(); res=run_dual(model,records,norm,batch_views=a.batch_views,workers=a.workers,infer_fn=infer)
     elapsed=time.perf_counter()-t0
-    for name in ('unfiltered','filtered_0_5'): save_npz(out_dir/f'val_predictions_{name}.npz',res[f'preds_{name}'])
+    gts=[gt_global(r, math.ceil(r.N/(N_TIME-1))) for r in records]
+    for name in ('unfiltered','filtered_0_5'): save_npz(out_dir/f'val_predictions_{name}.npz',res[f'preds_{name}'],gts)
     (out_dir/'val_sample_ids.json').write_text(json.dumps([r.sample_id for r in records],indent=2))
     summary={'run':a.run,'checkpoint':str(ck_path),'weights':a.weights,'split':'val','n_samples':len(records),
              'n_views':res['n_views'],'n_boundary_dropped':res['n_boundary_dropped'],

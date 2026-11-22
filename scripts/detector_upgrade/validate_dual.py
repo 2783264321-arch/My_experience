@@ -37,6 +37,7 @@ def _ap(all_result, thr):
 
 def _eval_set(gts, preds):
     r05 = evaluate(gts, preds, iou_thresholds=(0.5,), max_dets=100)
+    r75 = evaluate(gts, preds, iou_thresholds=(0.75,), max_dets=100)
     rfull = evaluate(gts, preds, iou_thresholds=ALL_IOU, max_dets=100)
     map50 = float(r05["per_iou"]["0.5"]["map_class_aware"] or 0.0)
     map50_95 = float(np.mean([_ap(rfull, t) for t in ALL_IOU]))
@@ -44,6 +45,7 @@ def _eval_set(gts, preds):
         "map50": map50,
         "map50_95": map50_95,
         "ap50_agnostic": float(r05["per_iou"]["0.5"]["ap_class_agnostic"] or 0.0),
+        "ap75_agnostic": float(r75["per_iou"]["0.75"]["ap_class_agnostic"] or 0.0),
         "localization_recall": r05["classification"]["localization_recall"],
         "classification_accuracy": r05["classification"]["classification_accuracy"],
         "n_gt": int(r05["per_iou"]["0.5"]["n_gt"]),
@@ -56,17 +58,24 @@ def _eval_set(gts, preds):
         keep = set(classes)
         g = [ImageTargets(gt.boxes[np.isin(gt.labels, list(keep))],
                           gt.labels[np.isin(gt.labels, list(keep))]) for gt in gts]
-        p = [ImagePredictions(pr.boxes[np.isin(pr.labels, list(keep))],
-                              pr.scores[np.isin(pr.labels, list(keep))],
-                              pr.labels[np.isin(pr.labels, list(keep))]) for pr in preds]
-        rg = evaluate(g, p, iou_thresholds=(0.5,), max_dets=100)
-        rf = evaluate(g, p, iou_thresholds=ALL_IOU, max_dets=100)
+        # class-agnostic localization: keep ALL predictions, restrict only GT.
+        # Filtering predictions by group class before matching would count a
+        # correct box with a wrong (out-of-group) class as a localization miss.
+        rg_all = evaluate(g, preds, iou_thresholds=(0.5, 0.75), max_dets=100)
+        # strict group AP still uses only the group's predicted classes
+        p_grp = [ImagePredictions(pr.boxes[np.isin(pr.labels, list(keep))],
+                                  pr.scores[np.isin(pr.labels, list(keep))],
+                                  pr.labels[np.isin(pr.labels, list(keep))]) for pr in preds]
+        rg = evaluate(g, p_grp, iou_thresholds=(0.5,), max_dets=100)
+        rf = evaluate(g, p_grp, iou_thresholds=ALL_IOU, max_dets=100)
         out["groups"][name] = {
             "n_gt": int(rg["per_iou"]["0.5"]["n_gt"]),
             "map50": float(rg["per_iou"]["0.5"]["map_class_aware"] or 0.0),
             "map50_95": float(np.mean([_ap(rf, t) for t in ALL_IOU])),
-            "ap50_agnostic": float(rg["per_iou"]["0.5"]["ap_class_agnostic"] or 0.0),
-            "recall": rg["classification"]["localization_recall"],
+            "ap50_agnostic": float(rg_all["per_iou"]["0.5"]["ap_class_agnostic"] or 0.0),
+            "ap75_agnostic": float(rg_all["per_iou"]["0.75"]["ap_class_agnostic"] or 0.0),
+            "recall": rg_all["classification"]["localization_recall"],
+            "recall_strict_predclass": rg["classification"]["localization_recall"],
         }
     return out
 

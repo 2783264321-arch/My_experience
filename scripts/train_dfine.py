@@ -90,6 +90,7 @@ def main():
         ck = torch.load(run_dir / "last.pt", map_location="cpu", weights_only=False)
         model.load_state_dict(ck["model"]); ema.ema.load_state_dict(ck["ema"])
         optimizer.load_state_dict(ck["optimizer"])
+        ema.updates = int(ck.get("ema_updates", 0))
         start_epoch = ck["epoch"] + 1; global_step = ck["global_step"]
         best_fit = ck["best_fitness"]; best_epoch = ck["best_epoch"]
         print(f"resumed epoch {start_epoch} step {global_step}", flush=True)
@@ -166,7 +167,7 @@ def main():
         free = shutil.disk_usage(run_dir).free / 2**30
         if free < a.min_free_gib: raise RuntimeError(f"disk free {free:.1f} GiB")
         save(run_dir / "last.pt", {"model": model.state_dict(), "ema": ema.ema.state_dict(),
-                                   "optimizer": optimizer.state_dict(), "epoch": epoch,
+                                   "optimizer": optimizer.state_dict(), "ema_updates": int(getattr(ema, "updates", 0)), "epoch": epoch,
                                    "global_step": global_step, "best_fitness": best_fit,
                                    "best_epoch": best_epoch, "metrics": entry, "config": config})
         if a.max_steps and global_step >= a.max_steps: break
