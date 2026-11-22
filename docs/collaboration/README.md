@@ -11,6 +11,7 @@
 - **检测器升级评估（2026-11-22）。** D-FINE-L 与 YOLO26l 已完成单通道矩形输入适配与 4090 短跑：16 视图物理 batch 两者都 OOM；8 视图下 YOLO26l **0.386 s/步、50 轮 ~4.0 h**，D-FINE-L **0.790 s/步、~8.2 h**，均以 8 视图 × 累积 2 等效 16。建议唯一一场正式训练给 **YOLO26l**，D-FINE-L 留作 1 epoch pilot 后的高上限备选。 [接入、实测与选型](opencode-detector-upgrade.md)
 
 - **当前研究重点 · Baseline-3 局部 I/Q 调制专家。** 先用同为 10 MHz 的 SRRC 10/11 跑通 GT 局部 I/Q 基线、预测框迁移和完整候选评测。按最强冻结检测器的可纠正错类决定系统投入，Wi-Fi 20 MHz 暂列优先。20 MS/s 是首轮局部采样起点，4 sps、匹配滤波和同步放进后续同口径对照。 [执行方案与验收](baseline3-local-iq-expert-plan.md)
+- **SRRC 局部 I/Q 阶段 0（2026-11-22，OpenCode）。** 前端/数据核验通过；YOLO26l 冻结候选真值改类 oracle：10 MHz SRRC 10/11 匹配准确率 **48.9%**，全部改对 **+3.59 pp**、score≥0.5 + 框宽路由 **+3.08 pp**；Wi-Fi20 0/1/2 oracle **+9.89 pp**、路由 **+6.77 pp**。8 窗中位只覆盖 1.95%，建议加 16 窗敏感性。GPU 被 D-FINE 占用，GT 小跑未执行；Phase 1–3 预算 5–10 GPU·h。 [阶段 0 记录](opencode-srrc-local-iq-phase0.md)
 
 ## 复数 STFT 粗图前端验证
 

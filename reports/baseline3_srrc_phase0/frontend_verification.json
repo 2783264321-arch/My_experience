@@ -1,0 +1,549 @@
+{
+  "status": "ok",
+  "split_leak": [],
+  "read_segment_check": {
+    "n": 100,
+    "max_abs_err": 0.0,
+    "ok": true
+  },
+  "group_audit": {
+    "n_rows": 7500,
+    "n_json_sha": 7362,
+    "n_group_id": 7362,
+    "json_sha_cross_split": 0,
+    "group_id_cross_split": 0,
+    "duplicate_group_ids": 53,
+    "duplicate_groups_with_10mhz_srrc": 1,
+    "duplicate_group_example": "90531940a65f59a94a353e6366b0bdecc71f9628"
+  },
+  "counts": {
+    "fit": {
+      "n_files": 5957,
+      "n_all": 2752,
+      "n_10mhz": 1824,
+      "files_all": 2179,
+      "files_10mhz": 1572,
+      "class10_all": 1394,
+      "class11_all": 1358,
+      "class10_10mhz": 941,
+      "class11_10mhz": 883,
+      "narrow": 928,
+      "duration_ms": {
+        "min": 1.0,
+        "median": 22.03943,
+        "max": 123.0
+      },
+      "points_20msps": {
+        "min": 20000,
+        "median": 440789,
+        "max": 2460000
+      },
+      "overlap_10mhz": {
+        "clean": 383,
+        "any": 1441,
+        "strong": 847
+      }
+    },
+    "val": {
+      "n_files": 1543,
+      "n_all": 716,
+      "n_10mhz": 469,
+      "files_all": 576,
+      "files_10mhz": 404,
+      "class10_all": 376,
+      "class11_all": 340,
+      "class10_10mhz": 239,
+      "class11_10mhz": 230,
+      "narrow": 247,
+      "duration_ms": {
+        "min": 1.0,
+        "median": 21.0,
+        "max": 105.0
+      },
+      "points_20msps": {
+        "min": 20000,
+        "median": 420000,
+        "max": 2100000
+      },
+      "overlap_10mhz": {
+        "any": 380,
+        "clean": 89,
+        "strong": 229
+      }
+    }
+  },
+  "checks": {
+    "fit": {
+      "n_10mhz": {
+        "expected": 1824,
+        "actual": 1824,
+        "ok": 1
+      },
+      "files_10mhz": {
+        "expected": 1572,
+        "actual": 1572,
+        "ok": 1
+      },
+      "n_all": {
+        "expected": 2752,
+        "actual": 2752,
+        "ok": 1
+      },
+      "files_all": {
+        "expected": 2179,
+        "actual": 2179,
+        "ok": 1
+      }
+    },
+    "val": {
+      "n_10mhz": {
+        "expected": 469,
+        "actual": 469,
+        "ok": 1
+      },
+      "files_10mhz": {
+        "expected": 404,
+        "actual": 404,
+        "ok": 1
+      },
+      "n_all": {
+        "expected": 716,
+        "actual": 716,
+        "ok": 1
+      },
+      "files_all": {
+        "expected": 576,
+        "actual": 576,
+        "ok": 1
+      }
+    }
+  },
+  "synthetic": {
+    "below_center_15mhz": {
+      "peak_hz": 0.0
+    },
+    "above_center_15mhz": {
+      "peak_hz": 0.0
+    },
+    "in_band_3mhz": {
+      "peak_hz": 0.0
+    },
+    "fixed_center_below_peak_hz": -15000000.0,
+    "bandlimit": {
+      "inband_3mhz_power": 3137239.5,
+      "outband_15mhz_power": 9.753280821866994e-11,
+      "rejection_db": 165.0739694559505
+    }
+  },
+  "real_examples": [
+    {
+      "sample_id": "train/559",
+      "signal_id": 1,
+      "class": 10,
+      "B_obs_mhz": 20.0,
+      "duration_ms": 20.0,
+      "raw_points": 400000,
+      "out_points_20msps": 400000,
+      "resample_ratio": [
+        1,
+        1
+      ],
+      "post_resample_peak_hz": 0.0,
+      "post_resample_centroid_hz": -172184.72332536668,
+      "windows": {
+        "gt_start": 0,
+        "gt_end": 400000,
+        "span": 400000,
+        "n_windows": 8,
+        "windows": [
+          {
+            "start": 0,
+            "rms": 4.029451370239258,
+            "finite": true
+          },
+          {
+            "start": 56997,
+            "rms": 3.944218158721924,
+            "finite": true
+          },
+          {
+            "start": 113993,
+            "rms": 3.769773244857788,
+            "finite": true
+          },
+          {
+            "start": 170990,
+            "rms": 3.909341335296631,
+            "finite": true
+          },
+          {
+            "start": 227986,
+            "rms": 4.2063422203063965,
+            "finite": true
+          },
+          {
+            "start": 284983,
+            "rms": 3.6781294345855713,
+            "finite": true
+          },
+          {
+            "start": 341979,
+            "rms": 3.564267873764038,
+            "finite": true
+          },
+          {
+            "start": 398976,
+            "rms": 3.5101633071899414,
+            "finite": true
+          }
+        ],
+        "coverage": 0.02048
+      },
+      "finite": true
+    },
+    {
+      "sample_id": "train/2139",
+      "signal_id": 0,
+      "class": 10,
+      "B_obs_mhz": 40.0,
+      "duration_ms": 20.0,
+      "raw_points": 800000,
+      "out_points_20msps": 400000,
+      "resample_ratio": [
+        1,
+        2
+      ],
+      "post_resample_peak_hz": 3000000.0,
+      "post_resample_centroid_hz": 495600.29718949815,
+      "windows": {
+        "gt_start": 0,
+        "gt_end": 400000,
+        "span": 400000,
+        "n_windows": 8,
+        "windows": [
+          {
+            "start": 0,
+            "rms": 1.89154851436615,
+            "finite": true
+          },
+          {
+            "start": 56997,
+            "rms": 1.9726933240890503,
+            "finite": true
+          },
+          {
+            "start": 113993,
+            "rms": 2.521851062774658,
+            "finite": true
+          },
+          {
+            "start": 170990,
+            "rms": 3.655125856399536,
+            "finite": true
+          },
+          {
+            "start": 227986,
+            "rms": 4.5932230949401855,
+            "finite": true
+          },
+          {
+            "start": 284983,
+            "rms": 4.164163112640381,
+            "finite": true
+          },
+          {
+            "start": 341979,
+            "rms": 1.994594931602478,
+            "finite": true
+          },
+          {
+            "start": 398976,
+            "rms": 3.577486038208008,
+            "finite": true
+          }
+        ],
+        "coverage": 0.02048
+      },
+      "finite": true
+    },
+    {
+      "sample_id": "train/895",
+      "signal_id": 3,
+      "class": 10,
+      "B_obs_mhz": 80.0,
+      "duration_ms": 20.0,
+      "raw_points": 1600016,
+      "out_points_20msps": 400004,
+      "resample_ratio": [
+        1,
+        4
+      ],
+      "post_resample_peak_hz": 0.0,
+      "post_resample_centroid_hz": -14627.220496697224,
+      "windows": {
+        "gt_start": 4,
+        "gt_end": 400004,
+        "span": 400000,
+        "n_windows": 8,
+        "windows": [
+          {
+            "start": 4,
+            "rms": 1.1797739267349243,
+            "finite": true
+          },
+          {
+            "start": 57001,
+            "rms": 1.2003445625305176,
+            "finite": true
+          },
+          {
+            "start": 113997,
+            "rms": 1.220799446105957,
+            "finite": true
+          },
+          {
+            "start": 170994,
+            "rms": 1.2076067924499512,
+            "finite": true
+          },
+          {
+            "start": 227990,
+            "rms": 1.1917147636413574,
+            "finite": true
+          },
+          {
+            "start": 284987,
+            "rms": 1.225685715675354,
+            "finite": true
+          },
+          {
+            "start": 341983,
+            "rms": 1.1845743656158447,
+            "finite": true
+          },
+          {
+            "start": 398980,
+            "rms": 1.2108343839645386,
+            "finite": true
+          }
+        ],
+        "coverage": 0.02048
+      },
+      "finite": true
+    },
+    {
+      "sample_id": "train/147",
+      "signal_id": 2,
+      "class": 11,
+      "B_obs_mhz": 20.0,
+      "duration_ms": 20.0,
+      "raw_points": 400000,
+      "out_points_20msps": 400000,
+      "resample_ratio": [
+        1,
+        1
+      ],
+      "post_resample_peak_hz": -4563200.0,
+      "post_resample_centroid_hz": -980863.8864241831,
+      "windows": {
+        "gt_start": 0,
+        "gt_end": 400000,
+        "span": 400000,
+        "n_windows": 8,
+        "windows": [
+          {
+            "start": 0,
+            "rms": 5.346197128295898,
+            "finite": true
+          },
+          {
+            "start": 56997,
+            "rms": 3.506718158721924,
+            "finite": true
+          },
+          {
+            "start": 113993,
+            "rms": 3.0755608081817627,
+            "finite": true
+          },
+          {
+            "start": 170990,
+            "rms": 3.5460634231567383,
+            "finite": true
+          },
+          {
+            "start": 227986,
+            "rms": 3.497743844985962,
+            "finite": true
+          },
+          {
+            "start": 284983,
+            "rms": 4.311295509338379,
+            "finite": true
+          },
+          {
+            "start": 341979,
+            "rms": 5.178098678588867,
+            "finite": true
+          },
+          {
+            "start": 398976,
+            "rms": 5.222877025604248,
+            "finite": true
+          }
+        ],
+        "coverage": 0.02048
+      },
+      "finite": true
+    },
+    {
+      "sample_id": "train/1801",
+      "signal_id": 4,
+      "class": 11,
+      "B_obs_mhz": 40.0,
+      "duration_ms": 20.0,
+      "raw_points": 800000,
+      "out_points_20msps": 400000,
+      "resample_ratio": [
+        1,
+        2
+      ],
+      "post_resample_peak_hz": 4562950.0,
+      "post_resample_centroid_hz": 1121800.177327484,
+      "windows": {
+        "gt_start": 0,
+        "gt_end": 400000,
+        "span": 400000,
+        "n_windows": 8,
+        "windows": [
+          {
+            "start": 0,
+            "rms": 1.8859188556671143,
+            "finite": true
+          },
+          {
+            "start": 56997,
+            "rms": 2.418741464614868,
+            "finite": true
+          },
+          {
+            "start": 113993,
+            "rms": 2.1612703800201416,
+            "finite": true
+          },
+          {
+            "start": 170990,
+            "rms": 3.819715976715088,
+            "finite": true
+          },
+          {
+            "start": 227986,
+            "rms": 2.0061678886413574,
+            "finite": true
+          },
+          {
+            "start": 284983,
+            "rms": 1.0680644512176514,
+            "finite": true
+          },
+          {
+            "start": 341979,
+            "rms": 0.9677116870880127,
+            "finite": true
+          },
+          {
+            "start": 398976,
+            "rms": 3.203263998031616,
+            "finite": true
+          }
+        ],
+        "coverage": 0.02048
+      },
+      "finite": true
+    },
+    {
+      "sample_id": "train/6248",
+      "signal_id": 0,
+      "class": 11,
+      "B_obs_mhz": 80.0,
+      "duration_ms": 20.0,
+      "raw_points": 1600000,
+      "out_points_20msps": 400000,
+      "resample_ratio": [
+        1,
+        4
+      ],
+      "post_resample_peak_hz": 3964250.0,
+      "post_resample_centroid_hz": 157742.33932937525,
+      "windows": {
+        "gt_start": 0,
+        "gt_end": 400000,
+        "span": 400000,
+        "n_windows": 8,
+        "windows": [
+          {
+            "start": 0,
+            "rms": 0.7941689491271973,
+            "finite": true
+          },
+          {
+            "start": 56997,
+            "rms": 0.7646538019180298,
+            "finite": true
+          },
+          {
+            "start": 113993,
+            "rms": 0.7082244157791138,
+            "finite": true
+          },
+          {
+            "start": 170990,
+            "rms": 0.5711876153945923,
+            "finite": true
+          },
+          {
+            "start": 227986,
+            "rms": 0.8795204758644104,
+            "finite": true
+          },
+          {
+            "start": 284983,
+            "rms": 0.8143134117126465,
+            "finite": true
+          },
+          {
+            "start": 341979,
+            "rms": 0.6214020252227783,
+            "finite": true
+          },
+          {
+            "start": 398976,
+            "rms": 0.540860652923584,
+            "finite": true
+          }
+        ],
+        "coverage": 0.02048
+      },
+      "finite": true
+    }
+  ],
+  "val_10mhz_window_coverage": {
+    "n": 469,
+    "min": 0.003900952380952381,
+    "median": 0.019504761904761903,
+    "max": 0.4096
+  },
+  "front_end": {
+    "fs_out_hz": 20000000.0,
+    "signal_bw_hz": 10000000.0,
+    "keep_bw_hz": 10200000.0,
+    "edge_ms": 0.2,
+    "window_points": 1024,
+    "n_windows": 8
+  },
+  "notes": [
+    "Down-conversion and filtering preserve the time-sample count; only time cropping and resampling/decimation change it.",
+    "The 20 MS/s choice is 2x the 10 MHz SRRC nominal bandwidth.",
+    "GT boxes are used for phase-0 front-end verification only; predictions are evaluated separately."
+  ]
+}
