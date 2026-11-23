@@ -73,7 +73,11 @@ python -m scripts.validate_yolo26 --split fit \
 
 `fit_sample_ids.json` 与 `fit_predictions_filtered_0_5.npz` 按预测归档的索引一一对应。第一轮训练按服务器上实际可用的候选缓存和 I/O 跑同口径全 val，结果写回共享目录。
 
-**V2 已执行（2026-11-23，OpenCode）**：fit 5,957 样本 / 96,051 views / 23.2 min；2,589 个候选，train/dev 2,081/508；V2 三分类 20 epoch / 113.8 s，dev balanced 0.459（keep 召回 0.380）。完整 val：V2 argmax mAP50 **+0.386 pp**（195/132/165），V2 0.70 **+0.149 pp**；V1 0.70 仍更稳（+0.352，57/14/54）。V2 argmax matched-only +0.617、unmatched-only −0.221。**V2 不采用为主规则。** [第二张 AP 表](opencode-srrc-yolo-v2.md)
+**V2 已执行（2026-11-23，OpenCode）**：fit 5,957 样本 / 96,051 views / 23.2 min；2,589 个候选，train/dev 2,081/508；V2 三分类 20 epoch / 113.8 s，dev balanced 0.459（keep 召回 0.380）。完整 val 上，括号内为实际改对/改坏/未匹配改动。V2 argmax **+0.386 pp**（96/33/87），V2 0.70 **+0.149 pp**（13/0/17），V1 0.70 **+0.352 pp**（57/14/54）。V1 与 V2 的 0.70 规则进入第三步独立复验。 [第二张 AP 表](opencode-srrc-yolo-v2.md)
+
+## 第三步冻结复验
+
+冻结纯 YOLO26l、V1 0.70 和 V2 0.70，在同一份获准使用的独立数据上一次跑完。继续用原框、原分数、原 NMS 和同一候选路由，交付全量 mAP50/mAP50:95、class10/11 AP50、实际改对、改坏与未匹配改动。V1 和 V2 分别代表当前验证集上 AP 更高与动作更保守的两个候选。独立复验看两种收益能否延续。正式 test 按此前封存约定启用。 [V2 计数与决策](opencode-srrc-yolo-v2.md#42-第三步独立复验)
 
 ## 前期记录
 

@@ -240,9 +240,10 @@ def apply_rule(preds, keys, decisions, threshold, keep_label=2):
     updated = [ImagePredictions(p.boxes, p.scores, p.labels.copy()) for p in preds]
     changed = 0
     for (image, index), (action, conf) in zip(keys, decisions):
-        if action == keep_label or conf < threshold:
+        label = action + 10
+        if action == keep_label or conf < threshold or label == preds[image].labels[index]:
             continue
-        updated[image].labels[index] = action + 10
+        updated[image].labels[index] = label
         changed += 1
     return updated, changed
 
@@ -281,20 +282,22 @@ def eval_v2(args):
         matches, _ = _match_single(gt, pred, IOU, class_aware=False)
         known[image] = {pi: int(gt.labels[gi]) for pi, gi in matches}
     result = {"baseline": baseline, "routed": len(keyed)}
+    args.out.mkdir(parents=True, exist_ok=True)
     for name, thr in (("argmax", 0.0), ("conf_ge_0.70", 0.70)):
         updated, n_changed = apply_rule(preds, [k for k, _, _ in keyed],
                                         [(a, c) for _, a, c in keyed], thr)
         ap = report_ap(targets, updated)
-        corrected = broken = unmatched = other = 0
+        corrected = broken = broken_class10 = unmatched = other = 0
         matched_up = [ImagePredictions(p.boxes, p.scores, p.labels.copy()) for p in preds]
         unmatched_up = [ImagePredictions(p.boxes, p.scores, p.labels.copy()) for p in preds]
         rows = []
         for (image, idx), a, c in keyed:
             truth = known[image].get(idx)
-            if a == 2 or c < thr:
-                rows.append((image, idx, a, c, truth, 0))
+            prev = int(preds[image].labels[idx])
+            new = int(updated[image].labels[idx])
+            rows.append((image, idx, a, c, truth, int(new != prev)))
+            if new == prev:
                 continue
-            prev = int(preds[image].labels[idx]); new = a + 10
             if truth is None:
                 unmatched += 1
                 unmatched_up[image].labels[idx] = new
@@ -303,13 +306,13 @@ def eval_v2(args):
             else:
                 corrected += int(new == truth)
                 broken += int(prev == truth)
+                broken_class10 += int(prev == truth == 10)
                 matched_up[image].labels[idx] = new
-            rows.append((image, idx, a, c, truth, int(new != prev)))
         map_matched = report_ap(targets, matched_up)
         map_unmatched = report_ap(targets, unmatched_up)
         result[name] = {
             "threshold": thr, "n_changed": n_changed,
-            "corrected": corrected, "broken": broken,
+            "corrected": corrected, "broken": broken, "broken_class10": broken_class10,
             "unmatched_changed": unmatched, "other_matched_class_changed": other,
             "net": corrected - broken, "map50": ap["map50"],
             "map50_95": ap["map50_95"], "ap50": ap["ap50"],
@@ -324,12 +327,10 @@ def eval_v2(args):
             w = csv.writer(f)
             w.writerow(["sample_id", "pred_idx", "yolo_class", "expert_action",
                         "expert_confidence", "matched_gt_class", "changed"])
-            for (image, idx), a, c in keyed:
-                rows_row = next(r for r in rows if r[0] == image and r[1] == idx)
+            for image, idx, action, confidence, truth, changed in rows:
                 w.writerow([records[image].sample_id, idx,
-                            int(preds[image].labels[idx]), a, c,
-                            "" if rows_row[4] is None else rows_row[4], rows_row[5]])
-    args.out.mkdir(parents=True, exist_ok=True)
+                            int(preds[image].labels[idx]), action, confidence,
+                            "" if truth is None else truth, changed])
     (args.out / "summary.json").write_text(json.dumps(result, indent=2) + "\n",
                                            encoding="utf-8")
     print(json.dumps({"baseline_map50": baseline["map50"],

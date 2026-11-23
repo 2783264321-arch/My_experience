@@ -88,7 +88,7 @@ python -m scripts.baseline3srrc_gt_pilot train \
 
 **第一张冻结 YOLO26l AP 对照（2026-11-23，OpenCode）**：654 个真实 SRRC 候选、固定框/分数/NMS。基线 mAP50 0.659601；最佳为 amplitude_phase_change + 专家置信度≥0.70：mAP50 **0.663122（+0.352 pp）**，mAP50:95 0.601828，class11 AP50 +5.35 pp，class10 −0.42 pp，57 改对 / 14 改坏 / 54 未匹配改动。匹配-only 诊断：同一规则 **+0.468 pp**（AP10 +0.27、AP11 +6.27）；未匹配-only **−0.092 pp**，说明下一版应先抑制未匹配/重复改动。 [第一版 AP 表](opencode-srrc-yolo-first-ap.md)
 
-**第二张 AP 表 · V2 真实预测框训练（2026-11-23，OpenCode）**：fit 5,957 样本导出 96,051 views（23.2 min）；2,589 个 fit 候选训练三分类 keep/10/11（train/dev 2,081/508），V2 20 epoch 113.8 s，dev 三类 balanced 仅 0.459（keep 召回 0.380）。完整 val：V2 argmax mAP50 **0.663458（+0.386 pp）**，但 195/132/165（改对/改坏/未匹配）；V2 0.70 为 **+0.149 pp**。V2 argmax matched-only **+0.617**、unmatched-only **−0.221**；V1 0.70 仍更稳（+0.352，57/14/54）。**V2 不采用为主规则，V1 0.70 保留。** [第二张 AP 表](opencode-srrc-yolo-v2.md)
+**第二张 AP 表 · V2 真实预测框训练（2026-11-23，OpenCode）**：fit 5,957 样本导出 96,051 views（23.2 min）；2,589 个 fit 候选训练三分类 keep/10/11（train/dev 2,081/508），V2 20 epoch 113.8 s，dev 三类 balanced 仅 0.459（keep 召回 0.380）。完整 val 上，括号内为实际改对/改坏/未匹配改动。V2 argmax **+0.386 pp**（96/33/87），V2 0.70 **+0.149 pp**（13/0/17），V1 0.70 **+0.352 pp**（57/14/54）。V1 与 V2 的 0.70 规则进入第三步独立复验。 [第二张 AP 表](opencode-srrc-yolo-v2.md)
 
 ## 三臂结果复核与下一步
 

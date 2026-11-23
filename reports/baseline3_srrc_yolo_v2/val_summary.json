@@ -21,11 +21,11 @@
   },
   "routed": 654,
   "argmax": {
-    "threshold": 0.0,
-    "n_changed": 416,
-    "corrected": 195,
-    "broken": 132,
-    "unmatched_changed": 165,
+    "threshold": 0,
+    "n_changed": 216,
+    "corrected": 96,
+    "broken": 33,
+    "unmatched_changed": 87,
     "other_matched_class_changed": 0,
     "net": 63,
     "map50": 0.6634583307948683,
@@ -50,14 +50,15 @@
     "matched_only_map50": 0.6657719215554945,
     "unmatched_only_map50": 0.6573881238550863,
     "matched_only_delta_pp": 0.6171345717225551,
-    "unmatched_only_delta_pp": -0.22124519831826506
+    "unmatched_only_delta_pp": -0.22124519831826506,
+    "broken_class10": 31
   },
   "conf_ge_0.70": {
     "threshold": 0.7,
-    "n_changed": 86,
-    "corrected": 55,
-    "broken": 42,
-    "unmatched_changed": 30,
+    "n_changed": 30,
+    "corrected": 13,
+    "broken": 0,
+    "unmatched_changed": 17,
     "other_matched_class_changed": 0,
     "net": 13,
     "map50": 0.6610921548791536,
@@ -82,6 +83,7 @@
     "matched_only_map50": 0.6609626077673854,
     "unmatched_only_map50": 0.6597017713160226,
     "matched_only_delta_pp": 0.13620319291164362,
-    "unmatched_only_delta_pp": 0.010119547775366833
+    "unmatched_only_delta_pp": 0.010119547775366833,
+    "broken_class10": 0
   }
 }
