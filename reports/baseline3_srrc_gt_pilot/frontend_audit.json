@@ -1,0 +1,382 @@
+{
+  "tone_gain": [
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 0.0,
+      "rms": 0.999994695186615,
+      "gain_db": -4.6077145828163055e-05,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 4400000.0,
+      "rms": 1.0000243186950684,
+      "gain_db": 0.00021122693313424727,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 4590000.0,
+      "rms": 1.0000079870224,
+      "gain_db": 6.937411805635646e-05,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 5000000.0,
+      "rms": 0.6515772938728333,
+      "gain_db": -3.720681167367318,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 5100000.0,
+      "rms": 0.5000241994857788,
+      "gain_db": -6.020179535326927,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 5500000.0,
+      "rms": 0.028569022193551064,
+      "gain_db": -30.882092471457653,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 5610000.0,
+      "rms": 0.0028666735161095858,
+      "gain_db": -50.852435315998335,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 6000000.0,
+      "rms": 0.0029285235796123743,
+      "gain_db": -50.667025496204715,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 20000000.0,
+      "f_off_hz": 8000000.0,
+      "rms": 0.0027866174932569265,
+      "gain_db": -51.09845281783012,
+      "out_points": 200000,
+      "raw_points": 200000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 0.0,
+      "rms": 0.999993085861206,
+      "gain_db": -6.0055654123276304e-05,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 4400000.0,
+      "rms": 1.0007294416427612,
+      "gain_db": 0.006333539913282969,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 4590000.0,
+      "rms": 1.0010652542114258,
+      "gain_db": 0.009247755785568107,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 5000000.0,
+      "rms": 0.6522346138954163,
+      "gain_db": -3.711923140810345,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 5100000.0,
+      "rms": 0.5004562735557556,
+      "gain_db": -6.0126772441343785,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 5500000.0,
+      "rms": 0.028521200641989708,
+      "gain_db": -30.89664392337715,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 5610000.0,
+      "rms": 0.0024007270112633705,
+      "gain_db": -52.39314442270221,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 6000000.0,
+      "rms": 0.0024835425429046154,
+      "gain_db": -52.09856792343781,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 40000000.0,
+      "f_off_hz": 8000000.0,
+      "rms": 0.002335334662348032,
+      "gain_db": -52.6330174917088,
+      "out_points": 200000,
+      "raw_points": 400000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 0.0,
+      "rms": 0.9999925494194031,
+      "gain_db": -6.47151618874532e-05,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 4400000.0,
+      "rms": 1.000830054283142,
+      "gain_db": 0.0072067693057215575,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 4590000.0,
+      "rms": 1.001220941543579,
+      "gain_db": 0.01059849474658244,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 5000000.0,
+      "rms": 0.6523802280426025,
+      "gain_db": -3.709984195495919,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 5100000.0,
+      "rms": 0.500564455986023,
+      "gain_db": -6.010799839149633,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 5500000.0,
+      "rms": 0.028516167774796486,
+      "gain_db": -30.898176775622275,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 5610000.0,
+      "rms": 0.002304661786183715,
+      "gain_db": -52.7478559839802,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 6000000.0,
+      "rms": 0.0023920470848679543,
+      "gain_db": -52.424605519616705,
+      "out_points": 200000,
+      "raw_points": 800000
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "f_off_hz": 8000000.0,
+      "rms": 0.0022232707124203444,
+      "gain_db": -53.06015306043973,
+      "out_points": 200000,
+      "raw_points": 800000
+    }
+  ],
+  "srrc_retention": [
+    {
+      "fs_in_hz": 80000000.0,
+      "order": 4,
+      "alpha": 0.2,
+      "cache": {
+        "rms": 0.17694903910160065,
+        "m4": 1.241606593132019,
+        "points": 9662
+      },
+      "ref": {
+        "rms": 0.1769864857196808,
+        "m4": 1.2404154539108276,
+        "points": 9662
+      },
+      "power_ratio_cache_vs_ref": 0.9995768868287376,
+      "m4_cache_minus_ref": 0.0011911392211914062
+    },
+    {
+      "fs_in_hz": 80000000.0,
+      "order": 16,
+      "alpha": 0.2,
+      "cache": {
+        "rms": 0.17645558714866638,
+        "m4": 1.487983226776123,
+        "points": 9662
+      },
+      "ref": {
+        "rms": 0.17649410665035248,
+        "m4": 1.4875129461288452,
+        "points": 9662
+      },
+      "power_ratio_cache_vs_ref": 0.9995635514520769,
+      "m4_cache_minus_ref": 0.00047028064727783203
+    }
+  ],
+  "cache": {
+    "path": "/root/autodl-fs/runs_local/srrc-gt-pilot/fit_8win.npz",
+    "bytes": 119980212,
+    "shape": [
+      1824,
+      8,
+      2,
+      1024
+    ],
+    "dtype": "float32",
+    "metadata": {
+      "protocol": "fit-only SRRC 10 MHz, grouped dev fold 0 of 5",
+      "seed": 1729,
+      "fs_hz": 20000000.0,
+      "band_limit_hz": 10200000.0,
+      "edge_ms_per_side": 0.2,
+      "window_points": 1024,
+      "n_windows": 8,
+      "max_groups": null,
+      "n_train": 1458,
+      "n_dev": 366
+    },
+    "n_instances": 1824,
+    "n_groups": 1571,
+    "labels": {
+      "0": 941,
+      "1": 883
+    },
+    "split": {
+      "dev": 366,
+      "train": 1458
+    },
+    "strata": {
+      "clean": 383,
+      "strong": 847,
+      "weak": 594
+    },
+    "finite": true,
+    "zero_windows": 0,
+    "recompute_checks": [
+      {
+        "sample_id": "train/1004",
+        "signal_idx": 1,
+        "class": 11,
+        "B_obs_mhz": 20.0,
+        "duration_ms": 20.0,
+        "raw_points": 400000,
+        "out_points": 400000,
+        "gt_start": 0,
+        "gt_end": 400000,
+        "window_stops_inside_gt": true,
+        "max_abs_cache_diff": 0.0,
+        "cache_reusable": true
+      },
+      {
+        "sample_id": "train/2328",
+        "signal_idx": 3,
+        "class": 11,
+        "B_obs_mhz": 50.0,
+        "duration_ms": 81.59886,
+        "raw_points": 4099943,
+        "out_points": 1639978,
+        "gt_start": 4000,
+        "gt_end": 1635977,
+        "window_stops_inside_gt": true,
+        "max_abs_cache_diff": 0.0,
+        "cache_reusable": true
+      },
+      {
+        "sample_id": "train/3734",
+        "signal_idx": 3,
+        "class": 11,
+        "B_obs_mhz": 30.0,
+        "duration_ms": 19.0,
+        "raw_points": 576000,
+        "out_points": 384000,
+        "gt_start": 4000,
+        "gt_end": 384000,
+        "window_stops_inside_gt": true,
+        "max_abs_cache_diff": 0.0,
+        "cache_reusable": true
+      },
+      {
+        "sample_id": "train/5153",
+        "signal_idx": 2,
+        "class": 11,
+        "B_obs_mhz": 20.0,
+        "duration_ms": 30.0,
+        "raw_points": 604000,
+        "out_points": 604000,
+        "gt_start": 4000,
+        "gt_end": 604000,
+        "window_stops_inside_gt": true,
+        "max_abs_cache_diff": 0.0,
+        "cache_reusable": true
+      },
+      {
+        "sample_id": "train/6512",
+        "signal_idx": 1,
+        "class": 10,
+        "B_obs_mhz": 20.0,
+        "duration_ms": 25.0,
+        "raw_points": 504001,
+        "out_points": 504001,
+        "gt_start": 4000,
+        "gt_end": 504000,
+        "window_stops_inside_gt": true,
+        "max_abs_cache_diff": 0.0,
+        "cache_reusable": true
+      },
+      {
+        "sample_id": "train/997",
+        "signal_idx": 0,
+        "class": 11,
+        "B_obs_mhz": 80.0,
+        "duration_ms": 38.0,
+        "raw_points": 3056000,
+        "out_points": 764000,
+        "gt_start": 4000,
+        "gt_end": 764000,
+        "window_stops_inside_gt": true,
+        "max_abs_cache_diff": 0.0,
+        "cache_reusable": true
+      }
+    ]
+  }
+}

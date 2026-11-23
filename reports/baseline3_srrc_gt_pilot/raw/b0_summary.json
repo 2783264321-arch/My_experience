@@ -1,0 +1,97 @@
+{
+  "arm": "b0_same_windows",
+  "feature_source": "2c5e815:scripts/srrc_frontend.py",
+  "aggregation": "mean of per-window features",
+  "n_features": 53,
+  "cache": {
+    "protocol": "fit-only SRRC 10 MHz, grouped dev fold 0 of 5",
+    "seed": 1729,
+    "fs_hz": 20000000.0,
+    "band_limit_hz": 10200000.0,
+    "edge_ms_per_side": 0.2,
+    "window_points": 1024,
+    "n_windows": 8,
+    "max_groups": null,
+    "n_train": 1458,
+    "n_dev": 366
+  },
+  "seconds": 7.09,
+  "dev": {
+    "all": {
+      "n": 366,
+      "accuracy": 0.6284153005464481,
+      "balanced_accuracy": 0.6305264101874272,
+      "recall_10_11": [
+        0.5661375661375662,
+        0.6949152542372882
+      ],
+      "confusion_10_11": [
+        [
+          107,
+          82
+        ],
+        [
+          54,
+          123
+        ]
+      ]
+    },
+    "clean": {
+      "n": 71,
+      "accuracy": 0.7183098591549296,
+      "balanced_accuracy": 0.7471544715447155,
+      "recall_10_11": [
+        0.5609756097560976,
+        0.9333333333333333
+      ],
+      "confusion_10_11": [
+        [
+          23,
+          18
+        ],
+        [
+          2,
+          28
+        ]
+      ]
+    },
+    "weak": {
+      "n": 114,
+      "accuracy": 0.5701754385964912,
+      "balanced_accuracy": 0.5712962962962963,
+      "recall_10_11": [
+        0.55,
+        0.5925925925925926
+      ],
+      "confusion_10_11": [
+        [
+          33,
+          27
+        ],
+        [
+          22,
+          32
+        ]
+      ]
+    },
+    "strong": {
+      "n": 181,
+      "accuracy": 0.6298342541436464,
+      "balanced_accuracy": 0.628482404692082,
+      "recall_10_11": [
+        0.5795454545454546,
+        0.6774193548387096
+      ],
+      "confusion_10_11": [
+        [
+          51,
+          37
+        ],
+        [
+          30,
+          63
+        ]
+      ]
+    }
+  }
+}

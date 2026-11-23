@@ -13,6 +13,7 @@
 - **当前研究重点 · Baseline-3 局部 I/Q 调制专家。** 先用同为 10 MHz 的 SRRC 10/11 跑通 GT 局部 I/Q 基线、预测框迁移和完整候选评测。按最强冻结检测器的可纠正错类决定系统投入，Wi-Fi 20 MHz 暂列优先。20 MS/s 是首轮局部采样起点，4 sps、匹配滤波和同步放进后续同口径对照。 [执行方案与验收](baseline3-local-iq-expert-plan.md)
 - **SRRC 局部 I/Q 阶段 0（2026-11-22，OpenCode）。** 前端/数据核验通过；YOLO26l 冻结候选真值改类 oracle：10 MHz SRRC 10/11 匹配准确率 **48.9%**，全部改对 **+3.59 pp**、score≥0.5 + 框宽路由 **+3.08 pp**；Wi-Fi20 0/1/2 oracle **+9.89 pp**、路由 **+6.77 pp**。8 窗中位只覆盖 1.95%，建议加 16 窗敏感性。GPU 被 D-FINE 占用，GT 小跑未执行；Phase 1–3 预算 5–10 GPU·h。 [阶段 0 记录](opencode-srrc-local-iq-phase0.md)
 - **SRRC GT 缓存准备（2026-11-22，OpenCode）。** 完整 fit 清单 **1,824 实例 / 1,571 组**；40 组试切 **33.34 s / 3.09 MB**，D-FINE 步时 **+1.54%**；全量 8 窗缓存 **1,112.84 s / 114.4 MiB**，D-FINE 同时段 **+1.03%**，未触发停止。 [缓存与步时记录](opencode-srrc-gt-pilot-cache.md)
+- **SRRC 同窗三臂（2026-11-23，OpenCode）。** 前端核查通过、缓存可复用；5 epoch × 3 seeds：B0 **0.6305**、幅度 CNN **0.5967±0.0662**、I/Q CNN **0.5295±0.0181**。幅度只在 weak 层略好、strong 层低于 B0；20 epoch 单 seed 仍不稳。先稳定训练/分类头，再决定 16 窗或符号恢复。 [结果](opencode-srrc-three-arm-pilot.md)
 
 ## 复数 STFT 粗图前端验证
 

@@ -77,3 +77,5 @@ python -m scripts.baseline3srrc_gt_pilot train \
 早期 DSP 回归和毫秒缓冲回归检查使用合成 IQ 通过。另用 24 个合成文件验证了无 IQ 的清单生成、组内分割、8/16 窗缓存，以及幅度和 I/Q 各一轮的 CPU 前向、反向和逐实例 logit 导出。同窗 B0 的 53 维特征用 16 个合成窗口和旧实现逐项核对，三臂导出的开发集实例与交叠标记已通过配对检查。真实分类表现待 AutoDL 实测。
 
 **AutoDL 实测（2026-11-22，OpenCode）**：完整 fit 清单 1,824 实例 / 1,571 组；40 组试切 33.34 s / 3.09 MB，D-FINE 步时 +1.54%；全量缓存 1,112.84 s / 114.4 MiB，D-FINE 同时段步时 +1.03%，未触发停止。缓存与监控记录见 [opencode-srrc-gt-pilot-cache.md](opencode-srrc-gt-pilot-cache.md)。
+
+**同窗三臂实测（2026-11-23，OpenCode）**：前端核查通过、缓存可复用；5 epoch、3 seeds 的 balanced accuracy 为 B0 **0.6305**、幅度 CNN **0.5967±0.0662**、I/Q CNN **0.5295±0.0181**；strong 重叠层幅度 CNN 明显低于 B0。20 epoch 单 seed 诊断仍未给出稳定增益，当前应先稳定训练/分类头，再决定加窗或符号恢复。 [完整结果](opencode-srrc-three-arm-pilot.md)
