@@ -153,3 +153,19 @@ mAP50:95 不降，就停止这条线。
 - `reports/detector_upgrade/dfine_head_finetune.json`：训练、验证和框检查汇总。
 - checkpoint：`runs/dfine_head_finetune/{control,group}/last.pt`（未提交）。
 - 本轮未使用 `test`，未训练 YOLO，未改推理合并规则。
+
+## 7. 官方 test 复核（2026-11-24）
+
+按用户要求解封官方 `test`，四份权重各跑一次完整评估，固定与 val 相同的
+`batch_views=8` 口径。test 共 2,500 个样本、20,018 个标注。
+
+| 模型 | test mAP50 | test mAP50:95 | 相对第 25 轮 |
+| --- | ---: | ---: | ---: |
+| 第 25 轮 | **0.740703** | **0.682079** | — |
+| control | 0.738470 | 0.679011 | −0.22 / −0.31 pp |
+| group | 0.738531 | 0.678948 | −0.22 / −0.31 pp |
+
+group 相对 control 仅 **+0.006 / −0.006 pp**；Wi‑Fi20 `0/1/2`
++0.04 / −0.20 / −0.02 pp，SRRC +0.10 pp，FM +0.02 pp。test 与 val
+结论一致：**分类头短训和组内 CE 都不值得保留，最终回退第 25 轮。**
+完整四模型表见 [官方 test 评估](opencode-dfine-official-test.md)。

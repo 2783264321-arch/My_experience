@@ -151,3 +151,7 @@ D-FINE-L 相对 YOLO26l 在 14 类上都有 AP 增益。类 12（AM）是逐类�
 ## 分类头短训实测（2026-11-23，OpenCode）
 
 按上一步建议做了 5 轮分类头短训：从第 25 轮初始化，只训 `dec_score_head` 21,588 参数，control 用原损失、group 额外加 Wi‑Fi20 `0/1/2` 组内 CE。完整 `val` 上 control **0.759040/0.710786**，group **0.759422/0.710689**；group 相对 control 仅 +0.038/−0.010 pp，`0/1/2` 逐类 AP 全部小幅下降，SRRC 两组都回退约 1.1 pp，FM 持平。原始 `pred_boxes` 在 416 个视图上与第 25 轮逐位相同，变化只在分类分数。**结论：不保留，回退第 25 轮；不再做分类头短训。** [完整 AP 表与判断](opencode-dfine-head-finetune.md)
+
+## 官方 test 最终确认（2026-11-24，OpenCode）
+
+按用户要求解封 test，四份已有权重各跑一次完整评估。第 25 轮 **0.740703/0.682079**，第 50 轮 **0.705726/0.644292**（−3.50/−3.78 pp，SRRC −13.37 pp、Wi‑Fi20 −3.74 pp、FM +1.03 pp）；control **0.738470/0.679011**，group **0.738531/0.678948**，group 相对 control 仅 +0.006/−0.006 pp。test 与 val 排序一致，最终保留第 25 轮。 [完整 test AP 表](opencode-dfine-official-test.md)

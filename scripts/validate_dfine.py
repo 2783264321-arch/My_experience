@@ -34,6 +34,8 @@ def main():
     ap.add_argument('--checkpoint',default='best.pt')
     ap.add_argument('--weights',choices=['ema','model'],default='ema')
     ap.add_argument('--stratified',type=int,default=0)
+    ap.add_argument('--split',default='val',choices=['fit','val','test'])
+    ap.add_argument('--max-samples',type=int,default=0)
     ap.add_argument('--conf',type=float,default=0.001)
     ap.add_argument('--batch-views',type=int,default=8)
     ap.add_argument('--workers',type=int,default=8)
@@ -57,16 +59,17 @@ def main():
                                   r['labels'][keep,None].float()],1).float())
         return out
     norm_d=json.loads((ROOT/'configs/normalizer.json').read_text()); norm=(norm_d['lo'],norm_d['hi'])
-    records=load_manifest(SPLIT_MANIFEST,split='val')
+    records=load_manifest(SPLIT_MANIFEST,split=a.split)
+    if a.max_samples: records=records[:a.max_samples]
     if a.stratified: records=stratified(records,a.stratified)
-    out_dir=Path(a.output) if a.output else run_dir/('val_subset' if a.stratified else 'val_full')
+    out_dir=Path(a.output) if a.output else run_dir/(f'{a.split}_subset' if a.stratified else f'{a.split}_full')
     out_dir.mkdir(parents=True,exist_ok=True)
     t0=time.perf_counter(); res=run_dual(model,records,norm,batch_views=a.batch_views,workers=a.workers,infer_fn=infer)
     elapsed=time.perf_counter()-t0
     gts=[gt_global(r, math.ceil(r.N/(N_TIME-1))) for r in records]
-    for name in ('unfiltered','filtered_0_5'): save_npz(out_dir/f'val_predictions_{name}.npz',res[f'preds_{name}'],gts)
-    (out_dir/'val_sample_ids.json').write_text(json.dumps([r.sample_id for r in records],indent=2))
-    summary={'run':a.run,'checkpoint':str(ck_path),'weights':a.weights,'split':'val','n_samples':len(records),
+    for name in ('unfiltered','filtered_0_5'): save_npz(out_dir/f'{a.split}_predictions_{name}.npz',res[f'preds_{name}'],gts)
+    (out_dir/f'{a.split}_sample_ids.json').write_text(json.dumps([r.sample_id for r in records],indent=2))
+    summary={'run':a.run,'checkpoint':str(ck_path),'weights':a.weights,'split':a.split,'n_samples':len(records),
              'n_views':res['n_views'],'n_boundary_dropped':res['n_boundary_dropped'],
              'conf':0.001,'iou':0.5,'max_det':100,'per_view_topk':300,
              'settings':res['settings'],'elapsed_s':elapsed,
