@@ -17,6 +17,7 @@
 - **SRRC 阈值校准复核（2026-11-23，OpenCode）。** AUC 复核成立（B0 0.6652，幅度三 seed 0.7004–0.7330），但默认判决偏类；源组留出 291 例校准后，dev 平衡准确率反而下降（B0 0.6222→0.6082；幅度 0.6296/0.6434/0.6821→0.6200/0.6349/0.6555）。先解决分数校准/迁移，暂不加窗或符号恢复。 [结果](opencode-srrc-threshold-calibration.md)
 - **SRRC 4 窗 vs 8 窗配对（2026-11-23，OpenCode）。** 已有幅度权重下，strong AUC full8 为 0.6894/0.6621/0.6505，4 窗为 0.667/0.649/0.617–0.650；full8 方向一致但仅 +0.06–3.35 pp，bootstrap 区间全含 0，4/8 判决一致率 93–99%。16 窗不值得优先，先解决校准/分类头。 [结果](opencode-srrc-window-count-probe.md)
 - **SRRC 16 窗嵌套推理（2026-11-23，OpenCode）。** 原 8 窗 + 8 个固定新位置；旧窗重算误差 0.0。strong AUC 16−8 为 +1.77/+0.62/+1.14 pp，三个源组 bootstrap 区间均含 0；默认强重叠 balanced accuracy 无提升。补窗 366 dev 约 226.6 s，推理额外 <0.1 s。**16 窗不值得采用，保留 8 窗。** [结果](opencode-srrc-window16-probe.md)
+- **SRRC 第一张冻结 YOLO AP 表（2026-11-23，OpenCode）。** 654 个真实 SRRC 候选，固定框/分数/NMS。基线 mAP50 0.659601；最佳 amplitude_phase_change + 专家置信度≥0.70：mAP50 **0.663122（+0.352 pp）**，class11 AP50 +5.35 pp、class10 −0.42 pp，57 改对 / 14 改坏 / 54 未匹配改动。只改匹配框时 **+0.468 pp**，只改未匹配框时 **−0.092 pp**；下一版先抑制未匹配/重复改动。 [AP 表](opencode-srrc-yolo-first-ap.md)
 
 ## 复数 STFT 粗图前端验证
 

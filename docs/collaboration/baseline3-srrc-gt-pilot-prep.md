@@ -86,6 +86,8 @@ python -m scripts.baseline3srrc_gt_pilot train \
 
 **16 窗嵌套推理（2026-11-23，OpenCode）**：保留原 8 窗、补 7 个中点 + 第一间隙 1/4 点的 8 个新位置；旧窗重算 max diff **0.0**。strong AUC 16−8 为 **+1.77 / +0.62 / +1.14 pp**（seed1729/1730/1731），按 148 个强重叠源组 bootstrap 的三个区间都含 0；默认强重叠 balanced accuracy 0.575→0.575、0.494→0.494、0.540→0.535。补窗 366 dev 约 **226.6 s**，16 窗推理额外 <0.1 s。**16 窗不值得采用，主方案保留 8 窗。** [16 窗结果](opencode-srrc-window16-probe.md)
 
+**第一张冻结 YOLO26l AP 对照（2026-11-23，OpenCode）**：654 个真实 SRRC 候选、固定框/分数/NMS。基线 mAP50 0.659601；最佳为 amplitude_phase_change + 专家置信度≥0.70：mAP50 **0.663122（+0.352 pp）**，mAP50:95 0.601828，class11 AP50 +5.35 pp，class10 −0.42 pp，57 改对 / 14 改坏 / 54 未匹配改动。匹配-only 诊断：同一规则 **+0.468 pp**（AP10 +0.27、AP11 +6.27）；未匹配-only **−0.092 pp**，说明下一版应先抑制未匹配/重复改动。 [第一版 AP 表](opencode-srrc-yolo-first-ap.md)
+
 ## 三臂结果复核与下一步
 
 以 `6d210c7` 的 [逐实例预测与训练记录](../../reports/baseline3_srrc_gt_pilot/raw/) 为依据。三臂的 366 个实例键、类别、分组和重叠标记均对齐，共 312 个源组。平衡准确率取两类召回的平均。ROC AUC 用 `logit_11 - logit_10` 作分数，衡量模型把 class11 排在 class10 前面的能力，与具体在哪个分数处分两类无关。
