@@ -80,6 +80,8 @@ python -m scripts.baseline3srrc_gt_pilot train \
 
 **同窗三臂实测（2026-11-23，OpenCode）**：前端核查通过、缓存可复用；5 epoch、3 seeds 的 balanced accuracy 为 B0 **0.6305**、幅度 CNN **0.5967±0.0662**、I/Q CNN **0.5295±0.0181**；strong 重叠层幅度 CNN 明显低于 B0。20 epoch 单 seed 诊断仍未给出稳定增益，当前应先稳定训练/分类头，再决定加窗或符号恢复。 [完整结果](opencode-srrc-three-arm-pilot.md)
 
+**阈值校准复核（2026-11-23，OpenCode）**：AUC 复核成立（B0 0.6652；幅度三 seed 0.7004–0.7330），但默认判决偏类；在原训练侧按源组留出 291 例校准集后，锁定阈值在原 dev 上**没有改善**——B0 0.6222→0.6082，幅度三 seed 0.6296/0.6434/0.6821→0.6200/0.6349/0.6555。校准后幅度相对 B0 仍 +9/+9/+17，但仅 seed1731 显著。当前应先解决分数校准/迁移，而不是加窗或符号恢复。 [校准结果](opencode-srrc-threshold-calibration.md)
+
 ## 三臂结果复核与下一步
 
 以 `6d210c7` 的 [逐实例预测与训练记录](../../reports/baseline3_srrc_gt_pilot/raw/) 为依据。三臂的 366 个实例键、类别、分组和重叠标记均对齐，共 312 个源组。平衡准确率取两类召回的平均。ROC AUC 用 `logit_11 - logit_10` 作分数，衡量模型把 class11 排在 class10 前面的能力，与具体在哪个分数处分两类无关。
