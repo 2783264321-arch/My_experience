@@ -1,0 +1,299 @@
+{
+  "protocol": {
+    "split": {
+      "protocol": "fit-only SRRC 10 MHz, grouped dev fold 0 of 5",
+      "seed": 1729,
+      "fs_hz": 20000000.0,
+      "band_limit_hz": 10200000.0,
+      "edge_ms_per_side": 0.2,
+      "window_points": 1024,
+      "n_windows": 8,
+      "max_groups": null,
+      "n_train": 1458,
+      "n_dev": 366
+    },
+    "n_dev": 366,
+    "even_windows": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "odd_windows": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "score": "mean logit difference over selected windows"
+  },
+  "seeds": {
+    "1729": {
+      "checkpoint": "/root/autodl-fs/runs_local/srrc-gt-pilot/seed1729/magnitude_last.pt",
+      "full8_vs_saved_max_abs": 2.384185791015625e-07,
+      "auc": {
+        "full8": {
+          "all": {
+            "n": 366,
+            "auc": 0.7329985352584223
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.9178861788617887
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.6978395061728395
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6893939393939394
+          }
+        },
+        "even4": {
+          "all": {
+            "n": 366,
+            "auc": 0.7167369144770275
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.9040650406504065
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.6802469135802469
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.666911045943304
+          }
+        },
+        "odd4": {
+          "all": {
+            "n": 366,
+            "auc": 0.7315935790512061
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.8991869918699187
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.7225308641975309
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6677663734115347
+          }
+        }
+      },
+      "delta_full8_minus_even4": 0.022482893450635477,
+      "delta_full8_minus_odd4": 0.021627565982404784,
+      "bootstrap_full8_minus_even4_strong": {
+        "mean": 0.0222857781084052,
+        "lo": -0.02146191741559896,
+        "hi": 0.06640093599443621,
+        "n_boot": 5000
+      },
+      "bootstrap_full8_minus_odd4_strong": {
+        "mean": 0.021630052165197942,
+        "lo": -0.020217820330603244,
+        "hi": 0.0635770764567373,
+        "n_boot": 5000
+      },
+      "agreement": {
+        "full8_even4": 0.9617486338797814,
+        "full8_odd4": 0.9726775956284153,
+        "even4_odd4": 0.9344262295081968
+      },
+      "corr_spearman_strong": {
+        "full8_even4": 0.8700139639366158,
+        "full8_odd4": 0.8823750834800559
+      },
+      "within_instance_sd_strong": 0.4321787655353546,
+      "default_bal": {
+        "full8": 0.6512868801004394,
+        "even4": 0.6405255134068694,
+        "odd4": 0.6456371625863151
+      }
+    },
+    "1730": {
+      "checkpoint": "/root/autodl-fs/runs_local/srrc-gt-pilot/seed1730/magnitude_last.pt",
+      "full8_vs_saved_max_abs": 1.1920928955078125e-07,
+      "auc": {
+        "full8": {
+          "all": {
+            "n": 366,
+            "auc": 0.7217588856006936
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.8772357723577235
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.707716049382716
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6621456500488759
+          }
+        },
+        "even4": {
+          "all": {
+            "n": 366,
+            "auc": 0.7058559770424176
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.8772357723577235
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.6728395061728395
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6494379276637341
+          }
+        },
+        "odd4": {
+          "all": {
+            "n": 366,
+            "auc": 0.7167369144770275
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.883739837398374
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.700925925925926
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6428396871945259
+          }
+        }
+      },
+      "delta_full8_minus_even4": 0.01270772238514184,
+      "delta_full8_minus_odd4": 0.019305962854350045,
+      "bootstrap_full8_minus_even4_strong": {
+        "mean": 0.012287343284711079,
+        "lo": -0.019336092842466825,
+        "hi": 0.043750437675070086,
+        "n_boot": 5000
+      },
+      "bootstrap_full8_minus_odd4_strong": {
+        "mean": 0.019726444863957276,
+        "lo": -0.013878543841779107,
+        "hi": 0.05294784807818848,
+        "n_boot": 5000
+      },
+      "agreement": {
+        "full8_even4": 0.9863387978142076,
+        "full8_odd4": 0.9808743169398907,
+        "even4_odd4": 0.9672131147540983
+      },
+      "corr_spearman_strong": {
+        "full8_even4": 0.9341023617266712,
+        "full8_odd4": 0.9214862485580717
+      },
+      "within_instance_sd_strong": 0.3157571256160736,
+      "default_bal": {
+        "full8": 0.5231369383911757,
+        "even4": 0.520491435745673,
+        "odd4": 0.5317908707739216
+      }
+    },
+    "1731": {
+      "checkpoint": "/root/autodl-fs/runs_local/srrc-gt-pilot/seed1731/magnitude_last.pt",
+      "full8_vs_saved_max_abs": 1.1920928955078125e-07,
+      "auc": {
+        "full8": {
+          "all": {
+            "n": 366,
+            "auc": 0.7003557229545929
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.9032520325203253
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.649074074074074
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6505376344086021
+          }
+        },
+        "even4": {
+          "all": {
+            "n": 366,
+            "auc": 0.6898036050578424
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.8894308943089431
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.637962962962963
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6499266862170088
+          }
+        },
+        "odd4": {
+          "all": {
+            "n": 366,
+            "auc": 0.6958120347950856
+          },
+          "clean": {
+            "n": 71,
+            "auc": 0.9146341463414633
+          },
+          "weak": {
+            "n": 114,
+            "auc": 0.6725308641975308
+          },
+          "strong": {
+            "n": 181,
+            "auc": 0.6170576735092864
+          }
+        }
+      },
+      "delta_full8_minus_even4": 0.0006109481915933523,
+      "delta_full8_minus_odd4": 0.03347996089931571,
+      "bootstrap_full8_minus_even4_strong": {
+        "mean": 0.0005864207578931073,
+        "lo": -0.03691545080433971,
+        "hi": 0.03748690204417758,
+        "n_boot": 5000
+      },
+      "bootstrap_full8_minus_odd4_strong": {
+        "mean": 0.03359319751330907,
+        "lo": -0.005308809442567966,
+        "hi": 0.07238171428625444,
+        "n_boot": 5000
+      },
+      "agreement": {
+        "full8_even4": 0.9699453551912568,
+        "full8_odd4": 0.9699453551912568,
+        "even4_odd4": 0.9398907103825137
+      },
+      "corr_spearman_strong": {
+        "full8_even4": 0.9065650739683889,
+        "full8_odd4": 0.88800720458179
+      },
+      "within_instance_sd_strong": 0.40157610177993774,
+      "default_bal": {
+        "full8": 0.6156846919558784,
+        "even4": 0.606851403461573,
+        "odd4": 0.607568827907811
+      }
+    }
+  }
+}
