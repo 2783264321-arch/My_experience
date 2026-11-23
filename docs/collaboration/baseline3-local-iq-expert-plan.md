@@ -2,22 +2,61 @@
 
 2026-11-22。供项目负责人、Codex 和 OpenCode 共同审阅。后续决策和实验结果通过本目录交接。OpenCode 可结合 AutoDL 的实际数据和候选框独立复核。若建议改动，记录证据及能够区分方案的对照。
 
-## 目标与投入顺序
+## 当前路线与交付节点
 
-我们已有粗图与频率细片的检测流程。它从整段观测中找出信号的时频边界，窄带目标能从细片获得更高的频率分辨率。专家负责利用检测框附近的原始 I/Q，补充检测器对组内调制方式的判断。研究依次回答三个问题。
+**先让冻结的 YOLO 走完局部 IQ 专家的完整闭环。** 沿用阶段 0 推理保存的 YOLO26l 最佳权重、完整 val 和粗细片后处理。专家把预测为 SRRC 的 10 MHz 框分成 QPSK（10）和 16QAM（11），仅更新类别。用同一批候选和同一套 AP 评估比较前后表现。框坐标、YOLO 原分数与已经完成的 NMS 固定。D-FINE-L 的接入排在 YOLO 路线走通以后。
 
-1. 给准框时，网络能从局部 I/Q 学到多少调制信息？
-2. 同一实例换成实际预测框后，分类会损失多少？加入预测框训练能补回多少？
-3. 应用到所有可能被路由的候选后，能给固定检测器的端到端 AP 带来多少收益？
+1. **拿到第一张系统 AP 对照表。** 使用冻结 YOLO 的真实预测框，裁局部 IQ，运行现有专家及一个新表示。固定框、分数、NMS，报告 class10/11 AP、全 14 类 mAP、净改对、改坏和未匹配框被改。即使 AP 持平或下降，也完成了第一版，对照结果用来找下一步最该改的地方。
+2. **在真实预测框上提高专家。** 用系统错例指导数据表示、模型和训练。优先把 fit 上与真值对齐的真实 YOLO 预测框纳入训练，让网络看到定位偏差和混叠。用相同的冻结 YOLO 完整 val 对照 GT 训练和添加 Pred 样本后的结果。逐窗诊断只在它能解释一个实际错误时使用。
+3. **定型并复验系统收益。** 选好专家和改类规则后，锁定配置并在独立数据上复验完整 AP，同时记录两类收益和对原本正确结果的影响。确认方案有效后，将同一专家接口迁移到更强的检测器。正式 test 留给定型后评估。
 
-先用 **同为 10 MHz 的 SRRC 10/11** 建立方法试点。它是带宽相同的 QPSK 与 16QAM 二分类，已有训练样本统计和手工特征参照。正式系统投入按当前最强检测器的错类和可修正空间排序。D-FINE 第 30 轮的阶段记录显示，Wi-Fi 20 MHz 的 0/1/2 平均 AP@0.5 为 0.551，Wi-Fi 40 MHz 的 3/4/5 为 0.663，SRRC 10/11 为 0.763。Wi-Fi 20 MHz 暂列优先，最终以冻结检测器同口径复评为准。 [D-FINE 阶段结果](opencode-dfine-formal-run.md)
+### 第一版用什么表示
+
+三个输入共用现成的框内搬频、带限、统一 20 MS/s、RMS 归一化和 1D ResNet。现有 `8×1024` 只负责整理成固定张量，本轮使用同一个取样预算。
+
+- **幅度** `|z|`。把 QPSK 与 16QAM 可能不同的幅度分布直接交给网络学习。
+- **Raw I/Q**。保留归一化后的两个复数分量，作为保留原始波形信息的参照。
+- **幅度与相邻复相位变化** `[|z[n]|, Re(z[n]·conj(z[n−1])), Im(z[n]·conj(z[n−1]))]`。新表示同时给网络幅度及局部复数变化。相邻复乘消掉常量载波相位旋转，并保留幅度权重。分类判决由网络学习完成。
+
+仅用预测类别 10/11、预测带宽 9.5–10.5 MHz、YOLO 分数至少 0.01 来决定是否取框。报告两条预定规则，即路由后用专家最高分的类别，以及专家置信度至少 0.70 才更新类别。两条规则沿用同一缓存和同一批候选。匹配真值只用于训练监督和评估计数。
+
+### 第一版 AutoDL 命令
+
+从该分支的仓库根目录执行。已有 20 轮幅度与 I/Q 权重可以直接复用。新表示单种子训练 20 轮，一次裁剪供三路评估。
+
+~~~bash
+pilot=/root/autodl-fs/runs_local/srrc-gt-pilot
+run="$pilot/yolo26-label-only-v1"
+reference="$pilot/seed1729_e20"
+
+if [ ! -s "$reference/magnitude_last.pt" ] || [ ! -s "$reference/iq_last.pt" ]; then
+  reference="$run/reference"
+  python -m scripts.baseline3srrc_gt_pilot train \
+    --cache "$pilot/fit_8win.npz" --out-dir "$reference" \
+    --device cuda --arm both --epochs 20 --batch 8 --seed 1729
+fi
+
+python -m scripts.baseline3srrc_gt_pilot train \
+  --cache "$pilot/fit_8win.npz" --out-dir "$run/new-representation" \
+  --device cuda --arm amplitude_phase_change --epochs 20 --batch 8 --seed 1729
+
+python -m scripts.baseline3srrc_yolo_expert \
+  --expert magnitude="$reference/magnitude_last.pt" \
+  --expert iq="$reference/iq_last.pt" \
+  --expert amplitude_phase_change="$run/new-representation/amplitude_phase_change_last.pt" \
+  --out "$run/val"
+~~~
+
+验证入口默认读取阶段 0 的 `val_full_best`。缓存搬迁后可用 `--pred-dir` 指向原始完整预测归档。每个结果有完整 mAP@0.5、mAP@0.5:0.95、逐类 AP50 和逐候选 CSV。真实 YOLO 参照是约 0.659601 mAP@0.5。第一张表连同采纳和损伤计数写回共享目录，以此结束第一阶段。
+
+## 前期记录
 
 旧实验给了两个具体教训。
 
 - SRRC 的 `B0_unsync` 在完整内部留出集上为 **61.54%**，在 213 个同步成功的实例上为 **79.34%**。原恢复门限只通过 36.9% 的 fit 实例。新模型的主比较覆盖完整留出集，再按标注框的重叠程度报告。 [SRRC 局部 IQ 结果](https://github.com/2783264321-arch/My_experience/blob/2c5e815/reports/baseline3_srrc_local_iq/srrc_local_iq_results.md)
 - 旧 SRRC 纠错器把匹配框准确率从 52.0% 提到 61.7%，级联后全 14 类 mAP@0.5 从 0.649725 变为 0.647348。旧 Wi-Fi 的 GT+Pred 混合微调相对冻结专家约 +0.235 个百分点，配对区间包含零。新路线要测的是直接读波形后，分类覆盖、迁移和完整候选结果有没有改变。 [SRRC 级联结果](https://github.com/2783264321-arch/My_experience/blob/2c5e815/reports/baseline3_srrc_yolo_offline/srrc_yolo_offline_results.md#L27-L81) · [Wi-Fi 级联与不确定性](https://github.com/2783264321-arch/My_experience/blob/2c5e815/reports/baseline3_wifi_cascade/cascade_adaptation_comparison.md#L203-L223)
 
-## 输入定义与物理先验
+## 前期前端设计记录
 
 ### 观测频宽、目标频宽和采样率
 
@@ -50,7 +89,7 @@ Wi-Fi 按相同的实验逻辑走。20 MHz 先做 0/1/2，40 MHz 另做 3/4/5，
 - 对窗口做 RMS 归一化，每个实例等权。训练取窗可以轮换位置，评估固定位置。先用等权汇总避免只挑最强窗口。长点窗、幅度协变量、复杂聚合或增强留到结果能说明要解决的具体问题时再做。
 - fit 内按源 IQ 或已核实的重复源分组。同源 GT、Pred、所有窗口和增强版本同侧。10 MHz 档可复核既有 9.5–10.5 MHz 定义。原审计计数为 fit **1,824** 例、val **469** 例。按原定义记录交叠，报告无、弱、强三层，明确比率的分母。结构峰、定时失败和弱信号作为诊断与分层字段。窄带变体另做工程评估并按带宽报告。 [SRRC 数据审计](https://github.com/2783264321-arch/My_experience/blob/2c5e815/reports/baseline3_srrc_stage0/srrc_data_audit.md#L14-L85)
 
-## 分阶段执行和验收
+## 前期阶段划分
 
 | 阶段 | 对照与工作 | 如何用结果决策 |
 | --- | --- | --- |
@@ -59,7 +98,7 @@ Wi-Fi 按相同的实验逻辑走。20 MHz 先做 0/1/2，40 MHz 另做 3/4/5，
 | 2. 预测框迁移 | 用同一份 GT 权重对同一目标的 GT 与 Pred 裁剪成对测试。需要适配时，从相同 GT 权重比较等更新步的 GT 继续训练与 GT+Pred 训练，预测框靠可靠几何匹配赋标签。若要主张预训练本身有效，加同总训练预算的混合数据从头训练。 | 区分预测框域差、额外训练和真实 Pred 样本带来的收益。记录 Pred 来源、匹配和模型可见过的源。若使用原 val 做适配，两系统都在相同剩余留出上复评。 |
 | 3. 级联与评分 | 先固定候选、框和分数做仅改类对照，再比较检测器自身校准与加入局部 IQ 的组内融合。部署只依赖检测类别、预测几何和可获得的模型分数。阈值在开发集选择并锁定。 | 报告家族 AP、14 类 mAP@0.5 和 mAP@0.5:0.95、改对/改错、未匹配候选被改、耗时及覆盖率。根据全候选结果决定集成。 |
 
-当前优先交付阶段 0 的坐标验收、分组清单、候选真值改类诊断，以及阶段 1 的小跑对照和实测预算。复用现有报告和脚本的位置，保留配置、提交和权重来源。后续分歧写进同一交接，不把尝试过的阈值或采样率写成既定规格。官方 test 继续留给方案冻结后的同口径评测。
+阶段 0、1 与窗数对照已完成，当前进度以文首的 YOLO 闭环路线为准。复用现有报告和脚本的位置，保留配置、提交和权重来源。后续分歧写进同一交接，不把尝试过的阈值或采样率写成既定规格。官方 test 继续留给方案冻结后的同口径评测。
 
 **阶段 0 实测（2026-11-22，OpenCode）**：前端/数据核验通过；YOLO26l 冻结候选真值改类 oracle 显示 10 MHz SRRC 匹配准确率 48.9%、全部改对 +3.59 pp、路由后 +3.08 pp；8 窗中位覆盖 1.95%；GPU 被 D-FINE 占用，GT 小跑未执行。结果、调整建议和预算见 [阶段 0 记录](opencode-srrc-local-iq-phase0.md)。
 

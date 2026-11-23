@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a CPU-only 10 MHz SRRC cache and compare GT magnitude and I/Q classifiers."""
+"""Build a 10 MHz SRRC cache and train waveform classifiers on GT boxes."""
 
 from __future__ import annotations
 
@@ -28,6 +28,8 @@ from scripts.baseline3srrc_phase0_verify import (
 )
 from scripts.baseline3srrc_pipeline_smoke import TinyResNet
 from src.signals.data import SPLIT_MANIFEST, load_manifest
+
+INPUT_CHANNELS = {"magnitude": 1, "iq": 2, "amplitude_phase_change": 3}
 
 
 def gt_split(manifest, seed, max_groups):
@@ -61,9 +63,12 @@ def gt_split(manifest, seed, max_groups):
     return boxes, groups, labels, is_dev
 
 
-def instance_windows(rec, sig, n_windows):
+def instance_windows(rec, sig, n_windows, *, allow_short=False):
     crop = crop_and_resample(rec, sig)
     windows = windows_from_crop(crop, sig, n_win=n_windows)["windows"]
+    if allow_short and len(windows) == 1:
+        # Repeating the padded short segment keeps its weight under mean pooling.
+        windows = windows * n_windows
     if len(windows) != n_windows:
         raise ValueError(f"Unexpected short GT interval: {rec.sample_id}")
     arrays = np.zeros((n_windows, 2, WIN), dtype=np.float32)
@@ -129,6 +134,13 @@ def predict(model, windows, arm):
     windows = windows / rms[..., None, None]
     if arm == "magnitude":
         windows = torch.linalg.vector_norm(windows, dim=2, keepdim=True)
+    elif arm == "amplitude_phase_change":
+        magnitude = torch.linalg.vector_norm(windows, dim=2, keepdim=True)
+        i, q = windows.unbind(dim=2)
+        real = i[..., 1:] * i[..., :-1] + q[..., 1:] * q[..., :-1]
+        imag = q[..., 1:] * i[..., :-1] - i[..., 1:] * q[..., :-1]
+        phase_change = nn.functional.pad(torch.stack((real, imag), dim=2), (1, 0))
+        windows = torch.cat((magnitude, phase_change), dim=2)
     logits = model(windows.flatten(0, 1))
     return logits.unflatten(0, windows.shape[:2]).mean(dim=1)
 
@@ -178,7 +190,7 @@ def write_dev_logits(path, cache, dev_ids, logits):
 def run_arm(args, cache, windows, labels, arm):
     torch.manual_seed(args.seed)
     rng = np.random.default_rng(args.seed)
-    model = TinyResNet(in_channels=1 if arm == "magnitude" else 2).to(args.device)
+    model = TinyResNet(in_channels=INPUT_CHANNELS[arm]).to(args.device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr)
     loss_fn = nn.CrossEntropyLoss()
     train_ids = np.flatnonzero(~cache["is_dev"])
@@ -256,7 +268,7 @@ def main():
     pilot.add_argument("--cache", type=Path, required=True)
     pilot.add_argument("--out-dir", type=Path, required=True)
     pilot.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
-    pilot.add_argument("--arm", choices=("magnitude", "iq", "both"), default="both")
+    pilot.add_argument("--arm", choices=(*INPUT_CHANNELS, "both"), default="both")
     pilot.add_argument("--seed", type=int, default=1729)
     pilot.add_argument("--batch", type=positive_int, default=8, help="instances per batch")
     pilot.add_argument("--epochs", type=positive_int, default=5)
