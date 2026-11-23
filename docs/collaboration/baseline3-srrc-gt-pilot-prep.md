@@ -35,6 +35,11 @@ nice -n 19 env CUDA_VISIBLE_DEVICES="" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENB
 nice -n 19 env CUDA_VISIBLE_DEVICES="" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
   python -m scripts.baseline3srrc_gt_pilot prepare --out "$srrc_out/fit_8win.npz"
 
+# 缓存生成后，先在 CPU 上跑同窗 B0
+nice -n 19 env CUDA_VISIBLE_DEVICES="" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  python -m scripts.baseline3srrc_b0_same_windows \
+  --cache "$srrc_out/fit_8win.npz" --out-dir "$srrc_out/b0_same_windows"
+
 # D-FINE 释放 GPU 后，同一缓存对比两个 CNN
 python -m scripts.baseline3srrc_gt_pilot train \
   --cache "$srrc_out/fit_8win.npz" --out-dir "$srrc_out/seed1729" \
@@ -43,10 +48,14 @@ python -m scripts.baseline3srrc_gt_pilot train \
 
 两组共用源文件划分、窗和模型主干。8 指每批的**实例数**。每个实例的所有窗口先分别出 logits，再平均成一个实例分数，用实例标签算损失。输出每轮完整开发集和交叠分层指标、开发集逐实例 logits 及运行配置和实际峰值显存。训练命令也可用 `--device cpu` 在本机跑小样本检查。
 
-复用 [原版 B0 结果与方法](https://github.com/2783264321-arch/My_experience/blob/2c5e815/reports/baseline3_srrc_local_iq/srrc_local_iq_results.md) 时，用同一份清单和开发集，以 `sample_id + signal_idx` 配对。库里的旧 61.54% 对应原有留出。CNN 小跑先验收成本和学习情况，决定正训前补上同数据的 B0 读数。预测框对照仍用真正的检测器候选。
+## 完整缓存生成后的首轮对照
+
+1. 先跑 CPU 同窗 B0。每窗提取旧 B0 的 53 维未同步统计量，按实例平均。标准化和逻辑回归只拟合训练侧，开发侧只算指标。这一结果和两个 CNN 共用同一缓存的信号、观察窗、分组和交叠标记。旧 61.54% 使用当时的留出划分和取窗，作为历史参照。 [原版 B0 结果与方法](https://github.com/2783264321-arch/My_experience/blob/2c5e815/reports/baseline3_srrc_local_iq/srrc_local_iq_results.md)
+2. GPU 空出后，用相同 8 窗缓存跑幅度、I/Q 两臂，各 5 轮、同一个种子。先看损失、耗时、显存和开发集的平衡准确率，按无交叠、弱交叠、强交叠分层。导出的开发集 logits 可按 `sample_id + signal_idx` 对齐 B0。
+3. 用学习曲线决定是否拉长同窗对照。主要比较深度模型能否超过同窗 B0、I/Q 能否超过幅度，以及优势是否能在交叠组复验。稳定后再用同一权重测实际预测框。官方 val/test 维持原来的评估阶段。
 
 ## 本机已核验
 
-早期 DSP 回归和毫秒缓冲回归检查使用合成 IQ 通过。另用 24 个合成文件验证了无 IQ 的清单生成、组内分割、8/16 窗缓存，以及幅度和 I/Q 各一轮的 CPU 前向、反向和逐实例 logit 导出。真实 fit 裁剪、服务器吞吐和正式分类表现待 AutoDL 实测。
+早期 DSP 回归和毫秒缓冲回归检查使用合成 IQ 通过。另用 24 个合成文件验证了无 IQ 的清单生成、组内分割、8/16 窗缓存，以及幅度和 I/Q 各一轮的 CPU 前向、反向和逐实例 logit 导出。同窗 B0 的 53 维特征用 16 个合成窗口和旧实现逐项核对，三臂导出的开发集实例与交叠标记已通过配对检查。真实分类表现待 AutoDL 实测。
 
 **AutoDL 实测（2026-11-22，OpenCode）**：完整 fit 清单 1,824 实例 / 1,571 组；40 组试切 33.34 s / 3.09 MB，D-FINE 步时 +1.54%；全量缓存 1,112.84 s / 114.4 MiB，D-FINE 同时段步时 +1.03%，未触发停止。缓存与监控记录见 [opencode-srrc-gt-pilot-cache.md](opencode-srrc-gt-pilot-cache.md)。

@@ -157,6 +157,24 @@ def batches(indices, batch_size):
         yield indices[start:start + batch_size]
 
 
+def read_pilot_cache(path):
+    with np.load(path, allow_pickle=False) as f:
+        cache = dict(f)
+    metadata = json.loads(str(cache["metadata"]))
+    if metadata["edge_ms_per_side"] != EDGE_MS or metadata["fs_hz"] != FS_OUT:
+        raise ValueError("Cache settings differ from the current front end. Rebuild it.")
+    return cache, metadata
+
+
+def write_dev_logits(path, cache, dev_ids, logits):
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["sample_id", "signal_idx", "group_id", "class", "overlap", "logit_10", "logit_11"])
+        for i, pair in zip(dev_ids, logits):
+            writer.writerow([cache["sample_ids"][i], cache["signal_indices"][i], cache["groups"][i],
+                             int(cache["labels"][i]) + 10, cache["strata"][i], *map(float, pair)])
+
+
 def run_arm(args, cache, windows, labels, arm):
     torch.manual_seed(args.seed)
     rng = np.random.default_rng(args.seed)
@@ -193,12 +211,7 @@ def run_arm(args, cache, windows, labels, arm):
         print(f"{arm} epoch {epoch + 1}: loss={history[-1]['loss']:.4f}, "
               f"dev balanced accuracy={scores['all']['balanced_accuracy']:.4f}", flush=True)
     peak = torch.cuda.max_memory_reserved() if args.device == "cuda" else None
-    with (args.out_dir / f"{arm}_dev.csv").open("w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["sample_id", "signal_idx", "group_id", "class", "overlap", "logit_10", "logit_11"])
-        for i, logits in zip(dev_ids, dev_logits):
-            writer.writerow([cache["sample_ids"][i], cache["signal_indices"][i], cache["groups"][i],
-                             int(labels[i]) + 10, cache["strata"][i], *map(float, logits)])
+    write_dev_logits(args.out_dir / f"{arm}_dev.csv", cache, dev_ids, dev_logits)
     torch.save(model.state_dict(), args.out_dir / f"{arm}_last.pt")
     return {"seconds": round(time.perf_counter() - started, 2), "peak_cuda_reserved_bytes": peak,
             "history": history}
@@ -209,11 +222,7 @@ def train(args):
         torch.set_num_threads(1)
     elif not torch.cuda.is_available():
         raise ValueError("CUDA was explicitly requested but is unavailable")
-    with np.load(args.cache, allow_pickle=False) as f:
-        cache = dict(f)
-    metadata = json.loads(str(cache["metadata"]))
-    if metadata["edge_ms_per_side"] != EDGE_MS or metadata["fs_hz"] != FS_OUT:
-        raise ValueError("Cache settings differ from the current front end. Rebuild it.")
+    cache, metadata = read_pilot_cache(args.cache)
     windows = torch.from_numpy(cache.pop("windows"))
     labels = torch.from_numpy(cache["labels"]).long()
     args.out_dir.mkdir(parents=True, exist_ok=True)
