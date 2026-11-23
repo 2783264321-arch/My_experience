@@ -75,9 +75,43 @@ python -m scripts.validate_yolo26 --split fit \
 
 **V2 已执行（2026-11-23，OpenCode）**：fit 5,957 样本 / 96,051 views / 23.2 min；2,589 个候选，train/dev 2,081/508；V2 三分类 20 epoch / 113.8 s，dev balanced 0.459（keep 召回 0.380）。完整 val 上，括号内为实际改对/改坏/未匹配改动。V2 argmax **+0.386 pp**（96/33/87），V2 0.70 **+0.149 pp**（13/0/17），V1 0.70 **+0.352 pp**（57/14/54）。V1 与 V2 的 0.70 规则进入第三步独立复验。 [第二张 AP 表](opencode-srrc-yolo-v2.md)
 
-## 第三步冻结复验
+## 当前停点与正式 GT＋Pred 混训
 
-冻结纯 YOLO26l、V1 0.70 和 V2 0.70，在同一份获准使用的独立数据上一次跑完。继续用原框、原分数、原 NMS 和同一候选路由，交付全量 mAP50/mAP50:95、class10/11 AP50、实际改对、改坏与未匹配改动。V1 和 V2 分别代表当前验证集上 AP 更高与动作更保守的两个候选。独立复验看两种收益能否延续。正式 test 按此前封存约定启用。 [V2 计数与决策](opencode-srrc-yolo-v2.md#42-第三步独立复验)
+现有 V1 和 V2 各跑了 20 轮，V2 从 V1 初始化后只用 Pred 样本训练。先在 fit 上完成一条 GT＋Pred 混训主线，并在固定 val 上出完整 AP 表。第三步外测放到这张表之后。
+
+### 数据和预算
+
+- 从已有 GT 缓存取 **1,458** 个 fit 训练实例，从 V2 缓存取 **2,081** 个 fit 训练候选，共 **3,539** 个训练实例。GT 和可靠匹配的 Pred 提供 class10/11，未匹配等候选提供保留原类。开发侧沿用 V2 的 **508 个真实预测框候选**，同源组只放一侧。
+- 从 V1 末轮权重初始化，与 V2 一样扩成三输出。沿用幅度＋相邻相位变化、1D ResNet 和既有观察预算。训练用同一个种子 1729、batch 8、AdamW、按训练类别频数加权的交叉熵。
+- **固定 80 轮**，约 **35,440 次更新**。峰值 LR **5e-4**，前 5 轮从 1e-4 热身到峰值，后续余弦退火到 **5e-5**。按已有 V1/V2 训练时长和更新数估，训练约 **13–25 分钟**，排期留约半小时，另计同一份 val 的 AP 评估。两份训练缓存和 val 预测框裁剪直接复用。
+- 每轮自动记录训练损失、Pred-dev 三类召回和等权类别交叉熵。**选权重只看 fit 内 Pred-dev 的等权类别交叉熵**，保存最低值权重，同时留末轮作曲线复盘。80 轮到点结束，报告末段走势。唯一的人工停点是训练完成后的完整 val 对照表。
+
+### AutoDL 执行
+
+从仓库根目录训练一次。随后将自动选定的权重接到冻结 YOLO26l，在原 1,543 个 val 样本上按原 0.70 规则出表。
+
+~~~bash
+pilot=/root/autodl-fs/runs_local/srrc-gt-pilot
+cached="$pilot/yolo26-label-only-v2"
+mixed="$pilot/yolo26-label-only-mixed"
+v1="$pilot/yolo26-label-only-v1/new-representation/amplitude_phase_change_last.pt"
+yolo_val=/root/autodl-tmp/worktrees/formal-yolo26/runs/yolo26l_c1_2048x512/val_full_best
+
+python -m scripts.baseline3srrc_v2 train \
+  --cache "$cached/fit_candidates.npz" --gt-cache "$pilot/fit_8win.npz" \
+  --v1 "$v1" --out "$mixed" --epochs 80 --batch 8 --lr 0.0005 --seed 1729
+
+python -m scripts.baseline3srrc_v2 eval \
+  --cache "$cached/val_candidates.npz" --v1 "$v1" \
+  --checkpoint "$mixed/amplitude_phase_change_3class_best.pt" \
+  --pred-dir "$yolo_val" --out "$mixed/val" --gated-only
+~~~
+
+主表四行为纯 YOLO、V1、V2 和新混训版。确认纯 YOLO 参照复现 0.659601 mAP50，一起报 class10/11 AP50、mAP50/mAP50:95、改对、改坏和未匹配改动。结合曲线及系统结果决定候选去留。延长训练和调整 LR 也属于这版方案，比较结果用于判断整体方案效果。把训练汇总和最终 AP 表写回共享目录。
+
+## 第三步冻结复验（在混训评估后）
+
+先根据混训的固定 val 结果选定候选。冻结纯 YOLO26l 与入选专家，在同一份获准使用的独立数据上一次跑完。继续用原框、原分数、原 NMS 和同一候选路由，交付全量 mAP50/mAP50:95、class10/11 AP50、实际改对、改坏与未匹配改动。正式 test 留给方案锁定后的外测。 [此前 V2 复核](opencode-srrc-yolo-v2.md#42-第三步独立复验)
 
 ## 前期记录
 

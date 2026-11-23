@@ -14,6 +14,7 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 import time
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
@@ -24,7 +25,9 @@ import torch
 from sklearn.metrics import confusion_matrix
 from torch import nn
 
-from scripts.baseline3srrc_gt_pilot import INPUT_CHANNELS, TinyResNet, batches, predict
+from scripts.baseline3srrc_gt_pilot import (
+    INPUT_CHANNELS, TinyResNet, batches, predict, read_pilot_cache,
+)
 from scripts.baseline3srrc_phase0_verify import FS_OUT, N_WIN
 from scripts.baseline3srrc_yolo_expert import local_box, report_ap
 from src.signals.data import N_TIME, SPLIT_MANIFEST, h_for_n, load_manifest
@@ -185,14 +188,53 @@ def metrics3(y, pred):
             "confusion": cm.tolist()}
 
 
+def mixed_training_arrays(pred_cache, gt_path):
+    """Add GT from the fit-training groups, keeping the Pred dev set intact."""
+    if json.loads(str(pred_cache["metadata"]))["split"] != "fit":
+        raise ValueError("Mixed training requires the fit prediction cache.")
+    gt, _ = read_pilot_cache(gt_path)
+    gt_train = ~np.asarray(gt["is_dev"], bool)
+    part = pred_cache["part"]
+    pred_groups = pred_cache["groups"]
+    train_groups = set(pred_groups[part == "train"]) | set(gt["groups"][gt_train])
+    dev_groups = set(pred_groups[part == "dev"]) | set(gt["groups"][~gt_train])
+    if train_groups & dev_groups:
+        raise ValueError("A source group crosses the mixed training and dev split.")
+    gt_windows = gt["windows"][gt_train]
+    if gt_windows.shape[1:] != pred_cache["windows"].shape[1:]:
+        raise ValueError("GT and predicted-box caches must have the same window shape.")
+    return (
+        np.concatenate([pred_cache["windows"], gt_windows]),
+        np.concatenate([pred_cache["target"], gt["labels"][gt_train]]),
+        np.concatenate([part, np.full(len(gt_windows), "train")]),
+        len(gt_windows),
+    )
+
+
+def mixed_learning_rate(peak, epoch, epochs):
+    warmup = min(5, epochs - 1)
+    if epoch < warmup:
+        return peak * (0.2 + 0.8 * epoch / max(1, warmup - 1))
+    progress = (epoch + 1 - warmup) / (epochs - warmup)
+    return peak * (0.1 + 0.45 * (1 + math.cos(math.pi * progress)))
+
+
 def train(args):
     with np.load(args.cache, allow_pickle=False) as z:
         cache = {k: z[k] for k in z.files}
-    windows = torch.from_numpy(cache.pop("windows"))
-    target = np.asarray(cache["target"], int)
-    part = np.asarray(cache["part"])
+    gt_path = args.gt_cache
+    if gt_path is None:
+        arrays, target, part, n_gt_train = cache["windows"], cache["target"], cache["part"], 0
+    else:
+        arrays, target, part, n_gt_train = mixed_training_arrays(cache, gt_path)
+    del cache
+    windows = torch.from_numpy(arrays)
+    target = np.asarray(target, int)
     train_ids = np.flatnonzero(part == "train")
     dev_ids = np.flatnonzero(part == "dev")
+    if gt_path is not None and (set(target[train_ids]) != {0, 1, 2} or
+                                set(target[dev_ids]) != {0, 1, 2}):
+        raise ValueError("Mixed training and its prediction-box dev split need all three labels.")
     counts = np.bincount(target[train_ids], minlength=3).astype(float)
     weights = torch.tensor((counts.sum() / (3 * np.maximum(counts, 1))),
                            dtype=torch.float32, device=args.device)
@@ -202,8 +244,17 @@ def train(args):
     y = torch.from_numpy(target).long().to(args.device)
     rng = np.random.default_rng(args.seed)
     history = []
+    best_dev_loss = math.inf
+    best_epoch = None
+    args.out.mkdir(parents=True, exist_ok=True)
+    best_path = args.out / "amplitude_phase_change_3class_best.pt"
     t0 = time.perf_counter()
     for epoch in range(args.epochs):
+        lr = args.lr
+        if gt_path is not None:
+            lr = mixed_learning_rate(args.lr, epoch, args.epochs)
+            for group in opt.param_groups:
+                group["lr"] = lr
         model.train()
         total = 0.0
         for ids in batches(rng.permutation(train_ids), args.batch):
@@ -212,28 +263,49 @@ def train(args):
                              "amplitude_phase_change")
             loss = lossf(logits, y[ids])
             loss.backward(); opt.step()
-            total += float(loss) * len(ids)
+            total += loss.item() * len(ids)
+        if not math.isfinite(total):
+            raise ValueError("Non-finite training loss.")
         model.eval()
         with torch.inference_mode():
             dev_logits = torch.cat([
                 predict(model, windows[ids].to(args.device),
                         "amplitude_phase_change").cpu()
                 for ids in batches(dev_ids, args.batch)
-            ]).numpy()
-        m = metrics3(target[dev_ids], dev_logits.argmax(1))
-        history.append({"epoch": epoch + 1, "loss": total / len(train_ids), "dev": m})
-        print(f"v2 epoch {epoch+1}: loss={total/len(train_ids):.4f} "
+            ])
+            m = metrics3(target[dev_ids], dev_logits.argmax(1).numpy())
+            if gt_path is not None:
+                labels = torch.from_numpy(target[dev_ids]).long()
+                per_item = nn.functional.cross_entropy(dev_logits, labels, reduction="none")
+                dev_loss = float(torch.stack([
+                    per_item[labels == cls].mean() for cls in (0, 1, 2)
+                ]).mean())
+                if not math.isfinite(dev_loss):
+                    raise ValueError("Non-finite prediction-box dev loss.")
+                m["balanced_loss"] = dev_loss
+                if dev_loss < best_dev_loss:
+                    best_dev_loss = dev_loss
+                    best_epoch = epoch + 1
+                    torch.save(model.state_dict(), best_path)
+        history.append({"epoch": epoch + 1, "lr": lr, "loss": total / len(train_ids), "dev": m})
+        print(f"epoch {epoch+1}: loss={total/len(train_ids):.4f} "
               f"dev acc={m['accuracy']:.4f} bal={m['balanced_accuracy']:.4f} "
               f"rec={m['recall_0_1_2']}", flush=True)
-    args.out.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), args.out / "amplitude_phase_change_3class_last.pt")
-    (args.out / "summary.json").write_text(json.dumps({
+    summary = {
         "cache": str(args.cache), "v1": str(args.v1), "seed": args.seed,
         "epochs": args.epochs, "batch": args.batch, "lr": args.lr,
         "class_counts_train": counts.tolist(), "class_weights": weights.tolist(),
         "n_train": int(len(train_ids)), "n_dev": int(len(dev_ids)),
         "seconds": time.perf_counter() - t0, "history": history,
-    }, indent=2) + "\n", encoding="utf-8")
+    }
+    if gt_path is not None:
+        summary.update(gt_cache=str(gt_path), n_gt_train=n_gt_train,
+                       n_pred_train=int(len(train_ids) - n_gt_train),
+                       best_epoch=best_epoch, best_pred_dev_balanced_loss=best_dev_loss,
+                       best_checkpoint=str(best_path))
+    (args.out / "summary.json").write_text(json.dumps(summary, indent=2) + "\n",
+                                            encoding="utf-8")
 
 
 def apply_rule(preds, keys, decisions, threshold, keep_label=2):
@@ -283,7 +355,10 @@ def eval_v2(args):
         known[image] = {pi: int(gt.labels[gi]) for pi, gi in matches}
     result = {"baseline": baseline, "routed": len(keyed)}
     args.out.mkdir(parents=True, exist_ok=True)
-    for name, thr in (("argmax", 0.0), ("conf_ge_0.70", 0.70)):
+    rules = (("conf_ge_0.70", 0.70),)
+    if not args.gated_only:
+        rules = (("argmax", 0.0),) + rules
+    for name, thr in rules:
         updated, n_changed = apply_rule(preds, [k for k, _, _ in keyed],
                                         [(a, c) for _, a, c in keyed], thr)
         ap = report_ap(targets, updated)
@@ -308,8 +383,6 @@ def eval_v2(args):
                 broken += int(prev == truth)
                 broken_class10 += int(prev == truth == 10)
                 matched_up[image].labels[idx] = new
-        map_matched = report_ap(targets, matched_up)
-        map_unmatched = report_ap(targets, unmatched_up)
         result[name] = {
             "threshold": thr, "n_changed": n_changed,
             "corrected": corrected, "broken": broken, "broken_class10": broken_class10,
@@ -317,11 +390,15 @@ def eval_v2(args):
             "net": corrected - broken, "map50": ap["map50"],
             "map50_95": ap["map50_95"], "ap50": ap["ap50"],
             "delta_map50_pp": (ap["map50"] - baseline["map50"]) * 100,
-            "matched_only_map50": map_matched["map50"],
-            "unmatched_only_map50": map_unmatched["map50"],
-            "matched_only_delta_pp": (map_matched["map50"] - baseline["map50"]) * 100,
-            "unmatched_only_delta_pp": (map_unmatched["map50"] - baseline["map50"]) * 100,
         }
+        if not args.gated_only:
+            map_matched = report_ap(targets, matched_up)["map50"]
+            map_unmatched = report_ap(targets, unmatched_up)["map50"]
+            result[name].update(
+                matched_only_map50=map_matched, unmatched_only_map50=map_unmatched,
+                matched_only_delta_pp=(map_matched - baseline["map50"]) * 100,
+                unmatched_only_delta_pp=(map_unmatched - baseline["map50"]) * 100,
+            )
         path = args.out / f"{name}_candidates.csv"
         with path.open("w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
@@ -339,7 +416,7 @@ def eval_v2(args):
                                     ("n_changed", "corrected", "broken",
                                      "unmatched_changed", "map50",
                                      "delta_map50_pp", "ap50")}
-                                for k in ("argmax", "conf_ge_0.70")}},
+                                for k, _ in rules}},
                      indent=2))
 
 
@@ -357,6 +434,8 @@ def main():
     p.set_defaults(fn=prepare)
     t = sub.add_parser("train")
     t.add_argument("--cache", type=Path, required=True)
+    t.add_argument("--gt-cache", type=Path,
+                   help="Mix fit GT crops with fit prediction-box training examples.")
     t.add_argument("--v1", type=Path, required=True)
     t.add_argument("--out", type=Path, required=True)
     t.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
@@ -369,6 +448,8 @@ def main():
     e.add_argument("--cache", type=Path, required=True)
     e.add_argument("--v1", type=Path, required=True)
     e.add_argument("--checkpoint", type=Path, required=True)
+    e.add_argument("--gated-only", action="store_true",
+                   help="Report only the locked confidence 0.70 rule and baseline AP.")
     e.add_argument("--pred-dir", type=Path, required=True)
     e.add_argument("--out", type=Path, required=True)
     e.add_argument("--manifest", type=Path, default=SPLIT_MANIFEST)
