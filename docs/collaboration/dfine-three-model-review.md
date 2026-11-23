@@ -143,3 +143,7 @@ D-FINE-L 实际总耗时约为 YOLO26l 的 **1.79 倍**。两项新训练都为 
 | 13 · FM | 350 | 0.6543 | 0.6357 | 0.6456 | 0.6595 |
 
 D-FINE-L 相对 YOLO26l 在 14 类上都有 AP 增益。类 12（AM）是逐类涨幅最大的一项，为 +21.67 个百分点。类 13（FM）低于 YOLO11s 约 0.87 个百分点，提示 LoRa、AM、FM 的组均值会掩盖个别类别的退化。 [YOLO 逐类 AP](https://github.com/2783264321-arch/My_experience/blob/ae35d0d/reports/detector_upgrade/formal_yolo26_final_comparison.json) · [D-FINE 逐类 AP](https://github.com/2783264321-arch/My_experience/blob/ae35d0d/reports/detector_upgrade/formal_dfine_val_history.json)
+
+## 第一步实测（2026-11-23，OpenCode）
+
+已按本节方案冻结第 25/50 轮权重各跑一次完整 val，并用同一次推理比较原流程与同视图同 query 去重。原流程复现 **0.761728 / 0.723699**；query 去重降到 **0.693540 / 0.666096**（−6.82 / −5.76 pp），Wi‑Fi20 与 SRRC 明显受损。Wi‑Fi 0–2 真类 rank1 只有 49.2%/46.9%，rank2 为 32.0%/26.9%；FM 漏检 80/74 个是原始候选缺失。**建议先做 Wi‑Fi20 组内分类/重排，不接 query 去重。** [完整 AP 表与阶段统计](opencode-dfine-query-ablation.md)

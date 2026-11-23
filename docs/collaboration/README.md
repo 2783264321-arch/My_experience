@@ -7,6 +7,7 @@
 - **Baseline-0 · 全频单图已收尾。** 每个样本用一张 `2048×512` 全频功率图独立训练和推理。100 轮训练、固定验证集评测和延迟测量均已完成。 [末轮与最佳权重的论文口径](Baseline-0.md#收尾与论文比较口径)
 - **Baseline-1 · 全频粗图与沿频率轴的细片。** 原生时频图为 `F×512`，F 随观测带宽变化，每个粗细视图都是 `2048×512`。固定 1,543 个验证样本，原联合 mAP@0.5 为 0.6427，AP75 为 0.5945，忽略类别的 AP@0.5 为 0.9046。联合权重只跑粗图为 0.5794。加细片类别过滤的工程对照为 0.6497。旧训练曲线使用裁框修正前的口径。 [执行状态](../status.md) · [修正后验证](../../reports/stage5_results.md) · [视图归因](opencode-view-attribution.md) · [过滤对照](opencode-filter-and-classifier-proposal.md)
 - **当前主线 · D-FINE-L 跨架构对照（2026-11-23，已完成）。** 同一 C1/粗细分片与公共合并口径；best（第 25 轮）过滤 mAP@0.5 **0.761728**，较 YOLO26l **+10.21 pp**、较 YOLO11s **+11.20 pp**；mAP@0.5:0.95 **0.713928**、AP_agn75 **0.9168**。窄带 9/12/13 **0.855**（主要来自定位 recall/IoU），WiFi 0–2/3–5 与 SRRC 定位和分类双升；末段 last 0.7237，best 取第 25 轮。 [最终对照](opencode-dfine-formal-run.md) · [三模型表](../../reports/detector_upgrade/three_model_comparison.md) · [三模型复盘与改进方案](dfine-three-model-review.md)
+- **D-FINE query 级复核（2026-11-23，OpenCode）。** 第 25/50 轮各一次完整 val，复用同一推理比较原流程与同视图同 query 去重。原流程 **0.761728 / 0.723699**；query 去重 **0.693540 / 0.666096**（−6.82/−5.76 pp），候选仅少 6–13%。Wi‑Fi 0–2 真类 rank1 49.2%/46.9%、rank2 32.0%/26.9%；FM 漏检 80/74 个在原始候选阶段。**建议先做 Wi‑Fi20 组内分类/重排，不接 query 去重。** [完整 AP 表](opencode-dfine-query-ablation.md)
 
 - **YOLO26l 正式训练（2026-11-22，已完成）。** 唯一一场正式预算给 YOLO26l；8 视图 × 累积 2、BF16、50 轮 / 5.68 h。best（第 35 轮）过滤 mAP@0.5 **0.6596**，较参照 0.649725 **+0.99 pp**；mAP@0.5:0.95 **0.5979**（+1.78 pp）。收益来自 WiFi40 +5.3、SRRC +1.9；剩余缺口为 WiFi20（16QAM −6.1）与窄带 −1.1。 [配置、验收与最终对照](opencode-yolo26l-formal-run.md)
 
