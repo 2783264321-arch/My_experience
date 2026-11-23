@@ -49,6 +49,30 @@ python -m scripts.baseline3srrc_yolo_expert \
 
 验证入口默认读取阶段 0 的 `val_full_best`。缓存搬迁后可用 `--pred-dir` 指向原始完整预测归档。每个结果有完整 mAP@0.5、mAP@0.5:0.95、逐类 AP50 和逐候选 CSV。真实 YOLO 参照是约 0.659601 mAP@0.5。第一张表连同采纳和损伤计数写回共享目录，以此结束第一阶段。
 
+## 第一版完成与第二版执行
+
+**第一版已交付**。完整冻结 YOLO26l val 上，654 个路由候选都进入了真实 IQ 裁剪。幅度与相邻相位变化在专家置信度 0.70 的规则下，mAP@0.5 从 **0.659601** 到 **0.663122**（+0.352 个百分点），class10/11 AP50 变化 **−0.42 / +5.35 个百分点**。57 个改对，14 个改坏，另有 54 个未匹配框被改。[第一张 AP 表](opencode-srrc-yolo-first-ap.md)
+
+**第二步先加入真实预测框训练，沿用这个输入和现有 1D 骨干。** 14 个改坏全是把正确的 class10 改成 class11，其中 val 的 `train/1255` 第 1 号预测框，YOLO 分数 0.956 且类别正确，专家以 0.808 的置信度改错。另一个 val 例子是 `train/1175` 第 4 号框，匹配不到真值，专家仍以 0.938 的置信度改类。GT-only 训练没有直接教过网络如何处理这两种真实错误。离线只改匹配框约 +0.468 个百分点，只改未匹配框约 −0.092 个百分点。两种拆分只用于解释 AP，真实改类动作由预测可见的信息决定。[逐候选记录](../../reports/baseline3_srrc_yolo_first_ap/amplitude_phase_change_candidates.csv)
+
+按同一次完整实验跑到底。
+
+1. **准备 fit 预测框。** 复用同一固定 YOLO26l 权重和 filtered_0_5 后处理的 fit 预测缓存。若还没有，将下方导出命令跑一次，直接用于训练。按源文件分组沿用原 fit 内的训练和开发划分。
+2. **训练一版会保留原类别的专家。** 复用 V1 的 8 窗幅度＋相邻相位变化表示和骨干作为起点。GT 裁剪与 fit 中可靠一对一 IoU 匹配的 10 MHz SRRC 预测框提供 class10/11 标签。fit 的未匹配、重复框和非目标框给出「保留 YOLO 原类别」的监督。这个标签对应改类动作，允许候选框里仍有信号。在原骨干上加一个保留类别的输出即可。训练做均衡取样或加权，避免拒判样本数主导损失。真值参与 fit 样本赋标与 val 的事后计数。
+3. **直接出第二张完整 AP 表。** 用同一 1,543 样本、同一冻结 YOLO 预测与同一候选路由，比较纯 YOLO、V1 和 V2。把「保留」译为原 YOLO 类别，框、分数、NMS 和候选集合保持一致。延用两条已记录的判决口径，直接按最高分行动，以及 0.70 置信度的改类规则。特别看 class10 AP、14 个改坏这类事件是否减少、未匹配改动是否下降，同时核对 class11 收益是否还在。复用裁剪缓存，整条链路跑完再做下一次方向判断。
+
+用下列入口导出 fit 预测。此模式调用同一冻结 YOLO 的推理和合并，直接写预测供训练使用。
+
+~~~bash
+pilot=/root/autodl-fs/runs_local/srrc-gt-pilot
+yolo_run=/root/autodl-tmp/worktrees/formal-yolo26/runs/yolo26l_c1_2048x512
+
+python -m scripts.validate_yolo26 --split fit \
+  --checkpoint "$yolo_run/best.pt" --output "$pilot/yolo26-fit"
+~~~
+
+`fit_sample_ids.json` 与 `fit_predictions_filtered_0_5.npz` 按预测归档的索引一一对应。第一轮训练按服务器上实际可用的候选缓存和 I/O 跑同口径全 val，结果写回共享目录。
+
 ## 前期记录
 
 旧实验给了两个具体教训。

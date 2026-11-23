@@ -34,6 +34,8 @@ def main():
     ap.add_argument("--run", default="yolo26l_c1_2048x512")
     ap.add_argument("--checkpoint", default="best.pt")
     ap.add_argument("--weights", choices=["ema", "model"], default="ema")
+    ap.add_argument("--split", choices=["val", "fit"], default="val",
+                    help="fit exports frozen training predictions without AP evaluation")
     ap.add_argument("--stratified", type=int, default=0, help="N per bandwidth; 0 = full val")
     ap.add_argument("--batch-views", type=int, default=8)
     ap.add_argument("--workers", type=int, default=8)
@@ -54,20 +56,25 @@ def main():
     assert int(model.model[-1].nc) == 14
 
     norm_d = json.loads((ROOT / "configs/normalizer.json").read_text()); norm = (norm_d["lo"], norm_d["hi"])
-    records = load_manifest(SPLIT_MANIFEST, split="val")
+    records = load_manifest(SPLIT_MANIFEST, split=args.split)
     if args.stratified:
         records = stratified(records, args.stratified)
-    out_dir = Path(args.output) if args.output else run_dir / ("val_subset" if args.stratified else "val_full")
+    suffix = "subset" if args.stratified else "full"
+    out_dir = Path(args.output) if args.output else run_dir / f"{args.split}_{suffix}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     t0 = time.perf_counter()
-    res = run_dual(model, records, norm, batch_views=args.batch_views, workers=args.workers)
+    export_fit = args.split == "fit"
+    res = run_dual(model, records, norm, batch_views=args.batch_views, workers=args.workers,
+                   filtered_predictions_only=export_fit)
     elapsed = time.perf_counter() - t0
-    for name in ("unfiltered", "filtered_0_5"):
-        save_npz(out_dir / f"val_predictions_{name}.npz", res[f"preds_{name}"])
-    (out_dir / "val_sample_ids.json").write_text(json.dumps([r.sample_id for r in records], indent=2))
+    protocols = ("filtered_0_5",) if export_fit else ("unfiltered", "filtered_0_5")
+    for name in protocols:
+        save_npz(out_dir / f"{args.split}_predictions_{name}.npz", res[f"preds_{name}"])
+    (out_dir / f"{args.split}_sample_ids.json").write_text(
+        json.dumps([r.sample_id for r in records], indent=2), encoding="utf-8")
     summary = {"run": args.run, "checkpoint": str(ck_path), "weights": args.weights,
-               "split": "val", "n_samples": len(records), "n_views": res["n_views"],
+               "split": args.split, "n_samples": len(records), "n_views": res["n_views"],
                "n_boundary_dropped": res["n_boundary_dropped"],
                "conf": 0.001, "iou": 0.5, "max_det": 100, "max_det_view": 300,
                "settings": {k: v for k, v in res["settings"].items()},
@@ -75,6 +82,10 @@ def main():
                "model": info, "checkpoint_epoch": ck.get("epoch"),
                "checkpoint_best_fitness": ck.get("best_fitness")}
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2))
+    if export_fit:
+        print(json.dumps({"split": "fit", "samples": len(records), "views": res["n_views"],
+                          "output": str(out_dir), "elapsed_s": elapsed}))
+        return
     f = summary["settings"]["filtered_0_5"]; u = summary["settings"]["unfiltered"]
     print(json.dumps({"samples": len(records), "views": res["n_views"],
                       "filtered_map50": f["map50"], "filtered_map50_95": f["map50_95"],

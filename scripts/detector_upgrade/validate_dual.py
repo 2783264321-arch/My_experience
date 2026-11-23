@@ -83,7 +83,7 @@ def _eval_set(gts, preds):
 def run_dual(model, records: Sequence, normalizer, batch_views=8, workers=8,
              conf=0.001, iou=0.5, max_det_view=300, max_det=100,
              max_samples: Optional[int] = None, log_interval_s=120.0,
-             infer_fn=None):
+             infer_fn=None, filtered_predictions_only=False):
     t0 = time.perf_counter()
     recs = list(records[:max_samples] if max_samples else records)
     ds = FullViewDataset(recs, normalizer, view_mode="all")
@@ -91,7 +91,8 @@ def run_dual(model, records: Sequence, normalizer, batch_views=8, workers=8,
                         collate_fn=_collate_one, pin_memory=False,
                         prefetch_factor=4 if workers else None,
                         persistent_workers=workers > 0)
-    gts = [gt_global(r, math.ceil(r.N / (N_TIME - 1))) for r in recs]
+    gts = ([] if filtered_predictions_only else
+           [gt_global(r, math.ceil(r.N / (N_TIME - 1))) for r in recs])
     # per-view predictions (mapped, boundary filtered), grouped by sample
     parts: List[List[tuple[Prediction, str]]] = [[] for _ in recs]
     buffer: List[dict] = []
@@ -148,11 +149,15 @@ def run_dual(model, records: Sequence, normalizer, batch_views=8, workers=8,
     out = {"n_samples": len(recs), "n_views": n_views,
            "n_boundary_dropped": n_boundary,
            "settings": {}}
-    for name, drop in [("unfiltered", None), ("filtered_0_5", FINE_0_5)]:
+    protocols = [("filtered_0_5", FINE_0_5)]
+    if not filtered_predictions_only:
+        protocols.insert(0, ("unfiltered", None))
+    for name, drop in protocols:
         preds = merge(drop)
-        res = _eval_set(gts, preds)
-        res["n_pred"] = int(sum(len(p.boxes) for p in preds))
-        out["settings"][name] = res
+        if not filtered_predictions_only:
+            res = _eval_set(gts, preds)
+            res["n_pred"] = int(sum(len(p.boxes) for p in preds))
+            out["settings"][name] = res
         out[f"preds_{name}"] = preds
     out["elapsed_s"] = time.perf_counter() - t0
     if was_training:
