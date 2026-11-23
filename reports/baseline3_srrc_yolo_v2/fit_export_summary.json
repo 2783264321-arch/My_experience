@@ -1,0 +1,24 @@
+{
+  "run": "yolo26l_c1_2048x512",
+  "checkpoint": "/root/autodl-tmp/worktrees/formal-yolo26/runs/yolo26l_c1_2048x512/best.pt",
+  "weights": "ema",
+  "split": "fit",
+  "n_samples": 5957,
+  "n_views": 96051,
+  "n_boundary_dropped": 603995,
+  "conf": 0.001,
+  "iou": 0.5,
+  "max_det": 100,
+  "max_det_view": 300,
+  "settings": {},
+  "elapsed_s": 1389.6292193308473,
+  "peak_reserved_gib": 3.26953125,
+  "model": {
+    "copied": 1080,
+    "skipped": 12,
+    "stem_summed": 1,
+    "head": "Detect"
+  },
+  "checkpoint_epoch": 34,
+  "checkpoint_best_fitness": 0.6595596670254753
+}
