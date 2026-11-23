@@ -84,6 +84,8 @@ python -m scripts.baseline3srrc_gt_pilot train \
 
 **4 窗 vs 8 窗配对（2026-11-23，OpenCode）**：用已有幅度权重做 even4/odd4 与 full8 配对推理。strong AUC：seed1729 0.6894 vs 0.6669/0.6678；seed1730 0.6621 vs 0.6494/0.6428；seed1731 0.6505 vs 0.6499/0.6171。full8 方向一致但仅 +0.06–3.35 pp，5,000 次源组 bootstrap 区间全部含 0；4/8 判决一致率 93–99%。**16 窗不值得优先**，先解决校准/分类头。 [配对结果](opencode-srrc-window-count-probe.md)
 
+**16 窗嵌套推理（2026-11-23，OpenCode）**：保留原 8 窗、补 7 个中点 + 第一间隙 1/4 点的 8 个新位置；旧窗重算 max diff **0.0**。strong AUC 16−8 为 **+1.77 / +0.62 / +1.14 pp**（seed1729/1730/1731），按 148 个强重叠源组 bootstrap 的三个区间都含 0；默认强重叠 balanced accuracy 0.575→0.575、0.494→0.494、0.540→0.535。补窗 366 dev 约 **226.6 s**，16 窗推理额外 <0.1 s。**16 窗不值得采用，主方案保留 8 窗。** [16 窗结果](opencode-srrc-window16-probe.md)
+
 ## 三臂结果复核与下一步
 
 以 `6d210c7` 的 [逐实例预测与训练记录](../../reports/baseline3_srrc_gt_pilot/raw/) 为依据。三臂的 366 个实例键、类别、分组和重叠标记均对齐，共 312 个源组。平衡准确率取两类召回的平均。ROC AUC 用 `logit_11 - logit_10` 作分数，衡量模型把 class11 排在 class10 前面的能力，与具体在哪个分数处分两类无关。
