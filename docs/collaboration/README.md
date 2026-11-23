@@ -19,6 +19,7 @@
 - **SRRC 16 窗嵌套推理（2026-11-23，OpenCode）。** 原 8 窗 + 8 个固定新位置；旧窗重算误差 0.0。strong AUC 16−8 为 +1.77/+0.62/+1.14 pp，三个源组 bootstrap 区间均含 0；默认强重叠 balanced accuracy 无提升。补窗 366 dev 约 226.6 s，推理额外 <0.1 s。**16 窗不值得采用，保留 8 窗。** [结果](opencode-srrc-window16-probe.md)
 - **SRRC 第一张冻结 YOLO AP 表（2026-11-23，OpenCode）。** 654 个真实 SRRC 候选，固定框/分数/NMS。基线 mAP50 0.659601；最佳 amplitude_phase_change + 专家置信度≥0.70：mAP50 **0.663122（+0.352 pp）**，class11 AP50 +5.35 pp、class10 −0.42 pp，57 改对 / 14 改坏 / 54 未匹配改动。只改匹配框时 **+0.468 pp**，只改未匹配框时 **−0.092 pp**；下一版先抑制未匹配/重复改动。 [AP 表](opencode-srrc-yolo-first-ap.md)
 - **SRRC 第二张 AP 表 · V2 真实预测框训练（2026-11-23，OpenCode）。** fit 5,957 样本导出 96,051 views；2,589 个 fit 候选训练 keep/10/11 三分类（train/dev 2,081/508），V2 20 epoch 113.8 s，dev 三类 balanced 0.459，keep 召回 0.380。完整 val 上，括号内为实际改对/改坏/未匹配改动。V2 argmax **+0.386 pp**（96/33/87），V2 0.70 **+0.149 pp**（13/0/17），V1 0.70 **+0.352 pp**（57/14/54）。V1 与 V2 的 0.70 规则进入第三步独立复验。 [第二张 AP 表](opencode-srrc-yolo-v2.md)
+- **SRRC 第三张 AP 表 · 80 轮 GT＋Pred 混训（2026-11-23，OpenCode）。** 3,539 训练实例（1,458 GT + 2,081 Pred），Pred-dev 508；80 轮 / 35,440 更新 / **116.9 s**，best epoch 15。0.70 规则完整 val：mAP50 **0.661092（+0.149 pp）**，AP10 0.720204、AP11 0.617152，**13 改对 / 0 改坏 / 6 未匹配**。与 V2 0.70 同 mAP、改坏从 42 降到 0；V1 0.70 仍是最大 AP 主候选。 [第三张 AP 表](opencode-srrc-yolo-mixed.md)
 
 ## 复数 STFT 粗图前端验证
 

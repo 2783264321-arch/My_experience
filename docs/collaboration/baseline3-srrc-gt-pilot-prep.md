@@ -90,6 +90,8 @@ python -m scripts.baseline3srrc_gt_pilot train \
 
 **第二张 AP 表 · V2 真实预测框训练（2026-11-23，OpenCode）**：fit 5,957 样本导出 96,051 views（23.2 min）；2,589 个 fit 候选训练三分类 keep/10/11（train/dev 2,081/508），V2 20 epoch 113.8 s，dev 三类 balanced 仅 0.459（keep 召回 0.380）。完整 val 上，括号内为实际改对/改坏/未匹配改动。V2 argmax **+0.386 pp**（96/33/87），V2 0.70 **+0.149 pp**（13/0/17），V1 0.70 **+0.352 pp**（57/14/54）。V1 与 V2 的 0.70 规则进入第三步独立复验。 [第二张 AP 表](opencode-srrc-yolo-v2.md)
 
+**第三张 AP 表 · 80 轮 GT＋Pred 混训（2026-11-23，OpenCode）**：1,458 GT + 2,081 Pred = 3,539 训练实例，Pred-dev 508；80 轮 / 35,440 更新 / **116.9 s**，best epoch 15（Pred-dev balanced CE 1.0109）。0.70 规则完整 val：混训 mAP50 **0.661092（+0.149 pp）**，AP10 0.720204、AP11 0.617152，**13 改对 / 0 改坏 / 6 未匹配**。与 V2 0.70 同 mAP，但改坏从 42 降到 0；V1 0.70 仍是最大 AP 主候选（+0.352，57/14/54）。V2 0.70 被混训支配。 [第三张 AP 表](opencode-srrc-yolo-mixed.md)
+
 ## 三臂结果复核与下一步
 
 以 `6d210c7` 的 [逐实例预测与训练记录](../../reports/baseline3_srrc_gt_pilot/raw/) 为依据。三臂的 366 个实例键、类别、分组和重叠标记均对齐，共 312 个源组。平衡准确率取两类召回的平均。ROC AUC 用 `logit_11 - logit_10` 作分数，衡量模型把 class11 排在 class10 前面的能力，与具体在哪个分数处分两类无关。
