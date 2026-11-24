@@ -30,7 +30,7 @@ def load(path, device):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--arm", required=True, choices=("control", "group"))
+    ap.add_argument("--arm", required=True, choices=("control", "group", "group_normfix"))
     ap.add_argument("--samples", type=int, default=24)
     ap.add_argument("--batch-views", type=int, default=8)
     ap.add_argument("--workers", type=int, default=8)

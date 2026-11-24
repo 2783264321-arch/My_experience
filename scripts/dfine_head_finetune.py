@@ -81,7 +81,10 @@ def group_loss(out, targets, device):
         if sel_q:
             logits = out["pred_logits"][b][sel_q][:, :3].float()
             y = torch.tensor(sel_y, device=device, dtype=torch.long)
-            total = total + F.cross_entropy(logits, y)
+            # Sum per-target CE across views; divide once by the total number
+            # of matched targets. Using the default mean here would compute
+            # sum_v(mean_v) / sum_v(n_v), over-weighting views with few matches.
+            total = total + F.cross_entropy(logits, y, reduction="sum")
             count += len(sel_q)
     return (total / max(count, 1), count)
 
@@ -184,12 +187,16 @@ def main():
              "epoch": epoch, "global_step": global_step,
              "best_fitness": float(ck.get("best_fitness", 0.0)),
              "config": {"arm": args.arm, "init": str(CKPT), "epochs": args.epochs,
-                        "lr": args.lr, "box_max_abs_diff": box_diff}}
+                        "lr": args.lr, "box_max_abs_diff": box_diff,
+                        "group_normalization": ("sum_then_divide_total"
+                                                if args.arm == "group" else "none")}}
     torch.save(state, out / "last.pt")
     summary = {"arm": args.arm, "init": str(CKPT), "epochs": args.epochs,
                "steps": global_step, "seconds": time.perf_counter() - t0,
                "trainable_params": int(sum(p.numel() for p in trainable)),
                "box_max_abs_diff": box_diff, "model": info,
+               "group_normalization": ("sum_then_divide_total"
+                                       if args.arm == "group" else "none"),
                "final_loss": float(loss_sum / args.accum),
                "final_group_loss": float(group_sum / args.accum),
                "final_group_n": int(group_n)}

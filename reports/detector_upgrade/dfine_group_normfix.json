@@ -1,0 +1,642 @@
+{
+  "normalization": {
+    "old": "sum_v(mean_ce_v) / sum_v(n_v); default reduction=mean per view",
+    "new": "sum_v(sum_i ce_vi) / sum_v(n_v); reduction=sum then one division",
+    "smoke_first_batch": {
+      "n": 14,
+      "old_group_loss": 0.6159,
+      "new_group_loss": 1.1252
+    },
+    "smoke_second_batch": {
+      "n": 7,
+      "old_group_loss": 0.8726,
+      "new_group_loss": 0.8731
+    }
+  },
+  "train": {
+    "control": {
+      "arm": "control",
+      "init": "/root/autodl-tmp/worktrees/formal-dfine/runs/dfine_l_c1_2048x512/best.pt",
+      "epochs": 5,
+      "steps": 3725,
+      "seconds": 1305.3825426250696,
+      "trainable_params": 21588,
+      "box_max_abs_diff": 0.0,
+      "model": {
+        "copied": 1156,
+        "skipped": 17,
+        "stem_summed": 1,
+        "params_m": 31.11
+      },
+      "final_loss": 16.579357624053955,
+      "final_group_loss": 0.0,
+      "final_group_n": 0,
+      "group_n_total": 0,
+      "group_n_mean_step": 0,
+      "group_n_median_step": 0,
+      "group_n_zero_steps": 3725,
+      "group_loss_mean": 0.0
+    },
+    "group_old": {
+      "arm": "group",
+      "init": "/root/autodl-tmp/worktrees/formal-dfine/runs/dfine_l_c1_2048x512/best.pt",
+      "epochs": 5,
+      "steps": 3725,
+      "seconds": 1343.604220688343,
+      "trainable_params": 21588,
+      "box_max_abs_diff": 0.0,
+      "model": {
+        "copied": 1156,
+        "skipped": 17,
+        "stem_summed": 1,
+        "params_m": 31.11
+      },
+      "final_loss": 17.100907802581787,
+      "final_group_loss": 0.49669450521469116,
+      "final_group_n": 3,
+      "group_n_total": 31889,
+      "group_n_mean_step": 8.560805369127516,
+      "group_n_median_step": 8,
+      "group_n_zero_steps": 22,
+      "group_loss_mean": 0.7013668187919463
+    },
+    "group_normfix": {
+      "arm": "group",
+      "init": "/root/autodl-tmp/worktrees/formal-dfine/runs/dfine_l_c1_2048x512/best.pt",
+      "epochs": 5,
+      "steps": 3725,
+      "seconds": 1333.909389078617,
+      "trainable_params": 21588,
+      "box_max_abs_diff": 0.0,
+      "model": {
+        "copied": 1156,
+        "skipped": 17,
+        "stem_summed": 1,
+        "params_m": 31.11
+      },
+      "group_normalization": "sum_then_divide_total",
+      "final_loss": 17.098924160003662,
+      "final_group_loss": 0.4947599768638611,
+      "final_group_n": 3,
+      "group_n_total": 31889,
+      "group_n_mean_step": 8.560805369127516,
+      "group_n_median_step": 8,
+      "group_n_zero_steps": 22,
+      "group_loss_mean": 0.8712439463087248
+    }
+  },
+  "val": {
+    "round25": {
+      "map50": 0.7617281486212556,
+      "map50_95": 0.7139283283253144,
+      "localization_recall": 0.984361910080983,
+      "classification_accuracy": 0.8540425531914894,
+      "n_gt": 7162,
+      "n_pred": 154165,
+      "per_class": {
+        "0": {
+          "ap": 0.4805642146252714,
+          "n_gt": 337,
+          "n_pred": 5287
+        },
+        "1": {
+          "ap": 0.4852715805275218,
+          "n_gt": 347,
+          "n_pred": 4967
+        },
+        "2": {
+          "ap": 0.688175711109063,
+          "n_gt": 313,
+          "n_pred": 4580
+        },
+        "3": {
+          "ap": 0.568176081630356,
+          "n_gt": 155,
+          "n_pred": 3316
+        },
+        "4": {
+          "ap": 0.6884054227427953,
+          "n_gt": 148,
+          "n_pred": 3832
+        },
+        "5": {
+          "ap": 0.7107135149019326,
+          "n_gt": 139,
+          "n_pred": 3335
+        },
+        "6": {
+          "ap": 0.9810110565533549,
+          "n_gt": 712,
+          "n_pred": 4981
+        },
+        "7": {
+          "ap": 0.9805221381915115,
+          "n_gt": 704,
+          "n_pred": 10786
+        },
+        "8": {
+          "ap": 0.9558909267083224,
+          "n_gt": 1431,
+          "n_pred": 10587
+        },
+        "9": {
+          "ap": 0.9764370653290743,
+          "n_gt": 1411,
+          "n_pred": 14014
+        },
+        "10": {
+          "ap": 0.8001152412203686,
+          "n_gt": 376,
+          "n_pred": 14262
+        },
+        "11": {
+          "ap": 0.7616388317617921,
+          "n_gt": 340,
+          "n_pred": 9967
+        },
+        "12": {
+          "ap": 0.9416316592601697,
+          "n_gt": 399,
+          "n_pred": 7026
+        },
+        "13": {
+          "ap": 0.6456406361360464,
+          "n_gt": 350,
+          "n_pred": 57225
+        }
+      },
+      "groups": {
+        "WiFi_0-5": {
+          "n_gt": 1439,
+          "map50": 0.6035510875894899,
+          "map50_95": 0.5690575724720552,
+          "ap50_agnostic": 0.168094297209486,
+          "ap75_agnostic": 0.15980946005838648,
+          "recall": 0.9937456567060459,
+          "recall_strict_predclass": 0.9937456567060459
+        },
+        "WiFi_20MHz_0-2": {
+          "n_gt": 997,
+          "map50": 0.551337168753952,
+          "map50_95": 0.5087460896497668,
+          "ap50_agnostic": 0.11609659271540919,
+          "ap75_agnostic": 0.1090592118371289,
+          "recall": 0.9939819458375125,
+          "recall_strict_predclass": 0.9939819458375125
+        },
+        "WiFi_40MHz_3-5": {
+          "n_gt": 442,
+          "map50": 0.655765006425028,
+          "map50_95": 0.6293690552943438,
+          "ap50_agnostic": 0.05390660802749262,
+          "ap75_agnostic": 0.052065566614189325,
+          "recall": 0.9932126696832579,
+          "recall_strict_predclass": 0.9932126696832579
+        },
+        "SRRC_10-11": {
+          "n_gt": 716,
+          "map50": 0.7808770364910804,
+          "map50_95": 0.748403639004253,
+          "ap50_agnostic": 0.09999526633075602,
+          "ap75_agnostic": 0.09594195434717916,
+          "recall": 0.9958100558659218,
+          "recall_strict_predclass": 0.994413407821229
+        },
+        "Narrow_9_12_13": {
+          "n_gt": 2160,
+          "map50": 0.8545697869084301,
+          "map50_95": 0.7496892097504056,
+          "ap50_agnostic": 0.31578340008570077,
+          "ap75_agnostic": 0.2920102672312879,
+          "recall": 0.9555555555555556,
+          "recall_strict_predclass": 0.9555555555555556
+        }
+      }
+    },
+    "control": {
+      "map50": 0.7590404151830824,
+      "map50_95": 0.7107855440580153,
+      "localization_recall": 0.984361910080983,
+      "classification_accuracy": 0.8534751773049646,
+      "n_gt": 7162,
+      "n_pred": 154112,
+      "per_class": {
+        "0": {
+          "ap": 0.4785929048893427,
+          "n_gt": 337,
+          "n_pred": 5254
+        },
+        "1": {
+          "ap": 0.48416191219719845,
+          "n_gt": 347,
+          "n_pred": 5743
+        },
+        "2": {
+          "ap": 0.6882914393151242,
+          "n_gt": 313,
+          "n_pred": 4996
+        },
+        "3": {
+          "ap": 0.5614850686960454,
+          "n_gt": 155,
+          "n_pred": 2988
+        },
+        "4": {
+          "ap": 0.6874466923663269,
+          "n_gt": 148,
+          "n_pred": 4664
+        },
+        "5": {
+          "ap": 0.7094143503528405,
+          "n_gt": 139,
+          "n_pred": 3761
+        },
+        "6": {
+          "ap": 0.9808531896717516,
+          "n_gt": 712,
+          "n_pred": 3889
+        },
+        "7": {
+          "ap": 0.9804645779646449,
+          "n_gt": 704,
+          "n_pred": 11825
+        },
+        "8": {
+          "ap": 0.9545306699774989,
+          "n_gt": 1431,
+          "n_pred": 9905
+        },
+        "9": {
+          "ap": 0.9766675525423967,
+          "n_gt": 1411,
+          "n_pred": 12810
+        },
+        "10": {
+          "ap": 0.7856897914084493,
+          "n_gt": 376,
+          "n_pred": 14529
+        },
+        "11": {
+          "ap": 0.7534231528394633,
+          "n_gt": 340,
+          "n_pred": 10643
+        },
+        "12": {
+          "ap": 0.941694513240252,
+          "n_gt": 399,
+          "n_pred": 5753
+        },
+        "13": {
+          "ap": 0.64384999710182,
+          "n_gt": 350,
+          "n_pred": 57352
+        }
+      },
+      "groups": {
+        "WiFi_0-5": {
+          "n_gt": 1439,
+          "map50": 0.6015653946361463,
+          "map50_95": 0.5676402539277825,
+          "ap50_agnostic": 0.1691607627706702,
+          "ap75_agnostic": 0.1610355258965854,
+          "recall": 0.9937456567060459,
+          "recall_strict_predclass": 0.9937456567060459
+        },
+        "WiFi_20MHz_0-2": {
+          "n_gt": 997,
+          "map50": 0.5503487521338885,
+          "map50_95": 0.5084141752693109,
+          "ap50_agnostic": 0.11707616395364638,
+          "ap75_agnostic": 0.11019814024611253,
+          "recall": 0.9939819458375125,
+          "recall_strict_predclass": 0.9939819458375125
+        },
+        "WiFi_40MHz_3-5": {
+          "n_gt": 442,
+          "map50": 0.6527820371384043,
+          "map50_95": 0.626866332586254,
+          "ap50_agnostic": 0.05294882279287446,
+          "ap75_agnostic": 0.05136422617047539,
+          "recall": 0.9932126696832579,
+          "recall_strict_predclass": 0.9932126696832579
+        },
+        "SRRC_10-11": {
+          "n_gt": 716,
+          "map50": 0.7695564721239563,
+          "map50_95": 0.7355755548469436,
+          "ap50_agnostic": 0.10898003389586736,
+          "ap75_agnostic": 0.10517632872666177,
+          "recall": 0.9958100558659218,
+          "recall_strict_predclass": 0.994413407821229
+        },
+        "Narrow_9_12_13": {
+          "n_gt": 2160,
+          "map50": 0.8540706876281563,
+          "map50_95": 0.7464562638309431,
+          "ap50_agnostic": 0.31595376641814266,
+          "ap75_agnostic": 0.29084960038731544,
+          "recall": 0.9555555555555556,
+          "recall_strict_predclass": 0.9555555555555556
+        }
+      }
+    },
+    "group_old": {
+      "map50": 0.759422118729188,
+      "map50_95": 0.710688920740843,
+      "localization_recall": 0.984361910080983,
+      "classification_accuracy": 0.8540425531914894,
+      "n_gt": 7162,
+      "n_pred": 154113,
+      "per_class": {
+        "0": {
+          "ap": 0.4777937586146503,
+          "n_gt": 337,
+          "n_pred": 6127
+        },
+        "1": {
+          "ap": 0.4839522128829424,
+          "n_gt": 347,
+          "n_pred": 5967
+        },
+        "2": {
+          "ap": 0.6872072811335848,
+          "n_gt": 313,
+          "n_pred": 5365
+        },
+        "3": {
+          "ap": 0.5655005132502798,
+          "n_gt": 155,
+          "n_pred": 2927
+        },
+        "4": {
+          "ap": 0.6865869986319767,
+          "n_gt": 148,
+          "n_pred": 4675
+        },
+        "5": {
+          "ap": 0.7102699952215992,
+          "n_gt": 139,
+          "n_pred": 3729
+        },
+        "6": {
+          "ap": 0.9809280406883362,
+          "n_gt": 712,
+          "n_pred": 3964
+        },
+        "7": {
+          "ap": 0.9805303741979239,
+          "n_gt": 704,
+          "n_pred": 11889
+        },
+        "8": {
+          "ap": 0.9561150380187986,
+          "n_gt": 1431,
+          "n_pred": 9883
+        },
+        "9": {
+          "ap": 0.976681363037453,
+          "n_gt": 1411,
+          "n_pred": 12841
+        },
+        "10": {
+          "ap": 0.7871052816260184,
+          "n_gt": 376,
+          "n_pred": 14169
+        },
+        "11": {
+          "ap": 0.7535671424704131,
+          "n_gt": 340,
+          "n_pred": 10412
+        },
+        "12": {
+          "ap": 0.9416561358311001,
+          "n_gt": 399,
+          "n_pred": 5554
+        },
+        "13": {
+          "ap": 0.6440155266035569,
+          "n_gt": 350,
+          "n_pred": 56611
+        }
+      },
+      "groups": {
+        "WiFi_0-5": {
+          "n_gt": 1439,
+          "map50": 0.6018851266225055,
+          "map50_95": 0.5670989128999594,
+          "ap50_agnostic": 0.17211464409596516,
+          "ap75_agnostic": 0.16406434912570125,
+          "recall": 0.9937456567060459,
+          "recall_strict_predclass": 0.9937456567060459
+        },
+        "WiFi_20MHz_0-2": {
+          "n_gt": 997,
+          "map50": 0.5496510842103924,
+          "map50_95": 0.5059847350368954,
+          "ap50_agnostic": 0.12044409474649728,
+          "ap75_agnostic": 0.11373135316404401,
+          "recall": 0.9939819458375125,
+          "recall_strict_predclass": 0.9939819458375125
+        },
+        "WiFi_40MHz_3-5": {
+          "n_gt": 442,
+          "map50": 0.6541191690346185,
+          "map50_95": 0.6282130907630233,
+          "ap50_agnostic": 0.052867630019308,
+          "ap75_agnostic": 0.05128738301553244,
+          "recall": 0.9932126696832579,
+          "recall_strict_predclass": 0.9932126696832579
+        },
+        "SRRC_10-11": {
+          "n_gt": 716,
+          "map50": 0.7703362120482158,
+          "map50_95": 0.7361041291748199,
+          "ap50_agnostic": 0.1076152999512698,
+          "ap75_agnostic": 0.10377035670080377,
+          "recall": 0.9958100558659218,
+          "recall_strict_predclass": 0.994413407821229
+        },
+        "Narrow_9_12_13": {
+          "n_gt": 2160,
+          "map50": 0.85411767515737,
+          "map50_95": 0.7466040128211939,
+          "ap50_agnostic": 0.31471262531746946,
+          "ap75_agnostic": 0.28982843395808194,
+          "recall": 0.9560185185185185,
+          "recall_strict_predclass": 0.9555555555555556
+        }
+      }
+    },
+    "group_normfix": {
+      "map50": 0.7593270148801293,
+      "map50_95": 0.7106966698140594,
+      "localization_recall": 0.9842222842781346,
+      "classification_accuracy": 0.8534543906937154,
+      "n_gt": 7162,
+      "n_pred": 154119,
+      "per_class": {
+        "0": {
+          "ap": 0.4771905704557792,
+          "n_gt": 337,
+          "n_pred": 6014
+        },
+        "1": {
+          "ap": 0.48231713317710057,
+          "n_gt": 347,
+          "n_pred": 5972
+        },
+        "2": {
+          "ap": 0.6874622149961017,
+          "n_gt": 313,
+          "n_pred": 5485
+        },
+        "3": {
+          "ap": 0.56668652733879,
+          "n_gt": 155,
+          "n_pred": 2931
+        },
+        "4": {
+          "ap": 0.6868884239117147,
+          "n_gt": 148,
+          "n_pred": 4668
+        },
+        "5": {
+          "ap": 0.7094619531776916,
+          "n_gt": 139,
+          "n_pred": 3665
+        },
+        "6": {
+          "ap": 0.9809592647256986,
+          "n_gt": 712,
+          "n_pred": 3923
+        },
+        "7": {
+          "ap": 0.9805757013444467,
+          "n_gt": 704,
+          "n_pred": 11797
+        },
+        "8": {
+          "ap": 0.9561211857338126,
+          "n_gt": 1431,
+          "n_pred": 9813
+        },
+        "9": {
+          "ap": 0.9766548219984589,
+          "n_gt": 1411,
+          "n_pred": 12813
+        },
+        "10": {
+          "ap": 0.7871715219033304,
+          "n_gt": 376,
+          "n_pred": 14193
+        },
+        "11": {
+          "ap": 0.7534350412235177,
+          "n_gt": 340,
+          "n_pred": 10250
+        },
+        "12": {
+          "ap": 0.9416384326225536,
+          "n_gt": 399,
+          "n_pred": 5467
+        },
+        "13": {
+          "ap": 0.6440154157128122,
+          "n_gt": 350,
+          "n_pred": 57128
+        }
+      },
+      "groups": {
+        "WiFi_0-5": {
+          "n_gt": 1439,
+          "map50": 0.601667803842863,
+          "map50_95": 0.5670155378819224,
+          "ap50_agnostic": 0.1720379642445821,
+          "ap75_agnostic": 0.16409659418366052,
+          "recall": 0.9937456567060459,
+          "recall_strict_predclass": 0.9937456567060459
+        },
+        "WiFi_20MHz_0-2": {
+          "n_gt": 997,
+          "map50": 0.5489899728763271,
+          "map50_95": 0.5055547138998402,
+          "ap50_agnostic": 0.1203917094695186,
+          "ap75_agnostic": 0.11380348088834154,
+          "recall": 0.9939819458375125,
+          "recall_strict_predclass": 0.9939819458375125
+        },
+        "WiFi_40MHz_3-5": {
+          "n_gt": 442,
+          "map50": 0.6543456348093987,
+          "map50_95": 0.6284763618640048,
+          "ap50_agnostic": 0.052905643877220396,
+          "ap75_agnostic": 0.051335157299175406,
+          "recall": 0.9932126696832579,
+          "recall_strict_predclass": 0.9932126696832579
+        },
+        "SRRC_10-11": {
+          "n_gt": 716,
+          "map50": 0.7703032815634241,
+          "map50_95": 0.7361104356330518,
+          "ap50_agnostic": 0.10805443860771907,
+          "ap75_agnostic": 0.10417952319182763,
+          "recall": 0.9958100558659218,
+          "recall_strict_predclass": 0.994413407821229
+        },
+        "Narrow_9_12_13": {
+          "n_gt": 2160,
+          "map50": 0.8541028901112749,
+          "map50_95": 0.7467997929390323,
+          "ap50_agnostic": 0.31462258935469367,
+          "ap75_agnostic": 0.28961973594595564,
+          "recall": 0.9555555555555556,
+          "recall_strict_predclass": 0.9550925925925926
+        }
+      }
+    }
+  },
+  "meta": {
+    "round25": {
+      "checkpoint": "/root/autodl-tmp/worktrees/formal-dfine/runs/dfine_l_c1_2048x512/best.pt",
+      "elapsed_s": 595.0932701081038,
+      "n_samples": 1543,
+      "split": "val"
+    },
+    "control": {
+      "checkpoint": "/root/autodl-tmp/worktrees/dfine-query-review/runs/dfine_head_finetune/control/last.pt",
+      "elapsed_s": 591.137442484498,
+      "n_samples": 1543,
+      "split": "val"
+    },
+    "group_old": {
+      "checkpoint": "/root/autodl-tmp/worktrees/dfine-query-review/runs/dfine_head_finetune/group/last.pt",
+      "elapsed_s": 592.1378455385566,
+      "n_samples": 1543,
+      "split": "val"
+    },
+    "group_normfix": {
+      "checkpoint": "/root/autodl-tmp/worktrees/dfine-query-review/runs/dfine_head_finetune/group_normfix/last.pt",
+      "elapsed_s": 586.4577387869358,
+      "n_samples": 1543,
+      "split": "val"
+    }
+  },
+  "box_check": {
+    "arm": "group_normfix",
+    "samples": 24,
+    "views": 416,
+    "boxes_bitwise_equal": true,
+    "box_max_abs_diff": 0.0,
+    "logit_max_abs_diff": 1.65625,
+    "checkpoint": "/root/autodl-tmp/worktrees/dfine-query-review/runs/dfine_head_finetune/group_normfix/last.pt",
+    "epoch": 4
+  },
+  "param_check": {
+    "outside_score_head_changed": 0,
+    "outside_score_head_max_abs_diff": 0.0,
+    "score_head_max_abs_diff": 0.15345758199691772,
+    "note": "compared with round25 best.pt ema"
+  },
+  "control_reused": true,
+  "test": "not run this round; fit/val only"
+}
