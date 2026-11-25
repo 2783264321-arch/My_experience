@@ -1,0 +1,185 @@
+{
+  "scope": "original train split only, full original 7500, not the subset used for fit",
+  "training_epoch_count_emulated": 25,
+  "seed": 1729,
+  "tile_frequency_bins": 2048,
+  "tile_step": 1639,
+  "inference_boundary_margin": 16,
+  "totals": {
+    "samples": 7500,
+    "instances": 34755,
+    "full_fine_views": 113526,
+    "max_coarse_instances": 8,
+    "max_fine_intersecting_targets": 7,
+    "same_class_exact_box_pairs": 133,
+    "epoch25_fine_views": 187500,
+    "all_intersecting_targets": 139723,
+    "wifi_all_intersecting_targets": 83435,
+    "all_truncated_targets": 120146,
+    "wifi_all_truncated_targets": 83435,
+    "epoch25_intersecting_targets": 257726,
+    "wifi_epoch25_intersecting_targets": 125556,
+    "epoch25_truncated_targets": 209234,
+    "wifi_epoch25_truncated_targets": 125556
+  },
+  "by_class": {
+    "0": {
+      "instances": 1573,
+      "all_intersecting_targets": 14897,
+      "epoch25_intersecting_targets": 27076,
+      "all_truncated_targets": 14897,
+      "epoch25_truncated_targets": 27076,
+      "instances_with_full_fine_view_margin16": 0,
+      "instances_with_full_fine_training_view_margin16_epoch25": 0
+    },
+    "1": {
+      "instances": 1597,
+      "all_intersecting_targets": 15134,
+      "epoch25_intersecting_targets": 27602,
+      "all_truncated_targets": 15134,
+      "epoch25_truncated_targets": 27602,
+      "instances_with_full_fine_view_margin16": 0,
+      "instances_with_full_fine_training_view_margin16_epoch25": 0
+    },
+    "2": {
+      "instances": 1596,
+      "all_intersecting_targets": 15115,
+      "epoch25_intersecting_targets": 27649,
+      "all_truncated_targets": 15115,
+      "epoch25_truncated_targets": 27649,
+      "instances_with_full_fine_view_margin16": 0,
+      "instances_with_full_fine_training_view_margin16_epoch25": 0
+    },
+    "3": {
+      "instances": 720,
+      "all_intersecting_targets": 12882,
+      "epoch25_intersecting_targets": 14550,
+      "all_truncated_targets": 12882,
+      "epoch25_truncated_targets": 14550,
+      "instances_with_full_fine_view_margin16": 0,
+      "instances_with_full_fine_training_view_margin16_epoch25": 0
+    },
+    "4": {
+      "instances": 694,
+      "all_intersecting_targets": 12415,
+      "epoch25_intersecting_targets": 13918,
+      "all_truncated_targets": 12415,
+      "epoch25_truncated_targets": 13918,
+      "instances_with_full_fine_view_margin16": 0,
+      "instances_with_full_fine_training_view_margin16_epoch25": 0
+    },
+    "5": {
+      "instances": 728,
+      "all_intersecting_targets": 12992,
+      "epoch25_intersecting_targets": 14761,
+      "all_truncated_targets": 12992,
+      "epoch25_truncated_targets": 14761,
+      "instances_with_full_fine_view_margin16": 0,
+      "instances_with_full_fine_training_view_margin16_epoch25": 0
+    },
+    "6": {
+      "instances": 3472,
+      "all_intersecting_targets": 5807,
+      "epoch25_intersecting_targets": 13925,
+      "all_truncated_targets": 2741,
+      "epoch25_truncated_targets": 5926,
+      "instances_with_full_fine_view_margin16": 2956,
+      "instances_with_full_fine_training_view_margin16_epoch25": 2831
+    },
+    "7": {
+      "instances": 3507,
+      "all_intersecting_targets": 7131,
+      "epoch25_intersecting_targets": 18629,
+      "all_truncated_targets": 5819,
+      "epoch25_truncated_targets": 14798,
+      "instances_with_full_fine_view_margin16": 1271,
+      "instances_with_full_fine_training_view_margin16_epoch25": 1215
+    },
+    "8": {
+      "instances": 7017,
+      "all_intersecting_targets": 14226,
+      "epoch25_intersecting_targets": 37822,
+      "all_truncated_targets": 12217,
+      "epoch25_truncated_targets": 35029,
+      "instances_with_full_fine_view_margin16": 1840,
+      "instances_with_full_fine_training_view_margin16_epoch25": 1709
+    },
+    "9": {
+      "instances": 6899,
+      "all_intersecting_targets": 9315,
+      "epoch25_intersecting_targets": 23482,
+      "all_truncated_targets": 1142,
+      "epoch25_truncated_targets": 1979,
+      "instances_with_full_fine_view_margin16": 6899,
+      "instances_with_full_fine_training_view_margin16_epoch25": 6644
+    },
+    "10": {
+      "instances": 1770,
+      "all_intersecting_targets": 7290,
+      "epoch25_intersecting_targets": 12953,
+      "all_truncated_targets": 6591,
+      "epoch25_truncated_targets": 11699,
+      "instances_with_full_fine_view_margin16": 590,
+      "instances_with_full_fine_training_view_margin16_epoch25": 570
+    },
+    "11": {
+      "instances": 1698,
+      "all_intersecting_targets": 7896,
+      "epoch25_intersecting_targets": 13682,
+      "all_truncated_targets": 7701,
+      "epoch25_truncated_targets": 13355,
+      "instances_with_full_fine_view_margin16": 187,
+      "instances_with_full_fine_training_view_margin16_epoch25": 179
+    },
+    "12": {
+      "instances": 1774,
+      "all_intersecting_targets": 2338,
+      "epoch25_intersecting_targets": 5977,
+      "instances_with_full_fine_view_margin16": 1774,
+      "instances_with_full_fine_training_view_margin16_epoch25": 1685,
+      "all_truncated_targets": 260,
+      "epoch25_truncated_targets": 448
+    },
+    "13": {
+      "instances": 1710,
+      "all_intersecting_targets": 2285,
+      "epoch25_intersecting_targets": 5700,
+      "instances_with_full_fine_view_margin16": 1710,
+      "instances_with_full_fine_training_view_margin16_epoch25": 1654,
+      "all_truncated_targets": 240,
+      "epoch25_truncated_targets": 444
+    }
+  },
+  "by_observation_bandwidth_mhz": {
+    "5.0": {
+      "samples": 1287,
+      "tiles_per_sample": 2,
+      "distinct_tiles_through_epoch25": 2
+    },
+    "20.0": {
+      "samples": 1531,
+      "tiles_per_sample": 9,
+      "distinct_tiles_through_epoch25": 9
+    },
+    "30.0": {
+      "samples": 1381,
+      "tiles_per_sample": 13,
+      "distinct_tiles_through_epoch25": 13
+    },
+    "40.0": {
+      "samples": 1114,
+      "tiles_per_sample": 17,
+      "distinct_tiles_through_epoch25": 17
+    },
+    "50.0": {
+      "samples": 1173,
+      "tiles_per_sample": 22,
+      "distinct_tiles_through_epoch25": 22
+    },
+    "80.0": {
+      "samples": 1014,
+      "tiles_per_sample": 34,
+      "distinct_tiles_through_epoch25": 25
+    }
+  }
+}

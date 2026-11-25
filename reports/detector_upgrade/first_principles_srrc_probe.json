@@ -1,0 +1,103 @@
+{
+  "setup": {
+    "train_pairs": 160,
+    "val_pairs": 160,
+    "train_seed": 24101,
+    "val_seed": 24102,
+    "fs": 20000000,
+    "sps_internal": 12,
+    "alpha": 0.2,
+    "nominal_bw": 10000000,
+    "samples_per_packet": 40000,
+    "window_samples": 14000,
+    "hop_samples": 783,
+    "nominal_snr_db": 12
+  },
+  "results": {
+    "no_cochannel": {
+      "mean_coarse_psd": {
+        "bal_acc": 0.478125,
+        "auc": 0.499375,
+        "pair_bootstrap_bal_acc_ci95": [
+          0.425,
+          0.53125
+        ]
+      },
+      "coarse_power_stats": {
+        "bal_acc": 0.8656250000000001,
+        "auc": 0.9527734374999999,
+        "pair_bootstrap_bal_acc_ci95": [
+          0.828125,
+          0.896875
+        ]
+      },
+      "received_envelope": {
+        "bal_acc": 1,
+        "auc": 1,
+        "pair_bootstrap_bal_acc_ci95": [
+          1,
+          1
+        ],
+        "val_m4_median": [
+          1.3297759890556335,
+          1.5488086342811584
+        ]
+      },
+      "ideal_sync_envelope": {
+        "bal_acc": 1,
+        "auc": 1,
+        "pair_bootstrap_bal_acc_ci95": [
+          1,
+          1
+        ],
+        "val_m4_median": [
+          1.0506656169891357,
+          1.353890597820282
+        ]
+      }
+    },
+    "cochannel_0dB": {
+      "mean_coarse_psd": {
+        "bal_acc": 0.484375,
+        "auc": 0.4853125,
+        "pair_bootstrap_bal_acc_ci95": [
+          0.434375,
+          0.53125
+        ]
+      },
+      "coarse_power_stats": {
+        "bal_acc": 0.540625,
+        "auc": 0.551796875,
+        "pair_bootstrap_bal_acc_ci95": [
+          0.490625,
+          0.5875
+        ]
+      },
+      "received_envelope": {
+        "bal_acc": 0.759375,
+        "auc": 0.891171875,
+        "pair_bootstrap_bal_acc_ci95": [
+          0.71875,
+          0.796875
+        ],
+        "val_m4_median": [
+          1.6537821888923645,
+          1.7134417295455933
+        ]
+      },
+      "ideal_sync_envelope": {
+        "bal_acc": 0.921875,
+        "auc": 0.9823437500000001,
+        "pair_bootstrap_bal_acc_ci95": [
+          0.89375,
+          0.946875
+        ],
+        "val_m4_median": [
+          1.5987944602966309,
+          1.6747406721115112
+        ]
+      }
+    }
+  },
+  "wall_seconds": 53.22
+}

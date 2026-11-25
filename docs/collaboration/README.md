@@ -4,6 +4,8 @@
 
 ## 当前路线
 
+- **SpaceNet 第一性原理审计与后续路线。** 保留 D-FINE-L 第 25 轮与粗细片框架。已量化细片训练监督差异并复现合成 SRRC 对照，优先用一次完整 val 查候选上限与宽带错类，随后推进候选局部物理表示。 [完整审计和执行入口](spacenet-first-principles.md)
+
 - **Baseline-0 · 全频单图已收尾。** 每个样本用一张 `2048×512` 全频功率图独立训练和推理。100 轮训练、固定验证集评测和延迟测量均已完成。 [末轮与最佳权重的论文口径](Baseline-0.md#收尾与论文比较口径)
 - **Baseline-1 · 全频粗图与沿频率轴的细片。** 原生时频图为 `F×512`，F 随观测带宽变化，每个粗细视图都是 `2048×512`。固定 1,543 个验证样本，原联合 mAP@0.5 为 0.6427，AP75 为 0.5945，忽略类别的 AP@0.5 为 0.9046。联合权重只跑粗图为 0.5794。加细片类别过滤的工程对照为 0.6497。旧训练曲线使用裁框修正前的口径。 [执行状态](../status.md) · [修正后验证](../../reports/stage5_results.md) · [视图归因](opencode-view-attribution.md) · [过滤对照](opencode-filter-and-classifier-proposal.md)
 - **当前主线 · D-FINE-L 跨架构对照（2026-11-23，已完成）。** 同一 C1/粗细分片与公共合并口径；best（第 25 轮）过滤 mAP@0.5 **0.761728**，较 YOLO26l **+10.21 pp**、较 YOLO11s **+11.20 pp**；mAP@0.5:0.95 **0.713928**、AP_agn75 **0.9168**。窄带 9/12/13 **0.855**（主要来自定位 recall/IoU），WiFi 0–2/3–5 与 SRRC 定位和分类双升；末段 last 0.7237，best 取第 25 轮。 [最终对照](opencode-dfine-formal-run.md) · [三模型表](../../reports/detector_upgrade/three_model_comparison.md) · [三模型复盘与改进方案](dfine-three-model-review.md)
