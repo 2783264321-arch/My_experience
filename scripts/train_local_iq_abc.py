@@ -20,7 +20,7 @@ GROUPS = {"012": [0, 1, 2], "345": [3, 4, 5], "1011": [10, 11]}
 
 
 class LocalNet(nn.Module):
-    def __init__(self, n_classes: int, feat_dim: int = 0):
+    def __init__(self, n_classes: int, feat_dim: int = 0, meta_dim: int = 0):
         super().__init__()
         m = resnet18(weights=None)
         m.conv1 = nn.Conv2d(1, 64, 7, 2, 3, bias=False)
@@ -30,14 +30,19 @@ class LocalNet(nn.Module):
         self.pool = nn.AdaptiveAvgPool2d(1)
         self.fc1 = nn.Linear(512, 256)
         self.feat_dim = feat_dim
+        self.meta_dim = meta_dim
         if feat_dim:
             self.feat = nn.Sequential(nn.Linear(feat_dim, 128), nn.ReLU(inplace=True),
                                       nn.Linear(128, 64), nn.ReLU(inplace=True))
-        self.fc2 = nn.Linear(256 + (64 if feat_dim else 0), n_classes)
+        if meta_dim:
+            self.meta = nn.Sequential(nn.Linear(meta_dim, 32), nn.ReLU(inplace=True),
+                                      nn.Linear(32, 32), nn.ReLU(inplace=True))
+        self.fc2 = nn.Linear(256 + (64 if feat_dim else 0) + (32 if meta_dim else 0),
+                             n_classes)
         nn.init.zeros_(self.fc2.weight)
         nn.init.zeros_(self.fc2.bias)
 
-    def forward(self, x, f=None):
+    def forward(self, x, f=None, m=None):
         h = self.stem(x)
         h = self.layer1(h); h = self.layer2(h)
         h = self.layer3(h); h = self.layer4(h)
@@ -45,13 +50,16 @@ class LocalNet(nn.Module):
         h = F.relu(self.fc1(h))
         if self.feat_dim:
             h = torch.cat([h, self.feat(f)], dim=1)
+        if self.meta_dim:
+            h = torch.cat([h, self.meta(m)], dim=1)
         return self.fc2(h)
 
 
 class CropDataset(Dataset):
-    def __init__(self, power, feats, y, use_feats):
+    def __init__(self, power, feats, meta, y, use_feats):
         self.power = power
         self.feats = feats
+        self.meta = meta
         self.y = y
         self.use_feats = use_feats
 
@@ -62,9 +70,8 @@ class CropDataset(Dataset):
         p = torch.from_numpy(self.power[i]).float()
         p = (p - p.mean()) / p.std().clamp_min(1e-6)
         p = p.clamp(-5, 5)
-        if self.use_feats:
-            return p, torch.from_numpy(self.feats[i]), int(self.y[i])
-        return p, torch.zeros(0), int(self.y[i])
+        f = torch.from_numpy(self.feats[i]) if self.use_feats else torch.zeros(0)
+        return p, f, torch.from_numpy(self.meta[i]).float(), int(self.y[i])
 
 
 def split_by_sample(sample_ids, y, n_classes, holdout, seed):
@@ -87,10 +94,11 @@ def evaluate(model, loader, device, n_classes, use_feats):
     model.eval()
     preds, ys = [], []
     with torch.no_grad():
-        for p, f, y in loader:
+        for p, f, m, y in loader:
             p = p.to(device, non_blocking=True)
             f = f.to(device, non_blocking=True) if use_feats else None
-            preds.append(model(p, f).argmax(1).cpu().numpy())
+            m = m.to(device, non_blocking=True)
+            preds.append(model(p, f, m).argmax(1).cpu().numpy())
             ys.append(y.numpy())
     pred = np.concatenate(preds) if preds else np.zeros((0,), np.int64)
     y = np.concatenate(ys) if ys else np.zeros((0,), np.int64)
@@ -123,38 +131,67 @@ def main():
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--max-crops", type=int, default=0)
+    ap.add_argument("--no-dedupe", action="store_true")
     args = ap.parse_args()
 
     torch.manual_seed(args.seed); np.random.seed(args.seed); random.seed(args.seed)
+    meta_in = json.loads(args.data.with_suffix(".json").read_text())
+    assert meta_in.get("format") == "dfine-local-crops-v1", meta_in.get("format")
+    assert meta_in.get("split") == "fit", meta_in.get("split")
     z = np.load(args.data, allow_pickle=True)
     labels = z["label"].astype(np.int64)
+    pred_label = z["pred_label"].astype(np.int64)
+    keep = z["keep"].astype(np.int64)
     src = np.array(GROUPS[args.group])
-    sel = np.isin(labels, src)
+    pos = (keep == 0) & np.isin(labels, src)
+    neg = (keep == 1) & np.isin(pred_label, src)
+    sel = pos | neg
     idx = np.flatnonzero(sel)
+    n_before = len(idx)
+    if not args.no_dedupe:
+        key = np.stack([z["sample_index"][idx], z["view_type"][idx],
+                        z["view_start"][idx], z["qid"][idx], keep[idx]], axis=1)
+        _, first = np.unique(key, axis=0, return_index=True)
+        idx = idx[np.sort(first)]
     if args.max_crops:
         idx = idx[:args.max_crops]
-    y = np.searchsorted(src, labels[idx]).astype(np.int64)
+    y = np.where(keep[idx] == 1, len(src),
+                 np.searchsorted(src, labels[idx])).astype(np.int64)
     sid = z["sample_ids"][idx].astype(str)
     power = z["local_power"][idx]
     feats = z["features"][idx].astype(np.float32)
     use_feats = args.rep == "features"
 
-    tr, va = split_by_sample(sid, y, len(src), args.holdout, args.split_seed)
+    n_out = len(src) + 1
+    tr, va = split_by_sample(sid, y, n_out, args.holdout, args.split_seed)
     mu = feats[tr].mean(0); sd = feats[tr].std(0) + 1e-6
     feats = np.clip((feats - mu) / sd, -5, 5).astype(np.float32)
+    # Metadata available to both B and C: detector group scores and candidate
+    # geometry. This lets the residual calibrate the detector instead of
+    # ignoring its prior.
+    meta = np.concatenate([
+        z["class_scores"][idx][:, src].astype(np.float32),
+        z["score"][idx][:, None].astype(np.float32),
+        np.log1p(z["bandwidth_mhz"][idx])[:, None].astype(np.float32),
+        np.log1p(z["duration_ms"][idx])[:, None].astype(np.float32),
+        z["view_type"][idx][:, None].astype(np.float32),
+    ], axis=1).astype(np.float32)
+    mmu = meta[tr].mean(0); msd = meta[tr].std(0) + 1e-6
+    meta = np.clip((meta - mmu) / msd, -5, 5).astype(np.float32)
     print(f"group={args.group} rep={args.rep} crops={len(y)} train={int(tr.sum())} "
-          f"holdout={int(va.sum())} classes={np.bincount(y, minlength=len(src)).tolist()}",
+          f"holdout={int(va.sum())} classes={np.bincount(y, minlength=n_out).tolist()}",
           flush=True)
 
-    ds_tr = CropDataset(power[tr], feats[tr], y[tr], use_feats)
-    ds_va = CropDataset(power[va], feats[va], y[va], use_feats)
+    ds_tr = CropDataset(power[tr], feats[tr], meta[tr], y[tr], use_feats)
+    ds_va = CropDataset(power[va], feats[va], meta[va], y[va], use_feats)
     dl_tr = DataLoader(ds_tr, batch_size=args.batch, shuffle=True,
                        num_workers=args.workers, pin_memory=True)
     dl_va = DataLoader(ds_va, batch_size=args.batch, shuffle=False,
                        num_workers=args.workers, pin_memory=True)
-    model = LocalNet(len(src), feat_dim=feats.shape[1] if use_feats else 0).to(args.device)
-    counts = np.bincount(y[tr], minlength=len(src)).astype(np.float32)
-    weight = torch.tensor(counts.sum() / (len(src) * np.maximum(counts, 1)),
+    model = LocalNet(n_out, feat_dim=feats.shape[1] if use_feats else 0,
+                     meta_dim=meta.shape[1]).to(args.device)
+    counts = np.bincount(y[tr], minlength=n_out).astype(np.float32)
+    weight = torch.tensor(counts.sum() / (n_out * np.maximum(counts, 1)),
                           device=args.device)
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=args.epochs)
@@ -164,18 +201,19 @@ def main():
     for epoch in range(args.epochs):
         model.train()
         total = seen = 0
-        for p, f, yy in dl_tr:
+        for p, f, m, yy in dl_tr:
             p = p.to(args.device, non_blocking=True)
             f = f.to(args.device, non_blocking=True) if use_feats else None
+            m = m.to(args.device, non_blocking=True)
             yy = yy.to(args.device, non_blocking=True)
             opt.zero_grad(set_to_none=True)
-            logits = model(p, f)
+            logits = model(p, f, m)
             loss = F.cross_entropy(logits, yy, weight=weight)
             loss.backward()
             opt.step()
             total += float(loss.detach()) * len(yy); seen += len(yy)
         sched.step()
-        acc, f1, conf, _, _ = evaluate(model, dl_va, args.device, len(src), use_feats)
+        acc, f1, conf, pred, true = evaluate(model, dl_va, args.device, n_out, use_feats)
         hist.append({"epoch": epoch + 1, "loss": total / max(seen, 1),
                      "holdout_acc": acc, "holdout_f1": f1})
         if best is None or (f1, acc) > (best["f1"], best["acc"]):
@@ -185,19 +223,38 @@ def main():
               f"loss {total/max(seen,1):.4f} holdout acc {acc:.4f} f1 {f1:.4f}",
               flush=True)
     model.load_state_dict(best["state"])
+    _, _, _, pred, true = evaluate(model, dl_va, args.device, n_out, use_feats)
     args.out.mkdir(parents=True, exist_ok=True)
     prior = counts / max(counts.sum(), 1)
     torch.save({"state": best["state"], "group": args.group, "rep": args.rep,
-                "classes": src.tolist(), "feat_mu": mu, "feat_sd": sd,
-                "prior": prior, "epoch": best["epoch"]}, args.out / "best.pt")
+                "classes": src.tolist(), "num_classes": n_out, "keep_class": True,
+                "feature_dim": int(feats.shape[1]) if use_feats else 0,
+                "feat_mu": mu, "feat_sd": sd,
+                "meta_mu": mmu, "meta_sd": msd, "meta_dim": int(meta.shape[1]),
+                "prior": prior,
+                "class_weighted": True, "data": str(args.data),
+                "split_seed": args.split_seed, "seed": args.seed,
+                "holdout": args.holdout, "epoch": best["epoch"]}, args.out / "best.pt")
+    keep_mask = keep[idx][va]
+    pos_mask = ~keep_mask.astype(bool)
+    keep_true = keep_mask.astype(bool)
+    holdout_pos_acc = float((pred[pos_mask] == true[pos_mask]).mean()) if pos_mask.any() else None
+    keep_recall = float((pred[keep_true] == len(src)).mean()) if keep_true.any() else None
     meta = {"group": args.group, "rep": args.rep, "classes": src.tolist(),
+            "keep_class": True, "num_classes": n_out,
             "crops": len(y), "train": int(tr.sum()), "holdout": int(va.sum()),
             "best_epoch": best["epoch"], "holdout_acc": best["acc"],
-            "holdout_f1": best["f1"], "confusion": best["conf"],
+            "holdout_f1": best["f1"], "holdout_pos_acc": holdout_pos_acc,
+            "keep_recall": keep_recall, "confusion": best["conf"],
             "pretrained": False, "epochs": args.epochs, "batch": args.batch,
             "lr": args.lr, "seconds": time.perf_counter() - t0,
             "params": sum(p.numel() for p in model.parameters()),
             "feature_dim": int(feats.shape[1]) if use_feats else 0,
+            "meta_dim": int(meta.shape[1]),
+            "class_weighted": True, "data": str(args.data),
+            "split_seed": args.split_seed, "seed": args.seed,
+            "holdout": args.holdout, "dedupe": not args.no_dedupe,
+            "candidates_before_dedupe": int(n_before),
             "prior": (counts / max(counts.sum(), 1)).tolist()}
     (args.out / "summary.json").write_text(json.dumps(meta, indent=2) + "\n")
     (args.out / "history.json").write_text(json.dumps(hist, indent=2) + "\n")

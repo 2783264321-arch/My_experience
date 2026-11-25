@@ -38,10 +38,32 @@ FEATURE_NAMES = [
 ]
 
 
-def physical_features(seg: torch.Tensor, p: np.ndarray, fs: float) -> np.ndarray:
+def _bandlimited_iq(seg: torch.Tensor, fs: float, f1_hz: float,
+                    f2_hz: float, fc_hz: float, max_ms: float = 5.0):
     x = seg.detach().cpu().numpy().astype(np.complex64)
-    env = np.abs(x).astype(np.float32)
+    max_len = max(64, int(round(fs * max_ms / 1000.0)))
+    if len(x) > max_len:
+        st = (len(x) - max_len) // 2
+        x = x[st:st + max_len]
+    X = np.fft.fft(x)
+    freqs = np.fft.fftfreq(len(x), d=1.0 / fs)
+    mask = (freqs >= (f1_hz - fc_hz)) & (freqs <= (f2_hz - fc_hz))
+    if not mask.any():
+        return x
+    return np.fft.ifft(X * mask).astype(np.complex64)
+
+
+def physical_features(seg: torch.Tensor, p_log: np.ndarray, fs: float,
+                      f1_hz: float, f2_hz: float, fc_hz: float) -> np.ndarray:
+    """Physical features from the candidate's band-limited IQ and linear power.
+
+    p_log is log10 of the local STFT power; convert back to linear before
+    computing power statistics. Envelope/CP/SNR use a 5 ms band-limited IQ
+    segment around the local crop, not the full-band segment.
+    """
     eps = 1e-8
+    x = _bandlimited_iq(seg, fs, f1_hz, f2_hz, fc_hz)
+    env = np.abs(x).astype(np.float32)
     em = float(env.mean()) + eps
     e = env / em
     m2 = float((e ** 2).mean())
@@ -51,14 +73,13 @@ def physical_features(seg: torch.Tensor, p: np.ndarray, fs: float) -> np.ndarray
     papr = float((e.max() ** 2) / max(m2, eps))
     peak_ratio = float(e.max() / max(q[1], eps))
 
-    p = np.asarray(p, dtype=np.float64)
-    p = p - p.min()
+    p = np.power(10.0, np.asarray(p_log, dtype=np.float64))
+    p = np.maximum(p, 0.0)
     pmean = float(p.mean()) + eps
     pstd = float(p.std())
     flat = float(np.exp(np.mean(np.log(p + eps))) / pmean)
     pp = np.percentile(p, [50, 90, 99])
     freq_mean = p.mean(axis=1)
-    freq_std = p.std(axis=1)
     time_mean = p.mean(axis=0)
 
     def corr(lag_s):
@@ -86,7 +107,6 @@ def physical_features(seg: torch.Tensor, p: np.ndarray, fs: float) -> np.ndarray
         float((p > 0.5 * p.max()).mean()), float((p < 0.05 * p.max()).mean()), snr_db,
     ], dtype=np.float32)
 
-
 _WORK = {}
 
 
@@ -111,7 +131,9 @@ def _worker_one(task):
                            _WORK["height"], _WORK["width"])
     if c is None:
         return pos, None, None
-    return pos, p.astype(np.float16), physical_features(seg, p, rec.B_mhz * 1e6)
+    fc = (rec.f_lo + rec.f_hi) / 2.0
+    return pos, p.astype(np.float16), physical_features(
+        seg, p, rec.B_mhz * 1e6, f1 * 1e6, f2 * 1e6, fc * 1e6)
 
 
 def main():
@@ -126,6 +148,9 @@ def main():
     ap.add_argument("--iou-min", type=float, default=0.5)
     ap.add_argument("--score-min", type=float, default=0.001)
     ap.add_argument("--max-crops", type=int, default=0)
+    ap.add_argument("--max-per-class", type=int, default=0)
+    ap.add_argument("--max-neg-per-class", type=int, default=2000)
+    ap.add_argument("--sample-seed", type=int, default=1729)
     ap.add_argument("--progress-every", type=int, default=500)
     ap.add_argument("--workers", type=int, default=12)
     args = ap.parse_args()
@@ -133,6 +158,9 @@ def main():
     with np.load(args.cache, allow_pickle=True) as zf:
         z = {k: zf[k] for k in zf.files}
     meta = json.loads(args.cache.with_suffix(".json").read_text())
+    assert meta.get("format") == "dfine-fixed-candidates-v1", meta.get("format")
+    assert meta.get("split") == args.split, (meta.get("split"), args.split)
+    assert len(meta["columns"]) > 0
     n_samples = int(meta["samples"])
     records = load_manifest(SPLIT_MANIFEST, split=args.split)[:n_samples]
     by_id = {r.sample_id: r for r in records}
@@ -142,14 +170,35 @@ def main():
     gt_label = z["gt_label"].astype(np.int64)
     gt_iou = z["gt_iou"].astype(np.float32)
     scores = z["scores"].astype(np.float32)
+    assert len(z["sample_offsets"]) == n_samples + 1
+    assert int(z["sample_offsets"][-1]) == len(labels)
+    if args.split == "val" and args.max_per_class:
+        raise SystemExit("--max-per-class is for fit only")
     target = np.isin(labels, TARGET)
+    rng = np.random.default_rng(args.sample_seed)
     if args.split == "fit":
-        select = target & (gt_label >= 0) & (gt_iou >= args.iou_min)
-        train_label = gt_label
+        pos = target & (gt_label >= 0) & (gt_iou >= args.iou_min)
+        neg = target & ~pos
+        train_label = np.where(pos, gt_label, labels)
+        keep = ~pos
+        pidx = np.flatnonzero(pos)
+        nidx = np.flatnonzero(neg)
+        pkept, nkept = [], []
+        for c in TARGET:
+            pool = pidx[train_label[pidx] == c]
+            if args.max_per_class and len(pool) > args.max_per_class:
+                pool = rng.choice(pool, args.max_per_class, replace=False)
+            pkept.append(pool)
+            pool = nidx[labels[nidx] == c]
+            if args.max_neg_per_class and len(pool) > args.max_neg_per_class:
+                pool = rng.choice(pool, args.max_neg_per_class, replace=False)
+            nkept.append(pool)
+        idx = np.sort(np.concatenate(pkept + nkept))
     else:
         select = target & (scores >= args.score_min)
         train_label = labels
-    idx = np.flatnonzero(select)
+        keep = np.zeros(len(labels), dtype=bool)
+        idx = np.flatnonzero(select)
     if args.max_crops:
         idx = idx[:args.max_crops]
     print(f"{args.split}: candidates={len(labels)} selected={len(idx)} "
@@ -162,7 +211,7 @@ def main():
     out = {k: np.empty((n,), dtype=t) for k, t in (
         ("label", np.int64), ("pred_label", np.int64), ("gt_label", np.int64),
         ("gt_iou", np.float32), ("score", np.float32), ("sample_index", np.int32),
-        ("candidate_index", np.int64),
+        ("candidate_index", np.int64), ("keep", np.int8),
         ("view_type", np.int8), ("view_start", np.int32), ("qid", np.int16),
         ("bandwidth_mhz", np.float32), ("duration_ms", np.float32))}
     boxes = np.empty((n, 4), dtype=np.float32)
@@ -203,6 +252,7 @@ def main():
             out["score"][pos - 1] = float(scores[i])
             out["sample_index"][pos - 1] = int(sample_index[i])
             out["candidate_index"][pos - 1] = int(i)
+            out["keep"][pos - 1] = int(keep[i])
             out["view_type"][pos - 1] = int(z["view_type"][i])
             out["view_start"][pos - 1] = int(z["view_start"][i])
             out["qid"][pos - 1] = int(z["qid"][i])

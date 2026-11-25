@@ -28,10 +28,14 @@ def main():
     args = ap.parse_args()
     z = np.load(args.cache)
     meta = json.loads(args.cache.with_suffix(".json").read_text())
+    assert meta.get("format") == "dfine-fixed-candidates-v1"
+    assert meta.get("split") == args.split
     n = int(meta["samples"])
     records = load_manifest(SPLIT_MANIFEST, split=args.split)[:n]
     gts = [gt_global(r, math.ceil(r.N / (N_TIME - 1))) for r in records]
     offsets = z["sample_offsets"]
+    assert len(offsets) == n + 1
+    assert int(offsets[-1]) == len(z["scores"])
     preds = []
     for i in range(n):
         a, b = int(offsets[i]), int(offsets[i + 1])
