@@ -7,7 +7,7 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "scripts/detector_upgrade"))
-from adapters import build_dfine, dfine_targets
+from adapters import build_dfine, dfine_targets, install_cls_ignore_patch
 from src.signals.data import SPLIT_MANIFEST, load_manifest
 from src.signals.train import SharedEpochViews, lr_at, make_loader
 from ultralytics.utils.torch_utils import ModelEMA
@@ -59,6 +59,8 @@ def main():
     p.add_argument("--clip-grad", type=float, default=0.1)
     p.add_argument("--seed", type=int, default=1729)
     p.add_argument("--resume", action="store_true")
+    p.add_argument("--init-checkpoint", default="")
+    p.add_argument("--ignore-fine-wifi", action="store_true")
     p.add_argument("--overwrite", action="store_true")
     p.add_argument("--max-steps", type=int, default=0)
     p.add_argument("--no-val", action="store_true")
@@ -81,11 +83,20 @@ def main():
 
     model, info = build_dfine()
     model = model.cuda(); criterion = model.criterion
+    if a.ignore_fine_wifi:
+        install_cls_ignore_patch(criterion)
     optimizer = torch.optim.AdamW(param_groups(model, a.lr0, a.backbone_lr, a.weight_decay),
                                   betas=(0.9, 0.999), eps=1e-8)
     ema = ModelEMA(model, decay=0.9999, tau=2000)
 
     start_epoch, global_step, best_fit, best_epoch = 0, 0, -1.0, -1
+    if a.init_checkpoint:
+        ck0 = torch.load(a.init_checkpoint, map_location="cpu", weights_only=False)
+        sd0 = ck0["ema"] if ck0.get("ema") is not None else ck0["model"]
+        model.load_state_dict(sd0); ema.ema.load_state_dict(sd0)
+        best_fit = float(ck0.get("best_fitness", -1.0))
+        best_epoch = int(ck0.get("epoch", -1))
+        print(f"initialized from {a.init_checkpoint} epoch {best_epoch}", flush=True)
     if a.resume:
         ck = torch.load(run_dir / "last.pt", map_location="cpu", weights_only=False)
         model.load_state_dict(ck["model"]); ema.ema.load_state_dict(ck["ema"])
@@ -98,7 +109,8 @@ def main():
     config = vars(a) | {"run": a.run, "fit_samples": len(fit), "val_samples": len(val),
                         "steps_per_epoch": steps_per_epoch, "effective_views": 16,
                         "model": info, "freeze": "upstream freeze_stem_only; new 1ch stem conv trainable",
-                        "init": "dfine_l_obj2coco_e25.pth (RGB stem summed, heads re-init)"}
+                        "init": a.init_checkpoint or "dfine_l_obj2coco_e25.pth (RGB stem summed, heads re-init)",
+                        "ignore_fine_wifi": bool(a.ignore_fine_wifi)}
     (run_dir / "config.json").write_text(json.dumps(config, indent=2))
     (run_dir / "normalizer.json").write_text(json.dumps(norm_d, indent=2))
     log = run_dir / "train_log.csv"
@@ -122,7 +134,9 @@ def main():
                 img = batch["img"].cuda(non_blocking=True)
                 tg = dfine_targets(batch["bboxes"].cuda(non_blocking=True),
                                    batch["cls"][:, 0].long().cuda(non_blocking=True),
-                                   batch["batch_idx"].cuda(non_blocking=True), img.shape[0])
+                                   batch["batch_idx"].cuda(non_blocking=True), img.shape[0],
+                                   view_types=batch["view_types"],
+                                   truncated=batch["truncated"].cuda(non_blocking=True))
                 with torch.autocast("cuda", dtype=torch.bfloat16):
                     out = model(img, targets=tg)
                     ld = criterion(out, tg)

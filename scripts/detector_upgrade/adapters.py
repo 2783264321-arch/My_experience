@@ -7,6 +7,8 @@ from types import SimpleNamespace
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
+from torchvision.ops import box_convert, box_iou
 
 DFINE_ROOT = Path("/root/autodl-tmp/third_party/D-FINE-956d170")
 WEIGHTS = Path("/root/autodl-tmp/weights")
@@ -119,12 +121,24 @@ def build_dfine(weights: Path = WEIGHTS / "dfine_l_obj2coco_e25.pth",
                    "params_m": round(sum(p.numel() for p in model.parameters()) / 1e6, 2)}
 
 
-def dfine_targets(boxes_cxcywh_norm, labels, batch_idx, n_views):
-    """Split normalized cxcywh targets by batch_idx into per-view dicts."""
+def dfine_targets(boxes_cxcywh_norm, labels, batch_idx, n_views,
+                  view_types=None, truncated=None):
+    """Split normalized cxcywh targets by batch_idx into per-view dicts.
+
+    Optional view_types/truncated add a per-target cls_ignore mask for fine
+    views whose Wi-Fi label is cut by the slice boundary. Box regression and
+    coarse supervision are unaffected.
+    """
     out = []
     for i in range(n_views):
         m = batch_idx == i
-        out.append({"labels": labels[m].long(), "boxes": boxes_cxcywh_norm[m].float()})
+        ign = torch.zeros((int(m.sum()),), dtype=torch.bool)
+        if view_types is not None and truncated is not None and i < len(view_types):
+            if view_types[i] == "fine":
+                ign = truncated[m].bool() & torch.isin(
+                    labels[m].long(), labels.new_tensor(list(range(6))))
+        out.append({"labels": labels[m].long(), "boxes": boxes_cxcywh_norm[m].float(),
+                    "cls_ignore": ign})
     return out
 
 
@@ -132,3 +146,58 @@ def dfine_loss_batch(model, images, targets):
     outputs = model(images, targets=targets)
     loss_dict = model.criterion(outputs, targets)
     return sum(loss_dict.values()), loss_dict
+
+
+def install_cls_ignore_patch(criterion):
+    """Mask VFL classification loss for matched targets flagged cls_ignore.
+
+    The D-FINE matcher still uses these targets for box regression. Only the
+    classification loss at the matched query is zeroed; all background
+    queries and all box terms remain unchanged.
+    """
+    from types import MethodType
+
+    def loss_labels_vfl_masked(self, outputs, targets, indices, num_boxes, values=None):
+        assert "pred_boxes" in outputs
+        idx = self._get_src_permutation_idx(indices)
+        if values is None:
+            src_boxes = outputs["pred_boxes"][idx]
+            target_boxes = torch.cat([t["boxes"][i] for t, (_, i) in zip(targets, indices)], dim=0)
+            iou_res = box_iou(box_convert(src_boxes, "cxcywh", "xyxy"),
+                              box_convert(target_boxes, "cxcywh", "xyxy"))
+            ious = iou_res[0] if isinstance(iou_res, (tuple, list)) else iou_res
+            ious = torch.diag(ious).detach()
+        else:
+            ious = values
+
+        src_logits = outputs["pred_logits"]
+        target_classes_o = torch.cat([t["labels"][J] for t, (_, J) in zip(targets, indices)])
+        target_classes = torch.full(src_logits.shape[:2], self.num_classes,
+                                    dtype=torch.int64, device=src_logits.device)
+        target_classes[idx] = target_classes_o
+        target = F.one_hot(target_classes, num_classes=self.num_classes + 1)[..., :-1]
+
+        target_score_o = torch.zeros_like(target_classes, dtype=src_logits.dtype)
+        target_score_o[idx] = ious.to(target_score_o.dtype)
+        target_score = target_score_o.unsqueeze(-1) * target
+
+        pred_score = F.sigmoid(src_logits).detach()
+        weight = self.alpha * pred_score.pow(self.gamma) * (1 - target) + target_score
+        loss = F.binary_cross_entropy_with_logits(
+            src_logits, target_score, weight=weight, reduction="none"
+        )
+
+        ignore = torch.cat([
+            (t["cls_ignore"].to(src_logits.device)[J] if "cls_ignore" in t
+             else t["labels"].new_zeros((len(J),), dtype=torch.bool))
+            for t, (_, J) in zip(targets, indices)
+        ])
+        ignore_q = torch.zeros(src_logits.shape[:2], dtype=torch.bool,
+                               device=src_logits.device)
+        ignore_q[idx] = ignore.to(src_logits.device)
+        loss = loss * (~ignore_q).unsqueeze(-1)
+        loss = loss.mean(1).sum() * src_logits.shape[1] / num_boxes
+        return {"loss_vfl": loss}
+
+    criterion.loss_labels_vfl = MethodType(loss_labels_vfl_masked, criterion)
+    return criterion

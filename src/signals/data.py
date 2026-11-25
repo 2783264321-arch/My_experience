@@ -550,6 +550,7 @@ def collate_views(items: list[dict]) -> dict:
     metas = []
     view_types = []
     starts = []
+    truncated = []
     for source_i, item in enumerate(items):
         for view in (item["coarse"], item["fine"]):
             image_i = len(images)
@@ -558,6 +559,10 @@ def collate_views(items: list[dict]) -> dict:
                 boxes.append(view.boxes)
                 labels.append(view.labels)
                 batch_idx.append(torch.full((len(view.boxes),), image_i, dtype=torch.long))
+                if view.truncated is not None:
+                    truncated.append(view.truncated.bool())
+                else:
+                    truncated.append(torch.zeros((len(view.boxes),), dtype=torch.bool))
             view_types.append(view.view_type)
             starts.append(view.start)
             metas.append(item["meta"])
@@ -567,15 +572,18 @@ def collate_views(items: list[dict]) -> dict:
         boxes_xywh = torch.cat([(boxes[:, :2] + boxes[:, 2:]) / 2, boxes[:, 2:] - boxes[:, :2]], dim=1)
         labels = torch.cat(labels, dim=0).long()
         batch_idx = torch.cat(batch_idx, dim=0).long()
+        truncated = torch.cat(truncated, dim=0).bool()
     else:
         boxes_xywh = torch.zeros((0, 4), dtype=torch.float32)
         labels = torch.zeros((0,), dtype=torch.long)
         batch_idx = torch.zeros((0,), dtype=torch.long)
+        truncated = torch.zeros((0,), dtype=torch.bool)
     return {
         "img": images,
         "batch_idx": batch_idx,
-        "cls": labels[:, None] if len(labels) else labels[:, None],
+        "cls": labels[:, None],
         "bboxes": boxes_xywh,
+        "truncated": truncated,
         "meta": metas,
         "view_types": view_types,
         "starts": starts,
