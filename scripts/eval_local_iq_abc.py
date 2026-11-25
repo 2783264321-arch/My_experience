@@ -68,6 +68,7 @@ def main():
                     help="directory with 012/{power,features}, 345/..., 1011/...")
     ap.add_argument("--betas", default="0,0.25,0.5,1.0")
     ap.add_argument("--gate", type=float, default=0.5)
+    ap.add_argument("--one-sided", action="store_true")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     args = ap.parse_args()
@@ -178,6 +179,8 @@ def main():
             scores = original.copy()
             if beta != 0:
                 for idx, zdet, dz in updates[rep]:
+                    if args.one_sided:
+                        dz = max(0.0, dz)
                     z = zdet + beta * dz
                     scores[idx] = 1.0 / (1.0 + math.exp(-z))
             m = metrics_for(scores)
@@ -189,7 +192,8 @@ def main():
                   f"changed={len(updates[rep])}", flush=True)
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    payload = {"betas": betas, "gate": args.gate, "results": results,
+    payload = {"betas": betas, "gate": args.gate, "one_sided": args.one_sided,
+               "results": results,
                "candidates": str(args.candidates), "crops": str(args.crops),
                "models": str(args.models)}
     args.out.write_text(json.dumps(payload, indent=2) + "\n")
