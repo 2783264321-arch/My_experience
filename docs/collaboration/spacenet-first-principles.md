@@ -150,4 +150,6 @@ SpaceNet 的实采混合与合成来源是应利用的研究信息。优先在 f
 
 **A/B/C 实测（2026-11-26）**：固定 742,414 个候选，A 精确复现 **0.761728/0.713928**。B/C 的候选级真类准确率从检测器的 17–22% 提到 **44–67%/44–73%**，但系统 AP 全部下降；最佳 β=0.25 的 C 为 **0.757221/0.708658**（−0.45/−0.53 pp），Wi‑Fi20、Wi‑Fi40、SRRC 全部回退，FM 不变；单向提升 β=0.25 仅 **0.762137/0.714251**（+0.04/+0.03 pp，噪声量级）。**按预定停止条件收尾本版，不保留逐候选 CE 残差；下一步改训练监督或列表级目标，FM 几何另做。** 完整表见 [局部 IQ A/B/C](opencode-dfine-local-iq-abc.md)。
 
+**细片 Wi‑Fi 分类忽略实测（2026-11-26）**：e25 初始化，control/ignore 各 5 轮。control **0.742866/0.693956**、ignore **0.742192/0.694079**；ignore−control **−0.067/+0.012 pp**，Wi‑Fi20 −0.33、Wi‑Fi40 +0.34、SRRC −0.23 pp。两组都远低于 e25（SRRC −11.6 pp），说明 5 轮 lr 1e-4 预算本身破坏了 e25 峰区。**不保留；下一步转 FM 几何/短窗，不再在同一预算上加码。** 完整表见 [细片忽略](opencode-dfine-fine-wifi-ignore.md)。
+
 本轮数据为 `fit/val`。FM 与细片监督实验分开排期。路由和分数校准须吸取已有 YOLO 直接改类的负结果及同步失败覆盖不足的教训。 [旧候选分类对照](../../reports/proposal_classifier_experiment.md) · [Wi-Fi 同步与覆盖](../../reports/baseline3_wifi_expert/wifi_expert_comparison.md)
