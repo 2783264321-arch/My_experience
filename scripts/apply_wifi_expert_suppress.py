@@ -45,6 +45,7 @@ def main():
     ap.add_argument('--workers', type=int, default=16)
     ap.add_argument('--weights', type=Path, default=DEFAULT_WEIGHTS)
     ap.add_argument('--expert-arm', choices=('shared','family'), default='shared')
+    ap.add_argument('--window-mode', choices=('center','multi'), default='center')
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--save-preds', type=Path, default=None)
     ap.add_argument('--skip-suppress', action='store_true')
@@ -78,7 +79,8 @@ def main():
         filtered, stats = suppress(records, preds, score_thr=args.score_thr,
                                    conf_thr=args.conf_thr, workers=args.workers,
                                    weights_dir=args.weights,
-                                   expert_arm=args.expert_arm)
+                                   expert_arm=args.expert_arm,
+                                   window_mode=args.window_mode)
     print('suppress stats', json.dumps(stats), flush=True)
     out['stats'] = stats
     if args.skip_suppress:

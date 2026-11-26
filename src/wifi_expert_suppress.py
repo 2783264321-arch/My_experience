@@ -113,6 +113,75 @@ def _frontend(args):
         return {'status': 'error', 'error': str(e)[:200]}
 
 
+def _frontend_multi(args):
+    """Run CP sync on start/center/end windows; use the best metric window."""
+    (bin_path, f_lo, B_mhz, N, f_center, t1_ms, t2_ms, nominal_bw, positions) = args
+    try:
+        fs = B_mhz * 1e6
+        f_lo_hz = f_lo * 1e6
+        B_hz = B_mhz * 1e6
+        fc = f_center * 1e6
+        bw = nominal_bw * 1e6
+        f1 = max(f_lo_hz, fc - bw / 2)
+        f2 = min(f_lo_hz + B_hz, fc + bw / 2)
+        if f2 - f1 < bw * 0.5:
+            return {'status': 'invalid_band'}
+        ta0 = max(0.0, t1_ms)
+        tb0 = min(t2_ms, 1e9)
+        dur = tb0 - ta0
+        if dur < 0.5:
+            return {'status': 'invalid_duration'}
+        win = min(20.0, dur)
+        best = None
+        for p in positions:
+            ta = ta0 + float(p) * max(0.0, dur - win)
+            tb = ta + win
+            i0 = max(0, int(round(ta / 1000 * fs)))
+            i1 = min(int(N), int(round(tb / 1000 * fs)))
+            if i1 - i0 < 64:
+                continue
+            x = read_segment(bin_path, i0, i1)
+            xb = demod_to_center(x, fs, fc, f_lo * 1e6)
+            xb = band_limit_fft(xb, fs, bw * 1.02, edge_frac=0.05)
+            k = int(0.5e-3 * fs)
+            if len(xb) > 2 * k:
+                xb = xb[k:-k]
+            res = cp_scan_full(xb, fs)
+            b = res['best']
+            if b is not None and (best is None or b['metric'] > best[0]['metric']):
+                best = (b, xb, float(p))
+        if best is None:
+            return {'status': 'no_candidate'}
+        b, xb, pos = best
+        if b['metric'] < PASS_METRIC or b['ratio'] < PASS_RATIO:
+            return {'status': 'sync_fail', 'metric': b['metric'], 'ratio': b['ratio'], 'pos': pos}
+        X = strip_symbols(xb, fs, b['tu_us'], b['cp_us'], b['phi'],
+                          cfo_cycles=-b['cfo_cycles'], max_sym=MAX_SYMBOLS)
+        _, _, data = legacy_masks(int(round(nominal_bw * 1e6 / SCS_HZ)))
+        X, keep_idx, n_kept, _ = filter_symbol_rows(X, data)
+        if n_kept < BLOCK:
+            return {'status': 'too_few_symbols', 'n_kept': n_kept}
+        blocks = []
+        for a, e in consecutive_runs(keep_idx):
+            run = X[a:e]
+            for kk in range(len(run) // BLOCK):
+                H = block_histogram(run[kk * BLOCK:(kk + 1) * BLOCK], data)
+                if H is not None:
+                    Ht = histogram_for_training(H)
+                    if Ht is not None:
+                        blocks.append(Ht)
+                if len(blocks) >= 4:
+                    break
+            if len(blocks) >= 4:
+                break
+        if not blocks:
+            return {'status': 'no_histogram'}
+        return {'status': 'ok', 'blocks': np.stack(blocks).astype(np.float32),
+                'metric': b['metric'], 'ratio': b['ratio'], 'pos': pos}
+    except Exception as e:
+        return {'status': 'error', 'error': str(e)[:200]}
+
+
 def _as_numpy(pred):
     return (np.asarray(pred.boxes, dtype=np.float32),
             np.asarray(pred.scores, dtype=np.float32),
@@ -162,7 +231,7 @@ def _classify(feats, ok_idx, models, device):
 def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
              conf_thr: float = 0.9, workers: int = 16,
              weights_dir: Path = DEFAULT_WEIGHTS, device: str | None = None,
-             expert_arm: str = 'shared'):
+             expert_arm: str = 'shared', window_mode: str = 'center'):
     """Return (filtered_preds, stats).
 
     ``preds[i]`` is the final merged detection set for ``records[i]``.
@@ -178,14 +247,18 @@ def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
             if lab not in WIFI_CLASSES or sc < score_thr:
                 continue
             f1, f2, t1, t2 = box_to_physical(*boxes[k], rec.B_mhz, rec.f_lo, rec.N)
-            jobs.append((str(rec.bin_path), rec.f_lo, rec.B_mhz, rec.N,
-                         (f1 + f2) / 2, t1, t2, 20 if lab <= 2 else 40))
+            job = (str(rec.bin_path), rec.f_lo, rec.B_mhz, rec.N,
+                   (f1 + f2) / 2, t1, t2, 20 if lab <= 2 else 40)
+            if window_mode == 'multi':
+                job = job + ((0.0, 0.5, 1.0),)
+            jobs.append(job)
             refs.append((si, k, lab))
     if not jobs:
         return list(preds), {'n_jobs': 0, 'sync_ok': 0, 'n_drops': 0}
     feats = []
+    fn = _frontend_multi if window_mode == 'multi' else _frontend
     with ProcessPoolExecutor(max_workers=workers) as ex:
-        for r in ex.map(_frontend, jobs, chunksize=16):
+        for r in ex.map(fn, jobs, chunksize=16):
             feats.append(r)
     ok_idx = [i for i, r in enumerate(feats) if r['status'] == 'ok']
     models = _load_experts(weights_dir, device, expert_arm)
@@ -219,6 +292,6 @@ def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
         'status_counts': dict(Counter(r['status'] for r in feats)),
         'n_drops': len(drop), 'drops_by_class': dict(sorted(drops.items())),
         'score_thr': score_thr, 'conf_thr': conf_thr,
-        'expert_arm': expert_arm,
+        'expert_arm': expert_arm, 'window_mode': window_mode,
     }
     return out, stats
