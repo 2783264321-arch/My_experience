@@ -77,3 +77,15 @@
 - **教训**：直接喂时域 IQ 不等于利用调制结构；下一步若继续，必须做
   CP/符号对齐后的逐符号 FFT/子载波复数表示，并保留同步失败 fallback。
   未验证的表示不能因为一次普通 1D CNN 失败就永久否定。
+
+## 2026-11-26 环境记忆：AutoDL + OpenCode
+
+- **实测硬件**：128 vCPU（2× Xeon Gold 6430）、~1.0 TiB RAM、RTX 4090 24 GB。
+  之前默认 16 worker 是低估；IQ/STFT/crop 提取应 32–64 进程。
+- **磁盘**：`/root/autodl-tmp` 50 GB 仅剩 ~3 GB；`/root/autodl-fs` 200 GB
+  剩 ~81 GB。代码/worktree 放 tmp，大数据/缓存/checkpoint 放 fs。
+- **网络**：`source /etc/network_turbo` 设置 `172.29.51.4:12798` 代理，仅对
+  github/huggingface 且不稳定、按 shell 生效；`git clone`/`webfetch` 仍会超时。
+  外部仓库优先 GitHub MCP `get_file_contents`；自家 SSH remote push 可用。
+- 已写入全局 `AGENTS.md`、项目 skill 和
+  `docs/collaboration/autodl-opencode-runbook.md`。以后先查 runbook 再排障。

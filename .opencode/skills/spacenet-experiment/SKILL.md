@@ -41,15 +41,34 @@ description: Use when planning, running, reviewing, or reporting a SpaceNet/D-FI
 5. If positive, recommend exactly one next change and keep the old baseline as a
    fallback.
 
+## Environment (AutoDL instance, verified 2026-11-26)
+
+- 128 vCPU (2× Xeon Gold 6430, 64 cores/128 threads), ~1.0 TiB RAM, one
+  RTX 4090 24 GB. Use 32–64 process workers for IQ/STFT/crop extraction;
+  16 workers is a legacy habit and undersuses the CPU.
+- `/root/autodl-tmp` is fast but small (50 GB, often nearly full).
+  `/root/autodl-fs` is 200 GB shared storage. Keep code/worktrees on
+  `autodl-tmp`; write `.npz` caches, checkpoints and large reports to
+  `autodl-fs`. Check `df -h` first.
+- Network: `source /etc/network_turbo` enables the AutoDL academic proxy
+  (`172.29.51.4:12798`) for github/huggingface; it is unstable, per-shell, and
+  slows pip. Do not block on `git clone`/`webfetch`; use GitHub MCP
+  `get_file_contents` or the configured SSH remote. Never leave the proxy
+  sourced for package installs unless needed.
+- Use OpenCode features: `execute` Code Mode for tool orchestration, `search`
+  for tool discovery, background shell for long jobs, read-only subagents for
+  review, worktrees for isolation, skills/ledger for durable lessons.
+
 ## Efficiency rules
 
-- 16 vCPU, large RAM, one RTX 4090: use process pools for IQ/STFT/crops, cache
-  repeated transforms, and overlap CPU preprocessing with GPU inference.
+- Use process pools sized to the real CPU count (32–64 here) for IQ/STFT/crops,
+  cache repeated transforms, and overlap CPU preprocessing with GPU inference.
 - Measure wall time and CPU/GPU utilization; a 100% CPU plateau is one core,
-  not "the machine is busy".
+  not "the machine is busy". Check `ps -eo pcpu,pmem,etime,cmd --sort=-pcpu`.
 - Prefer vectorized masked operations over per-box Python loops.
 - Reuse verified candidate pools and result caches; never rerun a forward for a
   post-processing-only comparison.
+- Write large artifacts to `autodl-fs`, not the nearly-full `autodl-tmp`.
 
 ## Self-improvement loop
 
