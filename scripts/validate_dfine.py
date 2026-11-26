@@ -45,7 +45,14 @@ def main():
     if not ck_path.is_absolute(): ck_path=run_dir/ck_path
     ck=torch.load(ck_path,map_location='cpu',weights_only=False)
     sd=ck['ema'] if a.weights=='ema' and ck.get('ema') is not None else ck['model']
-    model,info=build_dfine(); model.load_state_dict(sd); model=model.cuda().eval()
+    model,info=build_dfine()
+    if any(k.startswith("qre.") for k in sd):
+        from qre import attach_qre
+        model = model.cuda()
+        attach_qre(model, channels=int(sd["qre.body.0.weight"].shape[1]), device="cuda")
+        model.load_state_dict(sd); model = model.eval()
+    else:
+        model.load_state_dict(sd); model=model.cuda().eval()
     assert tuple(model.backbone.stem.stem1.conv.weight.shape)==(32,1,3,3)
     assert int(model.decoder.num_classes)==14
     post=model.postprocessor

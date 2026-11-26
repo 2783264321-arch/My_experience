@@ -8,6 +8,7 @@ import torch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "scripts/detector_upgrade"))
 from adapters import build_dfine, dfine_targets, install_cls_ignore_patch
+from qre import attach_qre, freeze_base
 from src.signals.data import SPLIT_MANIFEST, load_manifest
 from src.signals.train import SharedEpochViews, lr_at, make_loader
 from ultralytics.utils.torch_utils import ModelEMA
@@ -61,6 +62,7 @@ def main():
     p.add_argument("--resume", action="store_true")
     p.add_argument("--init-checkpoint", default="")
     p.add_argument("--ignore-fine-wifi", action="store_true")
+    p.add_argument("--qre-lite", action="store_true")
     p.add_argument("--overwrite", action="store_true")
     p.add_argument("--max-steps", type=int, default=0)
     p.add_argument("--no-val", action="store_true")
@@ -85,23 +87,38 @@ def main():
     model = model.cuda(); criterion = model.criterion
     if a.ignore_fine_wifi:
         install_cls_ignore_patch(criterion)
-    optimizer = torch.optim.AdamW(param_groups(model, a.lr0, a.backbone_lr, a.weight_decay),
-                                  betas=(0.9, 0.999), eps=1e-8)
-    ema = ModelEMA(model, decay=0.9999, tau=2000)
 
     start_epoch, global_step, best_fit, best_epoch = 0, 0, -1.0, -1
     if a.init_checkpoint:
         ck0 = torch.load(a.init_checkpoint, map_location="cpu", weights_only=False)
         sd0 = ck0["ema"] if ck0.get("ema") is not None else ck0["model"]
-        model.load_state_dict(sd0); ema.ema.load_state_dict(sd0)
+        model.load_state_dict(sd0)
         best_fit = float(ck0.get("best_fitness", -1.0))
         best_epoch = int(ck0.get("epoch", -1))
         print(f"initialized from {a.init_checkpoint} epoch {best_epoch}", flush=True)
+
+    if a.qre_lite:
+        attach_qre(model, device="cuda")
+        freeze_base(model)
+        optimizer = torch.optim.AdamW(model.qre.parameters(), lr=a.lr0,
+                                      weight_decay=a.weight_decay,
+                                      betas=(0.9, 0.999), eps=1e-8)
+        ema = None
+        best_fit, best_epoch = -1.0, -1
+        print(f"QRE-lite attached: {sum(p.numel() for p in model.qre.parameters()):,} params",
+              flush=True)
+    else:
+        optimizer = torch.optim.AdamW(param_groups(model, a.lr0, a.backbone_lr, a.weight_decay),
+                                      betas=(0.9, 0.999), eps=1e-8)
+        ema = ModelEMA(model, decay=0.9999, tau=2000)
+
     if a.resume:
         ck = torch.load(run_dir / "last.pt", map_location="cpu", weights_only=False)
-        model.load_state_dict(ck["model"]); ema.ema.load_state_dict(ck["ema"])
+        model.load_state_dict(ck["model"])
+        if ema is not None:
+            ema.ema.load_state_dict(ck["ema"])
+            ema.updates = int(ck.get("ema_updates", 0))
         optimizer.load_state_dict(ck["optimizer"])
-        ema.updates = int(ck.get("ema_updates", 0))
         start_epoch = ck["epoch"] + 1; global_step = ck["global_step"]
         best_fit = ck["best_fitness"]; best_epoch = ck["best_epoch"]
         print(f"resumed epoch {start_epoch} step {global_step}", flush=True)
@@ -110,7 +127,8 @@ def main():
                         "steps_per_epoch": steps_per_epoch, "effective_views": 16,
                         "model": info, "freeze": "upstream freeze_stem_only; new 1ch stem conv trainable",
                         "init": a.init_checkpoint or "dfine_l_obj2coco_e25.pth (RGB stem summed, heads re-init)",
-                        "ignore_fine_wifi": bool(a.ignore_fine_wifi)}
+                        "ignore_fine_wifi": bool(a.ignore_fine_wifi),
+                        "qre_lite": bool(a.qre_lite)}
     (run_dir / "config.json").write_text(json.dumps(config, indent=2))
     (run_dir / "normalizer.json").write_text(json.dumps(norm_d, indent=2))
     log = run_dir / "train_log.csv"
@@ -126,7 +144,8 @@ def main():
         it = iter(loader); t_ep = time.perf_counter()
         for step in range(steps_per_epoch):
             mult = lr_at(epoch + step / steps_per_epoch, a.epochs, 1.0, a.warmup, a.final_lr_frac)
-            for g in optimizer.param_groups: g["lr"] = g["base_lr"] * mult
+            for g in optimizer.param_groups:
+                g["lr"] = g.get("base_lr", a.lr0) * mult
             optimizer.zero_grad(set_to_none=True)
             acc = torch.zeros(3); t0 = time.perf_counter()
             for _ in range(a.accum):
@@ -147,7 +166,10 @@ def main():
                 acc += torch.stack([ld.get("loss_vfl", ld.get("loss_bbox", 0.0)),
                                     ld.get("loss_bbox", 0.0), ld.get("loss_giou", 0.0)]).detach().float().cpu()
             if a.clip_grad > 0: torch.nn.utils.clip_grad_norm_(model.parameters(), a.clip_grad)
-            optimizer.step(); ema.update(model); torch.cuda.synchronize(); dt = time.perf_counter() - t0
+            optimizer.step()
+            if ema is not None:
+                ema.update(model)
+            torch.cuda.synchronize(); dt = time.perf_counter() - t0
             global_step += 1
             with log.open("a", newline="") as f:
                 csv.writer(f).writerow([epoch, global_step, f"{optimizer.param_groups[0]['lr']:.6g}",
@@ -164,8 +186,9 @@ def main():
         entry = {"epoch": epoch, "train_s": ep_s, "global_step": global_step}
         if do_val:
             tv = time.perf_counter()
-            res = run_dual(ema.ema, val, norm, batch_views=a.val_batch_views,
-                           workers=a.val_workers, infer_fn=make_infer(ema.ema))
+            vmodel = ema.ema if ema is not None else model
+            res = run_dual(vmodel, val, norm, batch_views=a.val_batch_views,
+                           workers=a.val_workers, infer_fn=make_infer(vmodel))
             entry.update({k: v for k, v in res.items() if k not in ("preds_unfiltered", "preds_filtered_0_5")})
             entry["wall_val_s"] = time.perf_counter() - tv
             val_history.append(entry); hist_path.write_text(json.dumps(val_history, indent=2))
@@ -174,13 +197,15 @@ def main():
                   f"unfiltered {u['map50']:.4f}/{u['map50_95']:.4f} walls {entry['wall_val_s']:.0f}s", flush=True)
             if f["map50"] > best_fit:
                 best_fit, best_epoch = f["map50"], epoch
-                save(run_dir / "best.pt", {"model": model.state_dict(), "ema": ema.ema.state_dict(),
+                save(run_dir / "best.pt", {"model": model.state_dict(),
+                                           "ema": (ema.ema.state_dict() if ema is not None else model.state_dict()),
                                            "epoch": epoch, "global_step": global_step,
                                            "best_fitness": best_fit, "metrics": entry, "config": config})
                 print(f"new best filtered mAP50={best_fit:.4f} -> best.pt", flush=True)
         free = shutil.disk_usage(run_dir).free / 2**30
         if free < a.min_free_gib: raise RuntimeError(f"disk free {free:.1f} GiB")
-        save(run_dir / "last.pt", {"model": model.state_dict(), "ema": ema.ema.state_dict(),
+        save(run_dir / "last.pt", {"model": model.state_dict(),
+                                   "ema": (ema.ema.state_dict() if ema is not None else model.state_dict()),
                                    "optimizer": optimizer.state_dict(), "ema_updates": int(getattr(ema, "updates", 0)), "epoch": epoch,
                                    "global_step": global_step, "best_fitness": best_fit,
                                    "best_epoch": best_epoch, "metrics": entry, "config": config})

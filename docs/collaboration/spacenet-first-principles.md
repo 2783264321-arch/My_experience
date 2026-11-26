@@ -152,4 +152,6 @@ SpaceNet 的实采混合与合成来源是应利用的研究信息。优先在 f
 
 **细片 Wi‑Fi 分类忽略实测（2026-11-26）**：e25 初始化，control/ignore 各 5 轮。control **0.742866/0.693956**、ignore **0.742192/0.694079**；ignore−control **−0.067/+0.012 pp**，Wi‑Fi20 −0.33、Wi‑Fi40 +0.34、SRRC −0.23 pp。两组都远低于 e25（SRRC −11.6 pp），说明 5 轮 lr 1e-4 预算本身破坏了 e25 峰区。**不保留；下一步转 FM 几何/短窗，不再在同一预算上加码。** 完整表见 [细片忽略](opencode-dfine-fine-wifi-ignore.md)。
 
+**QRE-lite 实测（2026-11-26）**：冻结 e25，只训 query 级 C1 RoI 残差头（461k 参数，零初始化）。5 轮后 **0.761823/0.713390**，相对 e25 **+0.0095/−0.0538 pp**；组级变化均在 0.02 pp 内。零残差严格等价验证通过，但 C1 RoI 没有引入新证据。**不保留；下一步先做 SAHI 后处理（Soft-NMS/WBF）短板实验，再决定是否投入 QRE-full 局部 IQ。** 完整表见 [QRE-lite](opencode-dfine-qre-lite.md)。
+
 本轮数据为 `fit/val`。FM 与细片监督实验分开排期。路由和分数校准须吸取已有 YOLO 直接改类的负结果及同步失败覆盖不足的教训。 [旧候选分类对照](../../reports/proposal_classifier_experiment.md) · [Wi-Fi 同步与覆盖](../../reports/baseline3_wifi_expert/wifi_expert_comparison.md)
