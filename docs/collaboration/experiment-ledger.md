@@ -241,3 +241,10 @@
 - 预注册：test 分数即使低于早先 strict multi 的 0.748748，也不
   回头用 test 选 strict；最终 pipeline 是 val 冻结的 combined。
   test 已被多次查看，最终分数只作确认、不是 pristine held-out。
+- **最终 test（2026-11-27）**：combined low+short test
+  **0.7503894025/0.6979075080**，相对官方 NMS **+0.969/+1.583 pp**，
+  相对 strict multi +0.164/+0.156；test sync 2,138/9,173（23.3%），
+  drops 394；short 7,035 jobs/379 ok/56 drops；Wi-Fi20 +1.38/+1.30，
+  Wi-Fi40 +1.06/+0.97，SRRC/窄带不变，0–5 六类全升。
+  配置在 val 冻结（0.773038/0.730657），test 只取最终分数，不据
+  test 回选；test 已被多次查看，分数为确认、非 pristine。
