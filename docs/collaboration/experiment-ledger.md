@@ -227,3 +227,17 @@
   不再为它跑 test。
 - 以后新想法先在 val 验证；只有真正的新锁定配置才允许一次 test，
   且必须预注册、不得用 test 结果挑变体。
+
+### 2026-11-27 test 原则的最终表述
+
+- **test 可以用于最终评分，但不能用于选择**：模型参数、pipeline
+  超参数、阈值、窗口、变体、表征，全部在 fit/val 上确定。
+- 配置在 val 上冻结后，跑一次 test 得最终分数；看到分数后不回头
+  用 test 改配置。若需改动，先在 val 验证；新的 test 只能作为新的
+  锁定评估，并明确记录 test 已被复用。
+- 当前冻结配置：combined low+short（multi 20 ms + low0.28/8
+  conf0.95 + short5ms conf0.9，SHARED，score≥0.3）；
+  val **0.773038/0.730657**。所有超参数来自 val。
+- 预注册：test 分数即使低于早先 strict multi 的 0.748748，也不
+  回头用 test 选 strict；最终 pipeline 是 val 冻结的 combined。
+  test 已被多次查看，最终分数只作确认、不是 pristine held-out。

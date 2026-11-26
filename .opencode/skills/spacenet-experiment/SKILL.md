@@ -136,3 +136,13 @@ stopping conditions.
 - A new idea that appears after a test look must be validated on val and
   either shipped as val-only or held for a genuinely new locked test;
   never re-run test to pick between variants.
+
+### Refined test rule (2026-11-27)
+
+Test may be used for a **final score**, but never for selecting model
+parameters, pipeline hyperparameters, thresholds, windows, variants or
+representations. All selection is on fit/val. Freeze the config on val,
+then run test once; after seeing the score, do not change the config based
+on test. If a change is needed, validate it on val and treat a new test as
+a new locked evaluation, explicitly acknowledging test reuse. Multiple
+test scores across configs are not a selection tool.
