@@ -154,4 +154,6 @@ SpaceNet 的实采混合与合成来源是应利用的研究信息。优先在 f
 
 **QRE-lite 实测（2026-11-26）**：冻结 e25，只训 query 级 C1 RoI 残差头（461k 参数，零初始化）。5 轮后 **0.761823/0.713390**，相对 e25 **+0.0095/−0.0538 pp**；组级变化均在 0.02 pp 内。零残差严格等价验证通过，但 C1 RoI 没有引入新证据。**不保留；下一步先做 SAHI 后处理（Soft-NMS/WBF）短板实验，再决定是否投入 QRE-full 局部 IQ。** 完整表见 [QRE-lite](opencode-dfine-qre-lite.md)。
 
+**SAHI 后处理实测（2026-11-26）**：冻结 e25，只改合并。原类内 NMS 0.5 为 0.761728/0.713928；**Soft-NMS Gaussian σ=0.5 为 0.765636/0.723509（+0.391/+0.958 pp）**，Wi‑Fi20 +0.38、Wi‑Fi40 +0.63、SRRC +0.18、窄带 +0.07 pp，14 类无回退。NMS 0.6/0.7 分别 +0.13/+0.33、+0.09/+0.58 pp；WBF 0.55 合并过度失败。**建议把 Soft-NMS 作为新合并默认候选，先优化 CPU 耗时；test 继续封存。** 完整表见 [SAHI 后处理](opencode-dfine-sahi-post.md)。
+
 本轮数据为 `fit/val`。FM 与细片监督实验分开排期。路由和分数校准须吸取已有 YOLO 直接改类的负结果及同步失败覆盖不足的教训。 [旧候选分类对照](../../reports/proposal_classifier_experiment.md) · [Wi-Fi 同步与覆盖](../../reports/baseline3_wifi_expert/wifi_expert_comparison.md)

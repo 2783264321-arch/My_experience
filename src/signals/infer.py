@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Sequence
 
 import torch
-from torchvision.ops import nms as tv_nms
+from torchvision.ops import box_iou, nms as tv_nms
 from ultralytics.utils.nms import non_max_suppression
 
 from .data import (
@@ -98,6 +98,34 @@ def _boundary_mask(pred: Prediction, view_type: str, start: int, F: int, margin:
     near_left = (left > 0) & (y1 <= left + margin)
     near_right = (right < F) & (y2 >= right - margin)
     return near_left | near_right
+
+
+def soft_classwise_nms(pred: "Prediction", iou: float = 0.5, sigma: float = 0.5,
+                       score_thr: float = 1e-3, max_det: int = 100) -> "Prediction":
+    """Gaussian Soft-NMS per class, then global top-k."""
+    if len(pred.boxes) == 0:
+        return pred
+    kb, ks, kl = [], [], []
+    for cls in sorted(set(pred.labels.tolist())):
+        idx = (pred.labels == cls).nonzero(as_tuple=False).view(-1)
+        b = pred.boxes[idx].clone()
+        s = pred.scores[idx].clone()
+        while len(b):
+            j = int(torch.argmax(s))
+            kb.append(b[j]); ks.append(s[j]); kl.append(cls)
+            bj = b[j].clone()
+            b = torch.cat([b[:j], b[j + 1:]], dim=0)
+            s = torch.cat([s[:j], s[j + 1:]], dim=0)
+            if not len(b):
+                break
+            ov = box_iou(bj[None], b)[0]
+            s = s * torch.exp(-(ov ** 2) / max(sigma, 1e-6))
+            keep = s >= score_thr
+            b, s = b[keep], s[keep]
+    boxes = torch.stack(kb); scores = torch.stack(ks)
+    labels = torch.tensor(kl, dtype=pred.labels.dtype, device=pred.labels.device)
+    order = torch.argsort(scores, descending=True)[:max_det]
+    return Prediction(boxes[order], scores[order], labels[order])
 
 
 def global_classwise_nms(pred: Prediction, iou: float = 0.5, max_det: int = 100) -> Prediction:

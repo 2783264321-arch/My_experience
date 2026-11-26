@@ -83,7 +83,7 @@ def _eval_set(gts, preds):
 def run_dual(model, records: Sequence, normalizer, batch_views=8, workers=8,
              conf=0.001, iou=0.5, max_det_view=300, max_det=100,
              max_samples: Optional[int] = None, log_interval_s=120.0,
-             infer_fn=None):
+             infer_fn=None, nms_method="nms", soft_sigma=0.5):
     t0 = time.perf_counter()
     recs = list(records[:max_samples] if max_samples else records)
     ds = FullViewDataset(recs, normalizer, view_mode="all")
@@ -141,7 +141,11 @@ def run_dual(model, records: Sequence, normalizer, batch_views=8, workers=8,
             cat = Prediction(torch.cat([x.boxes for x in m]),
                              torch.cat([x.scores for x in m]),
                              torch.cat([x.labels for x in m]))
-            final = global_classwise_nms(cat, iou=iou, max_det=max_det)
+            if nms_method == "soft":
+                from src.signals.infer import soft_classwise_nms
+                final = soft_classwise_nms(cat, iou=iou, sigma=soft_sigma, max_det=max_det)
+            else:
+                final = global_classwise_nms(cat, iou=iou, max_det=max_det)
             preds.append(ImagePredictions(final.boxes.numpy(), final.scores.numpy(), final.labels.numpy()))
         return preds
 

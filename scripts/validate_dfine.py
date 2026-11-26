@@ -37,6 +37,9 @@ def main():
     ap.add_argument('--split',default='val',choices=['fit','val','test'])
     ap.add_argument('--max-samples',type=int,default=0)
     ap.add_argument('--conf',type=float,default=0.001)
+    ap.add_argument('--nms-iou',type=float,default=0.5)
+    ap.add_argument('--merge',choices=['nms','soft'],default='nms')
+    ap.add_argument('--soft-sigma',type=float,default=0.5)
     ap.add_argument('--batch-views',type=int,default=8)
     ap.add_argument('--workers',type=int,default=8)
     ap.add_argument('--output',default='')
@@ -71,14 +74,14 @@ def main():
     if a.stratified: records=stratified(records,a.stratified)
     out_dir=Path(a.output) if a.output else run_dir/(f'{a.split}_subset' if a.stratified else f'{a.split}_full')
     out_dir.mkdir(parents=True,exist_ok=True)
-    t0=time.perf_counter(); res=run_dual(model,records,norm,batch_views=a.batch_views,workers=a.workers,infer_fn=infer)
+    t0=time.perf_counter(); res=run_dual(model,records,norm,batch_views=a.batch_views,workers=a.workers,iou=a.nms_iou,infer_fn=infer,nms_method=a.merge,soft_sigma=a.soft_sigma)
     elapsed=time.perf_counter()-t0
     gts=[gt_global(r, math.ceil(r.N/(N_TIME-1))) for r in records]
     for name in ('unfiltered','filtered_0_5'): save_npz(out_dir/f'{a.split}_predictions_{name}.npz',res[f'preds_{name}'],gts)
     (out_dir/f'{a.split}_sample_ids.json').write_text(json.dumps([r.sample_id for r in records],indent=2))
     summary={'run':a.run,'checkpoint':str(ck_path),'weights':a.weights,'split':a.split,'n_samples':len(records),
              'n_views':res['n_views'],'n_boundary_dropped':res['n_boundary_dropped'],
-             'conf':0.001,'iou':0.5,'max_det':100,'per_view_topk':300,
+             'conf':a.conf,'iou':a.nms_iou,'max_det':100,'per_view_topk':300,'merge':a.merge,'soft_sigma':a.soft_sigma,
              'settings':res['settings'],'elapsed_s':elapsed,
              'peak_reserved_gib':torch.cuda.max_memory_reserved()/2**30,'model':info,
              'checkpoint_epoch':ck.get('epoch'),'checkpoint_best_fitness':ck.get('best_fitness')}
