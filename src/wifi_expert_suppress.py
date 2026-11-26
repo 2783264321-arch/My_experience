@@ -231,7 +231,7 @@ def _classify(feats, ok_idx, models, device):
 def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
              conf_thr: float = 0.9, workers: int = 16,
              weights_dir: Path = DEFAULT_WEIGHTS, device: str | None = None,
-             expert_arm: str = 'shared', window_mode: str = 'center'):
+             expert_arm: str = 'shared', window_mode: str = 'multi'):
     """Return (filtered_preds, stats).
 
     ``preds[i]`` is the final merged detection set for ``records[i]``.

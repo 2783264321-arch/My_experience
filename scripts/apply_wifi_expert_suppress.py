@@ -45,7 +45,7 @@ def main():
     ap.add_argument('--workers', type=int, default=16)
     ap.add_argument('--weights', type=Path, default=DEFAULT_WEIGHTS)
     ap.add_argument('--expert-arm', choices=('shared','family'), default='shared')
-    ap.add_argument('--window-mode', choices=('center','multi'), default='center')
+    ap.add_argument('--window-mode', choices=('center','multi'), default='multi')
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--save-preds', type=Path, default=None)
     ap.add_argument('--skip-suppress', action='store_true')
