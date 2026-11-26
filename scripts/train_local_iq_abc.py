@@ -132,6 +132,7 @@ def main():
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--max-crops", type=int, default=0)
     ap.add_argument("--no-dedupe", action="store_true")
+    ap.add_argument("--pairwise-weight", type=float, default=0.0)
     args = ap.parse_args()
 
     torch.manual_seed(args.seed); np.random.seed(args.seed); random.seed(args.seed)
@@ -209,6 +210,14 @@ def main():
             opt.zero_grad(set_to_none=True)
             logits = model(p, f, m)
             loss = F.cross_entropy(logits, yy, weight=weight)
+            if args.pairwise_weight > 0:
+                pos_m = yy < (n_out - 1)
+                neg_m = yy == (n_out - 1)
+                if bool(pos_m.any()) and bool(neg_m.any()):
+                    s_pos = logits[pos_m, yy[pos_m]]
+                    s_neg = logits[neg_m][:, :-1].max(dim=1).values
+                    pair = F.softplus(-(s_pos[:, None] - s_neg[None, :])).mean()
+                    loss = loss + args.pairwise_weight * pair
             loss.backward()
             opt.step()
             total += float(loss.detach()) * len(yy); seen += len(yy)
@@ -254,6 +263,7 @@ def main():
             "class_weighted": True, "data": str(args.data),
             "split_seed": args.split_seed, "seed": args.seed,
             "holdout": args.holdout, "dedupe": not args.no_dedupe,
+            "pairwise_weight": args.pairwise_weight,
             "candidates_before_dedupe": int(n_before),
             "prior": (counts / max(counts.sum(), 1)).tolist()}
     (args.out / "summary.json").write_text(json.dumps(meta, indent=2) + "\n")
