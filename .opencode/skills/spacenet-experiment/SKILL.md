@@ -122,3 +122,17 @@ stopping conditions.
 - Test policy: build the test candidate cache once, verify the NMS baseline
   (0.740703/0.682079), then Soft-NMS and Soft-NMS+expert; test is confirmation
   only, never tuning.
+
+## Test discipline (hard rule)
+
+- **test is a closed-book final exam.** Use it at most once, after the
+  configuration is frozen on fit/val. Never use it for A/B, threshold
+  selection, or "does this variant help?".
+- All variant/threshold/representation selection happens on fit/val.
+  Pre-register the final config before touching test.
+- If test has already been used multiple times, stop using it; record the
+  leak in the ledger. Test numbers are then confirmation only, not a
+  pristine held-out estimate.
+- A new idea that appears after a test look must be validated on val and
+  either shipped as val-only or held for a genuinely new locked test;
+  never re-run test to pick between variants.

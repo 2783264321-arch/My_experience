@@ -35,6 +35,8 @@ from scripts.baseline3b_train_experts import HistCNN
 
 PASS_METRIC = 0.34
 PASS_RATIO = 15.0
+LOW_METRIC = 0.28
+LOW_RATIO = 8.0
 SCS_HZ = 312.5e3
 MAX_SYMBOLS = 4000
 BLOCK = 128
@@ -92,7 +94,9 @@ def _frontend(args):
         _, _, data = legacy_masks(int(round(nominal_bw * 1e6 / SCS_HZ)))
         X, keep_idx, n_kept, _ = filter_symbol_rows(X, data)
         if n_kept < BLOCK:
-            return {'status': 'too_few_symbols', 'n_kept': n_kept}
+            return {'status': 'too_few_symbols', 'n_kept': n_kept,
+                    'metric': b['metric'], 'ratio': b['ratio'],
+                    'tu_us': b['tu_us'], 'cp_us': b['cp_us'], 'pos': pos}
         blocks = []
         for a, e in consecutive_runs(keep_idx):
             run = X[a:e]
@@ -153,14 +157,89 @@ def _frontend_multi(args):
         if best is None:
             return {'status': 'no_candidate'}
         b, xb, pos = best
-        if b['metric'] < PASS_METRIC or b['ratio'] < PASS_RATIO:
-            return {'status': 'sync_fail', 'metric': b['metric'], 'ratio': b['ratio'], 'pos': pos}
+        strict = (b['metric'] >= PASS_METRIC and b['ratio'] >= PASS_RATIO)
+        low = (b['metric'] >= LOW_METRIC and b['ratio'] >= LOW_RATIO)
+        if not low:
+            return {'status': 'sync_fail', 'metric': b['metric'], 'ratio': b['ratio'],
+                    'tu_us': b['tu_us'], 'cp_us': b['cp_us'], 'pos': pos}
         X = strip_symbols(xb, fs, b['tu_us'], b['cp_us'], b['phi'],
                           cfo_cycles=-b['cfo_cycles'], max_sym=MAX_SYMBOLS)
         _, _, data = legacy_masks(int(round(nominal_bw * 1e6 / SCS_HZ)))
         X, keep_idx, n_kept, _ = filter_symbol_rows(X, data)
         if n_kept < BLOCK:
-            return {'status': 'too_few_symbols', 'n_kept': n_kept}
+            return {'status': 'too_few_symbols', 'n_kept': n_kept,
+                    'metric': b['metric'], 'ratio': b['ratio'],
+                    'tu_us': b['tu_us'], 'cp_us': b['cp_us'], 'pos': pos}
+        blocks = []
+        for a, e in consecutive_runs(keep_idx):
+            run = X[a:e]
+            for kk in range(len(run) // BLOCK):
+                H = block_histogram(run[kk * BLOCK:(kk + 1) * BLOCK], data)
+                if H is not None:
+                    Ht = histogram_for_training(H)
+                    if Ht is not None:
+                        blocks.append(Ht)
+                if len(blocks) >= 4:
+                    break
+            if len(blocks) >= 4:
+                break
+        if not blocks:
+            return {'status': 'no_histogram'}
+        return {'status': 'ok' if strict else 'ok_low',
+                'blocks': np.stack(blocks).astype(np.float32),
+                'metric': b['metric'], 'ratio': b['ratio'],
+                'tu_us': b['tu_us'], 'cp_us': b['cp_us'], 'pos': pos,
+                'n_kept': n_kept}
+    except Exception as e:
+        return {'status': 'error', 'error': str(e)[:200]}
+
+
+def _frontend_short(args):
+    """5 ms start-region windows (negative offsets included) + strict gate."""
+    (bin_path, f_lo, B_mhz, N, f_center, t1_ms, t2_ms, nominal_bw, win_ms, offsets_ms) = args
+    try:
+        fs = B_mhz * 1e6
+        f_lo_hz = f_lo * 1e6
+        B_hz = B_mhz * 1e6
+        fc = f_center * 1e6
+        bw = nominal_bw * 1e6
+        f1 = max(f_lo_hz, fc - bw / 2)
+        f2 = min(f_lo_hz + B_hz, fc + bw / 2)
+        if f2 - f1 < bw * 0.5:
+            return {'status': 'invalid_band'}
+        ta0 = max(0.0, t1_ms)
+        best = None
+        for off in offsets_ms:
+            ta = ta0 + float(off)
+            tb = ta + float(win_ms)
+            i0 = max(0, int(round(ta / 1000 * fs)))
+            i1 = min(int(N), int(round(tb / 1000 * fs)))
+            if i1 - i0 < 64:
+                continue
+            x = read_segment(bin_path, i0, i1)
+            xb = demod_to_center(x, fs, fc, f_lo * 1e6)
+            xb = band_limit_fft(xb, fs, bw * 1.02, edge_frac=0.05)
+            k = int(0.5e-3 * fs)
+            if len(xb) > 2 * k:
+                xb = xb[k:-k]
+            res = cp_scan_full(xb, fs)
+            b = res['best']
+            if b is not None and (best is None or b['metric'] > best[0]['metric']):
+                best = (b, xb, float(off))
+        if best is None:
+            return {'status': 'no_candidate'}
+        b, xb, off = best
+        if b['metric'] < PASS_METRIC or b['ratio'] < PASS_RATIO:
+            return {'status': 'sync_fail', 'metric': b['metric'], 'ratio': b['ratio'],
+                    'tu_us': b['tu_us'], 'cp_us': b['cp_us'], 'pos': off}
+        X = strip_symbols(xb, fs, b['tu_us'], b['cp_us'], b['phi'],
+                          cfo_cycles=-b['cfo_cycles'], max_sym=MAX_SYMBOLS)
+        _, _, data = legacy_masks(int(round(nominal_bw * 1e6 / SCS_HZ)))
+        X, keep_idx, n_kept, _ = filter_symbol_rows(X, data)
+        if n_kept < BLOCK:
+            return {'status': 'too_few_symbols', 'n_kept': n_kept,
+                    'metric': b['metric'], 'ratio': b['ratio'],
+                    'tu_us': b['tu_us'], 'cp_us': b['cp_us'], 'pos': off}
         blocks = []
         for a, e in consecutive_runs(keep_idx):
             run = X[a:e]
@@ -177,7 +256,9 @@ def _frontend_multi(args):
         if not blocks:
             return {'status': 'no_histogram'}
         return {'status': 'ok', 'blocks': np.stack(blocks).astype(np.float32),
-                'metric': b['metric'], 'ratio': b['ratio'], 'pos': pos}
+                'metric': b['metric'], 'ratio': b['ratio'],
+                'tu_us': b['tu_us'], 'cp_us': b['cp_us'], 'pos': off,
+                'n_kept': n_kept}
     except Exception as e:
         return {'status': 'error', 'error': str(e)[:200]}
 
@@ -231,7 +312,11 @@ def _classify(feats, ok_idx, models, device):
 def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
              conf_thr: float = 0.9, workers: int = 16,
              weights_dir: Path = DEFAULT_WEIGHTS, device: str | None = None,
-             expert_arm: str = 'shared', window_mode: str = 'multi'):
+             expert_arm: str = 'shared', window_mode: str = 'multi',
+             low_sync: bool = False, low_conf: float = 0.99,
+             short_start: bool = False, short_conf: float = 0.9,
+             short_win_ms: float = 5.0,
+             short_offsets: tuple = (-2.0, -1.0, 0.0, 1.0, 2.0)):
     """Return (filtered_preds, stats).
 
     ``preds[i]`` is the final merged detection set for ``records[i]``.
@@ -260,7 +345,7 @@ def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
     with ProcessPoolExecutor(max_workers=workers) as ex:
         for r in ex.map(fn, jobs, chunksize=16):
             feats.append(r)
-    ok_idx = [i for i, r in enumerate(feats) if r['status'] == 'ok']
+    ok_idx = [i for i, r in enumerate(feats) if r['status'] in ('ok', 'ok_low')]
     models = _load_experts(weights_dir, device, expert_arm)
     if expert_arm == 'shared':
         probs = _classify(feats, ok_idx, models['SHARED'], device)
@@ -278,9 +363,39 @@ def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
         pm = int(np.argmax(p))
         conf = float(p.max())
         expert = pm if lab <= 2 else 3 + pm
-        if conf >= conf_thr and expert != lab:
-            drop.add((si, k))
-            drops[lab] += 1
+        status = feats[i]['status']
+        thr = conf_thr if status == 'ok' else low_conf
+        if low_sync and status == 'ok_low' and conf >= thr and expert != lab:
+            drop.add((si, k)); drops[lab] += 1
+        elif status == 'ok' and conf >= conf_thr and expert != lab:
+            drop.add((si, k)); drops[lab] += 1
+    short_stats = {}
+    if short_start:
+        fail_idx = [i for i, r in enumerate(feats)
+                    if r['status'] not in ('ok', 'ok_low')]
+        short_jobs = [jobs[i][:8] + (short_win_ms, short_offsets) for i in fail_idx]
+        short_feats = []
+        with ProcessPoolExecutor(max_workers=workers) as ex:
+            for r in ex.map(_frontend_short, short_jobs, chunksize=16):
+                short_feats.append(r)
+        short_ok = [j for j, r in enumerate(short_feats) if r['status'] == 'ok']
+        short_probs = _classify(short_feats, short_ok, models['SHARED'], device)
+        short_drops = Counter()
+        for j in short_ok:
+            i = fail_idx[j]
+            si, k, lab = refs[i]
+            p = short_probs[j]
+            pm = int(np.argmax(p)); conf = float(p.max())
+            expert = pm if lab <= 2 else 3 + pm
+            if conf >= short_conf and expert != lab:
+                drop.add((si, k)); short_drops[lab] += 1; drops[lab] += 1
+        short_stats = {
+            'n_short_jobs': len(short_jobs), 'short_ok': len(short_ok),
+            'short_status_counts': dict(Counter(r['status'] for r in short_feats)),
+            'n_short_drops': int(sum(short_drops.values())),
+            'short_drops_by_class': dict(sorted(short_drops.items())),
+            'short_conf': short_conf, 'short_win_ms': short_win_ms,
+        }
     out = []
     for si, pred in enumerate(preds):
         boxes, scores, labels = _as_numpy(pred)
@@ -293,5 +408,7 @@ def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
         'n_drops': len(drop), 'drops_by_class': dict(sorted(drops.items())),
         'score_thr': score_thr, 'conf_thr': conf_thr,
         'expert_arm': expert_arm, 'window_mode': window_mode,
+        'low_sync': low_sync, 'low_conf': low_conf,
+        'short_start': short_start, **short_stats,
     }
     return out, stats

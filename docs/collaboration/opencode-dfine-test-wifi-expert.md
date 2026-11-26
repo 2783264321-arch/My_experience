@@ -138,3 +138,16 @@ center 才采用：
 **最终配置：e25 + Soft-NMS σ=0.5 + SHARED Wi-Fi 专家，多时间窗
 （start/center/end），score≥0.3，conf≥0.9。** test 0.748748/0.696353，
 val 0.771582/0.729247。
+
+## 8. 过程修正：test 已被多次查看
+
+本文 earlier 的 center/multi 两次 test 确认，加上更早的 NMS/Soft-NMS
+test，已经构成多次 test 查看；test 不再是干净的 held-out。combined
+low+short 的 test 已停止，没有结果。
+
+**最终交付采用 strict multi**：val 0.771582/0.729247，test
+0.748748/0.696353。combined low+short 的 val
+0.773038/0.730657 仅作为 val-only 候选，未 test 确认。
+
+后续所有选择只在 fit/val；不再用 test 做 A/B。test 数字应读作
+“确认”，不是无偏估计。

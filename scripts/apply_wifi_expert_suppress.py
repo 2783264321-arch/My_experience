@@ -46,6 +46,11 @@ def main():
     ap.add_argument('--weights', type=Path, default=DEFAULT_WEIGHTS)
     ap.add_argument('--expert-arm', choices=('shared','family'), default='shared')
     ap.add_argument('--window-mode', choices=('center','multi'), default='multi')
+    ap.add_argument('--low-sync', action='store_true')
+    ap.add_argument('--low-conf', type=float, default=0.99)
+    ap.add_argument('--short-start', action='store_true')
+    ap.add_argument('--short-conf', type=float, default=0.9)
+    ap.add_argument('--short-win-ms', type=float, default=5.0)
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--save-preds', type=Path, default=None)
     ap.add_argument('--skip-suppress', action='store_true')
@@ -80,7 +85,12 @@ def main():
                                    conf_thr=args.conf_thr, workers=args.workers,
                                    weights_dir=args.weights,
                                    expert_arm=args.expert_arm,
-                                   window_mode=args.window_mode)
+                                   window_mode=args.window_mode,
+                                   low_sync=args.low_sync,
+                                   low_conf=args.low_conf,
+                                   short_start=args.short_start,
+                                   short_conf=args.short_conf,
+                                   short_win_ms=args.short_win_ms)
     print('suppress stats', json.dumps(stats), flush=True)
     out['stats'] = stats
     if args.skip_suppress:
