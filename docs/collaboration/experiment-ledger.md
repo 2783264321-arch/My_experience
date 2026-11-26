@@ -80,8 +80,11 @@
 
 ## 2026-11-26 环境记忆：AutoDL + OpenCode
 
-- **实测硬件**：128 vCPU（2× Xeon Gold 6430）、~1.0 TiB RAM、RTX 4090 24 GB。
-  之前默认 16 worker 是低估；IQ/STFT/crop 提取应 32–64 进程。
+- **实测配额**：宿主机 `nproc` 128、`free` ~1.0 TiB，但 cgroup 实际是
+  **16 vCPU**（`cpu.max=1600000 100000`）和 **120 GiB RAM**
+  （`memory.max=128849018880`），RTX 4090 24 GB。**16 worker 是正确的**，
+  32–64 会超订；4 个 CPU merge 并行已超订 16 核。以后先读 cgroup，
+  不看 `nproc`/`free`。
 - **磁盘**：`/root/autodl-tmp` 50 GB 仅剩 ~3 GB；`/root/autodl-fs` 200 GB
   剩 ~81 GB。代码/worktree 放 tmp，大数据/缓存/checkpoint 放 fs。
 - **网络**：`source /etc/network_turbo` 设置 `172.29.51.4:12798` 代理，仅对

@@ -43,9 +43,12 @@ description: Use when planning, running, reviewing, or reporting a SpaceNet/D-FI
 
 ## Environment (AutoDL instance, verified 2026-11-26)
 
-- 128 vCPU (2× Xeon Gold 6430, 64 cores/128 threads), ~1.0 TiB RAM, one
-  RTX 4090 24 GB. Use 32–64 process workers for IQ/STFT/crop extraction;
-  16 workers is a legacy habit and undersuses the CPU.
+- The host reports 128 vCPU / ~1 TiB RAM, but the **rental quota** is
+  16 vCPU (`cpu.max=1600000 100000`) and 120 GiB RAM
+  (`memory.max=128849018880`), plus one RTX 4090 24 GB. Always read the
+  cgroup; `nproc`/`free -h` can overstate the instance.
+- Use **16 workers** (12–16) for IQ/STFT/crop extraction. Do not run many
+  CPU-heavy merges in parallel; 4 already oversubscribe 16 cores.
 - `/root/autodl-tmp` is fast but small (50 GB, often nearly full).
   `/root/autodl-fs` is 200 GB shared storage. Keep code/worktrees on
   `autodl-tmp`; write `.npz` caches, checkpoints and large reports to

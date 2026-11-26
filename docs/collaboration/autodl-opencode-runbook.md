@@ -7,20 +7,24 @@
 
 | 项 | 值 |
 | --- | --- |
-| CPU | 128 vCPU（2× Xeon Gold 6430，64 核 / 128 线程） |
-| 内存 | ~1.0 TiB，空闲通常 >800 GiB |
+| 宿主机 CPU | 128 逻辑核（2× Xeon Gold 6430） |
+| **实例 CPU 配额** | **16 vCPU**（`cpu.max=1600000 100000`） |
+| 宿主机内存 | ~1.0 TiB |
+| **实例内存配额** | **120 GiB**（`memory.max=128849018880`） |
 | GPU | RTX 4090 24 GB，驱动 570.124.04 |
 | 快速本地盘 | `/root/autodl-tmp`，50 GB，曾用 94%（仅剩 ~3 GB） |
 | 共享数据盘 | `/root/autodl-fs` → `/autodl-fs/data`，200 GB，剩余 ~81 GB |
 | 系统盘 | overlay 30 GB，剩余 ~17 GB |
 | 网络 | AutoDL 学术加速，按 shell 生效，不稳定 |
 
-采集命令：
+**关键：`nproc` / `lscpu` / `free -h` 看到的是宿主机，不是租用配额。**
+先读 cgroup：
 
 ```bash
 nproc
-lscpu | grep -E 'Model name|^CPU\(s\)|Thread|Core|Socket'
-free -h
+cat /sys/fs/cgroup/cpu.max        # 1600000 100000 -> 16 cores
+cat /sys/fs/cgroup/memory.max     # 128849018880 -> 120 GiB
+cat /sys/fs/cgroup/cpu.stat       # nr_throttled
 nvidia-smi --query-gpu=name,memory.total,memory.used,utilization.gpu --format=csv,noheader
 df -h /root/autodl-tmp /root/autodl-fs /
 ```
@@ -64,10 +68,12 @@ timeout 60 git clone --depth 1 <url> /tmp/opencode/<name>
 
 ## 4. 并行与 GPU
 
-- IQ/STFT/crop 提取用 `ProcessPoolExecutor(max_workers=32..64)`；
-  以前默认 16 是低估了机器。
+- IQ/STFT/crop 提取用 `ProcessPoolExecutor(max_workers=16)`（12–16）；
+  实例是 16 vCPU 配额，32–64 会超订并被 throttling。
+- 不要同时跑多个 CPU 重任务（4 个 merge 并行已经超订 16 核）。
 - 监控：`ps -eo pid,pcpu,pmem,etime,cmd --sort=-pcpu | head`，
-  `nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv`。
+  `nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv`，
+  `cat /sys/fs/cgroup/cpu.stat` 看 `nr_throttled`。
 - 单核 100% 不等于机器忙；看到只有一个 Python 进程 100% 就是串行瓶颈。
 - 反例：Soft-NMS 固定候选合并优化到 ~82 s；直接 val ~800 s。
   后处理优先复用固定候选缓存，不要重跑检测器前向。
@@ -90,6 +96,6 @@ timeout 60 git clone --depth 1 <url> /tmp/opencode/<name>
 2. 需要外网：先试 GitHub MCP；再 `source /etc/network_turbo` +
    短超时；不要阻塞。
 3. 大文件写 `autodl-fs`。
-4. 提取类任务用 32–64 进程；GPU 任务保证 batch 足够大。
+4. 提取类任务用 16 进程（12–16）；GPU 任务保证 batch 足够大。
 5. 后处理复用固定候选/缓存，不重跑前向。
 6. 实验结束把新教训写回本手册、skill 或 ledger。
