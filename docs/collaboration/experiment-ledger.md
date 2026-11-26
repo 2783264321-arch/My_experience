@@ -118,3 +118,15 @@
   [+0.381,+0.728]），mAP50:95 +0.508 pp（[+0.359,+0.688]），
   P(diff≤0)=0.000。最终取预注册 0.9；0.6 的 +0.646/+0.638 是 val
   选择，不作为最终配置。
+
+## 2026-11-26 追加：Wi-Fi 专家抑制集成与 test 计划
+
+- 集成：`src/wifi_expert_suppress.py`（`suppress(records, preds, ...)`）+
+  `scripts/apply_wifi_expert_suppress.py`（固定候选 → Soft-NMS/NMS →
+  抑制 → AP/保存预测）。val 复现命令见
+  `docs/collaboration/opencode-dfine-wifi-expert-suppress.md`。
+- 专家权重：W-Shared 3 seeds，路径
+  `/root/autodl-fs/runs_local/dfine_wifi_expert/weights/`；SHA256 已记录。
+- test 计划：e25 test 候选缓存（batch_views=8, workers=8, K300）→
+  NMS 基线校验（应复现 0.740703/0.682079）→ Soft-NMS test 基线 →
+  Soft-NMS+专家（conf 0.9）。test 只确认一次，不据 test 调参。

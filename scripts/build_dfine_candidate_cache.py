@@ -38,7 +38,7 @@ from validate_dual import FINE_0_5
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--split", choices=("fit", "val"), default="val")
+    ap.add_argument("--split", choices=("fit", "val", "test"), default="val")
     ap.add_argument("--checkpoint", type=Path, default=CKPTS["round25"])
     ap.add_argument("--max-samples", type=int, default=0)
     ap.add_argument("--batch-views", type=int, default=8)

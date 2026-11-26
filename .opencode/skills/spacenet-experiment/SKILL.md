@@ -101,3 +101,24 @@ stopping conditions.
   only for CPU preprocessing.
 - Reusable helper: `src/parallel.py`; benchmark:
   `scripts/benchmark_parallel_merge.py`.
+
+## Validated post-processing recipe (2026-11-26)
+
+- Start from a **fixed candidate cache**; never rerun the detector for a
+  post-processing comparison.
+- Merge with **Soft-NMS Gaussian sigma=0.5**, top-100/sample.
+- Optional Wi-Fi expert suppression:
+  - only final detections with label 0-5 and score >= 0.3;
+  - run the validated CP/FFT/CFO frontend + 50x50 delta-phase histograms;
+  - average the 3 SHARED seeds (`SHARED_seed1729/1730/1731.pt`);
+  - delete the detection when expert confidence >= 0.9 and the expert's
+    modulation order differs from the detector's class.
+- Val: 0.765636/0.723509 -> 0.770916/0.728623 (+0.528/+0.511 pp);
+  Wi-Fi20 +1.50/+1.48, Wi-Fi40 +0.97/+0.90; SRRC/narrow unchanged.
+  Bootstrap 95% CI excludes zero. Threshold 0.9 is pre-registered; 0.6 is
+  val-selected and not the default.
+- Implementation: `src/wifi_expert_suppress.py`,
+  `scripts/apply_wifi_expert_suppress.py`.
+- Test policy: build the test candidate cache once, verify the NMS baseline
+  (0.740703/0.682079), then Soft-NMS and Soft-NMS+expert; test is confirmation
+  only, never tuning.
