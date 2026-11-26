@@ -154,7 +154,7 @@ def main():
             print(' ', cls, 'n_entries', len(e[0]), 'n_gt', float(e[4].sum()), 'ap', _ap101(*e, ones))
     print('full fast AP var ', v[0.5], np.mean([v[t] for t in IOUS if v[t] is not None]))
     # bootstrap
-    per = max(1, args.boot // args.workers)
+    per = max(1, (args.boot + args.workers - 1) // args.workers)
     tasks = [(1729 + k, per, n) for k in range(args.workers)]
     _init_child({'base': base, 'var': var})
     allres = []
@@ -166,12 +166,12 @@ def main():
     out = {'conf': args.conf, 'dropped': len(drop), 'boot': len(arr),
            'full_base': b, 'full_var': v,
            'boot_mean': arr.mean(0).tolist(),
-           'boot_ci50': np.percentile(arr[:,0]-arr[:,2], [2.5, 97.5]).tolist(),
-           'boot_ci95': np.percentile(arr[:,1]-arr[:,3], [2.5, 97.5]).tolist(),
-           'diff50_mean': float((arr[:,0]-arr[:,2]).mean()),
-           'diff95_mean': float((arr[:,1]-arr[:,3]).mean()),
-           'p50_le0': float((arr[:,0]-arr[:,2] <= 0).mean()),
-           'p95_le0': float((arr[:,1]-arr[:,3] <= 0).mean())}
+           'boot_ci50': np.percentile(arr[:,2]-arr[:,0], [2.5, 97.5]).tolist(),
+           'boot_ci95': np.percentile(arr[:,3]-arr[:,1], [2.5, 97.5]).tolist(),
+           'diff50_mean': float((arr[:,2]-arr[:,0]).mean()),
+           'diff95_mean': float((arr[:,3]-arr[:,1]).mean()),
+           'p50_le0': float((arr[:,2]-arr[:,0] <= 0).mean()),
+           'p95_le0': float((arr[:,3]-arr[:,1] <= 0).mean())}
     print(json.dumps({k:v for k,v in out.items() if k not in ('full_base','full_var')}, indent=1))
     args.out.write_text(json.dumps(out, indent=2)+'\n')
 
