@@ -158,4 +158,6 @@ SpaceNet 的实采混合与合成来源是应利用的研究信息。优先在 f
 
 **QRE-full v1 实测（2026-11-26）**：固定 e25 query，局部功率+30 维物理特征+metadata，query 级残差 + pairwise，Soft-NMS 评估。A 为 0.765636/0.723509；最好 β=0.25 为 **0.765727/0.723556（+0.009/+0.005 pp）**，β=0.5/1.0 下降；组级变化均 ≤0.06 pp，候选级正类准确率 0.431/0.462/0.696，未优于上一轮 C。**不保留；下一步先做 raw IQ 1D 表示诊断，否则转 SAHI 2.0/FM 几何。** 完整表见 [QRE-full v1](opencode-dfine-qre-full-v1.md)。
 
+**Wi‑Fi 结构审计 + raw IQ 诊断（2026-11-26）**：750 个 Wi‑Fi GT 的 3.2 µs CP 相关原始 p50 0.884–0.940，相位随机 surrogate 0.767–0.866，原始>随机 71–95%；支持 3.2 µs 周期结构，但公开资料无协议/导频字段，不能假设单一 802.11。raw IQ 1D（1.4M、30 轮）在 val 配对正类 0.310/0.331/0.540，低于局部功率 0.384/0.457/0.602。**当前 raw IQ 路径不保留；若继续须做 CP/符号对齐的逐符号 FFT/子载波复数表示。** 完整审计见 [raw IQ](opencode-dfine-raw-iq-diag.md)。
+
 本轮数据为 `fit/val`。FM 与细片监督实验分开排期。路由和分数校准须吸取已有 YOLO 直接改类的负结果及同步失败覆盖不足的教训。 [旧候选分类对照](../../reports/proposal_classifier_experiment.md) · [Wi-Fi 同步与覆盖](../../reports/baseline3_wifi_expert/wifi_expert_comparison.md)
