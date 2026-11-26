@@ -79,3 +79,25 @@ After every experiment, add one lesson to the ledger. If the lesson changes how
 future experiments should be run, update this skill. The goal is cumulative
 process improvement: fewer repeated mistakes, cheaper tests, and clearer
 stopping conditions.
+
+## Parallelization pattern (verified 2026-11-26)
+
+- Split on the **independent unit** (sample, GT, crop). The worker takes a
+  small index and returns a small row/count; never pass a 742k-candidate
+  array per task.
+- Set large read-only arrays as module globals **before** creating the
+  pool. On Linux use `mp_context="fork"` so workers share them
+  copy-on-write.
+- Pin each worker to one BLAS/torch thread (`OMP_NUM_THREADS=1`,
+  `torch.set_num_threads(1)`); otherwise 16 workers × 8 threads oversubscribe
+  the 16-vCPU quota.
+- Use `chunksize=8..16`, 16 workers, and measure 1/4/8/16/32 before trusting
+  a speedup.
+- Measured: 742k-candidate Soft-NMS over 1543 val samples = **6.3 s** with
+  16 workers vs ~4 min serial; per-GT NMS/Soft/WBF decomposition = ~2 min at
+  ~1360% CPU (the full 16-core quota).
+- Do not run several CPU-heavy merges concurrently beyond the quota. Keep
+  GPU inference in one process with large batches; use DataLoader workers
+  only for CPU preprocessing.
+- Reusable helper: `src/parallel.py`; benchmark:
+  `scripts/benchmark_parallel_merge.py`.
