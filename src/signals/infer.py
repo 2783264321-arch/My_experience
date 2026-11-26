@@ -102,7 +102,12 @@ def _boundary_mask(pred: Prediction, view_type: str, start: int, F: int, margin:
 
 def soft_classwise_nms(pred: "Prediction", iou: float = 0.5, sigma: float = 0.5,
                        score_thr: float = 1e-3, max_det: int = 100) -> "Prediction":
-    """Gaussian Soft-NMS per class, then global top-k."""
+    """Gaussian Soft-NMS per class, then global top-k.
+
+    Mask-based implementation: select the current max, decay all still-alive
+    boxes, and continue. This preserves the exact greedy order of the previous
+    torch.cat implementation without O(n^2) tensor copying.
+    """
     if len(pred.boxes) == 0:
         return pred
     kb, ks, kl = [], [], []
@@ -110,23 +115,21 @@ def soft_classwise_nms(pred: "Prediction", iou: float = 0.5, sigma: float = 0.5,
         idx = (pred.labels == cls).nonzero(as_tuple=False).view(-1)
         b = pred.boxes[idx].clone()
         s = pred.scores[idx].clone()
-        while len(b):
-            j = int(torch.argmax(s))
+        alive = torch.ones(len(b), dtype=torch.bool, device=b.device)
+        while bool(alive.any()):
+            masked = s.masked_fill(~alive, float("-inf"))
+            j = int(torch.argmax(masked))
             kb.append(b[j]); ks.append(s[j]); kl.append(cls)
-            bj = b[j].clone()
-            b = torch.cat([b[:j], b[j + 1:]], dim=0)
-            s = torch.cat([s[:j], s[j + 1:]], dim=0)
-            if not len(b):
+            alive[j] = False
+            if not bool(alive.any()):
                 break
-            ov = box_iou(bj[None], b)[0]
-            s = s * torch.exp(-(ov ** 2) / max(sigma, 1e-6))
-            keep = s >= score_thr
-            b, s = b[keep], s[keep]
+            ov = box_iou(b[j].unsqueeze(0), b[alive])[0]
+            s[alive] = s[alive] * torch.exp(-(ov ** 2) / max(sigma, 1e-6))
+            alive &= s >= score_thr
     boxes = torch.stack(kb); scores = torch.stack(ks)
     labels = torch.tensor(kl, dtype=pred.labels.dtype, device=pred.labels.device)
     order = torch.argsort(scores, descending=True)[:max_det]
     return Prediction(boxes[order], scores[order], labels[order])
-
 
 def global_classwise_nms(pred: Prediction, iou: float = 0.5, max_det: int = 100) -> Prediction:
     """One-to-one class-wise NMS; boxes are global normalized xyxy."""
