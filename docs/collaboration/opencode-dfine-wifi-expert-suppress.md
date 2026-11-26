@@ -145,3 +145,14 @@ scripts/build_dfine_candidate_cache.py --split test \
 - 该后处理不改框、不改类、不重训；只删除高分错类检测。
 - 窄带 class 13 的 background FP（5,204 分数质量）是独立问题，
   不在本方法范围内。
+
+## 7. val 集成复现（2026-11-26）
+
+`scripts/apply_wifi_expert_suppress.py --split val --merge soft
+--score-thr 0.3 --conf-thr 0.9`：
+
+- baseline **0.7656363740 / 0.7235085641**；
+- variant **0.7709157503 / 0.7286230486**；
+- drops **167**（class 0/1/2/3/4/5 = 22/35/40/2/34/34）；
+- sync 646/3438 = 18.79%；
+- 与 pilot 完全一致。集成链路验证通过。

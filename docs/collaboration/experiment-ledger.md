@@ -130,3 +130,11 @@
 - test 计划：e25 test 候选缓存（batch_views=8, workers=8, K300）→
   NMS 基线校验（应复现 0.740703/0.682079）→ Soft-NMS test 基线 →
   Soft-NMS+专家（conf 0.9）。test 只确认一次，不据 test 调参。
+- **val 集成复现（2026-11-26）**：`apply_wifi_expert_suppress.py`
+  baseline **0.7656363740/0.7235085641** → variant
+  **0.7709157503/0.7286230486**；drops 167（22/35/40/2/34/34），
+  sync 646/3438（18.79%），与 pilot 完全一致。
+- **test 最终确认（进行中）**：e25 test 候选缓存
+  （batch_views=8, workers=8, K300, conf 0.001）构建；随后
+  NMS 基线校验（应 0.740703/0.682079）→ Soft-NMS → Soft-NMS+专家
+  （score 0.3, conf 0.9）。test 只确认一次，不据 test 调参。
