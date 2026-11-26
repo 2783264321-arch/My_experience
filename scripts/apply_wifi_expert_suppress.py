@@ -44,6 +44,7 @@ def main():
     ap.add_argument('--conf-thr', type=float, default=0.9)
     ap.add_argument('--workers', type=int, default=16)
     ap.add_argument('--weights', type=Path, default=DEFAULT_WEIGHTS)
+    ap.add_argument('--expert-arm', choices=('shared','family'), default='shared')
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--save-preds', type=Path, default=None)
     ap.add_argument('--skip-suppress', action='store_true')
@@ -76,10 +77,14 @@ def main():
     else:
         filtered, stats = suppress(records, preds, score_thr=args.score_thr,
                                    conf_thr=args.conf_thr, workers=args.workers,
-                                   weights_dir=args.weights)
+                                   weights_dir=args.weights,
+                                   expert_arm=args.expert_arm)
     print('suppress stats', json.dumps(stats), flush=True)
     out['stats'] = stats
-    var = _eval_set(gts, filtered)
+    if args.skip_suppress:
+        var = dict(base)
+    else:
+        var = _eval_set(gts, filtered)
     print('variant', var['map50'], var['map50_95'], flush=True)
     out['variant'] = var
     out['delta_map50'] = var['map50'] - base['map50']

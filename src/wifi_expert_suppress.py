@@ -119,17 +119,21 @@ def _as_numpy(pred):
             np.asarray(pred.labels, dtype=np.int64))
 
 
-def _load_experts(weights_dir: Path, device: str):
-    models = []
-    for seed in SEEDS:
-        path = Path(weights_dir) / f'SHARED_seed{seed}.pt'
-        if not path.exists():
-            raise FileNotFoundError(path)
-        m = HistCNN(3).to(device)
-        m.load_state_dict(torch.load(path, map_location=device))
-        m.eval()
-        models.append(m)
-    return models
+def _load_experts(weights_dir: Path, device: str, arm: str = 'shared'):
+    arms = ('SHARED',) if arm == 'shared' else ('W20', 'W40')
+    out = {}
+    for a in arms:
+        models = []
+        for seed in SEEDS:
+            path = Path(weights_dir) / f'{a}_seed{seed}.pt'
+            if not path.exists():
+                raise FileNotFoundError(path)
+            m = HistCNN(3).to(device)
+            m.load_state_dict(torch.load(path, map_location=device))
+            m.eval()
+            models.append(m)
+        out[a] = models
+    return out
 
 
 def _classify(feats, ok_idx, models, device):
@@ -157,7 +161,8 @@ def _classify(feats, ok_idx, models, device):
 
 def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
              conf_thr: float = 0.9, workers: int = 16,
-             weights_dir: Path = DEFAULT_WEIGHTS, device: str | None = None):
+             weights_dir: Path = DEFAULT_WEIGHTS, device: str | None = None,
+             expert_arm: str = 'shared'):
     """Return (filtered_preds, stats).
 
     ``preds[i]`` is the final merged detection set for ``records[i]``.
@@ -183,8 +188,15 @@ def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
         for r in ex.map(_frontend, jobs, chunksize=16):
             feats.append(r)
     ok_idx = [i for i, r in enumerate(feats) if r['status'] == 'ok']
-    models = _load_experts(weights_dir, device)
-    probs = _classify(feats, ok_idx, models, device)
+    models = _load_experts(weights_dir, device, expert_arm)
+    if expert_arm == 'shared':
+        probs = _classify(feats, ok_idx, models['SHARED'], device)
+    else:
+        probs = {}
+        for a, fam in (('W20', 0), ('W40', 1)):
+            sub = [i for i in ok_idx if ((refs[i][2] <= 2) == (fam == 0))]
+            if sub:
+                probs.update(_classify(feats, sub, models[a], device))
     drop = set()
     drops = Counter()
     for i in ok_idx:
@@ -207,5 +219,6 @@ def suppress(records: Sequence, preds: Sequence, score_thr: float = 0.3,
         'status_counts': dict(Counter(r['status'] for r in feats)),
         'n_drops': len(drop), 'drops_by_class': dict(sorted(drops.items())),
         'score_thr': score_thr, 'conf_thr': conf_thr,
+        'expert_arm': expert_arm,
     }
     return out, stats
